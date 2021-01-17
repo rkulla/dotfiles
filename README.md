@@ -40,5 +40,9 @@ However, my special tmux-256color.src is in this repo. Compile it manually:
     $ cd dotfiles/terminfo-sources
     $ /usr/bin/tic -xe tmux-256color tmux-256color.src
 
-which installs the compiled binary to ~/.terminfo ready for use.
+which installs the compiled binares to ~/.terminfo ready for use.
+
+Also, enable italics, e.g., Vim's line numbers when not in tmux:
+
+    $ /usr/bin/tic -xe xterm-256color xterm-256color.src
 

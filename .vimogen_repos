@@ -3,7 +3,8 @@ https://github.com/tpope/vim-pathogen
 https://github.com/rkulla/vimogen
 
 # Color Schemes / Syntax Highlighters
-https://github.com/altercation/vim-colors-solarized
+#https://github.com/altercation/vim-colors-solarized
+https://github.com/romainl/flattened
 https://github.com/lifepillar/vim-gruvbox8
 https://github.com/luochen1990/rainbow
 

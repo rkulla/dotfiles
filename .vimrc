@@ -6,7 +6,7 @@
 "  https://github.com/dense-analysis/ale#5iii-how-can-i-use-ale-and-cocnvim-together
 let g:ale_disable_lsp = 1
 
-" Put first to insure pathogen will work
+" Put first to ensure pathogen will work
 if has("gui_running") " list plugins to disable if GUI Vim is running
   let g:pathogen_disabled = []
   call add(g:pathogen_disabled, 'coc')
@@ -262,7 +262,7 @@ func! s:MyHighlights() abort
     set termguicolors
     " change the color of the current line number
     set cul | hi CursorLine ctermbg=NONE guibg=NONE | hi CursorLineNr ctermfg=0 guifg=black guibg=NONE
-    " Make line numbers italic (see my terminfo notes for enabling on MacOs)
+    " Make line numbers italic (see my terminfo notes for enabling on MacOS)
     hi LineNr cterm=italic
 endfunc
 
@@ -272,7 +272,7 @@ colorscheme gruvbox8
 " Make it so you can just type :Dark to use my dark theme
 " And :Light to go back to my normal theme
 function! Dark()
-  color solarized
+  color flattened_dark
   set bg=dark
 endfunction
 command! -nargs=0 Dark call Dark()
