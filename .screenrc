@@ -1,0 +1,29 @@
+# Note: Install screen via homebrew to get 256 color support:
+# Make it so copy/paste doesn't print with tons of spaces
+# if it doesn't work, type this in vim to delete the spaces: :%s/\v\s+$//
+term screen-256color-bce
+defbce on
+
+# Make so you have to type { to close a window. (prevents accidents)
+# allows you to type } to ressurrect it if you do.
+#zombie {}
+
+# By default the scrollback buffer is only 100 lines.
+# Make sure to config your terminal's scrollback to 5000+ lines
+defscrollback 5000
+
+# Make screen use a new login shell (e.g., to source my bash_profile right)
+#defshell -bash 
+defshell -zsh 
+
+# In title bar show the windows and hostname of machine running session 
+hardstatus string "%w %{=r} %-13=%H "
+# in status at bottom of window, show number/name of current window
+caption always "%{.k.} %n %t %-13=Gnu Screen"
+
+bind j focus down
+bind k focus up
+bind t focus top
+bind b focus bottom
+
+startup_message off

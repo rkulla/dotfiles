@@ -1,0 +1,9 @@
+\pset pager always
+\timing
+\set PROMPT1 '%n@%m %~%R%# '
+\set PROMPT2 ' => '
+\pset border 3
+\pset format aligned
+\pset null '<NULL>'
+\pset expanded
+\encoding unicode

@@ -1,0 +1,33 @@
+# ~/.config is used by random apps and constantly changes and sometimes
+# contains private data. Gitignore makes you blacklist subdirs individually
+# and then whitelist the files from them you want to commit using '!'
+.config/coc/
+.config/configstore/
+.config/direnv/
+.config/fd/*
+!.config/fd/ignore
+.config/gcloud/
+.config/htop/
+.config/karabiner/*
+!.config/karabiner/karabiner.json
+.config/git/
+.config/nnn/
+
+# Vim
+.viminfo
+.vim/backup/
+.vim/bundle/
+.vim/pack/
+.vim/session/
+.vim/swp/
+.vim/.netrwhist
+
+# Python
+.ipython/profile_default/*
+!.ipython/profile_default/ipython_config.py
+
+# Misc
+.DS_Store
+node_modules/
+Session.vim
+tags

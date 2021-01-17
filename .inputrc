@@ -1,0 +1,9 @@
+# Make sure to restart the terminal, source'ing won't work.
+
+set completion-ignore-case On
+
+# Make it so C-/ deletes to the last /, eg /foo/bar/baz deletes to /foo/bar/,
+# in gnu-readline programs like Bash python's prompt, etc. 
+# Zsh uses zle instead so handle this additionally in .zshrc.
+C-_:  unix-filename-rubout
+

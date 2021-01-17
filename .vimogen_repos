@@ -1,0 +1,76 @@
+# Add these so vimogen will tell me when they're updated
+https://github.com/tpope/vim-pathogen
+https://github.com/rkulla/vimogen
+
+# Color Schemes / Syntax Highlighters
+https://github.com/altercation/vim-colors-solarized
+https://github.com/lifepillar/vim-gruvbox8
+https://github.com/luochen1990/rainbow
+
+# Snippets
+https://github.com/honza/vim-snippets
+https://github.com/jhkersul/vim-jest-snippets
+
+# Code navigation
+https://github.com/neoclide/coc.nvim
+https://github.com/andymass/vim-matchup
+https://github.com/vim-scripts/MultipleSearch
+https://github.com/rkulla/vim-signature
+https://github.com/Yggdroot/indentLine
+https://github.com/jeetsukumaran/vim-indentwise
+https://github.com/chrisbra/NrrwRgn
+https://github.com/ludovicchabant/vim-gutentags
+https://github.com/majutsushi/tagbar
+
+# File Navigation
+https://github.com/junegunn/fzf.vim
+https://github.com/mcchrish/nnn.vim
+https://github.com/preservim/nerdtree
+https://github.com/Xuyuanp/nerdtree-git-plugin
+https://github.com/tiagofumo/vim-nerdtree-syntax-highlight
+https://github.com/ryanoasis/vim-devicons
+
+# Linting
+https://github.com/w0rp/ale
+https://github.com/scrooloose/syntastic
+
+# VCS
+https://github.com/vim-scripts/vcscommand.vim
+https://github.com/tpope/vim-git
+https://github.com/tpope/vim-fugitive
+https://github.com/tpope/vim-rhubarb
+
+# JavaScript
+https://github.com/moll/vim-node
+https://github.com/prettier/vim-prettier
+https://github.com/heavenshell/vim-jsdoc
+https://github.com/mogelbrod/vim-jsonpath
+
+# Python
+https://github.com/python-mode/python-mode
+
+# Golang
+https://github.com/fatih/vim-go
+
+# Ruby
+https://github.com/vim-ruby/vim-ruby
+https://github.com/tpope/vim-rails
+https://github.com/tpope/vim-bundler
+
+# Databases
+https://github.com/vim-scripts/dbext.vim
+
+# Live REPLs
+https://github.com/metakirby5/codi.vim
+https://github.com/jpalardy/vim-slime
+
+# Misc
+https://github.com/tpope/vim-dispatch
+https://github.com/tpope/vim-surround
+https://github.com/tpope/vim-repeat
+https://github.com/romainl/vim-qf
+https://github.com/godlygeek/tabular
+https://github.com/vim-scripts/tComment
+https://github.com/bronson/vim-visual-star-search
+https://github.com/dhruvasagar/vim-table-mode
+https://github.com/atimholt/spiffy_foldtext

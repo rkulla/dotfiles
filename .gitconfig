@@ -1,0 +1,97 @@
+[user]
+	name = Ryan Kulla
+	email = rkulla@gmail.com
+[core]
+	editor = vim
+	excludesfile = /Users/rkulla/.gitignore
+[merge]
+	tool = vimdiff
+[color]
+	ui = true
+[color "status"]
+	untracked = red bold
+	changed = yellow bold
+	added = green bold
+[color "diff"]
+	meta = yellow bold
+	frag = cyan bold
+	new = green bold
+	old = red bold
+	whitespace = red reverse
+[alias]
+    # fancier diff with diff-so-fancy. I shell alias this to dsf='git dsf'
+	dsf = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git diff --color \"$@\" | diff-so-fancy  | less --tabs=4 -RFX; }; f"
+	s = status
+	st = status
+	co = checkout
+	ci = commit
+	rv = remote -v
+	gap = add -p
+	bi = bisect
+	ds = diff --staged
+	pa = log -S # pickaxe
+    logp = log -p # shows actual code that changed, all the way to beginning. Add -1 for last commit, last -2 for 2 commits, etc.
+	lol = log --pretty=format:\"%C(yellow)%h%d%Creset %s - %an [%ar]\"
+    # like git lol but for current branch only
+    lolb = log --pretty=format:\"%C(yellow)%h%d%Creset %s - %an [%ar]\" --no-merges master..
+    # like git lol but show graph
+    lolgraph = "log --graph --decorate --pretty=oneline --abbrev-commit --all"
+    # GREAT command for figuring out what you or your team last changed and getting filenames easily
+    # also use the awesome 'git changed --remotes' command to see remote branch changes too!
+	changed = log --pretty=format:\"%C(yellow)%h%d%Creset %s - %an [%ar]\" --name-only
+    # like changed but also show the file modification. E.g. M for modified, A for added, etc.
+    changedm = log --pretty=format:\"%C(yellow)%h%d%Creset %s - %an [%ar]\" --name-status
+    changedb = log --pretty=format:\"%C(yellow)%h%d%Creset %s - %an [%ar]\" --name-status --no-merges master..
+	today = show --since=yesterday --stat
+    last = show --stat
+	lastmessage = cat-file commit HEAD  # Use this more though: git show
+    # great for seeing changes in remote branches (compliments my git branches Golang command) and git changed --remotes
+    branchez = "!git --no-pager branch -a -vv"
+    bonk = reset --hard  # so I can bonk HEAD to revert
+    # Create a new git-flow feature branch and waffle.io moves it to 'In Progress'. Just
+    # Type the number of the github issue, e.g. git inp 3
+    inp = "!f() { git checkout master && git fetch && git pull && git checkout develop &&\
+        git fetch origin develop && git pull origin develop && git flow feature start $1 &&\
+        git flow feature publish $1; }; f"
+    # Start a new hotfix with: git hot 5
+    hots = "!f() { git checkout master && git fetch && git pull && git flow hotfix start $1 &&\
+        git push origin \"hotfix#$1\"; }; f"
+    # Finish the hotfix with: git hotf 5
+    hotf = "!f() { git flow hotfix finish $1 && git checkout develop &&\
+        git fetch origin develop && git pull origin develop && git push origin develop &&\
+        git checkout master && git fetch && git pull && git push origin master &&\
+        git push --tags; }; f"
+    # Make it so 'git cof 3' runs: git checkout "feature#3"
+    cof = "!f() { git checkout \"feature#$1\"; }; f"
+    # Make it so 'git pof 3' runs: git push origin "feature#3"
+    pof = "!f() { git push origin \"feature#$1\"; }; f"
+    # Make it so 'git pofh 5' runs: git push origin "hotfix#5"
+    pofh = "!f() { git push origin \"hotfix#$1\"; }; f"
+    # Make it so 'git fod' pulls the latest 'develop' branch changes
+    fod = "!f() { git checkout develop && git pull origin develop ; }; f"
+    # Make it so 'git fof 3' runs: git fetch && pull origin "feature#3"
+    fof = "!f() { git fetch origin \"feature#$1\" && git pull origin \"feature#$1\"; }; f"
+    # Make it so 'git pfof 3' runs: git flow feature pull origin "feature#3"
+    pfof = "!f() { git flow feature pull origin \"feature#$1\"; }; f"
+    # Make it so 'git fin 3' finishes the branch and deletes from github
+    fin = "!f() { git flow feature finish -F $1; }; f"
+    # Make it so a `git rel 3' creates a release called 3
+    rel = "!f() { git checkout master && git fetch && git pull && git checkout develop &&\
+        git fetch origin develop && git pull origin develop && git flow release start $1 &&\
+        git flow release finish $1 && git push origin develop && git checkout master &&\
+        git push origin master && git push --tags; }; f"
+    # list aliases
+    la = "!git config -l | grep alias | cut -c 7-"
+    
+[push]
+	default = simple
+[credential]
+	helper = osxkeychain
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[mergetool]
+	keepBackup = false
+[pull]
+	ff = only

@@ -1,0 +1,305 @@
+# Colored prompt with user, host, abbreviated cwd, and truncated branch name
+# %F{number} means foreground colors 0-255
+# %2~ means truncate path to only the last 2 dirs
+zstyle ':vcs_info:git:*' formats '%b'
+autoload -U disambiguate  # copy this script from dotfiles repo into my $fpath
+autoload -Uz vcs_info
+precmd() { 
+    psvar=()
+    vcs_info
+    # only call disambiguate to abbrev dirs if $PWD is > 15 chars
+    if [[ ${#${(D)PWD}} -gt 15 ]]; then disambiguate; else REPLY=${(D)PWD}; fi
+    psvar[1]=( "$REPLY" )
+    # If vcs_info populated $vcs_info_msg_0_ we'll truncate and access in %2v
+    if [[ -n "$vcs_info_msg_0_" ]]; then
+        # truncate branch name if it's > 36 chars
+        branchName="$vcs_info_msg_0_"
+        if [[ $#branchName -gt 36 ]]; then 
+            firstBN="${branchName[0,28]}"
+            lastBN="${branchName[-5,-1]}"
+            psvar[2]=( "$firstBN…$lastBN" )
+        else 
+            psvar[2]=( "$branchName" )
+        fi
+        PS1="%F{100}%n%f@%F{100}%m %F{96}%1v %F{100}%2v %f$ "
+    else
+        PS1="%F{100}%n%f@%F{100}%m %F{96}%1v %f$ "
+    fi
+}
+
+# 10ms for key sequences instead of 400ms (make ESC key fast in vim, etc)
+KEYTIMEOUT=1
+
+# Make comments work in the shell
+set -k
+
+# History
+HISTSIZE=13000
+SAVEHIST=12000
+HISTFILE=~/.zsh_history
+setopt incappendhistory # Immediately append history, not only when terminal is exited
+setopt sharehistory # share between terminals
+setopt histignorealldups
+setopt histreduceblanks
+setopt histignorespace # Don't store history for commands starting withe a space
+# Make it so i can't accidentally "git stash clear", etc...
+HISTORY_IGNORE="(git stash*|rm -rf*)"
+zshaddhistory() {
+  emulate -L zsh
+  # make it so typing one new command will erase the HISTORY_IGNORE'd commands from the current session too
+  [[ $1 != ${~HISTORY_IGNORE} ]]
+}
+
+
+# Make it so ^B deletes only 'baz' from /foo/bar-baz
+bindkey '^B' vi-backward-kill-word
+
+# ^W is bound to backward-kill-word which contains '/' in WORDCHARS
+# I will maintain that behavior (allowing ^W to delete a whole URL)
+# but will locally modify it in a function bound such that Ctrl-/ 
+# will delete 'bar-baz' from /foo/bar-baz
+# This is needed in zsh because it doesn't use gnu-readline which 
+# .inputrc leverages. I still use .inputrc for bash, python, etc.
+backward-kill-dir () {
+    local WORDCHARS=${WORDCHARS/\/}
+    zle backward-kill-word
+}
+zle -N backward-kill-dir
+bindkey '^_' backward-kill-dir
+
+# syntax highlight commands (brew install zsh-syntax-highlighting)
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Make it so typing `it <prof>` changes iterm2 profile in current 
+# tab. Name my Light profile `l` and Dark profile `d`. Usage:
+#    $ it d  # dark mode. Go back to light mode: it l
+it() { 
+  echo -e "\033]50;SetProfile=$1\a" 
+}
+
+# Make it so up/down arrows search your history (even with nested filepaths/args)
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search # Up
+bindkey "^[[B" down-line-or-beginning-search # Down
+
+# Set PATH, making sure Homebrew's path is first, e.g., for 
+# "brew install diffutils" to let use use gnu diff's --color), etc.
+PATH="/usr/local/bin:/Users/rkulla/bin:$PATH"
+# Have `ls` use gnu ls, not bsd ls. (First: brew install coreutils).
+PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+
+
+# Create a `take` command
+take () {
+  mkdir -p $@ && cd ${@:$#}
+}
+
+# cd to a dir just by typing it's path, without cd being required
+setopt autocd
+# make it so typing - does cd -
+alias - -='cd -'
+# make it so 'dirs -v' will keep track of your cd'd dirs
+setopt autopushd pushdignoredups
+# Alias so i can just type `d` for the last 10 dirs then of ~# to cd to it
+alias d='dirs -v | head -10'
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='/Applications/MacVim.app/Contents/MacOS/Vim'
+fi
+alias v='$EDITOR'
+
+# Make it so mysql-monitor and psql will let you see output after you quit less
+# Set up a separate alias for less if you want different options for less when calling it manually on the command line.
+export PAGER=less
+export LESS="-imFXSexr"
+
+alias diff='diff --color' # brew install diffutils first
+alias wd='pwd'
+alias ls='ls --color -p'
+alias la='ls --color -a'
+alias ll='ls --color -lh'
+alias lla='ls --color -lha'
+alias lsab='fd -a -d 1' # # see absolute paths prepended to filenames!
+alias lsl='ls --color -la | grep "^l"' # list symlinks in current dir
+alias lsh='ls --color -a | grep "^\."' # list only hidden files
+alias ldirs='ls --color -aF | grep /' # list just directories
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+# my code-snippets aliases
+alias cs='cd /Users/rkulla/repos/code-snippets/'
+# run the tree command with colorized output to piped programs and show / after dirs
+alias tt='tree -CF'
+alias tj='tree -CF -I "node_modules|lcov-report|coverage|jsdoc"'
+alias wt='watch -n 1 -d -t -c tree -CF' # watch tree.
+alias wgt='watch -n 1 -d -t -c "git lolgraph --color && tree -CF"' # watch git log graph and tree at the same time.
+# Use macvim for cli vim because it's better than standard vim on macs
+alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
+# Open modified staged and unstaged files (great for reopening where you left off)
+alias vimod='vim $(git diff --diff-filter=d --cached --name-only && git diff --diff-filter=d --name-only)'
+# find out our external IP
+alias externalip='dig +short myip.opendns.com @resolver1.opendns.com'
+# find files that were modified today
+alias today='find . -type f -daystart -mtime 0 2>/dev/null'
+# # find files that were modified yesterday
+alias yesterday='find -daystart -type f -mtime 1 2>/dev/null'
+# find out which computers/routers/devices are active on our LAN:
+alias whatsup='sudo nmap -sP 192.168.1.1/24 | perl -pe "s/^Host.*/\e[1;31m$&\e[0m/g"'
+alias get='git fetch&&git pull&&git lol|head'
+# Make my diff-so-fancy alias even shorter
+alias dsf='git dsf'
+alias gpod='git pull origin develop'
+alias g='git'
+alias gb='git branch'
+alias gba='git branch -a'
+alias gd='git diff'
+alias gdc='git diff --cached --word-diff'
+alias gst='git status'
+alias pj='prettyjson'
+# Node.js
+alias nag='ag --js --ignore-dir=node_modules'
+# Docker
+alias dcu='docker-compose up'
+alias dcd='docker-compose down'
+alias dcl='docker-compose logs'
+alias dcp='docker-compose pull'
+alias dcps='docker-compose ps'
+alias dps='docker ps | less -S' # so we can see wide output not wrap
+alias dpsa='docker ps -a | less -S' # so we can see wide output not wrap
+# tmux 
+alias tms='tmux new -s '
+alias tma='tmux attach -t '
+alias tm='tmux'
+alias tl='tmux ls'
+# ag
+alias ag='ag -s --path-to-ignore ~/.ignore'
+
+# `vg` command that opens vim on glob/substr, e.g., `vg pack` opens
+# package.json and package-lock.json, etc.  Sort's in reverse, using
+# glob  qualifier (On), so package.json opens in buffer first.
+function vg () {
+    vim *${1}*(On) 
+}
+
+# nnn (brew install nnn)
+alias n='nnn' # brew install nnn first for an awesome ncurses file explorer
+alias l='nnn -de'  # use instead of ls most of the time
+# bookmarks
+export NNN_BMS='b:~/Documents/books;D:~/Downloads;p:~/Pictures;r:~/repos;s:~/repos/code-snippets';
+
+# autojump (brew install autojump)
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+# make completion work with autojump and the menu selection below
+autoload -U compinit; compinit # load and initialize zsh's completion
+# make it so pressing tab a second time lets you scroll down the menu when doing 'ls tab', etc
+zstyle ':completion:*' menu select
+
+zmodload zsh/complist
+_comp_options+=(globdots)  # include hidden files
+# Use vi keys in tab complete menu:
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+
+# Edit command in vim by typing ^o:
+autoload edit-command-line; zle -N edit-command-line
+bindkey '^o' edit-command-line
+
+# Lets me cd to the real location of a symlink
+# Examples: $ rcd ~/repos (if ~/.repos/ is a symlink)
+#           # works on symlinked files, too:
+#           $ rcd .vimrc (if .vimrc is in pwd)
+#           $ rcd ~/.vimrc
+rcd() {
+    symlinkPath="$1"
+    cd $(dirname $(realpath "$symlinkPath"))
+}
+
+# fzf (brew install fzf)
+# Adding node_modules/ to ~/.ignore will make `fzf` ignore node_modules.
+export FZF_DEFAULT_COMMAND='ag --nocolor -l -u -p ~/.ignore -g ""'
+source /usr/local/Cellar/fzf/0.24.4/shell/completion.zsh
+# Source keybindings like ^T will search ALL files (unlike my fzf command that uses ~/.ignore), ^R history, etc
+source /usr/local/Cellar/fzf/0.24.4/shell/key-bindings.zsh
+# make fzf-cd-widget work on MacOS when you type ^F (since alt+a default won't work)
+bindkey "^F" fzf-cd-widget
+# fcd - cd to selected directory. Showing only top-level subdirs
+fcd() {
+  local dir
+  dir=$(fd --hidden --no-ignore --max-depth 1 --type d | fzf +m)
+  cd "$dir"
+}
+# fshow - git commit browser
+fshow() {
+  git log --graph --color=always \
+      --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
+  fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
+      --bind "ctrl-m:execute:
+                (grep -o '[a-f0-9]\{7\}' | head -1 |
+                xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
+                {}
+FZF-EOF"
+}
+
+# function that lets you type gtree to do a tree -CF command but doesn't show .gitignore'd files
+function gtree {
+    ignore_files=("$(git config --get core.excludesfile)" .gitignore ~/.gitignore)
+    ignore="$(grep -hvE '^$|^#' "${ignore_files[@]}" 2>/dev/null|sed 's:/$::'|tr '\n' '\|')"
+    if git status &> /dev/null && [[ -n "${ignore}" ]]; then
+      tree -I "${ignore}" "${@}" -CF
+    else 
+      tree "${@}" -CF
+    fi
+}
+
+# function that lets you type `gshowdate <date> <filepath>' to git show a file by date
+# date can be '10 days ago', '2020-05-25', 'yesterday', etc.
+function gshowdate {
+  date="$1"
+  filepath="$2"
+  git show $(git log -n1 --before "$date" | head -1 | cut -c8-):"$filepath"
+}
+
+# function to run json path on every line of a json file. Usage: $ jpath <file>.json
+function jpath {
+  jq -r 'paths(scalars) as $p  | [ ( [ $p[] | tostring ] | join(".") ), ( getpath($p) | tojson )] | join(": ")' "${@}"
+}
+
+# mysql
+# Prompt config
+case "$OSTYPE" in
+  darwin*)
+    # for non-readline/gnu mysql installations that use libedit
+    alias my=$'/usr/local/bin/mysql --login-path=root --prompt="\\u@\\h \033[01;32m\\d\033[01;34m >\033[00m "'
+    alias mysql=$'/usr/local/bin/mysql --prompt="\\u@\\h \033[01;32m\\d\033[01;34m >\033[00m "'
+  ;;
+  linux*)
+    export MYSQL_PS1="\u@\h $fg[red]\d$reset_color> "
+    alias my='mysql --login-path=root'
+  ;;
+esac
+
+# misc
+eval "$(pyenv init -)"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/rkulla/opt/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/rkulla/opt/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/rkulla/opt/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/rkulla/opt/google-cloud-sdk/completion.zsh.inc'; fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export PATH
