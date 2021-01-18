@@ -204,11 +204,11 @@ function! CocGitStat()
         " if window is too narrow truncate even further
         let winwid = winwidth(0)
         if winwid <= 79 
-            let status = ccount > 10 ? status[0:15] . '…' : status
+            let status = ccount > 10 ? status[0:20] . '…' : status
         elseif winwid >= 80 && winwid <= 89 
-            let status = ccount > 23 ? status[0:28] . '…' : status
+            let status = ccount > 23 ? status[0:33] . '…' : status
         elseif winwid >= 90 && winwid <= 100
-            let status = ccount > 30 ? status[0:35] . '…' : status
+            let status = ccount > 30 ? status[0:40] . '…' : status
         else
            let status = truncatedLeast
         endif
