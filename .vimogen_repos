@@ -61,9 +61,10 @@ https://github.com/tpope/vim-bundler
 # Databases
 https://github.com/vim-scripts/dbext.vim
 
-# Live REPLs
+# Live coding
 https://github.com/metakirby5/codi.vim
 https://github.com/jpalardy/vim-slime
+https://github.com/markonm/traces.vim
 
 # Misc
 https://github.com/tpope/vim-dispatch

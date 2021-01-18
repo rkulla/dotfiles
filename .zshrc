@@ -228,9 +228,9 @@ rcd() {
 # fzf (brew install fzf)
 # Adding node_modules/ to ~/.ignore will make `fzf` ignore node_modules.
 export FZF_DEFAULT_COMMAND='ag --nocolor -l -u -p ~/.ignore -g ""'
-source /usr/local/Cellar/fzf/0.24.4/shell/completion.zsh
+source /usr/local/opt/fzf/shell/completion.zsh
 # Source keybindings like ^T will search ALL files (unlike my fzf command that uses ~/.ignore), ^R history, etc
-source /usr/local/Cellar/fzf/0.24.4/shell/key-bindings.zsh
+source /usr/local/opt/fzf/shell/key-bindings.zsh
 # make fzf-cd-widget work on MacOS when you type ^F (since alt+a default won't work)
 bindkey "^F" fzf-cd-widget
 # fcd - cd to selected directory. Showing only top-level subdirs

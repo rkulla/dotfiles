@@ -1,56 +1,55 @@
-" Search for the phrase 'EDIT ME' in this file to know what to edit.
-"
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Ryan's vimrc
+
 " Stuff that has to run _before_ plugins are loaded
 " Make it so ale plays well with coc. In :CocConfig add: "diagnostic.displayByAle": true
 "  https://github.com/dense-analysis/ale#5iii-how-can-i-use-ale-and-cocnvim-together
 let g:ale_disable_lsp = 1
 
 " Put first to ensure pathogen will work
-if has("gui_running") " list plugins to disable if GUI Vim is running
+if has("gui_running")                               " list plugins to disable if GUI Vim is running
   let g:pathogen_disabled = []
   call add(g:pathogen_disabled, 'coc')
 endif
 execute pathogen#infect() 
 
-" You can also load some packages that come with vim, such as matchit:
-" packadd! matchit
-" I'll use vim-matchup plugin instead, otherwise comment out packadd line above
-
-let mapleader = "," " remap <Leader> to comma so you can do: ,s instead of \s, etc.
+let mapleader = ","                                 " remap <Leader> to comma so you can do: ,s instead of \s, etc.
 
 if has("unix")
-    set ttymouse=xterm2 " Make mouse work right in putty/gnu screen, etc.
+    set ttymouse=xterm2                             " Make mouse work right in putty/gnu screen, etc.
 endif
-set mouse=a " Make your mouse work properly in terminals like putty and in all modes
+set mouse=a                                         " Make mouse work right in terminals like putty and in all modes
 
 let g:loaded_matchit = 1
 let g:matchup_matchparen_offscreen = { 'method': 'popup', 'scrolloff': 1 }
-set nocompatible " Prevent unexpected things your distro might make
-set clipboard+=unnamed " so y to yank text goes to system clipboard, in tmux or otherwise
-set ffs=unix,dos,mac " Auto-detect the filetype based off newlines used.
-set history=50 " Keep 50 lines of command line history
-set ruler " Show the cursor position all the time
-set showcmd " Display incomplete commands
-set incsearch " Do incremental searching
-set shortmess=filnxtToOc " Don't add S or you won't see search counts in status anymore, e.g., [1/2]
-set backspace=indent,eol,start " Allow backspacing over everything in insert mode
-set path+=** " Allow :find, :tabf, etc to search the current directory and its subdirs
-set hidden " Allow you to change buffers without having to save modified ones first
-set ignorecase " Allow case-insensitive /searching
+
+set dir=~/.vim/swp                                  " My .swp file location
+set nocompatible                                    " Prevent unexpected things your distro might make
+set clipboard+=unnamed                              " So y to yank text goes to system clipboard, in tmux or otherwise
+set ffs=unix,dos,mac                                " Auto-detect the filetype based off newlines used.
+set history=50                                      " Keep 50 lines of command line history
+set ruler                                           " Show the cursor position all the time
+set showcmd                                         " Display incomplete commands
+set incsearch                                       " Do incremental searching
+set shortmess=filnxtToOc                            " Don't add S or you won't see search counts in status, e.g., [1/2]
+set backspace=indent,eol,start                      " Allow backspacing over everything in insert mode
+set path+=**                                        " Allow :find, :tabf, etc to search the pwd and its subdirs
+set hidden                                          " To change buffers without having to save modified ones first
+set ignorecase                                      " Allow case-insensitive /searching
+set timeoutlen=1000 ttimeoutlen=0                   " Make Esc key a lot faster, e.g., closing fzf
+set nobackup                                        " I don't like it triggering my file system watchers
+set number                                          " Enable line numbers by default
+set nostartofline                                   " So cursor doesn't jump to beginning of line when you G, GG, ^F, etc
+set confirm                                         " So :q, :bd, etc. on a changed file popups a 'save file?' confirm box
+set fo=t                                            " I don't want the format options that auto create comments 
+set showcmd                                         " Show partial vim commands in the last line of the screen
+set enc=utf-8                                       " Causes fencs to default to ucs-bom,utf-8,default,latin1
+set pastetoggle=<F3>                                " Useful when normal pasting doesn't work
+
+" spellcheck
 set spelllang=en_us
 set spellfile=$HOME/.vim/spell/en.utf-8.add
 autocmd BufRead,BufNewFile *.txt,*.md setlocal spell
-set timeoutlen=1000 ttimeoutlen=0 " Make Esc key a lot faster, e.g., closing fzf
-set nobackup " I don't like it triggering my file system watchers
-set number " enable line numbers by default
-set nostartofline " So cursor doesn't jump to beginning of line when you G, GG, ^F, etc
-set confirm " When you :q, :bd, etc a file that's been changed, popup a 'save file?' confirm box
-set fo=t " I don't want the format options that auto create comments 
-set showcmd " Show partial vim commands in the last line of the screen
-set enc=utf-8 " Settings this to utf-8 causes fencs to default to ucs-bom,utf-8,default,latin1
 
-autocmd GuiEnter * set cul " Highlight entire line wherever cursor is. Slow over SSH so enable in GUI only
 " Make it easier to see your cursor in console vim
 " tmux will only forward escape sequences to the terminal if surrounded by a DCS sequence
 if exists('$TMUX')
@@ -61,31 +60,34 @@ else
   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
 
-set pastetoggle=<F3> " Toggle between paste/nopaste. Useful when normal pasting doesn't work
-
-" So you can rename the current file with :Rename <new_name>
+" Rename the current file with :Rename <new_name>
 command! -nargs=1 -complete=dir Rename saveas <args> | call delete(expand("#")) 
 
-" Make it so you can run the omni-completion by typing ,tab
+" Run the omni-completion by typing ,tab
 imap <Leader><TAB> <C-X><C-O>
 
-" Make it so you can select some text and sort it in place
-vnoremap <Leader>s :sort<CR> 
-
-" Map ^l to to clear all highlighted text on the screen (like from /searches)
+" Have ^l clear all highlighted text on the screen
 nnoremap <C-l> :nohl<CR><C-l>
 
-" Make it so you can just type jj to go into normal mode so you don't hae to hit of Escape
+" So typing jj Escapes to normal mode. More ergonomic than reaching for Esc.
 imap jj <esc>
 
-" Make it so you can just type [c to jump to next quckfix item
+" So typing ';;' in insert mode deletes the last word
+imap ;; <C-w>
+
+" So typing ';h' in insert mode to jump to start of line
+imap ;h <Esc>I
+
+" To [c to jump to next quckfix item, ]c for previous.
 nnoremap ]c :cnext<CR>
 nnoremap [c :cprevious<CR>
 
 " To quickly open files in the pwd, or its subdirs, automatically by typing substrings of filenames
 map <Leader>e :e **/*
 
+"
 " Quitting vim maps
+"
 nmap <Leader>qq :q<CR>
 " Don't use Ex mode, use Q for formatting
 map Q gq
@@ -109,21 +111,12 @@ noremap * *``
 " So F10 will auto-scrollbind all windows so windows scroll in sync with eachother
 map <F10> :windo set scrollbind!<CR>
 
-" So typing Ctrl-\ on strings jumps to their gtags corresponding tag
-map <C-\> :GtagsCursor<CR>
-
-" So you can toggle the showing of line numbers
+" Toggle the showing of line numbers
 map <Leader>n :set invnumber<CR>
 
 " Use Ctrl+n and Ctrl+p to go forward or backward through buffers.
 nmap <C-n> :bn<CR> 
 nmap <C-p> :bp<CR> 
-
-" So typing ';;' in insert mode deletes the last word
-imap ;; <C-w>
-
-" So typing ';h' in insert mode to jump to start of line
-imap ;h <Esc>I
 
 " Force file to be saved when ctrl+s is hit in command or insert mode.
 " put "stty -ixon" in your shell rc for this to work in unix.
@@ -132,14 +125,6 @@ nmap <C-s> :update!<CR>
 
 " So you can underline any line of text you are on with dashes
 nmap <Leader>u :call append(line("."), repeat("-", len(getline("."))))<CR>
-
-" So ,<space> Moves all text behind cursor one space forward (w/o moving text in front),
-" useful for aligning text to the cursor position
-nmap <Leader><Space> d0p
-
-" In insert mode, typing 2 commas will insert 30 spaces. 3 commas inserts 50.
-imap ,, <Space><Esc>30i<Space><Esc>i
-imap ,,, <Space><Esc>50i<Space><Esc>i
 
 " Automatically select the last text that was pasted
 nmap <Leader>sp `[v`]
@@ -155,16 +140,21 @@ noremap <LeftMouse> m'<LeftMouse>
 " Useful when on nested parens lines where ci( wouldn't work.
 nnoremap <Leader>( 0%ci(
 
-""" Abbreviations
-iab teh the
+""" Abbreviations (misc)
+iab teh      the
+iab loremx   lorem ipsum quia dolor sit amet consectetur adipisci velit, sed quia non numquam eius modi tempora incidunt.
+iab fbbq     foo bar baz quux spam eggs
 
-""" Indentation
-set ts=4 " Make tabs 4 spaces
-set expandtab " Expand tabs into the corresponding number of spaces. Use Ctrl+V<TAB> for real tabs
-set smarttab " Use sw not ts when you hit tab at start of line and so backspace deletes sw worth of space
-set sw=4 " when something is auto-indented it will appear as 4 <spaces>
-set shiftround " Make it so > and < snap to value of sw
-" make it so txt files don't use shiftround (so i can paste code snippets and indent them properly)
+""
+"" Indentation
+""
+
+set ts=4                                            " Make tabs 4 spaces
+set expandtab                                       " So tab key writes spaces. (Ctrl+V<TAB> for real tabs)
+set smarttab                                        " So tab key uses sw not ts at start of line and so backspace deleting
+set sw=4                                            " When auto-indenting, appear as 4 <spaces>
+set shiftround                                      " So > and < indenting keys snap to value of sw
+" So txt files don't use shiftround (so i can paste code snippets and indent them properly)
 au BufNewFile,BufRead,BufEnter *.txt set noshiftround
 set autoindent " Make indents always from the start of the line above. Beats :set cindent 
 if has("autocmd")
@@ -182,17 +172,26 @@ if has("autocmd")
   augroup END
 endif 
 
+""" Terminal window
+set termwinsize=10x0
+" So ,tb opens a terminal at the bottom in its own window
+nnoremap <leader>tb :below term<CR>
+" So ,ta opens a terminal at the top in its own window
+nnoremap <leader>ta :above term<CR>
+
 " vim-qf plugin improves quickfix window. Make it so the plugins mappings work
 let g:qf_mapping_ack_style=1
 
-" vim-signature
+" vim-signature (use my fork)
 " so typing ,mn creates a mark N and highlights line. Clear with :match
 nnoremap <silent> <Leader>mn mN:execute 'match Search /\%'.line('.').'l/'<CR>
 
 """ vim-fugitive
 nnoremap gst :Gstatus<CR>
 
-""" Statusline
+""
+"" Statusline
+""
 set laststatus=2
 " Get and truncate long git branch names or not display one if window width is too short.
 function! CocGitStat()
@@ -248,7 +247,10 @@ function! StatuslineMultiFileFlag()
     return g:statusline_multi_file_flag
 endfunction
 
-""" Color Schemes
+""
+""Color Schemes and highlighting
+""
+
 " Setting termguicolors means we'll use guifg/guibg not cterm and 
 " since some colorschemes reference &termguicolors and not set any 
 " gui* colors, we'll set it before calling a color scheme.
@@ -287,7 +289,6 @@ command! -nargs=0 Light call Light()
 " Enable on rainbow brackets 
 let g:rainbow_active=1
 
-""" Syntax highlighting
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if &t_Co > 2 || has("gui_running")
@@ -302,9 +303,9 @@ nmap <silent> <Leader>$ :echo 'hi<' .
         \ '> lo<' . synIDattr(synIDtrans(synID(line('.'), col('.'), 1)), 'name') . 
         \ '>'<CR> 
 
-" fzf
+""" fzf
 set rtp+=/usr/local/opt/fzf
-" Enable history with CTRL-N and CTRL-P (EDIT ME: create the dir first)
+" Enable history with CTRL-N and CTRL-P
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 nmap <Leader>x :GFiles<CR>
 nmap <Leader>X :Files<CR>
@@ -356,28 +357,34 @@ autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 au BufNew,BufRead,BufEnter *.py set textwidth=79 fo=t sw=4 ts=4
 " Have ,l run :!python %
 autocmd FileType python map <Leader>l :w<CR>:!python %<CR>
+iab ppxx   import pprint;pprint.pprint()
 
-""" CoffeeScript
-" Make it so you can recompile CoffeeScript Koans easily
-"nmap <Leader>c :!cake build<CR>
-
-" JSON
+""" JSON
 " Note: Use my <Leader>sf to toggle syntax folding to fold json files!
 " Make it so ,jp runs :JsonPath
 au FileType json nmap <leader>jp :JsonPath<CR>
 
-""" Node.js
-" Make it so we only use only 2 spaces for indentations
+""
+"" JavaScript / Node.js
+""
+
+" Only use only 2 spaces for indentations
 autocmd BufRead,BufNewFile *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html setlocal sw=2 ts=2
 " Use my common map of ,l to run a language on the current file (saving " changes first)
 autocmd FileType javascript map <Leader>l :w<CR>:!node %<CR>
-" syntax check current javascript file
+" Syntax check current javascript file
 autocmd FileType javascript map <Leader>sc :w<CR>:!node --check %<CR>
 
+" So ,jf will list all JS functions in the file. Type :<linenumber> to jump to the definition
+map <Leader>jf :g/^const\s*\(\w\+\)\s*=\s*\%(async\s*\)\?(\(\_[^)]\{-}\))\\|^function \\|^async function /<CR>
+map <Leader>jfm :g/^const\s*\(\w\+\)\s*=\s*\%(async\s*\)\?(\(\_[^)]\{-}\))\\|^function \\|^async function /normal m1<CR>
+
+" vim-dispatch
+" disable default maps (:h dispatch-maps) so m? can work for my ,jfm map, etc
+let g:dispatch_no_maps = 1
+
 """ vim-javascript
-" toggle code folding. JavaScript folding requires vim-javascript plugin but
-" this is generic and should work with any file type that supports syntax
-" folding. Then use standard folding commands: zm, zc, zR, etc.
+" Toggle code folding. JS folding requires vim-javascript. Should work with any file type supporting syntax folding
 nnoremap <leader>sf :call ToggleSyntaxFolding()<cr>
 function! ToggleSyntaxFolding()
     if &foldmethod == 'marker'
@@ -387,20 +394,27 @@ function! ToggleSyntaxFolding()
     endif
 endfunction
 
-" Make it so typing ,jf will list all Javascript functions in the file. Type
-" :<linenumber> to jump to the definition
-map <Leader>jf :g/^const\s*\(\w\+\)\s*=\s*\%(async\s*\)\?(\(\_[^)]\{-}\))\\|^function \\|^async function /<CR>
-map <Leader>jfm :g/^const\s*\(\w\+\)\s*=\s*\%(async\s*\)\?(\(\_[^)]\{-}\))\\|^function \\|^async function /normal m1<CR>
+""" Ale / eslint
+let g:ale_linters_explicit = 1
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\}
+
+" So :ALEFix will auto fix eslint errors
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['eslint'],
+\}
+
+
 
 """ Quickfix window
-" Make it so after typing something like :0Gclog, I can scroll load the next
-" or previous quickfix result while not being focused on the qf window, and
-" maintaining my cursor position in the file!
+" So after typing something like :0Gclog, I can scroll load the next or prev result while not being focused on the
+" qf window and maintain my cursor position in the file
 nnoremap ]q :let ws = winsaveview() <bar> cnext <bar> call winrestview(ws) <bar> unlet ws<CR>
 nnoremap [q :let ws = winsaveview() <bar> cprev <bar> call winrestview(ws) <bar> unlet ws<CR>
 
-" Make it so typing ,il enables :IndentLines-like vertical lines on tabs
-" Toggle it on/off from there with :set list!
+" So ,il enables :IndentLines-like vertical lines on tabs. (Toggle on/off from there with :set list!)
 nnoremap <leader>il :set list lcs=tab:<bslash><bar><bslash><space><bar>hi SpecialKey ctermbg=NONE ctermfg=gray<cr>
 
 """ vim-prettier
@@ -421,23 +435,12 @@ function! TogglePrettier()
     endif
 endfunction
 
-" vim-dispatch
-" disable default maps (:h dispatch-maps) so m? can work for my ,jfm map, etc
-let g:dispatch_no_maps = 1
-
 """ Jest
 " Make it so typing ,jt runs jest on the current file
 nnoremap <leader>jt :Dispatch npx jest --coverage %<cr>
 " Make it so typing ,jt or :Jest runs all jest tests
 nnoremap <leader>ja :Dispatch npx jest --coverage<cr>
 command Jest Dispatch npx jest --coverage --verbose
-
-""" Terminal window
-set termwinsize=10x0
-" make it so ,tb opens a terminal at the bottom in its own window
-nnoremap <leader>tb :below term<CR>
-" make it so ,ta opens a terminal at the top in its own window
-nnoremap <leader>ta :above term<CR>
 
 """ vim-slime
 let g:slime_target = "tmux"
@@ -449,26 +452,48 @@ let g:nnn#set_default_mappings = 0
 nnoremap <silent> <leader>nn :NnnPicker<CR>
 let g:nnn#layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Debug' } }
 
-""" PHP
+""
+"" HTML
+""
+
+" So ,o opens urls in browser (since gx is currently broken in netrw/macvim)
+function! HandleURL()
+  let s:uri = matchstr(getline("."), '[a-z]*:\/\/[^ >,;]*')
+  echo s:uri
+  if s:uri != ""
+    silent exec "Dispatch open " . shellescape(s:uri)
+  else
+    echo "No URI found in line."
+  endif
+endfunction
+map <leader>o :call HandleURL()<cr>
+
+" So typing :Dispatch on an html file opens it in the web browser
+autocmd FileType html let b:dispatch = 'open %'
+
+""
+"" PHP
+""
+
 " Zend Coding Standard
 au BufNew,BufRead,BufEnter *.php set textwidth=80 fo=t sw=4 ts=4
 " or put 'set fo+=t' in .vim/after/indent/php.vim for tw to break the line
-"
+
 " phpcomplete completion:
 autocmd FileType php set omnifunc=phpcomplete 
-"
+
 " Make it so php files are also seen as html
 au BufRead,BufNewFile *.php set filetype=php.html
-"
+
 " PHPUnit
 " Make it so typing ":Test" will run phpunit on the current file, with good options
 au FileType php com! Test :!phpunit --verbose --colors %
 au FileType php nmap <Leader>tv :!phpunit --verbose --colors %<CR>
 au FileType php nmap <Leader>te :!phpunit --testdox %<CR>
-"
+
 " Make it so you can find all variables/objects that start with $ on the page
 nmap <Leader>fv /$[a-zA-Z_][^ \t\]()?;]*<CR>
-"
+
 " Make it so you can automatically var_dump() a variable
 "nmap <Leader>vv 0i<Space><Esc>0f$yeuovar_dump(<C-r>");<Esc>
 " Make it so you can just type 'vd' in insert mode to type var_dump()
@@ -482,23 +507,11 @@ nmap <Leader>fv /$[a-zA-Z_][^ \t\]()?;]*<CR>
 vnoremap <Leader>c <Esc>'<lt>O/*<ESC>'>o*/<ESC>
 " Make it so in visual mode you can do a multiline html comment <!-- -->
 vnoremap <Leader>! <Esc>'<lt>O<!--<ESC>'>o--><ESC>
-"
 " Make it so in visual mode you can do a multiline php-html comment <?php /* */ ?>
 "useful when you don't want your html comment content viewable in browser
 "vnoremap <Leader>!! <Esc>'<lt>O<?php /*<ESC>'>o*/?><ESC>
-"
 " Make it so you can put inline php tags around the current line
 "nmap <Leader>? I<?php <Esc>A ?>
-
-""" coldfusion
-" make it so ,cf will search for coldfusion comments so i can navigate by comments
-map <Leader>cf /<!\\|\/\/<CR>
-" auto change filetype to cf.html, for colorsheme to keep working and for matchit
-au BufNew,BufRead,BufEnter *.cfc set filetype=cf.html
-
-""" .swp file handling. Don't forget to create the directories
-" EDIT ME
-set dir=~/.vim/swp
 
 " Time and date insertion mappings. Super convenient!
 noremap! <expr> ,t strftime("%H:%M")  " e.g., 11:25
@@ -520,27 +533,11 @@ if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
 endif
 
-
 """ :Sex 
 " Make :Sex window take up most of the screen so you can see more files at once
 let g:netrw_winsize=35
 " Sort case-insensitively (so Program Files appears next to pf, etc)
 let g:netrw_sort_options="i"
-
-" Make it so ,o opens urls in browser (since gx is currently broken in netrw/macvim)
-function! HandleURL()
-  let s:uri = matchstr(getline("."), '[a-z]*:\/\/[^ >,;]*')
-  echo s:uri
-  if s:uri != ""
-    silent exec "Dispatch open " . shellescape(s:uri)
-  else
-    echo "No URI found in line."
-  endif
-endfunction
-map <leader>o :call HandleURL()<cr>
-
-" Make it so typing :Dispatch on an html file opens it in the web browser
-autocmd FileType html let b:dispatch = 'open %'
 
 """ TagBar (https://majutsushi.github.io/tagbar/)
 nmap <F8> :TagbarToggle<CR>
@@ -585,6 +582,12 @@ set go-=R "no right hand scrollbar when windows are split vertically
 set go-=L "no left hand scrollbar when windows are split vertically
 set go-=b "no bottom (horizontal) scrollbar present
 
+""" Split windows
+" Make it so ,H resizes a split vertical window to be larger. ,L for smaller, etc.
+nmap <Leader>H :vertical res -5<CR>
+nmap <Leader>L :vertical res +5<CR>
+nmap <Leader>K :res -5<CR>
+nmap <Leader>J :res +5<CR>
 
 """ Menus
 " allow a console based menu system by hitting F4:
@@ -593,7 +596,6 @@ set wildmenu " makes command-line completion operate in an enhanced mode
 set cpo-=<
 set wcm=<C-Z>
 map <F4> :emenu <C-Z>
-
 
 """ NERDTree
 " auto-start NerdTree when you run vim with no command line arguments 
@@ -608,13 +610,6 @@ nnoremap <silent> <Leader>nf :NERDTreeFind<CR>
 " get rid of crap at the top
 let NERDTreeMinimalUI = 1
 
-""" Split windows
-" Make it so ,H resizes a split vertical window to be larger. ,L for smaller, etc.
-nmap <Leader>H :vertical res -5<CR>
-nmap <Leader>L :vertical res +5<CR>
-nmap <Leader>K :res -5<CR>
-nmap <Leader>J :res +5<CR>
-"
 " Let's you close the current file by typing :Clear w/o closing the split window and starts a new file
 com! Clear :enew <bar> bdel # 
 " Let's you close the current file by typing F2 w/o closing the split window then jumps to the next file
@@ -626,10 +621,13 @@ nmap Wl <C-w>l
 nmap Wk <C-w>k
 nmap Wj <C-w>j
 
-""" Folds 
+"" 
+"" My custom .txt notes format settings
+""
 set foldenable
 set foldmethod=marker
-" This fold expression auto folds any lines starting with a '*' until the next line that starts with a '*' is found
+" Fold expression that auto folds any lines starting with '*' until the next line that starts with a '*' is found
+" Useful for my custom .txt Notes format
 function! FoldExpr(lnum)
     let line = getline(a:lnum)
     if line =~ '^\*'
@@ -637,7 +635,7 @@ function! FoldExpr(lnum)
     endif
     return '='
 endfunction
-"
+
 if has("autocmd")
     augroup TextFileFolds
     au!
@@ -645,27 +643,35 @@ if has("autocmd")
     autocmd BufRead,BufNewFile *.txt setlocal foldmethod=expr foldexpr=FoldExpr(v:lnum)
     augroup END
 endif
-"
-" Make it so you can toggle # comments as folds (useful for config files and ruby/python/bash especially)
+
+" So ,<space> Moves all text behind cursor one space forward (w/o moving text in front),
+" useful for aligning text to the cursor position
+nmap <Leader><Space> d0p
+
+" In insert mode, typing 2 commas will insert 30 spaces. 3 commas inserts 50.
+imap ,, <Space><Esc>30i<Space><Esc>i
+imap ,,, <Space><Esc>50i<Space><Esc>i
+
+" So typing ':Beg foo' search for the string foo occuring within the first 30 chars of a line
+function! BegSearch(strtofind)
+  call search(a:strtofind.'\%<31c')
+endfunction
+command! -nargs=1 Beg call BegSearch(<f-args>)
+
+""" Misc folding settings
+" To toggle '#' comments as folds (useful for config files and ruby/python/bash especially)
 function HideComments()
   set fdm=expr
   set fde=getline(v:lnum)=~'^\\s*#'?1:getline(prevnonblank(v:lnum))=~'^\\s*#'?1:getline(nextnonblank(v:lnum))=~'^\\s*#'?1:0
 endfunction
 map <Leader>h :call HideComments()<CR>
-"
+
 " Make it so searches don't open folds automatically
 set foldopen-=search
 " Make it so ,fs folds the current file based on its syntax
 nmap <Leader>fs :set foldmethod=syntax<CR>
 " Make it so ,fc folds the // style comments
 nmap <Leader>fc :set foldmethod=expr foldexpr=getline(v:lnum)=~'^\\s*//'<CR>
-
-" Make it so you can just type :Beg foo  to search for the string foo occuring
-" within the first 30 characters of a row:
-function! BegSearch(strtofind)
-  call search(a:strtofind.'\%<31c')
-endfunction
-command! -nargs=1 Beg call BegSearch(<f-args>)
 
 """ DBext 
 " Kata profiles.  Uses ~/.pgpass for password
@@ -684,26 +690,16 @@ let g:indentLine_enabled = 0
 let g:vim_json_conceal=0
 let g:indentLine_char_list = ['|', '¦', '┆', '┊', '┊']
 
-" Elm-lang
+""" Elm-lang
 " Auto-format code. Requires ElmCast/elm.vim and elm-oracle
 let g:elm_format_autosave=1
 " disable keybindings since they use <Leader> maps i already have
 let g:elm_setup_keybindings = 0
 
-" Ale / eslint
-let g:ale_linters_explicit = 1
-let g:ale_linters = {
-\   'javascript': ['eslint'],
-\}
+""
+"" coc.vim
+""
 
-" make it so :ALEFix will auto fix eslint errors
-let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'javascript': ['eslint'],
-\}
-
-
-""" coc.vim
 if !has("gui_running") " Since we do NOT run coc.vim if the GUI vim (see top of file)
   " Some servers have issues with backup files, see #649
   " Better display for messages

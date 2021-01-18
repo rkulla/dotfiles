@@ -18,6 +18,7 @@ linkdot() {
     # This beats having to create a ton of .gitignore files with * ; !.gitignore
     mkdir -p "$HOME/.vim/bundle"
     mkdir -p "$HOME/.vim/swp"
+    mkdir -p "$HOME/.local/share/fzf-history"
 
     # dest should always be the dir we're linking to, check if exists
     # If this message happens, add the dir to the mkdir section above.
