@@ -1,0 +1,7 @@
+eslint.showOutputChannel
+eslint.executeAutofix
+git.foldUnchanged
+git.chunkStage
+git.refresh
+git.copyUrl
+git.diffCached

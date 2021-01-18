@@ -1,0 +1,11 @@
+[
+    {
+        "key": "ctrl+n",
+        "command": "settings.cycle.lineNumbers",
+        "when": "editorFocus"
+    },
+    {
+        "key": "shift+cmd+a",
+        "command": "workbench.action.toggleActivityBarVisibility"
+    }
+]

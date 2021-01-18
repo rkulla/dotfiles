@@ -4,7 +4,7 @@
 zstyle ':vcs_info:git:*' formats '%b'
 autoload -U disambiguate  # copy this script from dotfiles repo into my $fpath
 autoload -Uz vcs_info
-precmd() { 
+precmd() {
     psvar=()
     vcs_info
     # only call disambiguate to abbrev dirs if $PWD is > 15 chars
@@ -14,11 +14,11 @@ precmd() {
     if [[ -n "$vcs_info_msg_0_" ]]; then
         # truncate branch name if it's > 36 chars
         branchName="$vcs_info_msg_0_"
-        if [[ $#branchName -gt 36 ]]; then 
+        if [[ $#branchName -gt 36 ]]; then
             firstBN="${branchName[0,28]}"
             lastBN="${branchName[-5,-1]}"
             psvar[2]=( "$firstBN…$lastBN" )
-        else 
+        else
             psvar[2]=( "$branchName" )
         fi
         PS1="%F{100}%n%f@%F{100}%m %F{96}%1v %F{100}%2v %f$ "
@@ -56,9 +56,9 @@ bindkey '^B' vi-backward-kill-word
 
 # ^W is bound to backward-kill-word which contains '/' in WORDCHARS
 # I will maintain that behavior (allowing ^W to delete a whole URL)
-# but will locally modify it in a function bound such that Ctrl-/ 
+# but will locally modify it in a function bound such that Ctrl-/
 # will delete 'bar-baz' from /foo/bar-baz
-# This is needed in zsh because it doesn't use gnu-readline which 
+# This is needed in zsh because it doesn't use gnu-readline which
 # .inputrc leverages. I still use .inputrc for bash, python, etc.
 backward-kill-dir () {
     local WORDCHARS=${WORDCHARS/\/}
@@ -70,11 +70,11 @@ bindkey '^_' backward-kill-dir
 # syntax highlight commands (brew install zsh-syntax-highlighting)
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# Make it so typing `it <prof>` changes iterm2 profile in current 
+# Make it so typing `it <prof>` changes iterm2 profile in current
 # tab. Name my Light profile `l` and Dark profile `d`. Usage:
 #    $ it d  # dark mode. Go back to light mode: it l
-it() { 
-  echo -e "\033]50;SetProfile=$1\a" 
+it() {
+  echo -e "\033]50;SetProfile=$1\a"
 }
 
 # Make it so up/down arrows search your history (even with nested filepaths/args)
@@ -85,12 +85,13 @@ zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search # Up
 bindkey "^[[B" down-line-or-beginning-search # Down
 
-# Set PATH, making sure Homebrew's path is first, e.g., for 
-# "brew install diffutils" to let use use gnu diff's --color), etc.
-PATH="/usr/local/bin:/Users/rkulla/bin:$PATH"
+# Set PATH. Have local node modules first, then Homebrew paths
+# E.g. so "brew install diffutils" can use gnu diff's --color), etc.
+PATH="/usr/local/bin:$HOME/bin:$PATH"
 # Have `ls` use gnu ls, not bsd ls. (First: brew install coreutils).
 PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-
+# Make node packages path the very first (global packages are bad)
+export PATH="./node_modules/.bin:$PATH"
 
 # Create a `take` command
 take () {
@@ -120,7 +121,7 @@ alias v='$EDITOR'
 # Make it so mysql-monitor and psql will let you see output after you quit less
 # Set up a separate alias for less if you want different options for less when calling it manually on the command line.
 export PAGER=less
-export LESS="-imFXSexr"
+export LESS="-imFXSxR"
 
 alias diff='diff --color' # brew install diffutils first
 alias wd='pwd'
@@ -130,13 +131,16 @@ alias ll='ls --color -lh'
 alias lla='ls --color -lha'
 alias lsab='fd -a -d 1' # # see absolute paths prepended to filenames!
 alias lsl='ls --color -la | grep "^l"' # list symlinks in current dir
+alias lslb='find . -maxdepth 1 -type l ! -exec test -e {} \; -print' # find only broken symlinks in pwd
 alias lsh='ls --color -a | grep "^\."' # list only hidden files
 alias ldirs='ls --color -aF | grep /' # list just directories
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
-# my code-snippets aliases
-alias cs='cd /Users/rkulla/repos/code-snippets/'
+alias cs='cd ~/repos/code-snippets/'
+alias csj='cd ~/repos/code-snippets/JS'
+alias csjt='cd ~/repos/code-snippets/JS/tmp'
+alias py='python'
 # run the tree command with colorized output to piped programs and show / after dirs
 alias tt='tree -CF'
 alias tj='tree -CF -I "node_modules|lcov-report|coverage|jsdoc"'
@@ -146,6 +150,8 @@ alias wgt='watch -n 1 -d -t -c "git lolgraph --color && tree -CF"' # watch git l
 alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
 # Open modified staged and unstaged files (great for reopening where you left off)
 alias vimod='vim $(git diff --diff-filter=d --cached --name-only && git diff --diff-filter=d --name-only)'
+# Open modified files (even committed) that a branch changed (be in the branch first)
+alias vimodb='vim $(git diff --name-only develop)'
 # find out our external IP
 alias externalip='dig +short myip.opendns.com @resolver1.opendns.com'
 # find files that were modified today
@@ -154,7 +160,9 @@ alias today='find . -type f -daystart -mtime 0 2>/dev/null'
 alias yesterday='find -daystart -type f -mtime 1 2>/dev/null'
 # find out which computers/routers/devices are active on our LAN:
 alias whatsup='sudo nmap -sP 192.168.1.1/24 | perl -pe "s/^Host.*/\e[1;31m$&\e[0m/g"'
-alias get='git fetch&&git pull&&git lol|head'
+alias get='git pull&&git lol|head'
+# open current repo in browser. Requires the remote to be a real url, e.g., https github url
+alias grem='git remote -v | awk "/origin.*push/ {print \$2}" | xargs open'
 # Make my diff-so-fancy alias even shorter
 alias dsf='git dsf'
 alias gpod='git pull origin develop'
@@ -166,7 +174,7 @@ alias gdc='git diff --cached --word-diff'
 alias gst='git status'
 alias pj='prettyjson'
 # Node.js
-alias nag='ag --js --ignore-dir=node_modules'
+alias nag='ag --js --ts --ignore-dir=node_modules'
 # Docker
 alias dcu='docker-compose up'
 alias dcd='docker-compose down'
@@ -175,7 +183,7 @@ alias dcp='docker-compose pull'
 alias dcps='docker-compose ps'
 alias dps='docker ps | less -S' # so we can see wide output not wrap
 alias dpsa='docker ps -a | less -S' # so we can see wide output not wrap
-# tmux 
+# tmux
 alias tms='tmux new -s '
 alias tma='tmux attach -t '
 alias tm='tmux'
@@ -187,7 +195,12 @@ alias ag='ag -s --path-to-ignore ~/.ignore'
 # package.json and package-lock.json, etc.  Sort's in reverse, using
 # glob  qualifier (On), so package.json opens in buffer first.
 function vg () {
-    vim *${1}*(On) 
+    vim *${1}*(On)
+}
+
+# Like my `vg` command but uses fd and works in subdirs. Even better.
+function vfd () {
+    vim $(fd $1)
 }
 
 # nnn (brew install nnn)
@@ -214,6 +227,11 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 # Edit command in vim by typing ^o:
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^o' edit-command-line
+
+# cd to a subdir without typing full relative path
+s() {
+    cd **/$1(D)
+}
 
 # Lets me cd to the real location of a symlink
 # Examples: $ rcd ~/repos (if ~/.repos/ is a symlink)
@@ -246,7 +264,7 @@ fshow() {
   fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
       --bind "ctrl-m:execute:
                 (grep -o '[a-f0-9]\{7\}' | head -1 |
-                xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
+                xargs -I % sh -c 'git show --color=never % | vim -') << 'FZF-EOF'
                 {}
 FZF-EOF"
 }
@@ -257,7 +275,7 @@ function gtree {
     ignore="$(grep -hvE '^$|^#' "${ignore_files[@]}" 2>/dev/null|sed 's:/$::'|tr '\n' '\|')"
     if git status &> /dev/null && [[ -n "${ignore}" ]]; then
       tree -I "${ignore}" "${@}" -CF
-    else 
+    else
       tree "${@}" -CF
     fi
 }
@@ -292,11 +310,15 @@ esac
 # misc
 eval "$(pyenv init -)"
 
+# AWS
+# OPT out of SAM CLI collecting telemetry data
+SAM_CLI_TELEMETRY=0
+
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/rkulla/opt/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/rkulla/opt/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f "$HOME/opt/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/opt/google-cloud-sdk/path.zsh.inc"; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/rkulla/opt/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/rkulla/opt/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f "$HOME/opt/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/opt/google-cloud-sdk/completion.zsh.inc"; fi
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

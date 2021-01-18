@@ -31,19 +31,14 @@ https://github.com/Xuyuanp/nerdtree-git-plugin
 https://github.com/tiagofumo/vim-nerdtree-syntax-highlight
 https://github.com/ryanoasis/vim-devicons
 
-# Linting
-https://github.com/w0rp/ale
-https://github.com/scrooloose/syntastic
-
 # VCS
 https://github.com/vim-scripts/vcscommand.vim
 https://github.com/tpope/vim-git
 https://github.com/tpope/vim-fugitive
 https://github.com/tpope/vim-rhubarb
 
-# JavaScript
+# JavaScript / JSON
 https://github.com/moll/vim-node
-https://github.com/prettier/vim-prettier
 https://github.com/heavenshell/vim-jsdoc
 https://github.com/mogelbrod/vim-jsonpath
 

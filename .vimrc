@@ -1,34 +1,25 @@
 " Ryan's vimrc
 
 " Stuff that has to run _before_ plugins are loaded
-" Make it so ale plays well with coc. In :CocConfig add: "diagnostic.displayByAle": true
-"  https://github.com/dense-analysis/ale#5iii-how-can-i-use-ale-and-cocnvim-together
-let g:ale_disable_lsp = 1
 
 " Put first to ensure pathogen will work
 if has("gui_running")                               " list plugins to disable if GUI Vim is running
   let g:pathogen_disabled = []
   call add(g:pathogen_disabled, 'coc')
 endif
-execute pathogen#infect() 
-
-let mapleader = ","                                 " remap <Leader> to comma so you can do: ,s instead of \s, etc.
-
-if has("unix")
-    set ttymouse=xterm2                             " Make mouse work right in putty/gnu screen, etc.
-endif
-set mouse=a                                         " Make mouse work right in terminals like putty and in all modes
+execute pathogen#infect()
 
 let g:loaded_matchit = 1
 let g:matchup_matchparen_offscreen = { 'method': 'popup', 'scrolloff': 1 }
 
+let mapleader = ","                                 " remap <Leader> to comma so you can do: ,s instead of \s, etc.
 set dir=~/.vim/swp                                  " My .swp file location
 set nocompatible                                    " Prevent unexpected things your distro might make
 set clipboard+=unnamed                              " So y to yank text goes to system clipboard, in tmux or otherwise
 set ffs=unix,dos,mac                                " Auto-detect the filetype based off newlines used.
 set history=50                                      " Keep 50 lines of command line history
 set ruler                                           " Show the cursor position all the time
-set showcmd                                         " Display incomplete commands
+set showcmd                                         " Show partial vim commands in the last line of the screen
 set incsearch                                       " Do incremental searching
 set shortmess=filnxtToOc                            " Don't add S or you won't see search counts in status, e.g., [1/2]
 set backspace=indent,eol,start                      " Allow backspacing over everything in insert mode
@@ -40,8 +31,7 @@ set nobackup                                        " I don't like it triggering
 set number                                          " Enable line numbers by default
 set nostartofline                                   " So cursor doesn't jump to beginning of line when you G, GG, ^F, etc
 set confirm                                         " So :q, :bd, etc. on a changed file popups a 'save file?' confirm box
-set fo=t                                            " I don't want the format options that auto create comments 
-set showcmd                                         " Show partial vim commands in the last line of the screen
+set fo=t                                            " I don't want the format options that auto create comments
 set enc=utf-8                                       " Causes fencs to default to ucs-bom,utf-8,default,latin1
 set pastetoggle=<F3>                                " Useful when normal pasting doesn't work
 
@@ -61,7 +51,7 @@ else
 endif
 
 " Rename the current file with :Rename <new_name>
-command! -nargs=1 -complete=dir Rename saveas <args> | call delete(expand("#")) 
+command! -nargs=1 -complete=dir Rename saveas <args> | call delete(expand("#"))
 
 " Run the omni-completion by typing ,tab
 imap <Leader><TAB> <C-X><C-O>
@@ -92,7 +82,7 @@ nmap <Leader>qq :q<CR>
 " Don't use Ex mode, use Q for formatting
 map Q gq
 " So I can just type X to do the same thing as :q (prompt to save changes first)
-if has("gui_running") 
+if has("gui_running")
   " Do :bw instead in a gui since I use tabs there
   nmap X :bw<CR>
 else
@@ -115,16 +105,13 @@ map <F10> :windo set scrollbind!<CR>
 map <Leader>n :set invnumber<CR>
 
 " Use Ctrl+n and Ctrl+p to go forward or backward through buffers.
-nmap <C-n> :bn<CR> 
-nmap <C-p> :bp<CR> 
+nmap <C-n> :bn<CR>
+nmap <C-p> :bp<CR>
 
 " Force file to be saved when ctrl+s is hit in command or insert mode.
 " put "stty -ixon" in your shell rc for this to work in unix.
 imap <C-s> <C-o>:update!<CR>
 nmap <C-s> :update!<CR>
-
-" So you can underline any line of text you are on with dashes
-nmap <Leader>u :call append(line("."), repeat("-", len(getline("."))))<CR>
 
 " Automatically select the last text that was pasted
 nmap <Leader>sp `[v`]
@@ -143,7 +130,7 @@ nnoremap <Leader>( 0%ci(
 """ Abbreviations (misc)
 iab teh      the
 iab loremx   lorem ipsum quia dolor sit amet consectetur adipisci velit, sed quia non numquam eius modi tempora incidunt.
-iab fbbq     foo bar baz quux spam eggs
+iab fbbq     foo bar baz qux quux spam eggs
 
 ""
 "" Indentation
@@ -156,7 +143,7 @@ set sw=4                                            " When auto-indenting, appea
 set shiftround                                      " So > and < indenting keys snap to value of sw
 " So txt files don't use shiftround (so i can paste code snippets and indent them properly)
 au BufNewFile,BufRead,BufEnter *.txt set noshiftround
-set autoindent " Make indents always from the start of the line above. Beats :set cindent 
+set autoindent " Make indents always from the start of the line above. Beats :set cindent
 if has("autocmd")
   " Enable file type detection. Use the default filetype settings. 'cindent' on C files, etc.
   " Also load indent files, to automatically do language-dependent indenting.
@@ -170,10 +157,9 @@ if has("autocmd")
     \   exe "normal g`\"" |
     \ endif
   augroup END
-endif 
+endif
 
 """ Terminal window
-set termwinsize=10x0
 " So ,tb opens a terminal at the bottom in its own window
 nnoremap <leader>tb :below term<CR>
 " So ,ta opens a terminal at the top in its own window
@@ -186,8 +172,16 @@ let g:qf_mapping_ack_style=1
 " so typing ,mn creates a mark N and highlights line. Clear with :match
 nnoremap <silent> <Leader>mn mN:execute 'match Search /\%'.line('.').'l/'<CR>
 
-""" vim-fugitive
+""
+"" VCS / Git (note: other maps are in the coc section)
+""
+
 nnoremap gst :Gstatus<CR>
+" Tooltips to show commit message and git blame of cursor position
+" Uses ~/.vim/autoload/git.vim
+noremap <silent> <Leader>gc :call git#show_commit(v:count)<CR>
+noremap <silent> <Leader>gb :call git#blame()<CR>
+
 
 ""
 "" Statusline
@@ -203,9 +197,9 @@ function! CocGitStat()
 
         " if window is too narrow truncate even further
         let winwid = winwidth(0)
-        if winwid <= 79 
+        if winwid <= 79
             let status = ccount > 10 ? status[0:20] . '…' : status
-        elseif winwid >= 80 && winwid <= 89 
+        elseif winwid >= 80 && winwid <= 89
             let status = ccount > 23 ? status[0:33] . '…' : status
         elseif winwid >= 90 && winwid <= 100
             let status = ccount > 30 ? status[0:40] . '…' : status
@@ -225,7 +219,7 @@ set statusline+=%l:%c%V\  " line number, column number/virtual column number
 set statusline+=%o\ \\|\  " byte number of current char
 set statusline+=%{!empty(&fenc)?&enc:'none'},%{&fileformat}\ " encoding, format
 
-" Function to add to 'set statusline', via %{StatuslineMultiFileFlag()} above, 
+" Function to add to 'set statusline', via %{StatuslineMultiFileFlag()} above,
 " to see how many buffers are currently open without having to type ':ls'
 autocmd bufadd,bufdelete * unlet! g:statusline_multi_file_flag
 function! StatuslineMultiFileFlag()
@@ -251,8 +245,8 @@ endfunction
 ""Color Schemes and highlighting
 ""
 
-" Setting termguicolors means we'll use guifg/guibg not cterm and 
-" since some colorschemes reference &termguicolors and not set any 
+" Setting termguicolors means we'll use guifg/guibg not cterm and
+" since some colorschemes reference &termguicolors and not set any
 " gui* colors, we'll set it before calling a color scheme.
 if $TERM !~ 'rxvt\|linux' && (has("termguicolors"))
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
@@ -265,7 +259,9 @@ endif
 func! s:MyHighlights() abort
     set termguicolors
     " change the color of the current line number
-    set cul | hi CursorLine ctermbg=NONE guibg=NONE | hi CursorLineNr ctermfg=0 guifg=black guibg=NONE
+    set cul | hi CursorLine ctermbg=NONE guibg=NONE | hi CursorLineNr ctermfg=0 guifg=#819090 guibg=NONE
+    " To still see coc-tsserver auto-highlight all references under cursor
+    hi cursorColumn guifg=NONE guibg=#ebdbb2
     " Make line numbers italic (see my terminfo notes for enabling on MacOS)
     hi LineNr cterm=italic
 endfunc
@@ -286,7 +282,7 @@ function! Light()
 endfunction
 command! -nargs=0 Light call Light()
 
-" Enable on rainbow brackets 
+" Enable on rainbow brackets
 let g:rainbow_active=1
 
 " Switch syntax highlighting on, when the terminal has colors
@@ -297,11 +293,11 @@ if &t_Co > 2 || has("gui_running")
 endif
 
 " Make it so you can identify color group names of item under cursor by pressing ,$
-nmap <silent> <Leader>$ :echo 'hi<' . 
-        \ synIDattr(synID(line('.'), col('.'), 1), 'name') . 
-        \ '> trans<' . synIDattr(synID(line('.'), col('.'), 0), 'name') . 
-        \ '> lo<' . synIDattr(synIDtrans(synID(line('.'), col('.'), 1)), 'name') . 
-        \ '>'<CR> 
+nmap <silent> <Leader>$ :echo 'hi<' .
+        \ synIDattr(synID(line('.'), col('.'), 1), 'name') .
+        \ '> trans<' . synIDattr(synID(line('.'), col('.'), 0), 'name') .
+        \ '> lo<' . synIDattr(synIDtrans(synID(line('.'), col('.'), 1)), 'name') .
+        \ '>'<CR>
 
 """ fzf
 set rtp+=/usr/local/opt/fzf
@@ -336,7 +332,7 @@ autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
 autocmd FileType go nmap <Leader>cb :GoCoverageBrowser<CR>
 au FileType go nmap <Leader>gd <Plug>(go-doc)
 au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
-au FileType go nmap <Leader>gB <Plug>(go-doc-browser)
+au FileType go nmap <Leader>gdb <Plug>(go-doc-browser)
 au FileType go nmap <Leader>s <Plug>(go-implements)
 au FileType go nmap <Leader>i <Plug>(go-info)
 au FileType go nmap <Leader>e <Plug>(go-rename)
@@ -394,20 +390,6 @@ function! ToggleSyntaxFolding()
     endif
 endfunction
 
-""" Ale / eslint
-let g:ale_linters_explicit = 1
-let g:ale_linters = {
-\   'javascript': ['eslint'],
-\}
-
-" So :ALEFix will auto fix eslint errors
-let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'javascript': ['eslint'],
-\}
-
-
-
 """ Quickfix window
 " So after typing something like :0Gclog, I can scroll load the next or prev result while not being focused on the
 " qf window and maintain my cursor position in the file
@@ -417,30 +399,25 @@ nnoremap [q :let ws = winsaveview() <bar> cprev <bar> call winrestview(ws) <bar>
 " So ,il enables :IndentLines-like vertical lines on tabs. (Toggle on/off from there with :set list!)
 nnoremap <leader>il :set list lcs=tab:<bslash><bar><bslash><space><bar>hi SpecialKey ctermbg=NONE ctermfg=gray<cr>
 
-""" vim-prettier
-" TODO: use the new built-in toggle https://github.com/prettier/vim-prettier/issues/170
-let g:prettier#config#print_width = 140  " default is to wrap at 80 chars
-" Toggle vim-prettier auto formatting with <Leader>pr
-nnoremap <leader>pr :call TogglePrettier()<cr>
-" uncomment the next 2 lines to enable autoformatting by default
-"let g:prettier#autoformat=0 
-"autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
-function! TogglePrettier()
-    if g:prettier#autoformat
-        let g:prettier#autoformat=0
-        autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
-    else
-        let g:prettier#autoformat=1
-        autocmd! BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html call clearmatches()
-    endif
-endfunction
-
 """ Jest
 " Make it so typing ,jt runs jest on the current file
-nnoremap <leader>jt :Dispatch npx jest --coverage %<cr>
-" Make it so typing ,jt or :Jest runs all jest tests
-nnoremap <leader>ja :Dispatch npx jest --coverage<cr>
-command Jest Dispatch npx jest --coverage --verbose
+" I use make instead of vim-dispatch because dispatch's tmux adapter strips
+" colors and it's just not worth seeing tests run slower and in a split
+" window, autoclose the window, etc.
+" Just clear the quickfix window with my ctrl+l map after returning to vim or
+" use --no-colors but I prefer colors.
+set makeprg=npx\ jest\ --colors
+nnoremap <leader>jt :make %<cr>
+" However, running jest in vim isn't usually worth it. Instead use my ,fp map to
+" copy the file path to the clip board and paste to jest on the cli
+
+""" Copying currently open file(s) to the clipboard
+nnoremap <leader>fp :let @+ = @%<cr>
+" Copy just the filename without the directory path
+nnoremap <leader>fn :let @+ = expand('%:t')<cr>
+" Copy all the currently open files to copy/paste to reopen vim without :mks
+nnoremap <leader>fl :let @+ = join(map(split(execute('ls'),"\n"),{_,x->split(x,'"')[1]}))<cr>
+
 
 """ vim-slime
 let g:slime_target = "tmux"
@@ -471,6 +448,9 @@ map <leader>o :call HandleURL()<cr>
 " So typing :Dispatch on an html file opens it in the web browser
 autocmd FileType html let b:dispatch = 'open %'
 
+" So in visual mode you can do a multiline html comment <!-- -->
+vnoremap <Leader>! <Esc>'<lt>O<!--<ESC>'>o--><ESC>
+
 ""
 "" PHP
 ""
@@ -480,38 +460,32 @@ au BufNew,BufRead,BufEnter *.php set textwidth=80 fo=t sw=4 ts=4
 " or put 'set fo+=t' in .vim/after/indent/php.vim for tw to break the line
 
 " phpcomplete completion:
-autocmd FileType php set omnifunc=phpcomplete 
+autocmd FileType php set omnifunc=phpcomplete
 
-" Make it so php files are also seen as html
+" So php files are also seen as html
 au BufRead,BufNewFile *.php set filetype=php.html
 
 " PHPUnit
-" Make it so typing ":Test" will run phpunit on the current file, with good options
+" So typing ":Test" will run phpunit on the current file, with good options
 au FileType php com! Test :!phpunit --verbose --colors %
 au FileType php nmap <Leader>tv :!phpunit --verbose --colors %<CR>
 au FileType php nmap <Leader>te :!phpunit --testdox %<CR>
 
-" Make it so you can find all variables/objects that start with $ on the page
+" So you can find all variables/objects that start with $ on the page
 nmap <Leader>fv /$[a-zA-Z_][^ \t\]()?;]*<CR>
-
-" Make it so you can automatically var_dump() a variable
-"nmap <Leader>vv 0i<Space><Esc>0f$yeuovar_dump(<C-r>");<Esc>
-" Make it so you can just type 'vd' in insert mode to type var_dump()
-"imap vd var_dump();<Esc>hi
-" Make it so you can auto wrap a var_dump around a function that's on its own line do (requires surround.vim)
-"nmap <Leader>vf yssfvar_dump<Esc>f;xa;<Esc>
-" My snipmate snippets files have more stuff
-" Make it so you can run the current script through the php linter to check for syntax errors
-"autocmd FileType php map <Leader>l :w<CR>:!php -l %<CR>
-" Make it so in visual mode  you can do a multiline /* */. (Use the gcc plugin for everything else)
+" To var_dump() a variable
+au FileType php nmap <Leader>vv 0i<Space><Esc>0f$yeuovar_dump(<C-r>");<Esc>
+" To wrap a var_dump around a function that's on its own line do (requires surround.vim)
+au FileType php nmap <Leader>vf yssfvar_dump<Esc>f;xa;<Esc>
+" To run the current script through the php linter to check for syntax errors
+au FileType php map <Leader>l :w<CR>:!php -l %<CR>
+" In visual mode, do a multiline /* */.
 vnoremap <Leader>c <Esc>'<lt>O/*<ESC>'>o*/<ESC>
-" Make it so in visual mode you can do a multiline html comment <!-- -->
-vnoremap <Leader>! <Esc>'<lt>O<!--<ESC>'>o--><ESC>
-" Make it so in visual mode you can do a multiline php-html comment <?php /* */ ?>
-"useful when you don't want your html comment content viewable in browser
-"vnoremap <Leader>!! <Esc>'<lt>O<?php /*<ESC>'>o*/?><ESC>
-" Make it so you can put inline php tags around the current line
-"nmap <Leader>? I<?php <Esc>A ?>
+" In visual mode, do a multiline php-html comment <?php /* */ ?>
+" (useful when you don't want your html comment content viewable in browser)
+au FileType php vnoremap <Leader>!! <Esc>'<lt>O<?php /*<ESC>'>o*/?><ESC>
+" To put inline php tags around the current line
+au FileType php nmap <Leader>? I<?php <Esc>A ?>
 
 " Time and date insertion mappings. Super convenient!
 noremap! <expr> ,t strftime("%H:%M")  " e.g., 11:25
@@ -527,13 +501,13 @@ noremap! <expr> ,tf
 nmap <Leader>et i<C-R>=strftime('%m/%d/%Y %I:%M %p')<Esc>
 
 """ Grep
-" Use ag for :grep in vim, eg ':grep -i --py foo' 
+" Use ag for :grep in vim, eg ':grep -i --py foo'
 " Use ":grep!" to avoid opening files.
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
 endif
 
-""" :Sex 
+""" :Sex
 " Make :Sex window take up most of the screen so you can see more files at once
 let g:netrw_winsize=35
 " Sort case-insensitively (so Program Files appears next to pf, etc)
@@ -561,7 +535,7 @@ if has('unix') && has('gui')
     " Type: ":set gfn=<tab>" which will fill in the current font so you can
     " just change the size or gfn=* to open a font dialog.
     " Note that iTerm2's font will override the MacVim CLI vim I use. So in my
-    " iTerm2 profile set a good font like Hack Nerd Font. 
+    " iTerm2 profile set a good font like Hack Nerd Font.
     if system('uname')=~'Darwin'
       " All vims, including Gvim and Macvim, only support Monospaced Fonts.
       " I use MacVim GUI for reading text files, so use Monaco
@@ -582,13 +556,6 @@ set go-=R "no right hand scrollbar when windows are split vertically
 set go-=L "no left hand scrollbar when windows are split vertically
 set go-=b "no bottom (horizontal) scrollbar present
 
-""" Split windows
-" Make it so ,H resizes a split vertical window to be larger. ,L for smaller, etc.
-nmap <Leader>H :vertical res -5<CR>
-nmap <Leader>L :vertical res +5<CR>
-nmap <Leader>K :res -5<CR>
-nmap <Leader>J :res +5<CR>
-
 """ Menus
 " allow a console based menu system by hitting F4:
 source $VIMRUNTIME/menu.vim
@@ -598,30 +565,47 @@ set wcm=<C-Z>
 map <F4> :emenu <C-Z>
 
 """ NERDTree
-" auto-start NerdTree when you run vim with no command line arguments 
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" auto-start NerdTree when you run vim with no command line arguments
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " make ctrl+e start NerdTree if it's closed, and again will toggle it off.
 nmap <C-e> :NERDTreeToggle<CR>
 " ignore the following diretories and files
-let NERDTreeIgnore = ['node_modules', 'coverage', '\.git$', '\.yardoc', 'jsdoc', 'tags.*', 'log', 'tmp$', '\.DS_Store$', '\.so$', '\.date$', '\.pyc$']
+let NERDTreeIgnore = ['node_modules', 'coverage', '\.git$', '\.yardoc', 'jsdoc', 'tags.*', 'log', '\.DS_Store$', '\.so$', '\.date$', '\.pyc$']
 " Make it so ,nf loads the current file i'm on in nerdtree
 nnoremap <silent> <Leader>nf :NERDTreeFind<CR>
 " get rid of crap at the top
 let NERDTreeMinimalUI = 1
 
-" Let's you close the current file by typing :Clear w/o closing the split window and starts a new file
-com! Clear :enew <bar> bdel # 
-" Let's you close the current file by typing F2 w/o closing the split window then jumps to the next file
+" Mouse  (Make sure to enable "Mouse Reporting" in iTerm2 profiles
+" For dragging split windows or double-clicking files in NerdTree
+if exists("+mouse")
+    set mouse=a
+    set ttymouse=sgr
+endif
+
+""
+"" Split windows
+""
+
+" So ,H resizes a split vertical window to be smaller. ,L for larger, etc. ,K for smaller horizontal, ,J for larger horizontal
+nmap <Leader>H :vertical res -5<CR>
+nmap <Leader>L :vertical res +5<CR>
+nmap <Leader>K :res -5<CR>
+nmap <Leader>J :res +5<CR>
+
+" Close the current file by typing :Clear w/o closing the split window and starts a new file
+com! Clear :enew <bar> bdel #
+" Close the current file by typing F2 w/o closing the split window then jumps to the next file
 nmap <F2> :bn <bar> bd #<CR>
-" Make it so Wh moves to the window to the left and Wl moves to the right, etc.
+" So Wh moves to the window to the left and Wl moves to the right, etc.
 " Note that ^ww already toggles between split windows
 nmap Wh <C-w>h
 nmap Wl <C-w>l
 nmap Wk <C-w>k
 nmap Wj <C-w>j
 
-"" 
+""
 "" My custom .txt notes format settings
 ""
 set foldenable
@@ -644,6 +628,9 @@ if has("autocmd")
     augroup END
 endif
 
+" So you can underline any line of text you are on with dashes
+nmap <Leader>u :call append(line("."), repeat("-", len(getline("."))))<CR>
+
 " So ,<space> Moves all text behind cursor one space forward (w/o moving text in front),
 " useful for aligning text to the cursor position
 nmap <Leader><Space> d0p
@@ -657,6 +644,22 @@ function! BegSearch(strtofind)
   call search(a:strtofind.'\%<31c')
 endfunction
 command! -nargs=1 Beg call BegSearch(<f-args>)
+
+""" So hitting <enter> on filename jump to the pattern after # comment:
+" For example: Hitting enter on the following line jumps to foo.txt's line
+" containing bar:
+"   foo.txt # bar
+" Make sure to hit enter on the filename itself. Also allows gf to still work.
+function! GotoPattern() abort
+  let file = expand('<cfile>')
+  if ! getline('.') =~ '/'..file..'\s\+#\s+'..'/'
+    return execute('normal gf')
+  endif
+  let pattern = split(substitute(getline('.'),'.*#\s*','',''),' ')[0]
+  return execute('vimgrep ' .. pattern .. ' ' .. file)
+endfunction
+
+nnoremap <enter> <cmd>call GotoPattern()<cr>
 
 """ Misc folding settings
 " To toggle '#' comments as folds (useful for config files and ruby/python/bash especially)
@@ -673,14 +676,14 @@ nmap <Leader>fs :set foldmethod=syntax<CR>
 " Make it so ,fc folds the // style comments
 nmap <Leader>fc :set foldmethod=expr foldexpr=getline(v:lnum)=~'^\\s*//'<CR>
 
-""" DBext 
+""" DBext
 " Kata profiles.  Uses ~/.pgpass for password
 let g:dbext_default_profile_kata_PG = 'type=PGSQL:user=dev_db_user:dbname=kata'
 let g:dbext_default_profile_kata_MYSQL = 'type=MYSQL:user=dev_db_user:passwd=p4ssw0rd:dbname=kata'
 
 """ Automatically leave insert mode after 'updatetime' milliseconds of inaction
 au CursorHoldI * stopinsert
-au InsertEnter * let updaterestore=&updatetime | set updatetime=15000
+au InsertEnter * let updaterestore=&updatetime | set updatetime=90000
 au InsertLeave * let &updatetime=updaterestore
 
 " indentLine plugin config
@@ -831,6 +834,6 @@ nmap gn <Plug>(coc-git-nextchunk)
 nmap gp <Plug>(coc-git-prevchunk)
 " fold all unchanged parts of the file so you can just see modifications
 nmap <Leader>gu :CocCommand git.foldUnchanged<CR>
-" Show branches in fuzzyfinder to switch branches by typing ,gb
-nmap <Leader>gb :CocList branches<CR>
+" Show branches in fuzzyfinder to switch branches by typing ,gB
+nmap <Leader>gB :CocList branches<CR>
 endif

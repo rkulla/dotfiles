@@ -33,9 +33,11 @@
     logp = log -p # shows actual code that changed, all the way to beginning. Add -1 for last commit, last -2 for 2 commits, etc.
 	lol = log --pretty=format:\"%C(yellow)%h%d%Creset %s - %an [%ar]\"
     # like git lol but for current branch only
-    lolb = log --pretty=format:\"%C(yellow)%h%d%Creset %s - %an [%ar]\" --no-merges master..
+    lolb = log --pretty=format:\"%C(yellow)%h%d%Creset %s - %an [%ar]\" --no-merges develop..
     # like git lol but show graph
     lolgraph = "log --graph --decorate --pretty=oneline --abbrev-commit --all"
+    # show author. Add --all (to see all branches). Add --first-parent to make more concise
+    lolgraphbest = "log --graph --pretty=format:'%C(auto)%h %C(green)%an %Cblue%ar%Creset%C(auto)%d %s %Creset' --author-date-order --decorate=short"
     # GREAT command for figuring out what you or your team last changed and getting filenames easily
     # also use the awesome 'git changed --remotes' command to see remote branch changes too!
 	changed = log --pretty=format:\"%C(yellow)%h%d%Creset %s - %an [%ar]\" --name-only
@@ -88,9 +90,10 @@
 [credential]
 	helper = osxkeychain
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
 	required = true
+	process = git-lfs filter-process
 [mergetool]
 	keepBackup = false
 [pull]

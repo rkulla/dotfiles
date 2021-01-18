@@ -1,8 +1,8 @@
 {
   "tsserver.npm": "/usr/local/bin/npm",
-  "javascript.validate.enable": false,
-  "typescript.validate.enable": false,
-  "diagnostic.displayByAle": true,
+  "javascript.validate.enable": true,
+  "typescript.validate.enable": true,
   "javascript.suggestionActions.enabled": false,
-  "typescript.suggestionActions.enabled": false
+  "typescript.suggestionActions.enabled": false,
+  "eslint.autoFixOnSave": true
 }

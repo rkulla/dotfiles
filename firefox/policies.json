@@ -1,0 +1,11 @@
+{
+	"policies": {
+		"Homepage": {
+			"URL": "https://www.duckduckgo.com/",
+			"Locked": true,
+			"StartPage": "homepage"
+		},
+		"NewTabPage": false,
+		"OfferToSaveLogins": false
+	}
+}

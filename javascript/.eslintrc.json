@@ -1,0 +1,50 @@
+{
+  "root": true,
+  "extends": [
+    "airbnb-base"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "script"
+  },
+  "env": {
+    "es2020": true,
+    "node": true
+  },
+  "rules": {
+    "strict": [
+      "error",
+      "global"
+    ],
+    "no-console": "off",
+    "max-len": [
+      1,
+      {
+        "code": 130
+      }
+    ],
+    "semi": [
+      "error",
+      "always"
+    ],
+    "no-use-before-define": [
+      "error",
+      {
+        "functions": false,
+        "classes": false
+      }
+    ],
+    "no-restricted-syntax": [
+      "error",
+      "ForInStatement",
+      "LabeledStatement",
+      "WithStatement"
+    ],
+    "no-plusplus": [
+      "error",
+      {
+        "allowForLoopAfterthoughts": true
+      }
+    ]
+  }
+}

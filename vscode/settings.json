@@ -1,0 +1,55 @@
+{
+    "window.zoomLevel": 5,
+    "editor.minimap.enabled": false,
+    "editor.fontFamily": "Hack Nerd Font",
+    "editor.fontLigatures": true,
+    "terminal.integrated.fontFamily": "Hack Nerd Font Mono",
+    "editor.formatOnSave": true,
+    "editor.cursorBlinking": "smooth",
+    "editor.formatOnPaste": true,
+    "workbench.editor.highlightModifiedTabs": true,
+    "files.trimFinalNewlines": true,
+    "editor.acceptSuggestionOnEnter": "off",
+    "settings.cycle": [
+        {
+            "id": "lineNumbers",
+            "values": [
+                {
+                    "editor.lineNumbers": "off",
+                    "editor.folding": false,
+                    "editor.glyphMargin": false
+                },
+                {
+                    "editor.lineNumbers": "on",
+                    "editor.folding": true,
+                    "editor.glyphMargin": true
+                }
+            ]
+        }
+    ],
+    "vim.leader": ",",
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        },
+        {
+            "before": [
+                ";",
+                ";"
+            ],
+            "after": [
+                "<C-w>"
+            ]
+        }
+    ]
+}
