@@ -123,9 +123,6 @@ nmap <C-p> :bp<CR>
 imap <C-s> <C-o>:update!<CR>
 nmap <C-s> :update!<CR>
 
-" So you can underline any line of text you are on with dashes
-nmap <Leader>u :call append(line("."), repeat("-", len(getline("."))))<CR>
-
 " Automatically select the last text that was pasted
 nmap <Leader>sp `[v`]
 
@@ -643,6 +640,9 @@ if has("autocmd")
     autocmd BufRead,BufNewFile *.txt setlocal foldmethod=expr foldexpr=FoldExpr(v:lnum)
     augroup END
 endif
+
+" So you can underline any line of text you are on with dashes
+nmap <Leader>u :call append(line("."), repeat("-", len(getline("."))))<CR>
 
 " So ,<space> Moves all text behind cursor one space forward (w/o moving text in front),
 " useful for aligning text to the cursor position
