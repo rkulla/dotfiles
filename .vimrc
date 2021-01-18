@@ -39,6 +39,8 @@ set path+=** " Allow :find, :tabf, etc to search the current directory and its s
 set hidden " Allow you to change buffers without having to save modified ones first
 set ignorecase " Allow case-insensitive /searching
 set spelllang=en_us
+set spellfile=$HOME/.vim/spell/en.utf-8.add
+autocmd BufRead,BufNewFile *.txt,*.md setlocal spell
 set timeoutlen=1000 ttimeoutlen=0 " Make Esc key a lot faster, e.g., closing fzf
 set nobackup " I don't like it triggering my file system watchers
 set number " enable line numbers by default
