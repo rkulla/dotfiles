@@ -468,6 +468,9 @@ map <leader>o :call HandleURL()<cr>
 " So typing :Dispatch on an html file opens it in the web browser
 autocmd FileType html let b:dispatch = 'open %'
 
+" So in visual mode you can do a multiline html comment <!-- -->
+vnoremap <Leader>! <Esc>'<lt>O<!--<ESC>'>o--><ESC>
+
 ""
 "" PHP
 ""
@@ -479,36 +482,30 @@ au BufNew,BufRead,BufEnter *.php set textwidth=80 fo=t sw=4 ts=4
 " phpcomplete completion:
 autocmd FileType php set omnifunc=phpcomplete 
 
-" Make it so php files are also seen as html
+" So php files are also seen as html
 au BufRead,BufNewFile *.php set filetype=php.html
 
 " PHPUnit
-" Make it so typing ":Test" will run phpunit on the current file, with good options
+" So typing ":Test" will run phpunit on the current file, with good options
 au FileType php com! Test :!phpunit --verbose --colors %
 au FileType php nmap <Leader>tv :!phpunit --verbose --colors %<CR>
 au FileType php nmap <Leader>te :!phpunit --testdox %<CR>
 
-" Make it so you can find all variables/objects that start with $ on the page
+" So you can find all variables/objects that start with $ on the page
 nmap <Leader>fv /$[a-zA-Z_][^ \t\]()?;]*<CR>
-
-" Make it so you can automatically var_dump() a variable
-"nmap <Leader>vv 0i<Space><Esc>0f$yeuovar_dump(<C-r>");<Esc>
-" Make it so you can just type 'vd' in insert mode to type var_dump()
-"imap vd var_dump();<Esc>hi
-" Make it so you can auto wrap a var_dump around a function that's on its own line do (requires surround.vim)
-"nmap <Leader>vf yssfvar_dump<Esc>f;xa;<Esc>
-" My snipmate snippets files have more stuff
-" Make it so you can run the current script through the php linter to check for syntax errors
-"autocmd FileType php map <Leader>l :w<CR>:!php -l %<CR>
-" Make it so in visual mode  you can do a multiline /* */. (Use the gcc plugin for everything else)
+" To var_dump() a variable
+au FileType php nmap <Leader>vv 0i<Space><Esc>0f$yeuovar_dump(<C-r>");<Esc>
+" To wrap a var_dump around a function that's on its own line do (requires surround.vim)
+au FileType php nmap <Leader>vf yssfvar_dump<Esc>f;xa;<Esc>
+" To run the current script through the php linter to check for syntax errors
+au FileType php map <Leader>l :w<CR>:!php -l %<CR>
+" In visual mode, do a multiline /* */.
 vnoremap <Leader>c <Esc>'<lt>O/*<ESC>'>o*/<ESC>
-" Make it so in visual mode you can do a multiline html comment <!-- -->
-vnoremap <Leader>! <Esc>'<lt>O<!--<ESC>'>o--><ESC>
-" Make it so in visual mode you can do a multiline php-html comment <?php /* */ ?>
-"useful when you don't want your html comment content viewable in browser
-"vnoremap <Leader>!! <Esc>'<lt>O<?php /*<ESC>'>o*/?><ESC>
-" Make it so you can put inline php tags around the current line
-"nmap <Leader>? I<?php <Esc>A ?>
+" In visual mode, do a multiline php-html comment <?php /* */ ?>
+" (useful when you don't want your html comment content viewable in browser)
+au FileType php vnoremap <Leader>!! <Esc>'<lt>O<?php /*<ESC>'>o*/?><ESC>
+" To put inline php tags around the current line
+au FileType php nmap <Leader>? I<?php <Esc>A ?>
 
 " Time and date insertion mappings. Super convenient!
 noremap! <expr> ,t strftime("%H:%M")  " e.g., 11:25
