@@ -415,20 +415,17 @@ nnoremap [q :let ws = winsaveview() <bar> cprev <bar> call winrestview(ws) <bar>
 nnoremap <leader>il :set list lcs=tab:<bslash><bar><bslash><space><bar>hi SpecialKey ctermbg=NONE ctermfg=gray<cr>
 
 """ vim-prettier
-" TODO: use the new built-in toggle https://github.com/prettier/vim-prettier/issues/170
-let g:prettier#config#print_width = 140  " default is to wrap at 80 chars
+" auto-format by default: javascript, typescript, less, scss, css, json, graphql, markdown
+let g:prettier#autoformat = 1
+
 " Toggle vim-prettier auto formatting with <Leader>pr
 nnoremap <leader>pr :call TogglePrettier()<cr>
-" uncomment the next 2 lines to enable autoformatting by default
-"let g:prettier#autoformat=0 
-"autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+let g:prettier#autoformat_require_pragma = 0        " auto-format without needing pragmas
 function! TogglePrettier()
     if g:prettier#autoformat
         let g:prettier#autoformat=0
-        autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
     else
         let g:prettier#autoformat=1
-        autocmd! BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html call clearmatches()
     endif
 endfunction
 
