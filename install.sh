@@ -70,7 +70,7 @@ main() {
 
     # Post install commands
     # Install the CoC plugins I use
-    vim -c 'CocInstall -sync coc-tsserver coc-json coc-pyright coc-gocode coc-snippets coc-vimlsp coc-git|q'
+    vim -c 'CocInstall -sync coc-tsserver coc-json coc-pyright coc-gocode coc-snippets coc-vimlsp coc-git|qa!'
 }
 
 main
