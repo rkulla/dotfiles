@@ -67,6 +67,10 @@ main() {
     linkdot ".vimogen_repos" "$HOME"
     linkdot ".zprofile" "$HOME"
     linkdot ".zshrc" "$HOME"
+
+    # Post install commands
+    # Install the CoC plugins I use
+    vim -c 'CocInstall -sync coc-tsserver coc-json coc-pyright coc-gocode coc-snippets coc-vimlsp coc-git|q'
 }
 
 main
