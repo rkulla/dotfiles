@@ -87,10 +87,9 @@ bindkey "^[[B" down-line-or-beginning-search # Down
 
 # Set PATH, making sure Homebrew's path is first, e.g., for 
 # "brew install diffutils" to let use use gnu diff's --color), etc.
-PATH="/usr/local/bin:/Users/rkulla/bin:$PATH"
+PATH="/usr/local/bin:$HOME/bin:$PATH"
 # Have `ls` use gnu ls, not bsd ls. (First: brew install coreutils).
 PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-
 
 # Create a `take` command
 take () {
@@ -136,7 +135,7 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 # my code-snippets aliases
-alias cs='cd /Users/rkulla/repos/code-snippets/'
+alias cs='cd ~/repos/code-snippets/'
 # run the tree command with colorized output to piped programs and show / after dirs
 alias tt='tree -CF'
 alias tj='tree -CF -I "node_modules|lcov-report|coverage|jsdoc"'
@@ -293,10 +292,10 @@ esac
 eval "$(pyenv init -)"
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/rkulla/opt/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/rkulla/opt/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f "$HOME/opt/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/opt/google-cloud-sdk/path.zsh.inc"; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/rkulla/opt/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/rkulla/opt/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f "$HOME/opt/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/opt/google-cloud-sdk/completion.zsh.inc"; fi
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
