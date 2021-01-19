@@ -584,8 +584,8 @@ map <F4> :emenu <C-Z>
 
 """ NERDTree
 " auto-start NerdTree when you run vim with no command line arguments 
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " make ctrl+e start NerdTree if it's closed, and again will toggle it off.
 nmap <C-e> :NERDTreeToggle<CR>
 " ignore the following diretories and files
