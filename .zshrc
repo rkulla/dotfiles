@@ -217,7 +217,7 @@ autoload edit-command-line; zle -N edit-command-line
 bindkey '^o' edit-command-line
 
 # cd to a subdir without typing full relative path
-scd() {
+s() {
     cd **/$1(D)
 }
 
