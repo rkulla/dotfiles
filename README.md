@@ -30,6 +30,9 @@ Enable script to abbreviate and disambiguate the PWD in my prompt.
 
     $ cp zsh-site-functions/disambiguate /usr/local/share/zsh/site-functions/
 
+### Tmux
+Make sure to: brew install reattach-to-user-namespace
+
 #### Misc.
 Search PATH modifications in .zshrc and .zprofile `/PATH=\C` adjust accordingly.
 
