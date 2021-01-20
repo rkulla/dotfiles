@@ -216,6 +216,11 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^o' edit-command-line
 
+# cd to a subdir without typing full relative path
+scd() {
+    cd **/$1(D)
+}
+
 # Lets me cd to the real location of a symlink
 # Examples: $ rcd ~/repos (if ~/.repos/ is a symlink)
 #           # works on symlinked files, too:
