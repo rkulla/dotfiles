@@ -567,13 +567,6 @@ set go-=R "no right hand scrollbar when windows are split vertically
 set go-=L "no left hand scrollbar when windows are split vertically
 set go-=b "no bottom (horizontal) scrollbar present
 
-""" Split windows
-" Make it so ,H resizes a split vertical window to be larger. ,L for smaller, etc.
-nmap <Leader>H :vertical res -5<CR>
-nmap <Leader>L :vertical res +5<CR>
-nmap <Leader>K :res -5<CR>
-nmap <Leader>J :res +5<CR>
-
 """ Menus
 " allow a console based menu system by hitting F4:
 source $VIMRUNTIME/menu.vim
@@ -595,11 +588,21 @@ nnoremap <silent> <Leader>nf :NERDTreeFind<CR>
 " get rid of crap at the top
 let NERDTreeMinimalUI = 1
 
-" Let's you close the current file by typing :Clear w/o closing the split window and starts a new file
+""
+"" Split windows
+""
+
+" So ,H resizes a split vertical window to be larger. ,L for smaller, etc.
+nmap <Leader>H :vertical res -5<CR>
+nmap <Leader>L :vertical res +5<CR>
+nmap <Leader>K :res -5<CR>
+nmap <Leader>J :res +5<CR>
+
+" Close the current file by typing :Clear w/o closing the split window and starts a new file
 com! Clear :enew <bar> bdel # 
-" Let's you close the current file by typing F2 w/o closing the split window then jumps to the next file
+" Close the current file by typing F2 w/o closing the split window then jumps to the next file
 nmap <F2> :bn <bar> bd #<CR>
-" Make it so Wh moves to the window to the left and Wl moves to the right, etc.
+" So Wh moves to the window to the left and Wl moves to the right, etc.
 " Note that ^ww already toggles between split windows
 nmap Wh <C-w>h
 nmap Wl <C-w>l
