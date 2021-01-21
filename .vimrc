@@ -588,11 +588,18 @@ nnoremap <silent> <Leader>nf :NERDTreeFind<CR>
 " get rid of crap at the top
 let NERDTreeMinimalUI = 1
 
+" Mouse  (Make sure to enable "Mouse Reporting" in iTerm2 profiles
+" For dragging split windows or double-clicking files in NerdTree
+if exists("+mouse")
+    set mouse=a
+    set ttymouse=sgr
+endif
+
 ""
 "" Split windows
 ""
 
-" So ,H resizes a split vertical window to be larger. ,L for smaller, etc.
+" So ,H resizes a split vertical window to be smaller. ,L for larger, etc. ,K for smaller horizontal, ,J for larger horizontal
 nmap <Leader>H :vertical res -5<CR>
 nmap <Leader>L :vertical res +5<CR>
 nmap <Leader>K :res -5<CR>
