@@ -19,6 +19,7 @@ linkdot() {
     mkdir -p "$HOME/.vim/bundle"
     mkdir -p "$HOME/.vim/swp"
     mkdir -p "$HOME/.local/share/fzf-history"
+    mkdir -p "$HOME/bin"
 
     # dest should always be the dir we're linking to, check if exists
     # If this message happens, add the dir to the mkdir section above.
@@ -68,9 +69,12 @@ main() {
     linkdot ".zprofile" "$HOME"
     linkdot ".zshrc" "$HOME"
 
+    # symlinks outside of root of $HOME
+    linkdot "$HOME/repos/vimogen/vimogen" "$HOME/bin"
+
     # Post install commands
     # Install the CoC plugins I use
-    vim -c 'CocInstall -sync coc-tsserver coc-json coc-pyright coc-gocode coc-snippets coc-vimlsp coc-git|qa!'
+    vim -c 'CocInstall -sync coc-tsserver coc-json coc-pyright coc-gocode coc-snippets coc-vimlsp coc-git coc-lists|qa!'
 }
 
 main
