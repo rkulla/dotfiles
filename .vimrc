@@ -177,8 +177,15 @@ let g:qf_mapping_ack_style=1
 " so typing ,mn creates a mark N and highlights line. Clear with :match
 nnoremap <silent> <Leader>mn mN:execute 'match Search /\%'.line('.').'l/'<CR>
 
+""
+"" VCS / Git (note: other maps are in the coc section)
+""
+
 """ vim-fugitive
 nnoremap gst :Gstatus<CR>
+
+" So ,gm shows commit under cursor in popup (like git-messenger plugin)
+nmap <silent><Leader>gm :call setbufvar(winbufnr(popup_atcursor(split(system("git log -n 1 -L " . line(".") . ",+1:" . expand("%:p")), "\n"), { "padding": [1,1,1,1], "pos": "botleft", "wrap": 0 })), "&filetype", "git")<CR>
 
 ""
 "" Statusline
