@@ -181,11 +181,12 @@ nnoremap <silent> <Leader>mn mN:execute 'match Search /\%'.line('.').'l/'<CR>
 "" VCS / Git (note: other maps are in the coc section)
 ""
 
-""" vim-fugitive
 nnoremap gst :Gstatus<CR>
+" Tooltips to show commit message and git blame of cursor position
+" Uses ~/.vim/autoload/git.vim
+noremap <silent> <Leader>gc :call git#show_commit(v:count)<CR>
+noremap <silent> <Leader>gb :call git#blame()<CR>
 
-" So ,gm shows commit under cursor in popup (like git-messenger plugin)
-nmap <silent><Leader>gm :call setbufvar(winbufnr(popup_atcursor(split(system("git log -n 1 -L " . line(".") . ",+1:" . expand("%:p")), "\n"), { "padding": [1,1,1,1], "pos": "botleft", "wrap": 0 })), "&filetype", "git")<CR>
 
 ""
 "" Statusline
@@ -334,7 +335,7 @@ autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
 autocmd FileType go nmap <Leader>cb :GoCoverageBrowser<CR>
 au FileType go nmap <Leader>gd <Plug>(go-doc)
 au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
-au FileType go nmap <Leader>gB <Plug>(go-doc-browser)
+au FileType go nmap <Leader>gdb <Plug>(go-doc-browser)
 au FileType go nmap <Leader>s <Plug>(go-implements)
 au FileType go nmap <Leader>i <Plug>(go-info)
 au FileType go nmap <Leader>e <Plug>(go-rename)
@@ -836,6 +837,6 @@ nmap gn <Plug>(coc-git-nextchunk)
 nmap gp <Plug>(coc-git-prevchunk)
 " fold all unchanged parts of the file so you can just see modifications
 nmap <Leader>gu :CocCommand git.foldUnchanged<CR>
-" Show branches in fuzzyfinder to switch branches by typing ,gb
-nmap <Leader>gb :CocList branches<CR>
+" Show branches in fuzzyfinder to switch branches by typing ,gB
+nmap <Leader>gB :CocList branches<CR>
 endif
