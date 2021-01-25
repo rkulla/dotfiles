@@ -134,8 +134,8 @@ alias ldirs='ls --color -aF | grep /' # list just directories
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
-# my code-snippets aliases
 alias cs='cd ~/repos/code-snippets/'
+alias py='python'
 # run the tree command with colorized output to piped programs and show / after dirs
 alias tt='tree -CF'
 alias tj='tree -CF -I "node_modules|lcov-report|coverage|jsdoc"'
