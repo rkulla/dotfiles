@@ -36,6 +36,11 @@ Make sure to: brew install reattach-to-user-namespace
 #### Misc.
 Search PATH modifications in .zshrc and .zprofile `/PATH=\C` adjust accordingly.
 
+### iterm2
+Enable `mouse reporting` for each profile. Then in `General > Selection` enable 
+`Applications in terminal may access clipboard`, `Copy to pasteboard on selection`,
+`Double-click performs smart selection`, `Triple-click selects entire wrapped lines`.
+
 ### terminfo-sources
 Most termcap files are already installed with ncurses: xterm-256color, etc.
 However, my special tmux-256color.src is in this repo. Compile it manually:
