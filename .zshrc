@@ -129,6 +129,7 @@ alias ll='ls --color -lh'
 alias lla='ls --color -lha'
 alias lsab='fd -a -d 1' # # see absolute paths prepended to filenames!
 alias lsl='ls --color -la | grep "^l"' # list symlinks in current dir
+alias lslb='find . -maxdepth 1 -type l ! -exec test -e {} \; -print' # find only broken symlinks in pwd
 alias lsh='ls --color -a | grep "^\."' # list only hidden files
 alias ldirs='ls --color -aF | grep /' # list just directories
 alias rm='rm -i'
