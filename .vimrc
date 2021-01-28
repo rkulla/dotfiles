@@ -418,21 +418,6 @@ nnoremap [q :let ws = winsaveview() <bar> cprev <bar> call winrestview(ws) <bar>
 " So ,il enables :IndentLines-like vertical lines on tabs. (Toggle on/off from there with :set list!)
 nnoremap <leader>il :set list lcs=tab:<bslash><bar><bslash><space><bar>hi SpecialKey ctermbg=NONE ctermfg=gray<cr>
 
-""" vim-prettier
-" auto-format by default: javascript, typescript, less, scss, css, json, graphql, markdown
-let g:prettier#autoformat = 1
-
-" Toggle vim-prettier auto formatting with <Leader>pr
-nnoremap <leader>pr :call TogglePrettier()<cr>
-let g:prettier#autoformat_require_pragma = 0        " auto-format without needing pragmas
-function! TogglePrettier()
-    if g:prettier#autoformat
-        let g:prettier#autoformat=0
-    else
-        let g:prettier#autoformat=1
-    endif
-endfunction
-
 """ Jest
 " Make it so typing ,jt runs jest on the current file
 nnoremap <leader>jt :Dispatch npx jest --coverage %<cr>
