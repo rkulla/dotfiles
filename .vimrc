@@ -264,9 +264,9 @@ endif
 func! s:MyHighlights() abort
     set termguicolors
     " change the color of the current line number
-    set cul | hi CursorLine ctermbg=NONE guibg=#ebdbb2 | hi CursorLineNr ctermfg=0 guifg=#819090 guibg=NONE
+    set cul | hi CursorLine ctermbg=NONE guibg=NONE | hi CursorLineNr ctermfg=0 guifg=#819090 guibg=NONE
     " To still see coc-tsserver auto-highlight all references under cursor 
-    hi cursorColumn guifg=NONE guibg=#00bcd4
+    hi cursorColumn guifg=NONE guibg=#ebdbb2
     " Make line numbers italic (see my terminfo notes for enabling on MacOS)
     hi LineNr cterm=italic
 endfunc
