@@ -675,7 +675,7 @@ let g:dbext_default_profile_kata_MYSQL = 'type=MYSQL:user=dev_db_user:passwd=p4s
 
 """ Automatically leave insert mode after 'updatetime' milliseconds of inaction
 au CursorHoldI * stopinsert
-au InsertEnter * let updaterestore=&updatetime | set updatetime=15000
+au InsertEnter * let updaterestore=&updatetime | set updatetime=90000
 au InsertLeave * let &updatetime=updaterestore
 
 " indentLine plugin config
