@@ -399,9 +399,15 @@ endfunction
 let g:ale_linters_explicit = 1
 let g:ale_linters = {
 \   'javascript': ['eslint'],
+\   'typescript': ['tslint', 'eslint'],
 \}
 " So :ALEFix (,af) will fix eslint errors
-let b:ale_fixers = {'javascript': ['prettier', 'eslint']}
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['eslint'],
+\   'typescript': ['tslint', 'eslint'],
+\   'json': ['fixjson', 'jq']
+\}
 nmap <Leader>af :ALEFix<CR>
 
 

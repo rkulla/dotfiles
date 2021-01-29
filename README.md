@@ -36,6 +36,12 @@ Make sure to: brew install reattach-to-user-namespace
 #### Misc.
 Search PATH modifications in .zshrc and .zprofile `/PATH=\C` adjust accordingly.
 
+### Vim
+Make sure my ale_fixers work by installing my linters/fixers:
+    
+    $ brew install eslint jq
+    $ npm i -g fixjson tslint
+
 ### iterm2
 Enable `mouse reporting` for each profile. Then in `General > Selection` enable 
 `Applications in terminal may access clipboard`, `Copy to pasteboard on selection`,
