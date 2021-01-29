@@ -3,6 +3,8 @@
 # Script to bootstrap and maintain my dotfiles
 # Usage: Run this from the repo and it will create symlinks in $HOME
 
+FFMacOS="/Applications/Firefox.app/Contents/Resources"
+
 linkdot() {
     local dateStr=$(date +%Y-%m-%d-%H%M)
     local src="$1"
@@ -20,6 +22,9 @@ linkdot() {
     mkdir -p "$HOME/.vim/swp"
     mkdir -p "$HOME/.local/share/fzf-history"
     mkdir -p "$HOME/bin"
+    if [[ "$OSTYPE" == darwin* && -e "$FFMacOS" ]]; then
+        mkdir -p "$FFMacOS/distribution"
+    fi
 
     # dest should always be the dir we're linking to, check if exists
     # If this message happens, add the dir to the mkdir section above.
@@ -70,6 +75,9 @@ main() {
 
     # symlinks outside of root of $HOME
     linkdot "$HOME/repos/vimogen/vimogen" "$HOME/bin"
+    if [[ "$OSTYPE" == darwin* && -e "$FFMacOS/distribution" ]]; then
+        linkdot "firefox/policies.json" "$FFMacOS/distribution/"
+    fi
 
     # Post install commands
     # Install the CoC plugins I use
