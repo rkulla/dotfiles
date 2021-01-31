@@ -18,6 +18,16 @@
         "destructuring": "any",
         "ignoreReadBeforeAssign": false
     }],
-    "quotes": [2, "single", { "avoidEscape": true }]
+    "quotes": [2, "single", { "avoidEscape": true }],
+    "keyword-spacing": "error",
+    "block-spacing": "error",
+    "space-before-blocks": "error",
+    "comma-spacing": ["error", { "before": false, "after": true }],
+    "object-curly-spacing": ["error", "never"],
+    "array-bracket-spacing": ["error", "never"],
+    "computed-property-spacing": ["error", "never"],
+    "no-multi-spaces": ["error", { ignoreEOLComments: true }],
+    "key-spacing": "error",
+    "space-infix-ops": ["error", { "int32Hint": false }]
   }
 }
