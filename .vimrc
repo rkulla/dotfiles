@@ -579,7 +579,7 @@ map <F4> :emenu <C-Z>
 " make ctrl+e start NerdTree if it's closed, and again will toggle it off.
 nmap <C-e> :NERDTreeToggle<CR>
 " ignore the following diretories and files
-let NERDTreeIgnore = ['node_modules', 'coverage', '\.git$', '\.yardoc', 'jsdoc', 'tags.*', 'log', 'tmp$', '\.DS_Store$', '\.so$', '\.date$', '\.pyc$']
+let NERDTreeIgnore = ['node_modules', 'coverage', '\.git$', '\.yardoc', 'jsdoc', 'tags.*', 'log', '\.DS_Store$', '\.so$', '\.date$', '\.pyc$']
 " Make it so ,nf loads the current file i'm on in nerdtree
 nnoremap <silent> <Leader>nf :NERDTreeFind<CR>
 " get rid of crap at the top

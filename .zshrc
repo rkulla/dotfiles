@@ -136,6 +136,8 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 alias cs='cd ~/repos/code-snippets/'
+alias csj='cd ~/repos/code-snippets/JS'
+alias csjt='cd ~/repos/code-snippets/JS/tmp'
 alias py='python'
 # run the tree command with colorized output to piped programs and show / after dirs
 alias tt='tree -CF'

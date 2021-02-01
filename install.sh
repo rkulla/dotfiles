@@ -57,7 +57,6 @@ main() {
     # explicitly symlink all desired dotfiles
     linkdot ".config" "$HOME"
     linkdot ".ctags" "$HOME"
-    linkdot ".eslintrc" "$HOME"
     linkdot ".gitconfig" "$HOME"
     linkdot ".ignore" "$HOME"
     linkdot ".inputrc" "$HOME"

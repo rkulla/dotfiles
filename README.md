@@ -42,6 +42,12 @@ Make sure my ale_fixers work by installing my linters/fixers:
     $ brew install eslint jq
     $ npm i -g fixjson tslint
 
+Make sure to copy javascript/.eslintrc and jsconfig.json to any new JavaScript projects.
+These can't live in $HOME and so I don't ever symlink them. For example, cp them 
+to my code-snippets root and then coc-tsserver will auto-complete things better. Note that
+I will likely have to modify the "target" in jsconfig.json to something other than esnext 
+for all but personal projects.
+
 ### iterm2
 Enable `mouse reporting` for each profile. Then in `General > Selection` enable 
 `Applications in terminal may access clipboard`, `Copy to pasteboard on selection`,
