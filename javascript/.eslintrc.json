@@ -18,6 +18,7 @@
         "destructuring": "any",
         "ignoreReadBeforeAssign": false
     }],
+    "require-await": "error",
     "quotes": [2, "single", { "avoidEscape": true }],
     "keyword-spacing": "error",
     "block-spacing": "error",

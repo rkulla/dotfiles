@@ -39,8 +39,8 @@ Search PATH modifications in .zshrc and .zprofile `/PATH=\C` adjust accordingly.
 ### Vim
 Make sure my ale_fixers work by installing my linters/fixers:
     
-    $ brew install eslint jq
-    $ npm i -g fixjson tslint
+    $ npm install eslint fixjson -D  # do this PER project, not globally
+    $ brew install jq
 
 Make sure to copy javascript/.eslintrc.json and jsconfig.json to any new JavaScript projects.
 These can't live in $HOME and so I don't ever symlink them. For example, cp them 
