@@ -43,10 +43,8 @@ Make sure my ale_fixers work by installing my linters/fixers:
     $ brew install jq
 
 Make sure to copy javascript/.eslintrc.json and jsconfig.json to any new JavaScript projects.
-These can't live in $HOME and so I don't ever symlink them. For example, cp them 
-to my code-snippets root and then coc-tsserver will auto-complete things better. Note that
-I will likely have to modify the "target" in jsconfig.json to something other than esnext 
-for all but personal projects.
+(I _only_ symlink it to my code-snippets folder). Putting eslintrc in $HOME is deprecated and
+jsconfig.json can't live in $HOME either.
 
 ### iterm2
 Enable `mouse reporting` for each profile. Then in `General > Selection` enable 

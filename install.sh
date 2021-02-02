@@ -74,6 +74,7 @@ main() {
 
     # symlinks outside of root of $HOME
     linkdot "$HOME/repos/vimogen/vimogen" "$HOME/bin"
+    linkdot "javascript/.eslintrc.json" "$HOME/repos/code-snippets/JS"
     if [[ "$OSTYPE" == darwin* && -e "$FFMacOS/distribution" ]]; then
         linkdot "firefox/policies.json" "$FFMacOS/distribution/"
     fi
