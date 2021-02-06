@@ -13,6 +13,7 @@
   },
   "rules": {
     "strict": [ "error", "global" ],
-    "no-console": "off"
+    "no-console": "off",
+    "max-len": [1, {"code":130}]
   }
 }
