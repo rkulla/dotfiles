@@ -22,7 +22,7 @@ set clipboard+=unnamed                              " So y to yank text goes to 
 set ffs=unix,dos,mac                                " Auto-detect the filetype based off newlines used.
 set history=50                                      " Keep 50 lines of command line history
 set ruler                                           " Show the cursor position all the time
-set showcmd                                         " Display incomplete commands
+set showcmd                                         " Show partial vim commands in the last line of the screen
 set incsearch                                       " Do incremental searching
 set shortmess=filnxtToOc                            " Don't add S or you won't see search counts in status, e.g., [1/2]
 set backspace=indent,eol,start                      " Allow backspacing over everything in insert mode
@@ -35,7 +35,6 @@ set number                                          " Enable line numbers by def
 set nostartofline                                   " So cursor doesn't jump to beginning of line when you G, GG, ^F, etc
 set confirm                                         " So :q, :bd, etc. on a changed file popups a 'save file?' confirm box
 set fo=t                                            " I don't want the format options that auto create comments 
-set showcmd                                         " Show partial vim commands in the last line of the screen
 set enc=utf-8                                       " Causes fencs to default to ucs-bom,utf-8,default,latin1
 set pastetoggle=<F3>                                " Useful when normal pasting doesn't work
 
