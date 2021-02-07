@@ -14,6 +14,7 @@
   "rules": {
     "strict": [ "error", "global" ],
     "no-console": "off",
-    "max-len": [1, {"code":130}]
+    "max-len": [1, {"code":130}],
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }]
   }
 }
