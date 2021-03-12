@@ -400,6 +400,10 @@ let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'typescript': ['eslint'],
 \}
+" So it will automatically fix eslint errors and format on save
+" au FileType * let b:ale_fix_on_save = &ft != 'markdown'
+let g:ale_fix_on_save = 1
+au FileType text let b:ale_fix_on_save = 0
 " So :ALEFix (,af) will fix eslint errors
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],

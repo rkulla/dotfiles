@@ -15,6 +15,7 @@
     "strict": [ "error", "global" ],
     "no-console": "off",
     "max-len": [1, {"code":130}],
+    "semi": ["error", "always"],
     "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }]
   }
 }
