@@ -10,7 +10,7 @@ if has("gui_running")                               " list plugins to disable if
   let g:pathogen_disabled = []
   call add(g:pathogen_disabled, 'coc')
 endif
-execute pathogen#infect() 
+execute pathogen#infect()
 
 let g:loaded_matchit = 1
 let g:matchup_matchparen_offscreen = { 'method': 'popup', 'scrolloff': 1 }
@@ -34,7 +34,7 @@ set nobackup                                        " I don't like it triggering
 set number                                          " Enable line numbers by default
 set nostartofline                                   " So cursor doesn't jump to beginning of line when you G, GG, ^F, etc
 set confirm                                         " So :q, :bd, etc. on a changed file popups a 'save file?' confirm box
-set fo=t                                            " I don't want the format options that auto create comments 
+set fo=t                                            " I don't want the format options that auto create comments
 set enc=utf-8                                       " Causes fencs to default to ucs-bom,utf-8,default,latin1
 set pastetoggle=<F3>                                " Useful when normal pasting doesn't work
 
@@ -54,7 +54,7 @@ else
 endif
 
 " Rename the current file with :Rename <new_name>
-command! -nargs=1 -complete=dir Rename saveas <args> | call delete(expand("#")) 
+command! -nargs=1 -complete=dir Rename saveas <args> | call delete(expand("#"))
 
 " Run the omni-completion by typing ,tab
 imap <Leader><TAB> <C-X><C-O>
@@ -85,7 +85,7 @@ nmap <Leader>qq :q<CR>
 " Don't use Ex mode, use Q for formatting
 map Q gq
 " So I can just type X to do the same thing as :q (prompt to save changes first)
-if has("gui_running") 
+if has("gui_running")
   " Do :bw instead in a gui since I use tabs there
   nmap X :bw<CR>
 else
@@ -108,8 +108,8 @@ map <F10> :windo set scrollbind!<CR>
 map <Leader>n :set invnumber<CR>
 
 " Use Ctrl+n and Ctrl+p to go forward or backward through buffers.
-nmap <C-n> :bn<CR> 
-nmap <C-p> :bp<CR> 
+nmap <C-n> :bn<CR>
+nmap <C-p> :bp<CR>
 
 " Force file to be saved when ctrl+s is hit in command or insert mode.
 " put "stty -ixon" in your shell rc for this to work in unix.
@@ -146,7 +146,7 @@ set sw=4                                            " When auto-indenting, appea
 set shiftround                                      " So > and < indenting keys snap to value of sw
 " So txt files don't use shiftround (so i can paste code snippets and indent them properly)
 au BufNewFile,BufRead,BufEnter *.txt set noshiftround
-set autoindent " Make indents always from the start of the line above. Beats :set cindent 
+set autoindent " Make indents always from the start of the line above. Beats :set cindent
 if has("autocmd")
   " Enable file type detection. Use the default filetype settings. 'cindent' on C files, etc.
   " Also load indent files, to automatically do language-dependent indenting.
@@ -160,10 +160,9 @@ if has("autocmd")
     \   exe "normal g`\"" |
     \ endif
   augroup END
-endif 
+endif
 
 """ Terminal window
-set termwinsize=10x0
 " So ,tb opens a terminal at the bottom in its own window
 nnoremap <leader>tb :below term<CR>
 " So ,ta opens a terminal at the top in its own window
@@ -201,9 +200,9 @@ function! CocGitStat()
 
         " if window is too narrow truncate even further
         let winwid = winwidth(0)
-        if winwid <= 79 
+        if winwid <= 79
             let status = ccount > 10 ? status[0:20] . '…' : status
-        elseif winwid >= 80 && winwid <= 89 
+        elseif winwid >= 80 && winwid <= 89
             let status = ccount > 23 ? status[0:33] . '…' : status
         elseif winwid >= 90 && winwid <= 100
             let status = ccount > 30 ? status[0:40] . '…' : status
@@ -223,7 +222,7 @@ set statusline+=%l:%c%V\  " line number, column number/virtual column number
 set statusline+=%o\ \\|\  " byte number of current char
 set statusline+=%{!empty(&fenc)?&enc:'none'},%{&fileformat}\ " encoding, format
 
-" Function to add to 'set statusline', via %{StatuslineMultiFileFlag()} above, 
+" Function to add to 'set statusline', via %{StatuslineMultiFileFlag()} above,
 " to see how many buffers are currently open without having to type ':ls'
 autocmd bufadd,bufdelete * unlet! g:statusline_multi_file_flag
 function! StatuslineMultiFileFlag()
@@ -249,8 +248,8 @@ endfunction
 ""Color Schemes and highlighting
 ""
 
-" Setting termguicolors means we'll use guifg/guibg not cterm and 
-" since some colorschemes reference &termguicolors and not set any 
+" Setting termguicolors means we'll use guifg/guibg not cterm and
+" since some colorschemes reference &termguicolors and not set any
 " gui* colors, we'll set it before calling a color scheme.
 if $TERM !~ 'rxvt\|linux' && (has("termguicolors"))
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
@@ -264,7 +263,7 @@ func! s:MyHighlights() abort
     set termguicolors
     " change the color of the current line number
     set cul | hi CursorLine ctermbg=NONE guibg=NONE | hi CursorLineNr ctermfg=0 guifg=#819090 guibg=NONE
-    " To still see coc-tsserver auto-highlight all references under cursor 
+    " To still see coc-tsserver auto-highlight all references under cursor
     hi cursorColumn guifg=NONE guibg=#ebdbb2
     " Make line numbers italic (see my terminfo notes for enabling on MacOS)
     hi LineNr cterm=italic
@@ -286,7 +285,7 @@ function! Light()
 endfunction
 command! -nargs=0 Light call Light()
 
-" Enable on rainbow brackets 
+" Enable on rainbow brackets
 let g:rainbow_active=1
 
 " Switch syntax highlighting on, when the terminal has colors
@@ -297,11 +296,11 @@ if &t_Co > 2 || has("gui_running")
 endif
 
 " Make it so you can identify color group names of item under cursor by pressing ,$
-nmap <silent> <Leader>$ :echo 'hi<' . 
-        \ synIDattr(synID(line('.'), col('.'), 1), 'name') . 
-        \ '> trans<' . synIDattr(synID(line('.'), col('.'), 0), 'name') . 
-        \ '> lo<' . synIDattr(synIDtrans(synID(line('.'), col('.'), 1)), 'name') . 
-        \ '>'<CR> 
+nmap <silent> <Leader>$ :echo 'hi<' .
+        \ synIDattr(synID(line('.'), col('.'), 1), 'name') .
+        \ '> trans<' . synIDattr(synID(line('.'), col('.'), 0), 'name') .
+        \ '> lo<' . synIDattr(synIDtrans(synID(line('.'), col('.'), 1)), 'name') .
+        \ '>'<CR>
 
 """ fzf
 set rtp+=/usr/local/opt/fzf
@@ -471,7 +470,7 @@ au BufNew,BufRead,BufEnter *.php set textwidth=80 fo=t sw=4 ts=4
 " or put 'set fo+=t' in .vim/after/indent/php.vim for tw to break the line
 
 " phpcomplete completion:
-autocmd FileType php set omnifunc=phpcomplete 
+autocmd FileType php set omnifunc=phpcomplete
 
 " So php files are also seen as html
 au BufRead,BufNewFile *.php set filetype=php.html
@@ -512,13 +511,13 @@ noremap! <expr> ,tf
 nmap <Leader>et i<C-R>=strftime('%m/%d/%Y %I:%M %p')<Esc>
 
 """ Grep
-" Use ag for :grep in vim, eg ':grep -i --py foo' 
+" Use ag for :grep in vim, eg ':grep -i --py foo'
 " Use ":grep!" to avoid opening files.
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
 endif
 
-""" :Sex 
+""" :Sex
 " Make :Sex window take up most of the screen so you can see more files at once
 let g:netrw_winsize=35
 " Sort case-insensitively (so Program Files appears next to pf, etc)
@@ -546,7 +545,7 @@ if has('unix') && has('gui')
     " Type: ":set gfn=<tab>" which will fill in the current font so you can
     " just change the size or gfn=* to open a font dialog.
     " Note that iTerm2's font will override the MacVim CLI vim I use. So in my
-    " iTerm2 profile set a good font like Hack Nerd Font. 
+    " iTerm2 profile set a good font like Hack Nerd Font.
     if system('uname')=~'Darwin'
       " All vims, including Gvim and Macvim, only support Monospaced Fonts.
       " I use MacVim GUI for reading text files, so use Monaco
@@ -576,7 +575,7 @@ set wcm=<C-Z>
 map <F4> :emenu <C-Z>
 
 """ NERDTree
-" auto-start NerdTree when you run vim with no command line arguments 
+" auto-start NerdTree when you run vim with no command line arguments
 " autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " make ctrl+e start NerdTree if it's closed, and again will toggle it off.
@@ -606,7 +605,7 @@ nmap <Leader>K :res -5<CR>
 nmap <Leader>J :res +5<CR>
 
 " Close the current file by typing :Clear w/o closing the split window and starts a new file
-com! Clear :enew <bar> bdel # 
+com! Clear :enew <bar> bdel #
 " Close the current file by typing F2 w/o closing the split window then jumps to the next file
 nmap <F2> :bn <bar> bd #<CR>
 " So Wh moves to the window to the left and Wl moves to the right, etc.
@@ -616,7 +615,7 @@ nmap Wl <C-w>l
 nmap Wk <C-w>k
 nmap Wj <C-w>j
 
-"" 
+""
 "" My custom .txt notes format settings
 ""
 set foldenable
@@ -671,7 +670,7 @@ nmap <Leader>fs :set foldmethod=syntax<CR>
 " Make it so ,fc folds the // style comments
 nmap <Leader>fc :set foldmethod=expr foldexpr=getline(v:lnum)=~'^\\s*//'<CR>
 
-""" DBext 
+""" DBext
 " Kata profiles.  Uses ~/.pgpass for password
 let g:dbext_default_profile_kata_PG = 'type=PGSQL:user=dev_db_user:dbname=kata'
 let g:dbext_default_profile_kata_MYSQL = 'type=MYSQL:user=dev_db_user:passwd=p4ssw0rd:dbname=kata'
