@@ -136,7 +136,7 @@ nnoremap <Leader>( 0%ci(
 """ Abbreviations (misc)
 iab teh      the
 iab loremx   lorem ipsum quia dolor sit amet consectetur adipisci velit, sed quia non numquam eius modi tempora incidunt.
-iab fbbq     foo bar baz quux spam eggs
+iab fbbq     foo bar baz qux quux spam eggs
 
 ""
 "" Indentation
