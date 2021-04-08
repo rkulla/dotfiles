@@ -4,7 +4,7 @@
 zstyle ':vcs_info:git:*' formats '%b'
 autoload -U disambiguate  # copy this script from dotfiles repo into my $fpath
 autoload -Uz vcs_info
-precmd() { 
+precmd() {
     psvar=()
     vcs_info
     # only call disambiguate to abbrev dirs if $PWD is > 15 chars
@@ -14,11 +14,11 @@ precmd() {
     if [[ -n "$vcs_info_msg_0_" ]]; then
         # truncate branch name if it's > 36 chars
         branchName="$vcs_info_msg_0_"
-        if [[ $#branchName -gt 36 ]]; then 
+        if [[ $#branchName -gt 36 ]]; then
             firstBN="${branchName[0,28]}"
             lastBN="${branchName[-5,-1]}"
             psvar[2]=( "$firstBN…$lastBN" )
-        else 
+        else
             psvar[2]=( "$branchName" )
         fi
         PS1="%F{100}%n%f@%F{100}%m %F{96}%1v %F{100}%2v %f$ "
@@ -56,9 +56,9 @@ bindkey '^B' vi-backward-kill-word
 
 # ^W is bound to backward-kill-word which contains '/' in WORDCHARS
 # I will maintain that behavior (allowing ^W to delete a whole URL)
-# but will locally modify it in a function bound such that Ctrl-/ 
+# but will locally modify it in a function bound such that Ctrl-/
 # will delete 'bar-baz' from /foo/bar-baz
-# This is needed in zsh because it doesn't use gnu-readline which 
+# This is needed in zsh because it doesn't use gnu-readline which
 # .inputrc leverages. I still use .inputrc for bash, python, etc.
 backward-kill-dir () {
     local WORDCHARS=${WORDCHARS/\/}
@@ -70,11 +70,11 @@ bindkey '^_' backward-kill-dir
 # syntax highlight commands (brew install zsh-syntax-highlighting)
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# Make it so typing `it <prof>` changes iterm2 profile in current 
+# Make it so typing `it <prof>` changes iterm2 profile in current
 # tab. Name my Light profile `l` and Dark profile `d`. Usage:
 #    $ it d  # dark mode. Go back to light mode: it l
-it() { 
-  echo -e "\033]50;SetProfile=$1\a" 
+it() {
+  echo -e "\033]50;SetProfile=$1\a"
 }
 
 # Make it so up/down arrows search your history (even with nested filepaths/args)
@@ -85,11 +85,13 @@ zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search # Up
 bindkey "^[[B" down-line-or-beginning-search # Down
 
-# Set PATH, making sure Homebrew's path is first, e.g., for 
-# "brew install diffutils" to let use use gnu diff's --color), etc.
+# Set PATH. Have local node modules first, then Homebrew paths
+# E.g. so "brew install diffutils" can use gnu diff's --color), etc.
 PATH="/usr/local/bin:$HOME/bin:$PATH"
 # Have `ls` use gnu ls, not bsd ls. (First: brew install coreutils).
 PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+# Make node packages path the very first (global packages are bad)
+export PATH="./node_modules/.bin:$PATH"
 
 # Create a `take` command
 take () {
@@ -179,7 +181,7 @@ alias dcp='docker-compose pull'
 alias dcps='docker-compose ps'
 alias dps='docker ps | less -S' # so we can see wide output not wrap
 alias dpsa='docker ps -a | less -S' # so we can see wide output not wrap
-# tmux 
+# tmux
 alias tms='tmux new -s '
 alias tma='tmux attach -t '
 alias tm='tmux'
@@ -191,7 +193,7 @@ alias ag='ag -s --path-to-ignore ~/.ignore'
 # package.json and package-lock.json, etc.  Sort's in reverse, using
 # glob  qualifier (On), so package.json opens in buffer first.
 function vg () {
-    vim *${1}*(On) 
+    vim *${1}*(On)
 }
 
 # nnn (brew install nnn)
@@ -266,7 +268,7 @@ function gtree {
     ignore="$(grep -hvE '^$|^#' "${ignore_files[@]}" 2>/dev/null|sed 's:/$::'|tr '\n' '\|')"
     if git status &> /dev/null && [[ -n "${ignore}" ]]; then
       tree -I "${ignore}" "${@}" -CF
-    else 
+    else
       tree "${@}" -CF
     fi
 }
