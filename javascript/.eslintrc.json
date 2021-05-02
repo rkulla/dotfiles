@@ -27,6 +27,13 @@
       "error",
       "always"
     ],
+    "no-use-before-define": [
+      "error",
+      {
+        "functions": false,
+        "classes": false
+      }
+    ],
     "no-restricted-syntax": [
       "error",
       "ForInStatement",
