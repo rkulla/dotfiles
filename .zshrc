@@ -303,6 +303,10 @@ esac
 # misc
 eval "$(pyenv init -)"
 
+# AWS
+# OPT out of SAM CLI collecting telemetry data
+SAM_CLI_TELEMETRY=0
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f "$HOME/opt/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/opt/google-cloud-sdk/path.zsh.inc"; fi
 
