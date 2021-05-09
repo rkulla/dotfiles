@@ -1,9 +1,6 @@
 " Ryan's vimrc
 
 " Stuff that has to run _before_ plugins are loaded
-" Make it so ale plays well with coc. In :CocConfig add: "diagnostic.displayByAle": true
-"  https://github.com/dense-analysis/ale#5iii-how-can-i-use-ale-and-cocnvim-together
-let g:ale_disable_lsp = 1
 
 " Put first to ensure pathogen will work
 if has("gui_running")                               " list plugins to disable if GUI Vim is running
@@ -395,26 +392,6 @@ function! ToggleSyntaxFolding()
         setlocal foldmethod=marker
     endif
 endfunction
-
-""" Ale / eslint
-let g:ale_linters_explicit = 1
-let g:ale_linters = {
-\   'javascript': ['eslint'],
-\   'typescript': ['eslint'],
-\}
-" So it will automatically fix eslint errors and format on save
-" au FileType * let b:ale_fix_on_save = &ft != 'markdown'
-let g:ale_fix_on_save = 1
-au FileType text let b:ale_fix_on_save = 0
-" So :ALEFix (,af) will fix eslint errors
-let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'javascript': ['eslint'],
-\   'typescript': ['eslint'],
-\   'json': ['fixjson', 'jq']
-\}
-nmap <Leader>af :ALEFix<CR>
-
 
 """ Quickfix window
 " So after typing something like :0Gclog, I can scroll load the next or prev result while not being focused on the

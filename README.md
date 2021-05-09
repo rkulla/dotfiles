@@ -37,14 +37,14 @@ Make sure to: brew install reattach-to-user-namespace
 Search PATH modifications in .zshrc and .zprofile `/PATH=\C` adjust accordingly.
 
 ### Vim
-Make sure my ale_fixers work by installing my linters/fixers:
-    
-    $ npm install eslint fixjson -D  # do this PER project, not globally
-    $ brew install jq
+Install eslint PER project, not globally:
 
-Make sure to copy javascript/.eslintrc.json and jsconfig.json to any new JavaScript projects.
+    $ npm install eslint -D
+
+Make sure to copy javascript/.eslintrc.json and jsconfig.json to any of **my** JavaScript projects.
+Or typescript/.eslintrc.json and tsconfig.json if it's **my** TypeScript projects
 (I _only_ symlink it to my code-snippets folder). Putting eslintrc in $HOME is deprecated and
-jsconfig.json can't live in $HOME either.
+jsconfig.json or tsconfig.json can't live in $HOME either.
 
 ### iterm2
 Enable `mouse reporting` for each profile. Then in `General > Selection` enable 

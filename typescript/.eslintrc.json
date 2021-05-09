@@ -1,0 +1,27 @@
+{
+  "root": true,
+  "extends": [
+    "airbnb-typescript/base"
+  ],
+  "overrides": [{
+    "files": "**/*.{ts,tsx}",
+    "parser": "@typescript-eslint/parser",
+    "plugins": ["@typescript-eslint"]
+  }],
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
+  "env": {
+    "es2020": true,
+    "node": true
+  },
+  "rules": {
+    "strict": [
+      "error",
+      "global"
+    ],
+    "no-console": "off"
+  }
+}

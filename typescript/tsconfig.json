@@ -1,0 +1,19 @@
+{
+  "exclude": [
+    "node_modules",
+    "**/node_modules/*"
+  ],
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "esnext",
+    "allowJs": true,
+    "alwaysStrict": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true
+  },
+  "include": [
+    "**/*.ts", "src/**/*.tsx"
+  ]
+}
