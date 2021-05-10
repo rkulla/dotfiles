@@ -65,6 +65,11 @@ Enable `mouse reporting` for each profile. Then in `General > Selection` enable
 `Applications in terminal may access clipboard`, `Copy to pasteboard on selection`,
 `Double-click performs smart selection`, `Triple-click selects entire wrapped lines`.
 
+Install `Hack Nerd Font` so I can see file-type logos in my terminal:
+
+    $ brew tap homebrew/cask-fonts
+    $ brew install --cask font-hack-nerd-font
+
 ### terminfo-sources
 Most termcap files are already installed with ncurses: xterm-256color, etc.
 However, my special tmux-256color.src is in this repo. Compile it manually:
