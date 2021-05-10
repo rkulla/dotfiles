@@ -8,15 +8,29 @@ Adding new files requires 3 steps:
    3. Update install.sh to do the symlinking and optionally creating needed empty dirs
 
 ## Installing
-cd to my dotfiles checkout and run:
+
+First make sure `vimogen` is cloned to ~/repos/ and then run it manually once to ensure coc.nvim is installed. Make sure node.js is installed too.
+
+If it's a work machine, comment out the code-snippets line from install.sh
+
+Then cd to my dotfiles checkout and run:
 
     ./install.sh
 
-it will backup any existing files by prepending the current datetime and then
+It will backup any existing files by prepending the current datetime and then
 will create symlinks from $HOME/*filename* this repo's corresponding *filename*.
 
 ## Post installation steps
 After running ./install.sh to automate most things, do these manual steps.
+
+### Homebrew dependencies
+
+Note all of these are required for this script to work but these are things I typically brew install:
+
+    tig, tmux, autojump, tree, aws-sam-cli, gnu-sed, watch, coreutils, mysql,
+    postgresql, pyenv, wget, ctags, diffutils, nmap, fd, nnn,
+    reattach-to-user-namespace, zenity, htop, rsync, zsh-syntax-highlighting,
+    screen, fzf, irssi, sqlite, jq, the_silver_searcher
 
 ### Zsh
 #### site-functions
