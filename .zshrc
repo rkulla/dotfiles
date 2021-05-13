@@ -172,7 +172,7 @@ alias gdc='git diff --cached --word-diff'
 alias gst='git status'
 alias pj='prettyjson'
 # Node.js
-alias nag='ag --js --ignore-dir=node_modules'
+alias nag='ag --js --ts --ignore-dir=node_modules'
 # Docker
 alias dcu='docker-compose up'
 alias dcd='docker-compose down'
