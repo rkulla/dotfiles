@@ -7,6 +7,7 @@
 - `Fix VSCode Checksums` (if getting errors about a corrupt installation)
 - `GitLens`
 - `ESLint`
+- `Markdownlint`
 - `JavaScript (ES6) code snippets`
 - `Code Spell Checker`
 - `Code Runner`
