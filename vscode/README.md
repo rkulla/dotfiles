@@ -18,7 +18,7 @@
 
 ##### Home Only
 
-- 'JavaScript (ES6) code snippets in StandardJS style'
+- `JavaScript (ES6) code snippets in StandardJS style`
 
 ##### Work Only
 - `StandardJS`
