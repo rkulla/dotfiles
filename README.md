@@ -47,6 +47,12 @@ Enable script to abbreviate and disambiguate the PWD in my prompt.
 ### Tmux
 Make sure to: brew install reattach-to-user-namespace
 
+Install plugins:
+
+    $ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+Open tmux and type `Ctrl+a I` to install the plugins listed in .tmux.conf
+
 #### Misc.
 Search PATH modifications in .zshrc and .zprofile `/PATH=\C` adjust accordingly.
 
@@ -77,7 +83,7 @@ However, my special tmux-256color.src is in this repo. Compile it manually:
     $ cd dotfiles/terminfo-sources
     $ /usr/bin/tic -xe tmux-256color tmux-256color.src
 
-which installs the compiled binares to ~/.terminfo ready for use.
+which installs the compiled binaries to ~/.terminfo ready for use.
 
 Also, enable italics, e.g., Vim's line numbers when not in tmux:
 
