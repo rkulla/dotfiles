@@ -196,6 +196,11 @@ function vg () {
     vim *${1}*(On)
 }
 
+# Like my `vg` command but uses fd and works in subdirs. Even better.
+function vfd () {
+    vim $(fd $1)
+}
+
 # nnn (brew install nnn)
 alias n='nnn' # brew install nnn first for an awesome ncurses file explorer
 alias l='nnn -de'  # use instead of ls most of the time
