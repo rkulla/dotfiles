@@ -89,6 +89,9 @@ Also, enable italics, e.g., Vim's line numbers when not in tmux:
 
     $ /usr/bin/tic -xe xterm-256color xterm-256color.src
 
+### ~/bin scripts
+Backup to/fro manually from ~/Dropbox/pf/code/my-bin-dir-scripts/
+
 ### Uninstalling
 Simply `git rm` any files and remove linking references from install.sh. Then
 use my `lslb` alias to list broken symlinks for removal. Also uninstall with vimogen
