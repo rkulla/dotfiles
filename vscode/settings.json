@@ -1,5 +1,6 @@
 {
     "window.zoomLevel": 5,
+    "editor.minimap.enabled": false,
     "editor.fontFamily": "Hack Nerd Font",
     "editor.fontLigatures": true,
     "terminal.integrated.fontFamily": "Hack Nerd Font Mono",
