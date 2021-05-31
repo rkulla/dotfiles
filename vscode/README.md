@@ -5,6 +5,7 @@
 ##### Everywhere
 
 - `Fix VSCode Checksums` (if getting errors about a corrupt installation)
+- `Settings Cycler`
 - `GitLens`
 - `ESLint`
 - `Markdownlint`
