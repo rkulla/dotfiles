@@ -150,6 +150,8 @@ alias wgt='watch -n 1 -d -t -c "git lolgraph --color && tree -CF"' # watch git l
 alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
 # Open modified staged and unstaged files (great for reopening where you left off)
 alias vimod='vim $(git diff --diff-filter=d --cached --name-only && git diff --diff-filter=d --name-only)'
+# Open modified files (even committed) that a branch changed (be in the branch first)
+alias vimodb='vim $(git diff --name-only develop)'
 # find out our external IP
 alias externalip='dig +short myip.opendns.com @resolver1.opendns.com'
 # find files that were modified today
