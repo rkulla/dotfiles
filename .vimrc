@@ -119,9 +119,6 @@ nmap <Leader>sp `[v`]
 " So Ctrl+a does nothing instead of incrementing numbers (safer for tmux/gnu-screen)
 map <c-a> <Nop>
 
-" So an accidental Ctrl+w does not close an open Gui Vim tab
-map <c-w> <Nop>
-
 " So if you click somewhere else on a page, you can type `` to get back to the last cursor position.
 " Useful for when the cursor position changes when you click a vim window to focus the window.
 noremap <LeftMouse> m'<LeftMouse>
