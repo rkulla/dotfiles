@@ -121,7 +121,7 @@ alias v='$EDITOR'
 # Make it so mysql-monitor and psql will let you see output after you quit less
 # Set up a separate alias for less if you want different options for less when calling it manually on the command line.
 export PAGER=less
-export LESS="-imFXSexr"
+export LESS="-imFXSexR"
 
 alias diff='diff --color' # brew install diffutils first
 alias wd='pwd'
