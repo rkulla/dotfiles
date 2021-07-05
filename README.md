@@ -5,6 +5,7 @@ Adding new files requires 3 steps:
 
    1. Add the file or directory to this repo
    2. Add to the root .gitignore anything I want to ignore/unignore
+      Add anything I don't want in the committed .gitignore file to .config/git/ignore e.g., notes to self README.rkulla
    3. Update install.sh to do the symlinking and optionally creating needed empty dirs
 
 ## Installing
