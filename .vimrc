@@ -632,6 +632,22 @@ function! BegSearch(strtofind)
 endfunction
 command! -nargs=1 Beg call BegSearch(<f-args>)
 
+""" So hitting <enter> on filename jump to the pattern after # comment:
+" For example: Hitting enter on the following line jumps to foo.txt's line
+" containing bar:
+"   foo.txt # bar
+" Make sure to hit enter on the filename itself. Also allows gf to still work.
+function! GotoPattern() abort
+  let file = expand('<cfile>')
+  if ! getline('.') =~ '/'..file..'\s\+#\s+'..'/'
+    return execute('normal gf')
+  endif
+  let pattern = split(substitute(getline('.'),'.*#\s*','',''),' ')[0]
+  return execute('vimgrep ' .. pattern .. ' ' .. file)
+endfunction
+
+nnoremap <enter> <cmd>call GotoPattern()<cr>
+
 """ Misc folding settings
 " To toggle '#' comments as folds (useful for config files and ruby/python/bash especially)
 function HideComments()
