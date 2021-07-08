@@ -401,10 +401,13 @@ nnoremap <leader>il :set list lcs=tab:<bslash><bar><bslash><space><bar>hi Specia
 
 """ Jest
 " Make it so typing ,jt runs jest on the current file
-nnoremap <leader>jt :Dispatch npx jest --coverage %<cr>
-" Make it so typing ,jt or :Jest runs all jest tests
-nnoremap <leader>ja :Dispatch npx jest --coverage<cr>
-command Jest Dispatch npx jest --coverage --verbose
+" I use make instead of vim-dispatch because dispatch's tmux adapter strips
+" colors and it's just not worth seeing tests run slower and in a split
+" window, autoclose the window, etc.
+" Just clear the quickfix window with my ctrl+l map after returning to vim or
+" use --no-colors but I prefer colors.
+set makeprg=npx\ jest\ --colors
+nnoremap <leader>jt :make %<cr>
 
 """ vim-slime
 let g:slime_target = "tmux"

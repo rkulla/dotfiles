@@ -10,6 +10,8 @@
 - `ESLint`
 - `Markdownlint`
 - `JavaScript (ES6) code snippets`
+- `Jest`
+- `Jest Runner`
 - `Code Spell Checker`
 - `Code Runner`
 - `Explorer Exclude`
