@@ -408,6 +408,9 @@ nnoremap <leader>il :set list lcs=tab:<bslash><bar><bslash><space><bar>hi Specia
 " use --no-colors but I prefer colors.
 set makeprg=npx\ jest\ --colors
 nnoremap <leader>jt :make %<cr>
+" However, running jest in vim isn't usually worth it. Instead use this map to
+" copy the filename to the clip board and paste to jest on the cli:
+nnoremap <leader>fn :let @+ = @%<cr>
 
 """ vim-slime
 let g:slime_target = "tmux"
