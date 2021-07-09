@@ -408,9 +408,16 @@ nnoremap <leader>il :set list lcs=tab:<bslash><bar><bslash><space><bar>hi Specia
 " use --no-colors but I prefer colors.
 set makeprg=npx\ jest\ --colors
 nnoremap <leader>jt :make %<cr>
-" However, running jest in vim isn't usually worth it. Instead use this map to
-" copy the filename to the clip board and paste to jest on the cli:
-nnoremap <leader>fn :let @+ = @%<cr>
+" However, running jest in vim isn't usually worth it. Instead use my ,fp map to
+" copy the file path to the clip board and paste to jest on the cli
+
+""" Copying currently open file(s) to the clipboard
+nnoremap <leader>fp :let @+ = @%<cr>
+" Copy just the filename without the directory path
+nnoremap <leader>fn :let @+ = expand('%:t')<cr>
+" Copy all the currently open files to copy/paste to reopen vim without :mks
+nnoremap <leader>fl :let @+ = join(map(split(execute('ls'),"\n"),{_,x->split(x,'"')[1]}))<cr>
+
 
 """ vim-slime
 let g:slime_target = "tmux"
