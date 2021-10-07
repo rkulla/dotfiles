@@ -139,6 +139,7 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias cs='cd ~/repos/code-snippets/'
 alias csj='cd ~/repos/code-snippets/JS'
+alias csjs='cd ~/repos/code-snippets/JS/skeletons'
 alias csjt='cd ~/repos/code-snippets/JS/tmp'
 alias py='python'
 # run the tree command with colorized output to piped programs and show / after dirs
@@ -152,6 +153,8 @@ alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
 alias vimod='vim $(git diff --diff-filter=d --cached --name-only && git diff --diff-filter=d --name-only)'
 # Open modified files (even committed) that a branch changed (be in the branch first)
 alias vimodb='vim $(git diff --name-only develop)'
+# Open just files that were committed to this branch
+alias vimcomm='vim $(git log --no-merges develop.. --name-only --oneline | sed 1d)'
 # find out our external IP
 alias externalip='dig +short myip.opendns.com @resolver1.opendns.com'
 # find files that were modified today
@@ -307,8 +310,9 @@ case "$OSTYPE" in
   ;;
 esac
 
-# misc
+# Python
 eval "$(pyenv init -)"
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
 # AWS
 # OPT out of SAM CLI collecting telemetry data
