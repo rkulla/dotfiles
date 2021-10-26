@@ -66,7 +66,7 @@ Open tmux and type `Ctrl+a I` to install the plugins listed in .tmux.conf
 #### Misc.
 Search PATH modifications in .zshrc and .zprofile `/PATH=\C` adjust accordingly.
 
-### Vim
+### ESLint
 Install eslint PER project, not globally:
 
     $ npm install eslint -D
@@ -85,6 +85,36 @@ Install `Hack Nerd Font` so I can see file-type logos in my terminal:
 
     $ brew tap homebrew/cask-fonts
     $ brew install --cask font-hack-nerd-font
+
+Create my custom color profiles by creating a new light profile called `l` with `cmd+, > Profiles > +` and give it:
+   
+    Foreground: 2d2d2c
+    Background: fbf1c7
+    Bold: c62727
+    Selection: cdcccc
+    Selected text: 616060
+    Yellow Bright: b9b753
+    Cursor: 00bcd4
+    Cursor text: 3c3b3a
+
+Under `Text` enable `Box` and `Blinking cursor`. Change font to `Hack Nerd Font` / regular / 32. Uncheck 'Use ligatures'
+Under `Terminal` enable `unlimited scrollback`
+
+Right click 'Other actions' and make `l` the default profile.
+
+Create a dark profile called `d` with:
+
+    Foreground: 839496
+    Background: 002b36
+    Bold: 93a1a1
+    Selection: 073642
+    Selected text: 93a1a1
+    Red Normal: dc322f
+    Red Bright: cb4b16
+    Yellow Normal: b58900
+    Yellow Bright: 657b83
+    Cursor: 839496
+    Cursor text: 073642
 
 ### terminfo-sources
 Most termcap files are already installed with ncurses: xterm-256color, etc.
