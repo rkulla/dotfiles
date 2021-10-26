@@ -33,7 +33,8 @@ The 'realpath' command from coreutils is required to run install.sh. I typically
 
 After doing the above steps, cd to my dotfiles checkout and run:
 
-    ./install.sh
+    $ sudo chown -R $USER /Applications/Firefox.app
+    $ ./install.sh
 
 It will backup any existing files by prepending the current datetime and then
 will create symlinks from $HOME/*filename* this repo's corresponding *filename*.
