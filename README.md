@@ -10,13 +10,26 @@ Adding new files requires 3 steps:
 
 ## Installing
 
-First make sure `vimogen` is cloned to ~/repos/ and then run it manually once to ensure coc.nvim is installed. Make sure node.js is installed too. Make sure 'vim' is running properly, if CoC is complaining about needing to 'yarn install', it's because my vimogen script only clones with a depth of 3, so I need to manually delete that checkout and install it fully so I can switch to its release branch which doesn't have that issue:
+First make sure `vimogen` is cloned to ~/repos/ and then run it manually once to ensure coc.nvim is installed. Make sure node.js is installed too. Make sure 'vim' is running properly, if CoC is complaining about needing to 'yarn install', it's because my vimogen script only clones with a depth of 3, so I need to **manually delete that checkout** and install it fully so I can switch to its release branch which doesn't have that issue:
 
     $ cd ~/.vim/bundle
+    $ rm -rf coc
     $ git clone https://github.com/neoclide/coc.nvim.git coc
-    $ git co origin/release
+    $ cd coc && git checkout origin/release
 
 If it's a work machine, comment out the code-snippets line from install.sh
+
+
+### Homebrew dependencies
+
+The 'realpath' command from coreutils is required to run install.sh. I typically brew install:
+
+    $ brew tap aws/tap
+    $ brew install tig tmux autojump tree aws-sam-cli gnu-sed watch coreutils mysql postgresql pyenv\
+      wget ctags diffutils nmap fd nnn reattach-to-user-namespace zenity htop rsync screen \
+      zsh-syntax-highlighting fzf irssi sqlite jq the_silver_searcher
+
+### Now we can run the dotfiles installs cript:
 
 Then cd to my dotfiles checkout and run:
 
@@ -27,15 +40,6 @@ will create symlinks from $HOME/*filename* this repo's corresponding *filename*.
 
 ## Post installation steps
 After running ./install.sh to automate most things, do these manual steps.
-
-### Homebrew dependencies
-
-Note all of these are required for this script to work but these are things I typically brew install:
-
-    tig, tmux, autojump, tree, aws-sam-cli, gnu-sed, watch, coreutils, mysql,
-    postgresql, pyenv, wget, ctags, diffutils, nmap, fd, nnn,
-    reattach-to-user-namespace, zenity, htop, rsync, zsh-syntax-highlighting,
-    screen, fzf, irssi, sqlite, jq, the_silver_searcher
 
 ### Zsh
 #### site-functions
