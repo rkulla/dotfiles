@@ -29,9 +29,9 @@ The 'realpath' command from coreutils is required to run install.sh. I typically
       wget ctags diffutils nmap fd nnn reattach-to-user-namespace zenity htop rsync screen \
       zsh-syntax-highlighting fzf irssi sqlite jq the_silver_searcher
 
-### Now we can run the dotfiles installs cript:
+### Run the dotfiles install script
 
-Then cd to my dotfiles checkout and run:
+After doing the above steps, cd to my dotfiles checkout and run:
 
     ./install.sh
 
