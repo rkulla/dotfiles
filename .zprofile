@@ -12,4 +12,7 @@ PATH="$HOME/.nvm/versions/node/v14.15.4/bin:$PATH"
 # Python
 PATH="$HOME/.pyenv/shims:$PATH"
 
+# Golang stuff
+PATH=/usr/local/go/bin/go:$PATH
+
 export PATH
