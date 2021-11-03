@@ -394,9 +394,6 @@ endfunction
 " Compile/run the current file on the fly
 au FileType typescript map <Leader>l :w<CR>:!npx ts-node %<CR>
 
-" So ,il enables :IndentLines-like vertical lines on tabs. (Toggle on/off from there with :set list!)
-nnoremap <leader>il :set list lcs=tab:<bslash><bar><bslash><space><bar>hi SpecialKey ctermbg=NONE ctermfg=gray<cr>
-
 """ Jest
 " Make it so typing ,jt runs jest on the current file
 " I use make instead of vim-dispatch because dispatch's tmux adapter strips
@@ -408,6 +405,9 @@ set makeprg=npx\ jest\ --colors
 nnoremap <leader>jt :make %<cr>
 " However, running jest in vim isn't usually worth it. Instead use my ,fp map to
 " copy the file path to the clip board and paste to jest on the cli
+
+" So ,il enables :IndentLines-like vertical lines on tabs. (Toggle on/off from there with :set list!)
+nnoremap <leader>il :set list lcs=tab:<bslash><bar><bslash><space><bar>hi SpecialKey ctermbg=NONE ctermfg=gray<cr>
 
 """ Quickfix window
 " So after typing something like :0Gclog, I can scroll load the next or prev result while not being focused on the
