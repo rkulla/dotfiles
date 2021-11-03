@@ -390,11 +390,9 @@ function! ToggleSyntaxFolding()
     endif
 endfunction
 
-""" Quickfix window
-" So after typing something like :0Gclog, I can scroll load the next or prev result while not being focused on the
-" qf window and maintain my cursor position in the file
-nnoremap ]q :let ws = winsaveview() <bar> cnext <bar> call winrestview(ws) <bar> unlet ws<CR>
-nnoremap [q :let ws = winsaveview() <bar> cprev <bar> call winrestview(ws) <bar> unlet ws<CR>
+""" Typescript
+" Compile/run the current file on the fly
+au FileType typescript map <Leader>l :w<CR>:!npx ts-node %<CR>
 
 " So ,il enables :IndentLines-like vertical lines on tabs. (Toggle on/off from there with :set list!)
 nnoremap <leader>il :set list lcs=tab:<bslash><bar><bslash><space><bar>hi SpecialKey ctermbg=NONE ctermfg=gray<cr>
@@ -410,6 +408,13 @@ set makeprg=npx\ jest\ --colors
 nnoremap <leader>jt :make %<cr>
 " However, running jest in vim isn't usually worth it. Instead use my ,fp map to
 " copy the file path to the clip board and paste to jest on the cli
+
+""" Quickfix window
+" So after typing something like :0Gclog, I can scroll load the next or prev result while not being focused on the
+" qf window and maintain my cursor position in the file
+nnoremap ]q :let ws = winsaveview() <bar> cnext <bar> call winrestview(ws) <bar> unlet ws<CR>
+nnoremap [q :let ws = winsaveview() <bar> cprev <bar> call winrestview(ws) <bar> unlet ws<CR>
+
 
 """ Copying currently open file(s) to the clipboard
 nnoremap <leader>fp :let @+ = @%<cr>
