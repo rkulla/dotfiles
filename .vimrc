@@ -610,6 +610,11 @@ nmap Wl <C-w>l
 nmap Wk <C-w>k
 nmap Wj <C-w>j
 
+" To "fullscreen" the current split window buffer. When done, :q or :tabc and get back to the previous "viewport"
+" Think of gz as standing for 'go zoom'. It just opens a new tab window split window. Close tab when finished
+nnoremap gz <cmd>tab split<cr>
+
+
 ""
 "" My custom .txt notes format settings
 ""

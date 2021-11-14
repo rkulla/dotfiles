@@ -117,6 +117,8 @@ else
   export EDITOR='/Applications/MacVim.app/Contents/MacOS/Vim'
 fi
 alias v='$EDITOR'
+# Make it so 'vc' has a more VSCode looking experience. Pointless, but for demonstration purposes.
+alias vc='$EDITOR -c "below term" -c "wincmd w" -c "res +11" -c "NERDTreeToggle" -c "wincmd w" -c "vert res +5"'
 
 # Make it so mysql-monitor and psql will let you see output after you quit less
 # Set up a separate alias for less if you want different options for less when calling it manually on the command line.
