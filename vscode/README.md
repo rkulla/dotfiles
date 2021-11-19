@@ -18,6 +18,7 @@
 - `Reload`
 - `Todo Tree`
 - `Import Cost`
+- `Rainbow Brackets`
 - `Stackoverflow Instant Search`
 - `Prettier - Code formatter` (work only)
 - `StandardJS` (work only)
