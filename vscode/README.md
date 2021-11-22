@@ -10,6 +10,7 @@
 - `Markdownlint` 
 - `JavaScript (ES6) code snippets in StandardJS style` (`JavaScript (ES6) code snippets` if i want semi-colons)
 - `Jest`
+- `Jest Snippets`
 - `Jest Runner`
 - `Bookmarks`
 - `Code Spell Checker`

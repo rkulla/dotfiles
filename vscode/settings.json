@@ -7,6 +7,7 @@
     "editor.formatOnSave": true,
     "editor.cursorBlinking": "smooth",
     "editor.formatOnPaste": true,
+    "editor.snippetSuggestions": "top",
     "workbench.editor.highlightModifiedTabs": true,
     "files.trimFinalNewlines": true,
     "editor.acceptSuggestionOnEnter": "off",
