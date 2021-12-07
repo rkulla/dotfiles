@@ -14,5 +14,6 @@ PATH="$HOME/.pyenv/shims:$PATH"
 
 # Golang stuff
 PATH=/usr/local/go/bin/go:$PATH
+PATH="$HOME/go/bin:$PATH"
 
 export PATH
