@@ -67,6 +67,15 @@ Install plugins:
 
 Open tmux and type `Ctrl+a I` to install the plugins listed in .tmux.conf
 
+### Git
+On a work machine with a personal github account, edit ~/.gitconfig and update my [user] section. E.g.,
+
+	name = Ryan Kulla
+	email = <work github email>
+	login = <work github username>
+
+Do not add tokens here, use a real credential store for privacy.
+
 #### Misc.
 Search PATH modifications in .zshrc and .zprofile `/PATH=\C` adjust accordingly.
 
