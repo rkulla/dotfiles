@@ -12,6 +12,7 @@
 .config/karabiner/*
 !.config/karabiner/karabiner.json
 .config/git/
+.config/gh/
 .config/nnn/
 
 # Vim
