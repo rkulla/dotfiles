@@ -145,6 +145,9 @@ Also, enable italics, e.g., Vim's line numbers when not in tmux:
 ### ~/bin scripts
 Backup to/fro manually from ~/Dropbox/pf/code/my-bin-dir-scripts/
 
+### VSCode
+For now manually copy my settings from vscode/settings.json into ~/Library/Application\ Support/Code/User/settings.json
+
 ### Uninstalling
 Simply `git rm` any files and remove linking references from install.sh. Then
 use my `lslb` alias to list broken symlinks for removal. Also uninstall with vimogen

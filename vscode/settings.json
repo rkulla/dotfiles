@@ -6,6 +6,8 @@
     "terminal.integrated.fontFamily": "Hack Nerd Font Mono",
     "editor.formatOnSave": true,
     "editor.cursorBlinking": "smooth",
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs":"active",
     "editor.formatOnPaste": true,
     "editor.snippetSuggestions": "top",
     "workbench.editor.highlightModifiedTabs": true,
