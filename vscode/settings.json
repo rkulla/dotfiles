@@ -28,6 +28,27 @@
                     "editor.glyphMargin": true
                 }
             ]
+        },
+        {
+            "id": "codeLens",
+            "values": [
+                {
+                    "javascript.referencesCodeLens.enabled": false,
+                    "typescript.referencesCodeLens.enabled": false,
+                    "typescript.referencesCodeLens.showOnAllFunctions": false,
+                    "typescript.implementationsCodeLens.enabled": false,
+                    "javascript.referencesCodeLens.showOnAllFunctions": false,
+                    "diffEditor.codeLens": false,
+                },
+                {
+                    "javascript.referencesCodeLens.enabled": true,
+                    "typescript.referencesCodeLens.enabled": true,
+                    "typescript.referencesCodeLens.showOnAllFunctions": true,
+                    "typescript.implementationsCodeLens.enabled": true,
+                    "javascript.referencesCodeLens.showOnAllFunctions": true,
+                    "diffEditor.codeLens": true,
+                }
+            ]
         }
     ],
     "vim.leader": ",",

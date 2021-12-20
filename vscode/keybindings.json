@@ -5,6 +5,11 @@
         "when": "editorFocus"
     },
     {
+        "key": "cmd+l",
+        "command": "settings.cycle.codeLens",
+        "when": "editorFocus"
+    },
+    {
         "key": "shift+cmd+a",
         "command": "workbench.action.toggleActivityBarVisibility"
     }
