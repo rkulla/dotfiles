@@ -51,6 +51,15 @@
             ]
         }
     ],
+    "editor.lineNumbers": "on",
+    "editor.folding": true,
+    "editor.glyphMargin": true,
+    "javascript.referencesCodeLens.enabled": false,
+    "typescript.referencesCodeLens.enabled": false,
+    "typescript.referencesCodeLens.showOnAllFunctions": false,
+    "typescript.implementationsCodeLens.enabled": false,
+    "javascript.referencesCodeLens.showOnAllFunctions": false,
+    "diffEditor.codeLens": false,
     "vim.leader": ",",
     "vim.incsearch": true,
     "vim.useSystemClipboard": true,
