@@ -61,6 +61,17 @@
     "javascript.referencesCodeLens.showOnAllFunctions": false,
     "diffEditor.codeLens": false,
     "vim.leader": ",",
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<leader>",
+                "l"
+            ],
+            "commands": [
+                "code-runner.run",
+            ]
+        },
+    ],
     "vim.incsearch": true,
     "vim.useSystemClipboard": true,
     "vim.useCtrlKeys": true,
@@ -84,5 +95,10 @@
                 "<C-w>"
             ]
         }
-    ]
+    ],
+    "code-runner.executorMap": {
+        "javascript": "node",
+        "typescript": "npx ts-node",
+    },
+    "code-runner.clearPreviousOutput": true
 }
