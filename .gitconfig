@@ -98,3 +98,5 @@
 	keepBackup = false
 [pull]
 	ff = only
+[log]
+	date = iso-strict
