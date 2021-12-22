@@ -316,6 +316,10 @@ esac
 eval "$(pyenv init -)"
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
+# Misc
+# brew install asdf
+. /usr/local/opt/asdf/libexec/asdf.sh
+
 # AWS
 # OPT out of SAM CLI collecting telemetry data
 SAM_CLI_TELEMETRY=0
