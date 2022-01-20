@@ -100,3 +100,5 @@
 	ff = only
 [log]
 	date = iso-strict
+[init]
+	defaultBranch = main
