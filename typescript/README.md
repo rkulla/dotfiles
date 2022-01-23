@@ -34,6 +34,6 @@ Then install the following for my minimum typescript node.js dependencies to wor
 
 If you still get errors, it's probably you're using the wrong version of node or don't need additional configuration for special circumstances. For example, if your .eslintrc.json and tsconfig are in a subdir like `lambda/foo` (which is bad practice), then either move them to the root of the project or you can do the following in .vscode/settings.json and CocConfig:
 
-  "eslint.workingDirectories": [
-    "lambda/foo"
-  ]
+    "eslint.workingDirectories": [
+      "lambda/foo"
+    ]
