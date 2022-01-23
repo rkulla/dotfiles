@@ -89,6 +89,12 @@ Or typescript/.eslintrc.json and tsconfig.json if it's **my** TypeScript project
 (I ONLY symlink it to my code-snippets folder). Putting eslintrc in $HOME is deprecated and
 jsconfig.json or tsconfig.json can't live in $HOME either.
 
+Don't forget to look at my .vim/coc-settings.json as well and **make sure** at least coc-eslint and coc-tsserver are installed
+   $ ls ~/.config/coc/extensions/node_modules  # install.sh should have installed them
+
+See also typescript/README.md in this repo.
+
+
 ### iterm2
 Enable `mouse reporting` for each profile. Then in `General > Selection` enable 
 `Applications in terminal may access clipboard`, `Copy to pasteboard on selection`,
