@@ -1,3 +1,20 @@
+## tsconfig.json
+
+This is needed for *every* typescript project, e.g., to make sure tsserver and your IDE work properly.
+
+At a minimum have:
+
+  {
+    "compilerOptions": {
+      "target": "es6",
+      "module": "commonjs",
+      "allowJs": true
+    },
+    "exclude": ["node_modules" ]
+  }
+
+## ESLint
+
 First make sure forget to my .vim/coc-settings.json looks like:
 
 ```json
@@ -31,6 +48,13 @@ Then install the following for my minimum typescript node.js dependencies to wor
     ts-jest 
     @types/jest 
     eslint-plugin-jest 
+
+Then, add this to `jest.config.js` make jest run ts-jest or you'll get syntax errors about import statements, etc:
+
+    module.exports = {
+      preset: 'ts-jest',
+      testEnvironment: 'node',
+    };
 
 If you still get errors, it's probably you're using the wrong version of node or don't need additional configuration for special circumstances. For example, if your .eslintrc.json and tsconfig are in a subdir like `lambda/foo` (which is bad practice), then either move them to the root of the project or you can do the following in .vscode/settings.json and CocConfig:
 
