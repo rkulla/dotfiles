@@ -15,6 +15,10 @@ At a minimum have:
 }
 ```
 
+Whatever files/dirs you add to "include" and "exclude" (which should contain different values to not override each other), is what `tsc` will COMPILE and `eslint .` will add any plugin rules but has nothing to do with which files eslint will ignore. For that you need to use `.eslintignore` or better yet, add the following to .eslingrc.json:
+   
+     "ignorePatterns": ["foo"],
+
 ## ESLint
 
 First make sure forget to my .vim/coc-settings.json looks like:
