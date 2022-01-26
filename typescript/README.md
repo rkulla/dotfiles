@@ -4,14 +4,16 @@ This is needed for *every* typescript project, e.g., to make sure tsserver and y
 
 At a minimum have:
 
-  {
-    "compilerOptions": {
-      "target": "es6",
-      "module": "commonjs",
-      "allowJs": true
-    },
-    "exclude": ["node_modules" ]
-  }
+```json
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "allowJs": true
+  },
+  "exclude": ["node_modules" ]
+}
+```
 
 ## ESLint
 
