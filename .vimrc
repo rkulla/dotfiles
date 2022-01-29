@@ -69,8 +69,10 @@ imap ;; <C-w>
 imap ;h <Esc>I
 
 " To [c to jump to next quckfix item, ]c for previous.
-nnoremap ]c :cnext<CR>
-nnoremap [c :cprevious<CR>
+" Don't map things to ]c or ]c because they're already used for things like
+" jumping to next change/diff item
+nnoremap <End> :cnext<CR>
+nnoremap <Home> :cprevious<CR>
 
 " To quickly open files in the pwd, or its subdirs, automatically by typing substrings of filenames
 map <Leader>e :e **/*
