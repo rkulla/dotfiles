@@ -208,6 +208,15 @@ function vfd () {
     vim $(fd $1)
 }
 
+# wraps cht.sh curl calls for faster lookup
+function how() { 
+    curl cheat.sh/"$1"/"$2?Q" 
+}
+
+howv() { # verbose version
+    curl cheat.sh/"$1"/"$2" 
+}
+
 # nnn (brew install nnn)
 alias n='nnn' # brew install nnn first for an awesome ncurses file explorer
 alias l='nnn -de'  # use instead of ls most of the time
