@@ -166,8 +166,10 @@ alias yesterday='find -daystart -type f -mtime 1 2>/dev/null'
 # find out which computers/routers/devices are active on our LAN:
 alias whatsup='sudo nmap -sP 192.168.1.1/24 | perl -pe "s/^Host.*/\e[1;31m$&\e[0m/g"'
 alias get='git pull&&git lol|head'
-# open current repo in browser. Requires the remote to be a real url, e.g., https github url
-alias grem='git remote -v | awk "/origin.*push/ {print \$2}" | xargs open'
+# open git remote repo in browser. Requires `brew install gh`
+alias grem='gh repo view --web'
+# open PR in browser
+alias grempr='gh pr view --web'
 # Make my diff-so-fancy alias even shorter
 alias dsf='git dsf'
 alias gpod='git pull origin develop'
