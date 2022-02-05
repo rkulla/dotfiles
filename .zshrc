@@ -119,6 +119,8 @@ fi
 alias v='$EDITOR'
 # Make it so 'vc' has a more VSCode looking experience. Pointless, but for demonstration purposes.
 alias vc='$EDITOR -c "below term" -c "wincmd w" -c "res +11" -c "NERDTreeToggle" -c "wincmd w" -c "vert res +5"'
+# alias vscode to `c`
+alias c='code'
 
 # Make it so mysql-monitor and psql will let you see output after you quit less
 # Set up a separate alias for less if you want different options for less when calling it manually on the command line.
@@ -152,11 +154,9 @@ alias wgt='watch -n 1 -d -t -c "git lolgraph --color && tree -CF"' # watch git l
 # Use macvim for cli vim because it's better than standard vim on macs
 alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
 # Open modified staged and unstaged files (great for reopening where you left off)
-alias vimod='vim $(git diff --diff-filter=d --cached --name-only && git diff --diff-filter=d --name-only)'
+alias vmod='vim $(git diff --diff-filter=d --cached --name-only && git diff --diff-filter=d --name-only)'
+alias cmod='code $(git diff --diff-filter=d --cached --name-only && git diff --diff-filter=d --name-only)'
 # Open modified files (even committed) that a branch changed (be in the branch first)
-alias vimodb='vim $(git diff --name-only develop)'
-# Open just files that were committed to this branch
-alias vimcomm='vim $(git log --no-merges develop.. --name-only --oneline | sed 1d)'
 # find out our external IP
 alias externalip='dig +short myip.opendns.com @resolver1.opendns.com'
 # find files that were modified today
@@ -208,6 +208,18 @@ function vg () {
 # Like my `vg` command but uses fd and works in subdirs. Even better.
 function vfd () {
     vim $(fd $1)
+}
+
+# Open files with Vim in current branch that haven't been merged with specified branch
+# $ vnotmerged main  # opens files in current branch not merged to main yet (great for PR reviews)
+function vnotmerged () {
+    vim $(git diff "$1"...$(git branch --show-current) --name-status | awk "/^M|^A.*/ {print \$2}")
+}
+
+# Open files with VSCode in current branch that haven't been merged with specified branch
+# $ cnotmerged main  # opens files in current branch not merged to main yet (great for PR reviews)
+function cnotmerged () {
+    code $(git diff "$1"...$(git branch --show-current) --name-status | awk "/^M|^A.*/ {print \$2}")
 }
 
 # wraps cht.sh curl calls for faster lookup
