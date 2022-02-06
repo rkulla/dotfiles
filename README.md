@@ -140,8 +140,8 @@ Create a dark profile called `d` with:
 
 By default, new split panes reset back to $HOME but I want pwd:
 
-    Cmd+, > Profiles > profile name > Working directory > Advanced Config > Edit >
-    Under 'Working Directory for New Split Panes' select 'Reuse previous sessions's directory'.
+- `Cmd+,` > `Profiles` > `[profile name]` > `Working directory` > `Advanced Config` > `Edit` ><br>
+   Under `Working Directory for New Split Panes` select `Reuse previous sessions's directory`.
 
 ### terminfo-sources
 Most termcap files are already installed with ncurses: xterm-256color, etc.
