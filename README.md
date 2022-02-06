@@ -78,7 +78,12 @@ On a work machine with a personal github account, edit ~/.gitconfig and update m
 Do not add tokens here, use a real credential store for privacy.
 
 #### Misc.
+
 Search PATH modifications in .zshrc and .zprofile `/PATH=\C` adjust accordingly.
+
+Run the following in a terminal to show full file paths in Finder:
+
+    $ defaults write com.apple.finder _FXShowPosixPathInTitle -bool YES;
 
 ### ESLint
 Install eslint PER project, not globally:
