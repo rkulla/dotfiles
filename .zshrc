@@ -257,6 +257,7 @@ autoload edit-command-line; zle -N edit-command-line
 bindkey '^o' edit-command-line
 
 # cd to a subdir without typing full relative path
+# My ^F command is better most of the time, since more visible/flexible.
 function s {
     # If i wanted hidden dirs I'd do [1]D
     setopt localoptions extendedglob
