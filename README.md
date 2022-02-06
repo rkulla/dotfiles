@@ -97,6 +97,7 @@ See also typescript/README.md in this repo.
 
 
 ### iterm2
+
 Enable `mouse reporting` for each profile. Then in `General > Selection` enable 
 `Applications in terminal may access clipboard`, `Copy to pasteboard on selection`,
 `Double-click performs smart selection`, `Triple-click selects entire wrapped lines`.
@@ -135,6 +136,12 @@ Create a dark profile called `d` with:
     Yellow Bright: 657b83
     Cursor: 839496
     Cursor text: 073642
+
+
+By default, new split panes reset back to $HOME but I want pwd:
+
+    Cmd+, > Profiles > profile name > Working directory > Advanced Config > Edit >
+    Under 'Working Directory for New Split Panes' select 'Reuse previous sessions's directory'.
 
 ### terminfo-sources
 Most termcap files are already installed with ncurses: xterm-256color, etc.
