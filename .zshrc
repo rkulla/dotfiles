@@ -4,7 +4,7 @@
 zstyle ':vcs_info:git:*' formats '%b'
 autoload -U disambiguate  # copy this script from dotfiles repo into my $fpath
 autoload -Uz vcs_info
-precmd() {
+function precmd {
     psvar=()
     vcs_info
     # only call disambiguate to abbrev dirs if $PWD is > 15 chars
@@ -44,7 +44,7 @@ setopt histreduceblanks
 setopt histignorespace # Don't store history for commands starting withe a space
 # Make it so i can't accidentally "git stash clear", etc...
 HISTORY_IGNORE="(git stash*|rm -rf*)"
-zshaddhistory() {
+function zshaddhistory {
   emulate -L zsh
   # make it so typing one new command will erase the HISTORY_IGNORE'd commands from the current session too
   [[ $1 != ${~HISTORY_IGNORE} ]]
@@ -60,7 +60,7 @@ bindkey '^B' vi-backward-kill-word
 # will delete 'bar-baz' from /foo/bar-baz
 # This is needed in zsh because it doesn't use gnu-readline which
 # .inputrc leverages. I still use .inputrc for bash, python, etc.
-backward-kill-dir () {
+function backward-kill-dir {
     local WORDCHARS=${WORDCHARS/\/}
     zle backward-kill-word
 }
@@ -73,7 +73,7 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Make it so typing `it <prof>` changes iterm2 profile in current
 # tab. Name my Light profile `l` and Dark profile `d`. Usage:
 #    $ it d  # dark mode. Go back to light mode: it l
-it() {
+function it {
   echo -e "\033]50;SetProfile=$1\a"
 }
 
@@ -94,7 +94,7 @@ PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="./node_modules/.bin:$PATH"
 
 # Create a `take` command
-take () {
+function take {
   mkdir -p $@ && cd ${@:$#}
 }
 
@@ -201,33 +201,33 @@ alias ag='ag -s --path-to-ignore ~/.ignore'
 # `vg` command that opens vim on glob/substr, e.g., `vg pack` opens
 # package.json and package-lock.json, etc.  Sort's in reverse, using
 # glob  qualifier (On), so package.json opens in buffer first.
-function vg () {
+function vg {
     vim *${1}*(On)
 }
 
 # Like my `vg` command but uses fd and works in subdirs. Even better.
-function vfd () {
+function vfd {
     vim $(fd $1)
 }
 
 # Open files with Vim in current branch that haven't been merged with specified branch
 # $ vnotmerged main  # opens files in current branch not merged to main yet (great for PR reviews)
-function vnotmerged () {
+function vnotmerged {
     vim $(git diff "$1"...$(git branch --show-current) --name-status | awk "/^M|^A.*/ {print \$2}")
 }
 
 # Open files with VSCode in current branch that haven't been merged with specified branch
 # $ cnotmerged main  # opens files in current branch not merged to main yet (great for PR reviews)
-function cnotmerged () {
+function cnotmerged {
     code $(git diff "$1"...$(git branch --show-current) --name-status | awk "/^M|^A.*/ {print \$2}")
 }
 
 # wraps cht.sh curl calls for faster lookup
-function how() { 
+function how { 
     curl cheat.sh/"$1"/"$2?Q" 
 }
 
-howv() { # verbose version
+function howv { # verbose version
     curl cheat.sh/"$1"/"$2" 
 }
 
@@ -257,8 +257,10 @@ autoload edit-command-line; zle -N edit-command-line
 bindkey '^o' edit-command-line
 
 # cd to a subdir without typing full relative path
-s() {
-    cd **/$1(D)
+function s {
+    # If i wanted hidden dirs I'd do [1]D
+    setopt localoptions extendedglob
+    cd (^node_modules/)#$1/([1])
 }
 
 # Lets me cd to the real location of a symlink
@@ -266,7 +268,7 @@ s() {
 #           # works on symlinked files, too:
 #           $ rcd .vimrc (if .vimrc is in pwd)
 #           $ rcd ~/.vimrc
-rcd() {
+function rcd {
     symlinkPath="$1"
     cd $(dirname $(realpath "$symlinkPath"))
 }
@@ -280,13 +282,13 @@ source /usr/local/opt/fzf/shell/key-bindings.zsh
 # make fzf-cd-widget work on MacOS when you type ^F (since alt+a default won't work)
 bindkey "^F" fzf-cd-widget
 # fcd - cd to selected directory. Showing only top-level subdirs
-fcd() {
+function fcd {
   local dir
   dir=$(fd --hidden --no-ignore --max-depth 1 --type d | fzf +m)
   cd "$dir"
 }
 # fshow - git commit browser
-fshow() {
+function fshow {
   git log --graph --color=always \
       --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
   fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
