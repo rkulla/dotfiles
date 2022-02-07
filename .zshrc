@@ -1,3 +1,8 @@
+
+#### FIG ENV VARIABLES ####
+# Please make sure this block is at the start of this file.
+[ -s ~/.fig/shell/pre.sh ] && source ~/.fig/shell/pre.sh
+#### END FIG ENV VARIABLES ####
 # Colored prompt with user, host, abbreviated cwd, and truncated branch name
 # %F{number} means foreground colors 0-255
 # %2~ means truncate path to only the last 2 dirs
@@ -232,10 +237,22 @@ function howv { # verbose version
 }
 
 # nnn (brew install nnn)
-alias n='nnn' # brew install nnn first for an awesome ncurses file explorer
+# alias n='nnn' # brew install nnn first for an awesome ncurses file explorer
 alias l='nnn -de'  # use instead of ls most of the time
 # bookmarks
 export NNN_BMS='b:~/Documents/books;D:~/Downloads;p:~/Pictures;r:~/repos;s:~/repos/code-snippets';
+
+export NNN_TMPFILE="/tmp/nnn"
+
+function n()
+{
+    nnn -de
+
+    if [ -f $NNN_TMPFILE ]; then
+        . $NNN_TMPFILE
+        rm -f $NNN_TMPFILE
+    fi
+}
 
 # autojump (brew install autojump)
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
@@ -361,3 +378,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export PATH
+
+#### FIG ENV VARIABLES ####
+# Please make sure this block is at the end of this file.
+[ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
+#### END FIG ENV VARIABLES ####
