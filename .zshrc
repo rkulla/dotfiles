@@ -236,14 +236,13 @@ function howv { # verbose version
     curl cheat.sh/"$1"/"$2" 
 }
 
-# nnn (brew install nnn)
-# alias n='nnn' # brew install nnn first for an awesome ncurses file explorer
+# nnn (brew install nnn for a ncurses file explorer)
 alias l='nnn -de'  # use instead of ls most of the time
 # bookmarks
 export NNN_BMS='b:~/Documents/books;D:~/Downloads;p:~/Pictures;r:~/repos;s:~/repos/code-snippets';
 
+# Make it so using `n` will auto-change directory on quit. `l` won't.
 export NNN_TMPFILE="/tmp/nnn"
-
 function n()
 {
     nnn -de
