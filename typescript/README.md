@@ -1,3 +1,5 @@
+NOTE: I cna mostly just use my ts-skel skeleton for the latest working boilerplate.
+
 ## tsconfig.json
 
 This is needed for *every* typescript project, e.g., to make sure tsserver and your IDE work properly.
