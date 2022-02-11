@@ -32,7 +32,7 @@ The 'realpath' command from coreutils is required to run install.sh. I typically
     $ brew install gh tig tmux autojump tree aws-sam-cli gnu-sed watch coreutils mysql postgresql \
       pyenv wget ctags diffutils nmap fd nnn reattach-to-user-namespace zenity htop rsync screen \
       zsh-syntax-highlighting shellcheck jsonlint fzf irssi sqlite jq the_silver_searcher asdf \
-      yamllint, diff-so-fancy
+      yamllint, httpie, diff-so-fancy
 
 ### Run the dotfiles install script
 
