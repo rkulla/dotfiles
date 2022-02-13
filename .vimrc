@@ -357,6 +357,9 @@ au BufNew,BufRead,BufEnter *.py set textwidth=79 fo=t sw=4 ts=4
 autocmd FileType python map <Leader>l :w<CR>:!python %<CR>
 iab ppxx   import pprint;pprint.pprint()
 
+""" Markdown
+let g:markdown_folding = 1
+
 """ JSON
 " Note: Use my <Leader>sf to toggle syntax folding to fold json files!
 " Make it so ,jp runs :JsonPath
