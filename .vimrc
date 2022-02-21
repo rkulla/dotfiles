@@ -27,6 +27,7 @@ set path+=**                                        " Allow :find, :tabf, etc to
 set hidden                                          " To change buffers without having to save modified ones first
 set ignorecase                                      " Allow case-insensitive /searching
 set timeoutlen=1000 ttimeoutlen=0                   " Make Esc key a lot faster, e.g., closing fzf
+set tabpagemax=30                                   " So :tab ball will open up to 30 tabs instead of default 10
 set nobackup                                        " I don't like it triggering my file system watchers
 set number                                          " Enable line numbers by default
 set nostartofline                                   " So cursor doesn't jump to beginning of line when you G, GG, ^F, etc
