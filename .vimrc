@@ -803,7 +803,6 @@ if !has("gui_running") " Since we do NOT run coc.vim if the GUI vim (see top of 
 
   " Use <tab> for select selections ranges, needs server support, like: coc-tsserver, coc-python
   " Don't map to <tab> because <C-i> is an alias and will break and can't be mapped to other things 
-  " So we'll map coc-range-select to anything but <TAB>. I like <C-r> since it sounds like range
   " So map coc-range-select to anything but <TAB>. I like <vr> since it sounds like selecting a range
   nmap <silent> vr <Plug>(coc-range-select)
   xmap <silent> vr <Plug>(coc-range-select)
