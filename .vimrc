@@ -802,9 +802,12 @@ if !has("gui_running") " Since we do NOT run coc.vim if the GUI vim (see top of 
   nmap <leader>qf  <Plug>(coc-fix-current)
 
   " Use <tab> for select selections ranges, needs server support, like: coc-tsserver, coc-python
-  nmap <silent> <TAB> <Plug>(coc-range-select)
-  xmap <silent> <TAB> <Plug>(coc-range-select)
-  xmap <silent> <S-TAB> <Plug>(coc-range-select-backword)
+  " Don't map to <tab> because <C-i> is an alias and will break and can't be mapped to other things 
+  " So we'll map coc-range-select to anything but <TAB>. I like <C-r> since it sounds like range
+  " So map coc-range-select to anything but <TAB>. I like <vr> since it sounds like selecting a range
+  nmap <silent> vr <Plug>(coc-range-select)
+  xmap <silent> vr <Plug>(coc-range-select)
+  " I don't map VR to coc-range-select-backword since it won't work right and I don't use it any way
 
   " Use `:Format` to format current buffer
   command! -nargs=0 Format :call CocAction('format')
