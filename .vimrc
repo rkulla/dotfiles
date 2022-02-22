@@ -360,6 +360,13 @@ iab ppxx   import pprint;pprint.pprint()
 
 """ Markdown
 let g:markdown_folding = 1
+if has("autocmd")
+    augroup MarkdownFileFolds
+    au!
+    " I don't want it to show folds by default, just later when i zM
+    autocmd FileType markdown set foldlevel=99
+    augroup END
+endif
 
 """ JSON
 " Note: Use my <Leader>sf to toggle syntax folding to fold json files!
@@ -395,6 +402,7 @@ function! ToggleSyntaxFolding()
         setlocal foldmethod=marker
     endif
 endfunction
+
 
 """ Typescript
 " Compile/run the current file on the fly
