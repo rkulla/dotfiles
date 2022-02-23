@@ -20,7 +20,7 @@
 - `Todo Tree`
 - `Import Cost`
 - `Stackoverflow Instant Search`
-- [Prettier - Code formatter`](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) (work only)
+- [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) (work only)
 - `StandardJS` (work only IF required, since I don't like this)
 - `SwaggerHub for VS Code` (work only)
 - `Live Share` (work only)
