@@ -100,5 +100,12 @@
         "javascript": "node",
         "typescript": "npx ts-node",
     },
-    "code-runner.clearPreviousOutput": true
+    "code-runner.clearPreviousOutput": true,
+    "jest.autoRun": "off",
+    "jest.debugCodeLens.showWhenTestStateIn": [
+      "pass",
+      "fail",
+      "unknown"
+    ],
+    "jest.jestCommandLine": "npm test --"
 }
