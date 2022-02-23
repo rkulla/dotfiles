@@ -6,12 +6,12 @@
 - `Settings Cycler`
 - `Vim`
 - `GitLens`
-- `ESLint`
+- [ESLint](https://github.com/Microsoft/vscode-eslint)
 - `Markdownlint` 
 - `JavaScript (ES6) code snippets in StandardJS style` (`JavaScript (ES6) code snippets` if i want semi-colons)
-- `Jest`
-- `Jest Snippets`
-- `Jest Runner`
+- [Jest](https://github.com/jest-community/vscode-jest)
+- `Jest Runner` (don't need unless I truly need to run individual tests and can't get vscode-jest to)
+- [Jest Snippets](https://github.com/andys8/vscode-jest-snippets)
 - `Bookmarks`
 - `Code Spell Checker`
 - `Code Runner`
@@ -20,7 +20,7 @@
 - `Todo Tree`
 - `Import Cost`
 - `Stackoverflow Instant Search`
-- `Prettier - Code formatter` (work only)
+- [Prettier - Code formatter`](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) (work only)
 - `StandardJS` (work only)
 - `SwaggerHub for VS Code` (work only)
 - `Live Share` (work only)
