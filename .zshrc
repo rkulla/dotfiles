@@ -74,6 +74,8 @@ bindkey '^_' backward-kill-dir
 
 # syntax highlight commands (brew install zsh-syntax-highlighting)
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# Remind me to use the alias of a command (brew install zsh-you-should-use)
+source /usr/local/share/zsh-you-should-use/you-should-use.plugin.zsh
 
 # Make it so typing `it <prof>` changes iterm2 profile in current
 # tab. Name my Light profile `l` and Dark profile `d`. Usage:
