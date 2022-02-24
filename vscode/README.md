@@ -15,6 +15,7 @@
 - `Bookmarks`
 - `Code Spell Checker`
 - `Code Runner`
+- [Copy GitHub URL](https://marketplace.visualstudio.com/items?itemName=mattlott.copy-github-url)
 - `Explorer Exclude`
 - `Reload`
 - `Todo Tree`
