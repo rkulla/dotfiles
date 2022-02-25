@@ -365,6 +365,8 @@ if has("autocmd")
     au!
     " I don't want it to show folds by default, just later when i zM
     autocmd FileType markdown set foldlevel=99
+    " I want .md files to have be tw=131
+    autocmd FileType markdown setlocal textwidth=131
     augroup END
 endif
 
