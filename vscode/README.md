@@ -5,7 +5,7 @@
 - `Fix VSCode Checksums` (if getting errors about a corrupt installation)
 - `Settings Cycler`
 - `Vim`
-- `GitLens`
+- [GitLens](https://github.com/gitkraken/vscode-gitlens)
 - [ESLint](https://github.com/Microsoft/vscode-eslint)
 - `Markdownlint` 
 - `JavaScript (ES6) code snippets in StandardJS style` (`JavaScript (ES6) code snippets` if i want semi-colons)
