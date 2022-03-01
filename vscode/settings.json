@@ -107,5 +107,6 @@
       "fail",
       "unknown"
     ],
-    "jest.jestCommandLine": "npm test --"
+    "jest.jestCommandLine": "npm test --",
+    "diffEditor.renderSideBySide": false
 }
