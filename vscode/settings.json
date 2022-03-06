@@ -4,6 +4,12 @@
     "editor.fontFamily": "Hack Nerd Font",
     "editor.fontLigatures": true,
     "terminal.integrated.fontFamily": "Hack Nerd Font Mono",
+    "editor.detectIndentation": false,
+    "editor.tabSize": 4,
+    "[javascript][typescript][json][jsonc][javascriptreact][html][ruby][css]": {
+      "editor.tabSize": 2,
+    },
+    "editor.insertSpaces": true,
     "editor.formatOnSave": true,
     "editor.cursorBlinking": "smooth",
     "editor.bracketPairColorization.enabled": true,
