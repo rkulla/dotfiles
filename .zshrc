@@ -157,7 +157,8 @@ alias csjt='cd ~/repos/code-snippets/JS/tmp'
 alias py='python'
 # run the tree command with colorized output to piped programs and show / after dirs
 alias tt='tree -CF'
-alias tj='tree -CF -a -I "node_modules|lcov-report|coverage|jsdoc|.git"'
+# use `tj -d` to only show directoriees. `tj -P README*` show just dirs and README files
+alias tj='tree -CF -a -I "node_modules|lcov-report|coverage|jsdoc|dist|vendor|.git"'
 alias wt='watch -n 1 -d -t -c tree -CF' # watch tree.
 alias wgt='watch -n 1 -d -t -c "git lolgraph --color && tree -CF"' # watch git log graph and tree at the same time.
 # Use macvim for cli vim because it's better than standard vim on macs
