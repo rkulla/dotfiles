@@ -585,6 +585,10 @@ set cpo-=<
 set wcm=<C-Z>
 map <F4> :emenu <C-Z>
 
+""" Tree(1)
+" Make it so ,pt sets path to the value of line #1 header. Useful for my fd -tree.txt files
+nmap <Leader>pt :let &path=getline(1)<CR>
+
 """ NERDTree
 " auto-start NerdTree when you run vim with no command line arguments
 " autocmd StdinReadPre * let s:std_in=1
