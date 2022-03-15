@@ -17,6 +17,7 @@
 - `Code Runner`
 - [Copy GitHub URL](https://marketplace.visualstudio.com/items?itemName=mattlott.copy-github-url) Keyboard shortcuts conflict with Vim extension but can still right-click > Copy As.
 - `Explorer Exclude`
+- `Quit Control for VSCode`
 - `Reload`
 - `Todo Tree`
 - `Import Cost`
