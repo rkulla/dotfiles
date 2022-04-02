@@ -180,13 +180,13 @@ alias get='git pull&&git lol|head'
 alias grem='gh repo view --web'
 # open PR in browser
 alias grempr='gh pr view --web'
-# Make my diff-so-fancy alias even shorter
-alias dsf='git dsf'
 alias gpod='git pull origin develop'
 alias g='git'
 alias gb='git branch'
 alias gba='git branch -a'
-alias gd='git diff'
+# Make my diff-so-fancy alias even shorter
+alias dsf='git dsf'
+alias gd='dsf' # brew install diff-so-fancy
 alias gdc='git diff --cached --word-diff'
 alias gst='git status'
 alias pj='prettyjson'
