@@ -220,6 +220,11 @@ function vfd {
     vim $(fd $1)
 }
 
+# List files in current branch that haven't been merged with specified branch yet
+function notmerged {
+    git diff "$1"...$(git branch --show-current) --name-status | awk "/^M|^A.*/ {print \$2}"
+}
+
 # Open files with Vim in current branch that haven't been merged with specified branch
 # $ vnotmerged main  # opens files in current branch not merged to main yet (great for PR reviews)
 function vnotmerged {
