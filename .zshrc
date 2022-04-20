@@ -189,6 +189,7 @@ alias dsf='git dsf'
 alias gd='dsf' # brew install diff-so-fancy
 alias gdc='git diff --cached --word-diff'
 alias gst='git status'
+alias gsur='git submodule update --init --recursive' # gsur [--remote] when needed
 alias pj='prettyjson'
 # Node.js
 alias nag='ag --js --ts --ignore-dir=node_modules'
