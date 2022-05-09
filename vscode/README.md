@@ -1,5 +1,8 @@
 ## VSCode notes
 
+Note: I don't symlink my vscode settings to a dotfile. So make sure to adjust those settings manually for each machine after
+copy/pasting my generic settings.json. E.g., editor.zoomLevel and editor.fontSize especially.
+
 #### Extensions I use
 
 - `Fix VSCode Checksums` (if getting errors about a corrupt installation)

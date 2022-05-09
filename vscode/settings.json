@@ -1,11 +1,12 @@
 {
-    "window.zoomLevel": 5,
-    "editor.minimap.enabled": false,
+    "window.zoomLevel": 4.5,
+    "editor.fontSize": 17.9,
     "editor.fontFamily": "Hack Nerd Font",
     "editor.fontLigatures": true,
     "terminal.integrated.fontFamily": "Hack Nerd Font Mono",
     "editor.detectIndentation": false,
     "editor.tabSize": 4,
+    "editor.minimap.enabled": false,
     "[javascript][typescript][json][jsonc][javascriptreact][html][ruby][css]": {
       "editor.tabSize": 2,
     },
