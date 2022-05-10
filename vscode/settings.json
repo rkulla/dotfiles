@@ -118,5 +118,16 @@
       "unknown"
     ],
     "jest.jestCommandLine": "npm test --",
-    "diffEditor.renderSideBySide": false
+    "diffEditor.renderSideBySide": false,
+    "explorer.fileNesting.enabled": true,
+    "explorer.fileNesting.expand": false,
+    "explorer.fileNesting.patterns": {
+      ".env": "*.env, .env.*, .envrc, env.d.ts",
+      ".gitignore": ".gitattributes, .gitmodules, .gitmessage, .mailmap, .git-blame*",
+      "dockerfile": ".dockerignore, docker-compose.*, dockerfile*",
+      ".eslintignore": ".eslint*, .prettier*, tslint*, tsconfig*",
+      "package.json": "package-lock.json, .node-version, .npm*, .nvmrc",
+      "JenkinsFile": "Jenkinsfile*",
+      "go.mod": ".air*, go.sum"
+    }
 }
