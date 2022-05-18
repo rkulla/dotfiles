@@ -32,5 +32,8 @@
 .DS_Store
 .vscode
 node_modules/
+README.rkulla
+rkulla-urls.test
+serverless.yml.rkulla
 Session.vim
 tags
