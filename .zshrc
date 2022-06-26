@@ -366,7 +366,9 @@ case "$OSTYPE" in
 esac
 
 # Python
+### activate appropriate python version: shell > local > global
 eval "$(pyenv init -)"
+### activate virtualenv. Does nothing if not installed. Install with: brew install pyenv-virtualenv
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
 # Misc
