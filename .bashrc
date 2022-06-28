@@ -20,17 +20,17 @@ alias c='code'
 export PAGER=less
 export LESS="-imFXSxR"
 
-alias diff='diff --color' # brew install diffutils first
+alias diff='diff --color=auto' # brew install diffutils first
 alias wd='pwd'
-alias ls='ls --color -p'
-alias la='ls --color -a'
-alias ll='ls --color -lh'
-alias lla='ls --color -lha'
+alias ls='ls -G -p'
+alias la='ls -G -a'
+alias ll='ls -G -lh'
+alias lla='ls -G -lha'
 alias lsab='fd -a -d 1' # # see absolute paths prepended to filenames!
-alias lsl='ls --color -la | grep "^l"' # list symlinks in current dir
+alias lsl='ls -G -la | grep "^l"' # list symlinks in current dir
 alias lslb='find . -maxdepth 1 -type l ! -exec test -e {} \; -print' # find only broken symlinks in pwd
-alias lsh='ls --color -a | grep "^\."' # list only hidden files
-alias ldirs='ls --color -aF | grep /' # list just directories
+alias lsh='ls -G -a | grep "^\."' # list only hidden files
+alias ldirs='ls -G -aF | grep /' # list just directories
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
@@ -39,7 +39,7 @@ alias py='python'
 alias tt='tree -CF'
 alias tj='tree -CF -a -I "node_modules|lcov-report|coverage|jsdoc|dist|vendor|.git|Hurley-Make|Hurley-Registry|Hurley-Dashboard-Templates"'
 alias wt='watch -n 1 -d -t -c tree -CF' # watch tree.
-alias wgt='watch -n 1 -d -t -c "git lolgraph --color && tree -CF"' # watch git log graph and tree at the same time.
+alias wgt='watch -n 1 -d -t -c "git lolgraph -G && tree -CF"' # watch git log graph and tree at the same time.
 # Use macvim for cli vim because it's better than standard vim on macs
 alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
 # Open modified staged and unstaged files (great for reopening where you left off)
