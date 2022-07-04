@@ -7,3 +7,6 @@ set completion-ignore-case On
 # Zsh uses zle instead so handle this additionally in .zshrc.
 C-_:  unix-filename-rubout
 
+# Make Bash history work like tsch (typing part of a command and up-arrow)
+"\e[A":history-search-backward
+"\e[B":history-search-forward
