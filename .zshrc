@@ -22,9 +22,9 @@ function precmd {
         else
             psvar[2]=( "$branchName" )
         fi
-        PS1="%F{100}%n%f@%F{100}%m %F{96}%1v %F{100}%2v %f$ "
+        PS1="%K{black}%F{100}%n%f%F{96}@%f%F{100}%m %F{184}%1v %F{100}%2v %f%k%F{96}$%f "
     else
-        PS1="%F{100}%n%f@%F{100}%m %F{96}%1v %f$ "
+        PS1="%K{black}%F{100}%n%f%F{96}@%f%F{100}%m %F{184}%1v %f%k%F{96}$%f "
     fi
 }
 
