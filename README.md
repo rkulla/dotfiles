@@ -123,8 +123,10 @@ Create my custom color profiles by creating a new light profile called `l` with 
     Cursor: 00bcd4
     Cursor text: 3c3b3a
 
+Under `Ansi Colors: Bright` change the bright green 5ffa67 to 5e7f5f
 Under `Text` enable `Box` and `Blinking cursor`. Change font to `Hack Nerd Font` / regular / 32. Uncheck 'Use ligatures'
 Under `Terminal` enable `unlimited scrollback`
+Make *sure* to do this from `Cmd+,` not `cmd+i` or the changes wont' stick.
 
 Right click 'Other actions' and make `l` the default profile.
 
