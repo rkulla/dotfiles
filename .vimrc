@@ -358,18 +358,6 @@ au BufNew,BufRead,BufEnter *.py set textwidth=79 fo=t sw=4 ts=4
 autocmd FileType python map <Leader>l :w<CR>:!python %<CR>
 iab ppxx   import pprint;pprint.pprint()
 
-""" Markdown
-let g:markdown_folding = 1
-if has("autocmd")
-    augroup MarkdownFileFolds
-    au!
-    " I don't want it to show folds by default, just later when i zM
-    autocmd FileType markdown set foldlevel=99
-    " I want .md files to have be tw=131
-    autocmd FileType markdown setlocal textwidth=131
-    augroup END
-endif
-
 """ JSON
 " Note: Use my <Leader>sf to toggle syntax folding to fold json files!
 " Make it so ,jp runs :JsonPath
@@ -665,6 +653,29 @@ if has("autocmd")
     autocmd BufRead,BufNewFile *.txt setlocal foldmethod=expr foldexpr=FoldExpr(v:lnum)
     augroup END
 endif
+
+" Make it so ,gf can create the buffer name under the cursor (since gf won't
+" if it doesn't exist). Still requires :w to save it to an actual file on disk
+" Super useful for my note taking, since i can write out the filepath first in
+" a note file like ~/foo/bla.md  (just make sure any dirs/subdirs already exist)
+nmap <leader>gf :e <cfile><cr>
+
+""" Markdown
+let g:markdown_folding = 1
+if has("autocmd")
+    augroup MarkdownFileFolds
+    au!
+    " I don't want it to show folds by default, just later when i zM
+    autocmd FileType markdown set foldlevel=99
+    " I want .md files to have be tw=131
+    autocmd FileType markdown setlocal textwidth=131
+    augroup END
+endif
+
+" markdown-preview plugin settings
+nmap <leader>md <Plug>MarkdownPreviewToggle
+let g:mkdp_port = '6969'
+
 
 " So you can underline any line of text you are on with dashes
 nmap <Leader>u :call append(line("."), repeat("-", len(getline("."))))<CR>
