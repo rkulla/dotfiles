@@ -13,6 +13,7 @@
 !.config/karabiner/karabiner.json
 .config/git/
 .config/gh/
+.config/iterm2/
 .config/nnn/
 .config/nvim/
 
