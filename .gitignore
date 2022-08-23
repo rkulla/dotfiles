@@ -14,6 +14,7 @@
 .config/git/
 .config/gh/
 .config/nnn/
+.config/nvim/
 
 # Vim
 .viminfo
