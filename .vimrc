@@ -654,11 +654,19 @@ if has("autocmd")
     augroup END
 endif
 
-" Make it so ,gf can create the buffer name under the cursor (since gf won't
-" if it doesn't exist). Still requires :w to save it to an actual file on disk
-" Super useful for my note taking, since i can write out the filepath first in
-" a note file like ~/foo/bla.md  (just make sure any dirs/subdirs already exist)
-nmap <leader>gf :e <cfile><cr>
+" Make it so normal gf opens a new tab, if running in GUI vim
+if has("gui_running") 
+    nnoremap gf <C-w>gf
+    " make it so ,gf in GUI creates new file and in a new tab
+    nmap <leader>gf :tab sp <cfile><cr>
+else 
+    " Make it so ,gf can create the buffer name under the cursor (since gf won't
+    " if it doesn't exist). Still requires :w to save it to an actual file on disk
+    " Super useful for my note taking, since i can write out the filepath first in
+    " a note file like ~/foo/bla.md  (just make sure any dirs/subdirs already exist)
+    nmap <leader>gf :e <cfile><cr>
+endif
+
 
 """ Markdown
 let g:markdown_folding = 1
