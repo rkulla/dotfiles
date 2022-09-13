@@ -154,6 +154,7 @@ alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
 # Open modified staged and unstaged files (great for reopening where you left off)
 alias vmod='vim $(git diff --diff-filter=d --cached --name-only && git diff --diff-filter=d --name-only)'
 alias cmod='code $(git diff --diff-filter=d --cached --name-only && git diff --diff-filter=d --name-only)'
+# See my vcom and ccom functions for if I already committed
 # Open modified files (even committed) that a branch changed (be in the branch first)
 # find out our external IP
 alias externalip='dig +short myip.opendns.com @resolver1.opendns.com'
@@ -224,6 +225,18 @@ function vnotmerged {
 # $ cnotmerged main  # opens files in current branch not merged to main yet (great for PR reviews)
 function cnotmerged {
     code $(git diff "$1"...$(git branch --show-current) --name-status | awk "/^M|^A.*/ {print \$2}")
+}
+
+# Open files in Vim in current branch that have already been merged
+# $ vcom main # opens files in current branch already merged to main (great for WIP PR additions)
+function vcom {
+    vim $(git log --name-only "$1".. --oneline | sed 1d)
+}
+
+# Open files in VSCode in current branch that have already been merged
+# $ ccom main # opens files in current branch already merged to main (great for WIP PR additions)
+function ccom {
+    code $(git log --name-only "$1".. --oneline | sed 1d)
 }
 
 # wraps cht.sh curl calls for faster lookup
