@@ -227,13 +227,13 @@ function cnotmerged {
     code $(git diff "$1"...$(git branch --show-current) --name-status | awk "/^M|^A.*/ {print \$2}")
 }
 
-# Open files in Vim in current branch that have already been merged
+# Open files in Vim in current branch that have already been committed
 # $ vcom main # opens files in current branch already merged to main (great for WIP PR additions)
 function vcom {
     vim $(git log --name-only "$1".. --oneline | sed 1d)
 }
 
-# Open files in VSCode in current branch that have already been merged
+# Open files in VSCode in current branch that have already been committed
 # $ ccom main # opens files in current branch already merged to main (great for WIP PR additions)
 function ccom {
     code $(git log --name-only "$1".. --oneline | sed 1d)
