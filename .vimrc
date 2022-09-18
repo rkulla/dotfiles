@@ -324,6 +324,9 @@ autocmd FileType ruby map <Leader>l :w<CR>:!ruby -c %<CR>
 """ Golang
 " Have Go files always show as 4 spaces each yet still be real tabs
 au BufRead,BufNewFile *.go set noet ts=4 sw=4
+" Set gopls for vim-go
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
 " Automatically add or remote import statements on save
 let g:go_fmt_command = "goimports"
 " Highlight methods like fmt.Println in vim-go
