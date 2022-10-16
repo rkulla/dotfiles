@@ -683,10 +683,10 @@ if has("autocmd")
     augroup END
 endif
 
-" markdown-preview plugin settings
-nmap <leader>md <Plug>MarkdownPreviewToggle
-let g:mkdp_port = '6969'
-
+" "Glow" markdown reader settings (brew install glow)
+nmap <leader>gl :!glow %<CR>
+nmap <leader>gld :!glow -s dark %<CR>
+nmap <leader>md :!glow %<CR>
 
 " So you can underline any line of text you are on with dashes
 nmap <Leader>u :call append(line("."), repeat("-", len(getline("."))))<CR>
