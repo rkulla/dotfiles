@@ -69,9 +69,8 @@ imap ;; <C-w>
 " So typing ';h' in insert mode to jump to start of line
 imap ;h <Esc>I
 
-" To [c to jump to next quckfix item, ]c for previous.
-" Don't map things to ]c or ]c because they're already used for things like
-" jumping to next change/diff item
+" To use HOME and END to jump to next/prev quickfix item 
+" Don't map things to [c or ]c because they're already used for things like jumping to next change/diff item
 nnoremap <End> :cnext<CR>
 nnoremap <Home> :cprevious<CR>
 
@@ -422,8 +421,8 @@ nnoremap <leader>il :set list lcs=tab:<bslash><bar><bslash><space><bar>hi Specia
 """ Quickfix window
 " So after typing something like :0Gclog, I can scroll load the next or prev result while not being focused on the
 " qf window and maintain my cursor position in the file
-nnoremap ]q :let ws = winsaveview() <bar> cnext <bar> call winrestview(ws) <bar> unlet ws<CR>
-nnoremap [q :let ws = winsaveview() <bar> cprev <bar> call winrestview(ws) <bar> unlet ws<CR>
+nnoremap [q :let ws = winsaveview() <bar> cnext <bar> call winrestview(ws) <bar> unlet ws<CR>
+nnoremap ]q :let ws = winsaveview() <bar> cprev <bar> call winrestview(ws) <bar> unlet ws<CR>
 
 
 """ Copying currently open file(s) to the clipboard
