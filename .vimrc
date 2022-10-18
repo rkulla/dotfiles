@@ -69,7 +69,7 @@ imap ;; <C-w>
 " So typing ';h' in insert mode to jump to start of line
 imap ;h <Esc>I
 
-" To use HOME and END to jump to next/prev quickfix item 
+" To use END and HOME to jump to next/prev quickfix item 
 " Don't map things to [c or ]c because they're already used for things like jumping to next change/diff item
 nnoremap <End> :cnext<CR>
 nnoremap <Home> :cprevious<CR>
