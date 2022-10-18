@@ -306,6 +306,9 @@ nmap <silent> <Leader>$ :echo 'hi<' .
 set rtp+=/usr/local/opt/fzf
 " Enable history with CTRL-N and CTRL-P
 let g:fzf_history_dir = '~/.local/share/fzf-history'
+" Make Ctrl+A map work (alt-a alternative for selecting all in :Ag on Mac)
+" Ctrl+D to deselect all
+let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all,ctrl-d:deselect-all'
 nmap <Leader>x :GFiles<CR>
 nmap <Leader>X :Files<CR>
 nmap <Leader>bl :BLines<CR>
