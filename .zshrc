@@ -165,7 +165,8 @@ alias today='find . -type f -daystart -mtime 0 2>/dev/null'
 alias yesterday='find -daystart -type f -mtime 1 2>/dev/null'
 # find out which computers/routers/devices are active on our LAN:
 alias whatsup='sudo nmap -sP 192.168.1.1/24 | perl -pe "s/^Host.*/\e[1;31m$&\e[0m/g"'
-alias get='git pull&&git lol|head'
+# `get` gets changes, quieting the parts I don't care about and shows the new git log 
+alias get='git fetch -q && git rebase && git lol | head'
 # open git remote repo in browser. Requires `brew install gh`
 alias grem='gh repo view --web'
 # open PR in browser
