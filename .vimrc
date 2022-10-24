@@ -766,9 +766,12 @@ let g:elm_setup_keybindings = 0
 ""
 
 if !has("gui_running") " Since we do NOT run coc.vim if the GUI vim (see top of file)
-  " Some servers have issues with backup files, see #649
-  " Better display for messages
-  set cmdheight=2
+  set cmdheight=1
+
+  " Play with fnm so individual projects can still load their own node version from .nvimrc
+  " First symlink my `fnm` node to ~/bin by running:  ln -s $FNM_MULTISHELL_PATH/bin/node ~/bin/node
+  " Making sure to `fnm use <whatever version of node coc says it wants`
+  let g:coc_node_path='$HOME/bin/node'
 
   " You will have bad experience for diagnostic messages when it's default 4000.
   set updatetime=300
