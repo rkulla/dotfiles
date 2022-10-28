@@ -183,7 +183,7 @@ alias gst='git status'
 alias gsur='git submodule update --init --recursive' # gsur [--remote] when needed
 alias pj='prettyjson'
 # Node.js
-alias nag='ag --js --ts --ignore-dir=node_modules\*'
+alias nag='ag --js --ts --ignore-dir=node_modules\* --ignore=\*-min.js'
 # Docker
 alias dcu='docker-compose up'
 alias dcd='docker-compose down'
