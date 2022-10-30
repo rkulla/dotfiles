@@ -159,7 +159,7 @@ Create a medium (gray) profile called `g` with:
     Selection: cdcccc
     Selected text: 616060
     Green Normal: 0c610c
-    Green Bright: 5e7f5f
+    Green Bright: 6a6943
     Red Normal: c91b00
     Red Bright: ff6d67
     Yellow Normal: 9b9911
