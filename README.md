@@ -153,7 +153,7 @@ This more matches gruvbox8_soft in Vim
 
 Create a medium (gray) profile called `g` with:
 
-    Foreground: e4e4db
+    Foreground: 21211c
     Background: b4b4b4
     Bold: c627a7
     Selection: cdcccc
@@ -162,7 +162,7 @@ Create a medium (gray) profile called `g` with:
     Green Bright: 5e7f5f
     Red Normal: c91b00
     Red Bright: ff6d67
-    Yellow Normal: c7c400
+    Yellow Normal: 9b9911
     Yellow Bright: b9b753
     Cursor: 00bcd4
     Cursor text: 3c3b3a
