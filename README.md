@@ -147,7 +147,11 @@ Create a dark profile called `d` with:
     Cursor: 839496
     Cursor text: 073642
 
-Create a medium (gray) profile called `m` with:
+Create a medium contrast gruvbox yellow color called `m` by duplicating `l` and just change bg:
+    Background: f2e5bc
+This more matches gruvbox8_soft in Vim
+
+Create a medium (gray) profile called `g` with:
 
     Foreground: e4e4db
     Background: b4b4b4
