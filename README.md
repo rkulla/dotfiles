@@ -147,6 +147,21 @@ Create a dark profile called `d` with:
     Cursor: 839496
     Cursor text: 073642
 
+Create a medium (gray) profile called `m` with:
+
+    Foreground: e4e4db
+    Background: b4b4b4
+    Bold: c627a7
+    Selection: cdcccc
+    Selected text: 616060
+    Green Normal: 0c610c
+    Green Bright: 5e7f5f
+    Red Normal: c91b00
+    Red Bright: ff6d67
+    Yellow Normal: c7c400
+    Yellow Bright: b9b753
+    Cursor: 00bcd4
+    Cursor text: 3c3b3a
 
 By default, new split panes reset back to $HOME but I want pwd:
 
