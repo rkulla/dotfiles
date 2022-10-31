@@ -5,7 +5,7 @@ Adding new files requires 3 steps:
 
    1. Add the file or directory to this repo
    2. Add to the root .gitignore anything I want to ignore/unignore
-      Add anything I don't want in the committed .gitignore file to .config/git/ignore e.g., notes to self README.rkulla
+      Add anything I don't want in the committed .gitignore file my global ~/.gitignore such as README.rkulla
    3. Update install.sh to do the symlinking and optionally creating needed empty dirs
 
 ## Installing
@@ -32,7 +32,7 @@ The 'realpath' command from coreutils is required to run install.sh. I typically
     $ brew install gh tig tmux autojump tree aws-sam-cli gnu-sed watch coreutils mysql postgresql \
       pyenv wget ctags diffutils nmap fd nnn reattach-to-user-namespace zenity htop rsync screen \
       zsh-syntax-highlighting zsh-you-should-use shellcheck jsonlint fzf irssi sqlite jq asdf \
-      the_silver_searcher yamllint, httpie, diff-so-fancy, fnm, glow
+      the_silver_searcher yamllint, httpie, diff-so-fancy, fnm, glow, lazygit, lazydocker
 
 ### Run the dotfiles install script
 
