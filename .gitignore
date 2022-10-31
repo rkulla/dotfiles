@@ -15,8 +15,7 @@
 .config/gh/
 .config/iterm2/
 .config/nnn/
-.config/nvim/
-!.config/nvim/swp/*
+.config/nvim/*
 
 # Vim
 .viminfo
