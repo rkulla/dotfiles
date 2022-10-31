@@ -2,7 +2,7 @@
 
 My dotfiles and config files in general!
 
-[Summary](#summary) | [Installing](#installing) | [Zsh](#zsh) | [Iterm2](#iterm2) | [Git](#git) | [Finder](#finder) | [Tmux](#tmux) | [~/bin scripts](#bin-scripts) | [ESLint](#eslint) | [Neovim][#neovim] | [VSCode](#vscode) | [Uninstalling](#uninstalling)
+[Summary](#summary) | [Installing](#installing) | [Zsh](#zsh) | [Iterm2](#iterm2) | [Git](#git) | [Finder](#finder) | [Tmux](#tmux) | [~/bin scripts](#bin-scripts) | [ESLint](#eslint) | [Neovim](#neovim) | [VSCode](#vscode) | [Uninstalling](#uninstalling)
 
 ## Summary
 Adding new files requires 3 steps:
