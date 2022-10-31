@@ -16,6 +16,7 @@
 .config/iterm2/
 .config/nnn/
 .config/nvim/
+!.config/nvim/swp/*
 
 # Vim
 .viminfo
