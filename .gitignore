@@ -16,6 +16,10 @@
 .config/iterm2/
 .config/nnn/
 .config/nvim/*
+!.config/nvim/init.vim
+!.config/nvim/lua/
+!.config/nvim/spell/
+!.config/nvim/swp/
 
 # Vim
 .viminfo

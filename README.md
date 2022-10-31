@@ -161,7 +161,7 @@ Create a medium (gray) profile called `g` with:
     Green Normal: 0c610c
     Green Bright: 6a6943
     Red Normal: c91b00
-    Red Bright: ff6d67
+    Red Bright: 671e1b
     Yellow Normal: 9b9911
     Yellow Bright: b9b753
     Cursor: 00bcd4
@@ -187,6 +187,10 @@ Also, enable italics, e.g., Vim's line numbers when not in tmux:
 
 ### ~/bin scripts
 Backup to/fro manually from ~/Dropbox/pf/code/my-bin-dir-scripts/
+
+### Neovim
+
+Install Packer then run `:PackerConfig` and `:PackerUpdate`
 
 ### VSCode
 For now manually copy my settings from vscode/settings.json into ~/Library/Application\ Support/Code/User/settings.json
