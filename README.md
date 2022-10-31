@@ -1,6 +1,10 @@
 # dotfiles
+
 My dotfiles and config files in general!
 
+[Summary](#summary) | [Installing](#installing) | [Zsh](#zsh)
+
+## Summary
 Adding new files requires 3 steps:
 
    1. Add the file or directory to this repo
@@ -23,10 +27,7 @@ Make sure 'vim' is running properly, if CoC is complaining about needing to 'yar
 
 If it's a work machine, comment out the code-snippets line from install.sh
 
-
-### Homebrew dependencies
-
-The 'realpath' command from coreutils is required to run install.sh. I typically brew install:
+The `realpath` command from coreutils is required to run install.sh. I typically brew install:
 
     $ brew tap aws/tap
     $ brew install gh tig tmux autojump tree aws-sam-cli gnu-sed watch coreutils mysql postgresql \
@@ -44,10 +45,10 @@ After doing the above steps, cd to my dotfiles checkout and run:
 It will backup any existing files by prepending the current datetime and then
 will create symlinks from $HOME/*filename* this repo's corresponding *filename*.
 
-## Post installation steps
+### Post installation steps
 After running ./install.sh to automate most things, do these manual steps.
 
-### Zsh
+## Zsh
 #### site-functions
 Copy scripts to first path in $fpath, e.g., /usr/local/share/zsh/site-functions
 
