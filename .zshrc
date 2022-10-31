@@ -114,6 +114,8 @@ else
   export EDITOR='/Applications/MacVim.app/Contents/MacOS/Vim'
 fi
 alias v='$EDITOR'
+alias n='~/opt/nvim-macos/bin/nvim'
+alias nv='~/opt/nvim-macos/bin/nvim'
 # Make it so 'vc' has a more VSCode looking experience. Pointless, but for demonstration purposes.
 alias vc='$EDITOR -c "below term" -c "wincmd w" -c "res +11" -c "NERDTreeToggle" -c "wincmd w" -c "vert res +5"'
 # alias vscode to `c`
@@ -165,6 +167,7 @@ alias today='find . -type f -daystart -mtime 0 2>/dev/null'
 alias yesterday='find -daystart -type f -mtime 1 2>/dev/null'
 # find out which computers/routers/devices are active on our LAN:
 alias whatsup='sudo nmap -sP 192.168.1.1/24 | perl -pe "s/^Host.*/\e[1;31m$&\e[0m/g"'
+alias lg='lazygit'
 # `get` gets changes, quieting the parts I don't care about and shows the new git log 
 alias get='echo "$(tput smul)WAS$(tput rmul)" && git lol | head -n 1 && echo "\n$(tput setaf 4)UPDATING...$(tput sgr0)" && git fetch -q && git rebase && echo "\n$(tput smul)NOW$(tput rmul)" && git lol | head -n 2'
 # open git remote repo in browser. Requires `brew install gh`
@@ -255,9 +258,9 @@ alias l='nnn -de'  # use instead of ls most of the time
 # bookmarks
 export NNN_BMS='b:~/Documents/books;D:~/Downloads;p:~/Pictures;r:~/repos;s:~/repos/code-snippets';
 
-# Make it so using `n` will auto-change directory on quit. `l` won't.
+# Make it so using `nn` will auto-change directory on quit. `l` won't.
 export NNN_TMPFILE="/tmp/nnn"
-function n()
+function nn()
 {
     nnn -de
 
