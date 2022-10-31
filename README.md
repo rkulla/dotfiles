@@ -2,7 +2,7 @@
 
 My dotfiles and config files in general!
 
-[Summary](#summary) | [Installing](#installing) | [Zsh](#zsh)
+[Summary](#summary) | [Installing](#installing) | [Zsh](#zsh) | [Iterm2](#iterm2) | [Git](#git) | [Finder](#finder) | [Tmux](#tmux) | [~/bin scripts](#bin-scripts) | [ESLint](#eslint) | [Neovim][#neovim] | [VSCode](#vscode) | [Uninstalling](#uninstalling)
 
 ## Summary
 Adding new files requires 3 steps:
@@ -48,6 +48,7 @@ will create symlinks from $HOME/*filename* this repo's corresponding *filename*.
 ### Post installation steps
 After running ./install.sh to automate most things, do these manual steps.
 
+
 ## Zsh
 #### site-functions
 Copy scripts to first path in $fpath, e.g., /usr/local/share/zsh/site-functions
@@ -60,49 +61,9 @@ Enable script to abbreviate and disambiguate the PWD in my prompt.
 
     $ cp zsh-site-functions/disambiguate /usr/local/share/zsh/site-functions/
 
-### Tmux
-Make sure to: brew install reattach-to-user-namespace
-
-Install plugins:
-
-    $ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
-Open tmux and type `Ctrl+a I` to install the plugins listed in .tmux.conf
-
-### Git
-On a work machine with a personal github account, edit ~/.gitconfig and update my [user] section. E.g.,
-
-	name = Ryan Kulla
-	email = <work github email>
-	login = <work github username>
-
-Do not add tokens here, use a real credential store for privacy.
-
-#### Misc.
-
 Search PATH modifications in .zshrc and .zprofile `/PATH=\C` adjust accordingly.
 
-Run the following in a terminal to show full file paths in Finder:
-
-    $ defaults write com.apple.finder _FXShowPosixPathInTitle -bool YES;
-
-### ESLint
-Install eslint PER project, not globally:
-
-    $ npm install eslint -D
-
-Make sure to copy javascript/.eslintrc.json and jsconfig.json to any of **my** JavaScript projects.
-Or typescript/.eslintrc.json and tsconfig.json if it's **my** TypeScript projects
-(I ONLY symlink it to my code-snippets folder). Putting eslintrc in $HOME is deprecated and
-jsconfig.json or tsconfig.json can't live in $HOME either.
-
-Don't forget to look at my .vim/coc-settings.json as well and **make sure** at least coc-eslint and coc-tsserver are installed
-   $ ls ~/.config/coc/extensions/node_modules  # install.sh should have installed them
-
-See also typescript/README.md in this repo.
-
-
-### iterm2
+## iterm2
 
 Enable `mouse reporting` for each profile. Then in `General > Selection` enable 
 `Applications in terminal may access clipboard`, `Copy to pasteboard on selection`,
@@ -186,17 +147,59 @@ Also, enable italics, e.g., Vim's line numbers when not in tmux:
 
     $ /usr/bin/tic -xe xterm-256color xterm-256color.src
 
-### ~/bin scripts
+## Git
+On a work machine with a personal github account, edit ~/.gitconfig and update my [user] section. E.g.,
+
+	name = Ryan Kulla
+	email = <work github email>
+	login = <work github username>
+
+Do not add tokens here, use a real credential store for privacy.
+
+## Finder
+
+Run the following in a terminal to show full file paths in Finder:
+
+    $ defaults write com.apple.finder _FXShowPosixPathInTitle -bool YES;
+
+## Tmux
+Make sure to: brew install reattach-to-user-namespace
+
+Install plugins:
+
+    $ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+Open tmux and type `Ctrl+a I` to install the plugins listed in .tmux.conf
+
+
+## ESLint
+Install eslint PER project, not globally:
+
+    $ npm install eslint -D
+
+Make sure to copy javascript/.eslintrc.json and jsconfig.json to any of **my** JavaScript projects.
+Or typescript/.eslintrc.json and tsconfig.json if it's **my** TypeScript projects
+(I ONLY symlink it to my code-snippets folder). Putting eslintrc in $HOME is deprecated and
+jsconfig.json or tsconfig.json can't live in $HOME either.
+
+Don't forget to look at my .vim/coc-settings.json as well and **make sure** at least coc-eslint and coc-tsserver are installed
+   $ ls ~/.config/coc/extensions/node_modules  # install.sh should have installed them
+
+See also typescript/README.md in this repo.
+
+## bin scripts
+my ~/bin directory is in my PATH and has misc. scripts
+
 Backup to/fro manually from ~/Dropbox/pf/code/my-bin-dir-scripts/
 
-### Neovim
+## Neovim
 
 Install Packer then run `:PackerConfig` and `:PackerUpdate`
 
-### VSCode
+## VSCode
 For now manually copy my settings from vscode/settings.json into ~/Library/Application\ Support/Code/User/settings.json
 
-### Uninstalling
+## Uninstalling
 Simply `git rm` any files and remove linking references from install.sh. Then
 use my `lslb` alias to list broken symlinks for removal. Also uninstall with vimogen
 if it was a vim plugin.
