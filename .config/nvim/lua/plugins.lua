@@ -23,5 +23,10 @@ return packer.startup(function(use)
       opt = false  -- Have packer itself go to start/ not opt/
   }
 
+  -- vim-surround
   use 'tpope/vim-surround'
+
+  -- tokyonight color scheme
+  use 'folke/tokyonight.nvim'
+
 end)

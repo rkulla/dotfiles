@@ -43,4 +43,6 @@ noremap <LeftMouse> m'<LeftMouse>
 lua require('plugins')
 " Simply comment out any packadd lines below to disable that plugin
 packadd vim-surround
+packadd tokyonight.nvim
+colorscheme tokyonight
 
