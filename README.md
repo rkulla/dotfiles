@@ -2,7 +2,7 @@
 
 My dotfiles and config files in general!
 
-[Summary](#summary) | [Installing](#installing) | [Zsh](#zsh) | [Iterm2](#iterm2) | [Git](#git) | [Finder](#finder) | [Tmux](#tmux) | [~/bin scripts](#bin-scripts) | [ESLint](#eslint) | [Neovim](#neovim) | [VSCode](#vscode) | [Uninstalling](#uninstalling)
+[Summary](#summary) | [Installing](#installing) | [Zsh](#zsh) | [Iterm2](#iterm2) | [Git](#git) | [Finder](#finder) | [Tmux](#tmux) | [~/bin scripts](#bin-scripts) | [irssi](#irssi) | [ESLint](#eslint) | [Neovim](#neovim) | [VSCode](#vscode) | [Uninstalling](#uninstalling)
 
 ## Summary
 Adding new files requires 3 steps:
@@ -132,6 +132,17 @@ Install plugins:
 
 Open tmux and type `Ctrl+a I` to install the plugins listed in .tmux.conf
 
+## Irssi
+
+`find` or `locate` the `default.theme` file, and change:
+
+    sb_background = "%4%k";
+
+to something more readable if needed, such as:
+
+    sb_background = "%5%w";
+
+I prefer this over installing 'themes' since usually I just use my default background color and change the statusbar
 
 ## ESLint
 Install eslint PER project, not globally:
