@@ -76,19 +76,12 @@ Install `Hack Nerd Font` so I can see file-type logos in my terminal:
     $ brew tap homebrew/cask-fonts
     $ brew install --cask font-hack-nerd-font
 
-Create my custom color profiles by creating a new light profile called `l` with `cmd+, > Profiles > +` and give it:
+Under `Cmd+i` > `Colors` tab import tokyonight_*.itermcolors by downloading them from
+[here](https://github.com/folke/tokyonight.nvim/tree/main/extras/iterm)
+
+Then create a light profile called `l` and a dark profile called `d` with `cmd+, > Profiles > +` and use `tokyonight-day` for `l`
+and `tokyonight-storm` for `d`.  You'll want the iterm2 background to match whatever vim color scheme I use
    
-    Foreground: 2d2d2c
-    Background: fbf1c7
-    Bold: c62727
-    Selection: cdcccc
-    Selected text: 616060
-    Yellow Bright: b9b753
-    Cursor: 00bcd4
-    Cursor text: 3c3b3a
-
-Under `Ansi Colors: Bright` change the bright green 5ffa67 to 5e7f5f
-
 Under `Text` enable `Box` and `Blinking cursor`. Change font to `Hack Nerd Font` / regular / 32. Uncheck 'Use ligatures'
 
 Under `Terminal` enable `unlimited scrollback`
@@ -96,40 +89,6 @@ Under `Terminal` enable `unlimited scrollback`
 Make sure to do this from `Cmd+,` not `cmd+i` or the changes will not stick.
 
 Right click 'Other actions' and make `l` the default profile.
-
-Create a dark profile called `d` with:
-
-    Foreground: 839496
-    Background: 002b36
-    Bold: 93a1a1
-    Selection: 073642
-    Selected text: 93a1a1
-    Red Normal: dc322f
-    Red Bright: cb4b16
-    Yellow Normal: b58900
-    Yellow Bright: 657b83
-    Cursor: 839496
-    Cursor text: 073642
-
-Create a medium contrast gruvbox yellow color called `m` by duplicating `l` and just change bg:
-    Background: f2e5bc
-This more matches gruvbox8_soft in Vim
-
-Create a medium (gray) profile called `g` with:
-
-    Foreground: 21211c
-    Background: b4b4b4
-    Bold: c627a7
-    Selection: cdcccc
-    Selected text: 616060
-    Green Normal: 0c610c
-    Green Bright: 6a6943
-    Red Normal: c91b00
-    Red Bright: 671e1b
-    Yellow Normal: 9b9911
-    Yellow Bright: b9b753
-    Cursor: 00bcd4
-    Cursor text: 3c3b3a
 
 By default, new split panes reset back to $HOME but I want pwd:
 
@@ -196,7 +155,10 @@ Backup to/fro manually from ~/Dropbox/pf/code/my-bin-dir-scripts/
 
 ## Neovim
 
+Do this from ~/.config/nvim/init.vim instead of this dotfiles checkout, since not everything is symlinked
+
 Install Packer then run `:PackerConfig` and `:PackerUpdate`
+
 
 ## VSCode
 For now manually copy my settings from vscode/settings.json into ~/Library/Application\ Support/Code/User/settings.json
