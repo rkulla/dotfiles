@@ -18,6 +18,7 @@
 .config/nvim/*
 !.config/nvim/init.vim
 !.config/nvim/lua/
+!.config/nvim/plugin/
 !.config/nvim/spell/
 !.config/nvim/swp/
 

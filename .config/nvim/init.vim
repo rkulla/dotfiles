@@ -18,57 +18,22 @@ set spellfile=$HOME/.config/nvim/spell/en.utf-8.add   " Spellfile location
 autocmd BufRead,BufNewFile *.txt,*.md setlocal spell  " File types to enable spell checking on
 
 
-""" Convenient mappings
-nmap X :q<CR>
-imap jj <esc>
-imap ;; <C-w>
-" toggle line numbers
-map <Leader>n :set invnumber<CR>                    
-" Keep cursor where it is after * search of current word
-noremap * *``
-" ^n and ^p for next and prev buffer
-nmap <C-n> :bn<CR>
-nmap <C-p> :bp<CR>
-" ^s to save file in command or insert mode
-imap <C-s> <C-o>:update!<CR>
-nmap <C-s> :update!<CR>
-" Auto-select text that was just pasted
-nmap <Leader>sp `[v`]
-" `` to toggle last cursor position
-noremap <LeftMouse> m'<LeftMouse>
+""" I put some configs in plugin/ (still loads on startup) to keep this file small
+" COLOR SCHEME:          plugin/colorscheme.vim
+" KEYMAPS MISC:          plugin/keymaps-misc.vim 
+" MARKDOWN:              plugin/markdown.vim
+" STATUS LINE:           plugin/statusline.vim      
+" TERMINAL:              plugin/terminal.vim      
 
 
-""" Plugins (Needs Packer installed)
-" Load ~/.config/nvim/lua/plugins.lua
+""" Plugin Initialization (requirements: Packer)
+" Load ~/.config/nvim/lua/user/plugins.lua
+" Simply comment out any `packadd` to disable that plugin
 lua require('user/plugins')
-" Simply comment out any packadd lines below to disable that plugin
+
+
+""" Load Misc. plugins
+packadd tComment
 packadd vim-surround
 packadd vim-fugitive
-packadd tokyonight.nvim
-packadd lualine.nvim
-lua require('user/lualine')
-
-
-""" Colorscheme
-" Setting `termguicolors` means we'll use guifg/guibg not cterm.
-" Since some colorschemes reference &termguicolors, set this first
-if $TERM !~ 'rxvt\|linux' && (has("termguicolors"))
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
-endif
-
-" Put any colorscheme overrides in this function
-func! s:MyHighlights() abort
-  set termguicolors
-  " Make it so my window borders are visible in my colorscheme
-  hi winseparator guifg=bold guibg=bg
-  " Change the color of the current line number
-  set cul | hi CursorLine guibg=NONE | hi CursorLineNr guifg=#819090 guibg=NONE
-  " Make line numbers italic (see my terminfo notes for enabling on MacOS)
-  hi LineNr gui=italic
-endfunc
-au ColorScheme * call s:MyHighlights()
-
-colorscheme tokyonight
 
