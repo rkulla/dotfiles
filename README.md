@@ -81,6 +81,8 @@ Under `Cmd+i` > `Colors` tab import tokyonight_*.itermcolors by downloading them
 
 Then create a light profile called `l` and a dark profile called `d` with `cmd+, > Profiles > +` and use `tokyonight-day` for `l`
 and `tokyonight-storm` for `d`.  You'll want the iterm2 background to match whatever vim color scheme I use
+
+Under `General` > `Title` check `Job name` and `PWD`, so I can see things like the tab is vim and the directory name its in.
    
 Under `Text` enable `Box` and `Blinking cursor`. Change font to `Hack Nerd Font` / regular / 32. Uncheck 'Use ligatures'
 
