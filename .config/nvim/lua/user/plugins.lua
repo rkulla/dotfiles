@@ -25,6 +25,8 @@ return packer.startup(function(use)
 
   use 'tpope/vim-surround'
 
+  use 'tpope/vim-fugitive'
+
   use 'folke/tokyonight.nvim'
 
   use {
