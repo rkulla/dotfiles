@@ -40,9 +40,10 @@ noremap <LeftMouse> m'<LeftMouse>
 
 """ Plugins (Needs Packer installed)
 " Load ~/.config/nvim/lua/plugins.lua
-lua require('plugins')
+lua require('user/plugins')
 " Simply comment out any packadd lines below to disable that plugin
 packadd vim-surround
 packadd tokyonight.nvim
 colorscheme tokyonight
-
+packadd lualine.nvim
+lua require('user/lualine')

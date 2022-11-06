@@ -168,7 +168,7 @@ Backup to/fro manually from ~/Dropbox/pf/code/my-bin-dir-scripts/
 
 Do this from ~/.config/nvim/init.vim instead of this dotfiles checkout, since not everything is symlinked
 
-Install Packer then run `:PackerConfig` and `:PackerUpdate`
+Install Packer then run `:PackerSync`
 
 
 ## VSCode
