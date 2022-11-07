@@ -117,6 +117,7 @@ alias vim='$EDITOR'
 alias v='~/opt/nvim-macos/bin/nvim'
 alias n='~/opt/nvim-macos/bin/nvim'
 alias nv='~/opt/nvim-macos/bin/nvim'
+alias cn='~/.config/nvim'
 # Make it so 'vc' has a more VSCode looking experience. Pointless, but for demonstration purposes.
 alias vc='$EDITOR -c "below term" -c "wincmd w" -c "res +11" -c "NERDTreeToggle" -c "wincmd w" -c "vert res +5"'
 # alias vscode to `c`
