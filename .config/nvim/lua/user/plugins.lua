@@ -28,6 +28,11 @@ return packer.startup(function(use)
     opt = false  -- Color schemes should go to start/
   }
 
+  -- Plenary is required for certain plugins like Telescope
+  use 'nvim-lua/plenary.nvim'
+
+  use 'nvim-telescope/telescope.nvim'
+
   use 'tpope/vim-surround'
 
   use 'tpope/vim-fugitive'

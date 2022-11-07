@@ -1,3 +1,4 @@
+""" MISC maps (See the plugin section below for plugin-specific maps)
 nmap X :q<CR>
 imap jj <esc>
 imap ;; <C-w>
@@ -30,4 +31,20 @@ nnoremap <leader>cp :let @+ = @%<cr>
 nnoremap <leader>cn :let @+ = expand('%:t')<cr>
 " Copy all currently open files' relative paths to copy/paste to reopen vim without :mks
 nnoremap <leader>cl :let @+ = join(map(split(execute('ls'),"\n"),{_,x->split(x,'"')[1]}))<cr>
+
+"""""""""""""""""""""""" PLUGIN SPECICIC MAPS """""""""""""""""""
+
+" Telescope
+nnoremap <leader>fx <cmd>lua require('telescope.builtin').git_files()<cr>
+nnoremap <leader>x <cmd>lua require('telescope.builtin').git_files()<cr>
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>fX <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>X <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>ag <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+nnoremap <leader>fk <cmd>lua require('telescope.builtin').keymaps()<cr>
+""" Some stuff I don't bother mapping and can just run :Telescope such as:
+" :Telescope git_[tab]  (commits, branches, etc)
 
