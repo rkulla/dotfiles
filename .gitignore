@@ -19,6 +19,7 @@
 !.config/nvim/init.vim
 !.config/nvim/lua/
 !.config/nvim/plugin/
+.config/nvim/plugin/packer_compiled.lua
 !.config/nvim/spell/
 !.config/nvim/swp/
 
