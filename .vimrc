@@ -426,11 +426,11 @@ nnoremap ]q :let ws = winsaveview() <bar> cprev <bar> call winrestview(ws) <bar>
 
 
 """ Copying currently open file(s) to the clipboard
-nnoremap <leader>fp :let @+ = @%<cr>
+nnoremap <leader>cp :let @+ = @%<cr>
 " Copy just the filename without the directory path
-nnoremap <leader>fn :let @+ = expand('%:t')<cr>
+nnoremap <leader>cn :let @+ = expand('%:t')<cr>
 " Copy all the currently open files to copy/paste to reopen vim without :mks
-nnoremap <leader>fl :let @+ = join(map(split(execute('ls'),"\n"),{_,x->split(x,'"')[1]}))<cr>
+nnoremap <leader>cl :let @+ = join(map(split(execute('ls'),"\n"),{_,x->split(x,'"')[1]}))<cr>
 
 
 """ vim-slime
