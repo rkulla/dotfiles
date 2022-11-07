@@ -19,19 +19,30 @@ vim.cmd [[packadd packer.nvim]]
 return packer.startup(function(use)
   -- Packer can manage itself
   use {
-      'wbthomason/packer.nvim',
-      opt = false  -- Have packer itself go to start/ not opt/
+    'wbthomason/packer.nvim',
+    opt = false  -- Have packer itself go to start/ not opt/
+  }
+
+  use {
+    'folke/tokyonight.nvim',
+    opt = false
   }
 
   use 'tpope/vim-surround'
 
   use 'tpope/vim-fugitive'
 
-  use 'folke/tokyonight.nvim'
+  use 'vim-scripts/tComment'
 
   use {
     'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    requires = { 'kyazdani42/nvim-web-devicons' }
   }
+
+  -- install markdown-preview without yarn or npm
+  use({
+    "iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end,
+  })
 
 end)
