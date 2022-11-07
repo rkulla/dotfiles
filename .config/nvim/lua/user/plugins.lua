@@ -1,6 +1,6 @@
 -- Load this file by doing `lua require('plugins')` in init.vim
 -- Run :PackerCompile after editing this file
--- Run :PackerUpdate to install/update the plugins from packer.startup below
+-- Run :PackerSync to install/update the plugins from packer.startup below
 
 -- Custom Packer initialization
 packer = require 'packer'
@@ -25,7 +25,7 @@ return packer.startup(function(use)
 
   use {
     'folke/tokyonight.nvim',
-    opt = false
+    opt = false  -- Color schemes should go to start/
   }
 
   use 'tpope/vim-surround'

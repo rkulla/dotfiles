@@ -19,7 +19,6 @@ endfunc
 au ColorScheme * call s:MyHighlights()
 
 " Default colors
-colorscheme tokyonight
 " Explicitly default to the light version to avoid flickering on nvim startup
 " Automatic/default configs don't, so I run `:Dark` when needed
 colorscheme tokyonight-day
