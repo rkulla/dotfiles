@@ -209,12 +209,12 @@ alias ag='ag -s --path-to-ignore ~/.ignore'
 # package.json and package-lock.json, etc.  Sort's in reverse, using
 # glob  qualifier (On), so package.json opens in buffer first.
 function vg {
-    vim *${1}*(On)
+    v *${1}*(On)
 }
 
 # Like my `vg` command but uses fd and works in subdirs. Even better.
 function vfd {
-    vim $(fd $1)
+    v $(fd $1)
 }
 
 # List files in current branch that haven't been merged with specified branch yet
@@ -225,7 +225,7 @@ function notmerged {
 # Open files with Vim in current branch that haven't been merged with specified branch
 # $ vnotmerged main  # opens files in current branch not merged to main yet (great for PR reviews)
 function vnotmerged {
-    vim $(git diff "$1"...$(git branch --show-current) --name-status | awk "/^M|^A.*/ {print \$2}")
+    v $(git diff "$1"...$(git branch --show-current) --name-status | awk "/^M|^A.*/ {print \$2}")
 }
 
 # Open files with VSCode in current branch that haven't been merged with specified branch
@@ -237,7 +237,7 @@ function cnotmerged {
 # Open files in Vim in current branch that have already been committed
 # $ vcom main # opens files in current branch already merged to main (great for WIP PR additions)
 function vcom {
-    vim $(git log --name-only "$1".. --oneline | sed 1d)
+    v $(git log --name-only "$1".. --oneline | sed 1d)
 }
 
 # Open files in VSCode in current branch that have already been committed
