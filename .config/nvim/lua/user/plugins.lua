@@ -5,7 +5,7 @@
 -- Custom Packer initialization
 packer = require 'packer'
 packer.init {
-  opt_default = true,  -- default to using opt/ (as opposed to start/)
+  opt_default = false,  -- default to using start/ (as opposed to opt/)
   display = {
     open_fn = require('packer.util').float, -- Use float window, not split
     show_all_info = true, -- Show all update details automatically
@@ -13,25 +13,19 @@ packer.init {
 }
 packer.reset()
 
--- Only required if you have packer configured as `opt`
-vim.cmd [[packadd packer.nvim]]
-
 return packer.startup(function(use)
   -- Packer can manage itself
-  use {
-    'wbthomason/packer.nvim',
-    opt = false  -- Have packer itself go to start/ not opt/
-  }
+  use 'wbthomason/packer.nvim'
 
-  use {
-    'folke/tokyonight.nvim',
-    opt = false  -- Color schemes should go to start/
-  }
+  use 'folke/tokyonight.nvim'
 
   -- Plenary is required for certain plugins like Telescope
   use 'nvim-lua/plenary.nvim'
 
-  use 'nvim-telescope/telescope.nvim'
+  use {
+    'nvim-telescope/telescope.nvim',
+    opt = true
+  }
 
   use 'tpope/vim-surround'
 
@@ -48,6 +42,16 @@ return packer.startup(function(use)
   use({
     "iamcco/markdown-preview.nvim",
     run = function() vim.fn["mkdp#util#install"]() end,
+    opt = true
   })
+
+  use {
+    'nvim-tree/nvim-tree.lua',
+    requires = {
+      'nvim-tree/nvim-web-devicons', -- optional, for file icons
+    },
+    -- tag = 'nightly' -- optional, updated every week. (see issue #1193)
+    opt = true
+  }
 
 end)
