@@ -34,7 +34,7 @@ nnoremap <leader>cl :let @+ = join(map(split(execute('ls'),"\n"),{_,x->split(x,'
 
 """""""""""""""""""""""" PLUGIN SPECICIC MAPS """""""""""""""""""
 
-" Telescope
+""" Telescope
 nnoremap <leader>fx <cmd>lua require('telescope.builtin').git_files()<cr>
 nnoremap <leader>x <cmd>lua require('telescope.builtin').git_files()<cr>
 nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
@@ -48,3 +48,8 @@ nnoremap <leader>fk <cmd>lua require('telescope.builtin').keymaps()<cr>
 """ Some stuff I don't bother mapping and can just run :Telescope such as:
 " :Telescope git_[tab]  (commits, branches, etc)
 
+
+""" Nvim-tree
+nnoremap <Leader>e :NvimTreeFindFileToggle<CR>
+nnoremap <Leader>nf :NvimTreeFindFile<CR>
+nnoremap <Leader>nc :NvimTreeCollapse<CR>
