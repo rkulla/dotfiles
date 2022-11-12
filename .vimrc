@@ -40,6 +40,8 @@ set pastetoggle=<F3>                                " Useful when normal pasting
 set spelllang=en_us
 set spellfile=$HOME/.vim/spell/en.utf-8.add
 autocmd BufRead,BufNewFile *.txt,*.md setlocal spell
+" Ignore spellchecking code like IFooBar
+syn match myExCapitalWords +\<\w*[_0-9A-Z-]\w*\>+ contains=@NoSpell
 
 " Make it easier to see your cursor in console vim
 " tmux will only forward escape sequences to the terminal if surrounded by a DCS sequence
