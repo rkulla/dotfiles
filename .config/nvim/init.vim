@@ -21,17 +21,16 @@ autocmd BufRead,BufNewFile *.txt,*.md setlocal spell  " File types to enable spe
 """ I put some configs in plugin/ (still loads on startup) to keep this file small
 " COLOR SCHEME:          plugin/colorscheme.vim
 " KEYMAPS:               plugin/keymaps.vim  (all maps for easy reference)
+" MARKDOWN:              plugin/markdown.vim
 " TERMINAL:              plugin/terminal.vim
+
 
 """ Plugin Initialization (requirements: Packer)
 " Load ~/.config/nvim/lua/user/plugins.lua
-" Simply comment out any `packadd` to a plugin
 lua require('user/plugins')
-
-" I put plugin/ files that also `packadd` below
-" MARKDOWN:              plugin/markdown.vim
-
-""" Load Misc. plugins
+" Comment out any `packadd` to not (lazy) load that plugin
+lua require('user/lualine')
+""" Load Misc. plugins / config
 packadd plenary.nvim
 packadd telescope.nvim
 packadd nvim-tree.lua
