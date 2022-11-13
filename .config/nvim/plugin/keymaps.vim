@@ -23,6 +23,16 @@ nmap <Leader>sp `[v`]
 " `` to toggle last cursor position
 noremap <LeftMouse> m'<LeftMouse>
 
+" Toggle winbar on/off - mainly while split window editing
+nnoremap <leader>wb :call ToggleWinbar()<cr>
+function! ToggleWinbar()
+    if &winbar == ''
+        set winbar=%=%m\ %f
+    else
+        set winbar=
+    endif
+endfunction
+
 
 """ Copying currently open file names to the clipboard
 " Copy current buffer's relative path (useful to paste for CLI args)
