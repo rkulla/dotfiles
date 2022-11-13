@@ -31,11 +31,12 @@ return packer.startup(function(use)
 
   use 'tpope/vim-fugitive'
 
+  use 'lewis6991/gitsigns.nvim'
+
   use 'vim-scripts/tComment'
 
   use {
     'nvim-lualine/lualine.nvim',
-    -- requires = { 'kyazdani42/nvim-web-devicons' },
   }
 
   -- install markdown-preview without yarn or npm

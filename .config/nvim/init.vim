@@ -34,3 +34,4 @@ packadd plenary.nvim
 packadd telescope.nvim
 packadd nvim-tree.lua
 lua require('user/nvim-tree')
+lua require('user/gitsigns')
