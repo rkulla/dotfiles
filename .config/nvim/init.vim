@@ -1,4 +1,3 @@
-let mapleader = ","                                   " Remap <Leader> to comma
 set dir=~/.config/nvim/swp                            " .swp file location
 set clipboard+=unnamed                                " Yank to system clipboard, in tmux or otherwise
 set path+=**                                          " Allow :find, :tabf, etc., to search the pwd and its subdirs

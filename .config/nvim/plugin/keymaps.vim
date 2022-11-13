@@ -1,4 +1,10 @@
 """ MISC maps (See the plugin section below for plugin-specific maps)
+
+" Remap <Leader> to spacebar
+let mapleader = " "                                  
+nnoremap <SPACE> <Nop>
+
+" Close / escape / delete words faster
 nmap X :q<CR>
 imap jj <esc>
 imap ;; <C-w>
