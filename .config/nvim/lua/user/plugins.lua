@@ -35,7 +35,7 @@ return packer.startup(function(use)
 
   use {
     'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons' }
+    -- requires = { 'kyazdani42/nvim-web-devicons' },
   }
 
   -- install markdown-preview without yarn or npm
@@ -48,10 +48,8 @@ return packer.startup(function(use)
   use {
     'nvim-tree/nvim-tree.lua',
     requires = {
-      'nvim-tree/nvim-web-devicons', -- optional, for file icons
-    },
-    -- tag = 'nightly' -- optional, updated every week. (see issue #1193)
-    opt = true
+      'nvim-tree/nvim-web-devicons', 
+    }
   }
 
 end)

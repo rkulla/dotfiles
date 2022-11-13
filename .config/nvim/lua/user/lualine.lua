@@ -1,12 +1,12 @@
 require('lualine').setup({
   options = {
-    theme = 'auto',
+    theme = 'tokyonight',
     component_separators = '',
     section_separators = '',
     globalstatus = true
   },
   sections = {
-    lualine_a = { 'FugitiveHead' },       -- fast loaded of git branch name from vim-fugitive
+    lualine_a = { 'branch' },       -- https://github.com/nvim-lualine/lualine.nvim/issues/888
     lualine_b = {
       {
         'buffers',
@@ -23,6 +23,7 @@ require('lualine').setup({
         }, 
       }
     },
-   lualine_c = {}                         -- Don't show filename since I do in buffers
+   lualine_c = {},                        -- Don't show filename since I do in buffers
+   lualine_x = {'encoding', 'fileformat'} -- Don't show filetype since I use icons
   }
 })
