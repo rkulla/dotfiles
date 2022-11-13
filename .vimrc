@@ -12,7 +12,10 @@ execute pathogen#infect()
 let g:loaded_matchit = 1
 let g:matchup_matchparen_offscreen = { 'method': 'popup', 'scrolloff': 1 }
 
-let mapleader = ","                                 " remap <Leader> to comma so you can do: ,s instead of \s, etc.
+" Remap <Leader> to spacebar
+let mapleader = " "                                 " remap <Leader> to space so you can do: <space>s instead of \s, etc. 
+nnoremap <SPACE> <Nop>
+
 set dir=~/.vim/swp                                  " My .swp file location
 set nocompatible                                    " Prevent unexpected things your distro might make
 set clipboard+=unnamed                              " So y to yank text goes to system clipboard, in tmux or otherwise
