@@ -37,7 +37,7 @@ set nostartofline                                   " So cursor doesn't jump to 
 set confirm                                         " So :q, :bd, etc. on a changed file popups a 'save file?' confirm box
 set fo=t                                            " I don't want the format options that auto create comments
 set enc=utf-8                                       " Causes fencs to default to ucs-bom,utf-8,default,latin1
-set pastetoggle=<F3>                                " Useful when normal pasting doesn't work
+set pastetoggle=<F10>                               " Useful when normal pasting doesn't work
 
 " spellcheck
 set spelllang=en_us
