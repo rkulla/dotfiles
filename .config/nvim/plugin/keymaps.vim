@@ -69,3 +69,7 @@ nnoremap <leader>fk <cmd>lua require('telescope.builtin').keymaps()<cr>
 nnoremap <Leader>e :NvimTreeFindFileToggle<CR>
 nnoremap <Leader>nf :NvimTreeFindFile<CR>
 nnoremap <Leader>nc :NvimTreeCollapse<CR>
+
+""" Gitsigns
+" These maps are in my gitsigns.lua
+

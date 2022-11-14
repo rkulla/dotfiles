@@ -23,5 +23,21 @@ require('gitsigns').setup{
       return '<Ignore>'
     end, {expr=true})
 
+    -- Actions
+    map({'n', 'v'}, '<leader>hs', ':Gitsigns stage_hunk<CR>')
+    map({'n', 'v'}, '<leader>hr', ':Gitsigns reset_hunk<CR>')
+    map('n', '<leader>hS', gs.stage_buffer)
+    map('n', '<leader>hu', gs.undo_stage_hunk)
+    map('n', '<leader>hp', gs.preview_hunk)
+    map('n', '<leader>hb', function() gs.blame_line{full=true} end)
+    map('n', '<leader>tb', gs.toggle_current_line_blame)
+    map('n', '<leader>cq', gs.reset_buffer) -- reset all changes to the file
+    map('n', '<leader>cd', gs.diffthis) -- show current changes of full file
+    map('n', '<leader>cD', function() gs.diffthis('~') end) -- show changes the current file last did
+    map('n', '<leader>td', gs.toggle_deleted) -- show deleted version of changed line too
+
+    -- Text object
+    map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+
   end
 }

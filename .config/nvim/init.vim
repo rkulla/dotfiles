@@ -7,7 +7,7 @@ set number                                            " Enable line numbers
 set confirm                                           " :q, :bd, etc., on a changed file popups a `save file?` confirmation
 "set fo=t                                             " I don't want the format options that auto create comments
 set enc=utf-8                                         " Default fencs to ucs-bom,utf-8,default,latin1
-set pastetoggle=<F3>                                  " If normal pasting doesn't work
+set pastetoggle=<F10>                                 " If normal pasting doesn't work
 set expandtab                                         " So tab key writes spaces. (Ctrl+V<TAB> for real tabs)
 set tabstop=4                                         " Make tabs 4 spaces
 set shiftwidth=4                                      " Appear as 4 spaces when auto-indenting
