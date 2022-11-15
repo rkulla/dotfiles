@@ -96,6 +96,7 @@ else
   " Note: My NerdTree notes explain how to also get X to close NERDTree.
   nmap X :q<CR>
 endif
+nnoremap <Leader>q :bw<CR>
 
 " So shift+up scrolls up from current cursor position without moving cursor upward
 nmap <S-up> 1<C-u>

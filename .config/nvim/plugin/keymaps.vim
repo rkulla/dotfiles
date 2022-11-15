@@ -9,8 +9,8 @@ nmap X :q<CR>
 imap jj <esc>
 imap ;; <C-w>
 
-" Close read-only buffers with `q` (Use my `X` for write buffers)
-nnoremap <expr> q (&readonly ? ':q<CR>' : 'q')
+" Close read or write buffers quicker 
+nnoremap <Leader>q :bw<CR>
 
 " toggle line numbers
 map <Leader>n :set invnumber<CR>                    
