@@ -32,6 +32,7 @@ lua require('user/lualine')
 """ Load Misc. plugins / config
 packadd plenary.nvim
 packadd telescope.nvim
+lua require('user/telescope')
 packadd nvim-tree.lua
 lua require('user/nvim-tree')
 lua require('user/gitsigns')
