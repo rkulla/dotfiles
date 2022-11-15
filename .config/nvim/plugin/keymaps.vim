@@ -1,6 +1,7 @@
 """ MISC maps (See the plugin section below for plugin-specific maps)
 
 " Remap <Leader> to spacebar
+" Note: I sometimes use , as a secondary/fallback key out of habit
 let mapleader = " "                                  
 nnoremap <SPACE> <Nop>
 
@@ -11,6 +12,7 @@ imap ;; <C-w>
 
 " Close read or write buffers quicker 
 nnoremap <Leader>q :bw<CR>
+nnoremap ,q :bw<CR>
 
 " toggle line numbers
 map <Leader>n :set invnumber<CR>                    
@@ -57,9 +59,11 @@ nnoremap <leader>cl :let @+ = join(map(split(execute('ls'),"\n"),{_,x->split(x,'
 """ Telescope
 nnoremap <leader>fx <cmd>lua require('telescope.builtin').git_files()<cr>
 nnoremap <leader>x <cmd>lua require('telescope.builtin').git_files()<cr>
+nnoremap ,x <cmd>lua require('telescope.builtin').git_files()<cr>
 nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>fX <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>X <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap ,X <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>ag <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
