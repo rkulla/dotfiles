@@ -12,7 +12,6 @@ imap ;; <C-w>
 
 " Close read or write buffers quicker 
 nnoremap <Leader>q :bw<CR>
-nnoremap ,q :bw<CR>
 
 " toggle line numbers
 map <Leader>n :set invnumber<CR>                    
