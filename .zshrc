@@ -157,6 +157,7 @@ alias wgt='watch -n 1 -d -t -c "git lolgraph --color && tree -CF"' # watch git l
 alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
 # Open modified staged and unstaged files (great for reopening where you left off)
 alias vmod='n $(git diff --diff-filter=d --cached --name-only && git diff --diff-filter=d --name-only)'
+alias nmod=vmod
 alias vimod='n $(git diff --diff-filter=d --cached --name-only && git diff --diff-filter=d --name-only)'
 alias cmod='code $(git diff --diff-filter=d --cached --name-only && git diff --diff-filter=d --name-only)'
 # See my vcom and ccom functions for if I already committed
