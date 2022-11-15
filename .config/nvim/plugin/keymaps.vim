@@ -1,7 +1,7 @@
 """ MISC maps (See the plugin section below for plugin-specific maps)
 
 " Remap <Leader> to spacebar
-" Note: I sometimes use , as a secondary/fallback key out of habit
+" Note: I sometimes use , as a secondary or fallback key
 let mapleader = " "                                  
 nnoremap <SPACE> <Nop>
 
