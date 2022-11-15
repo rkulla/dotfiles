@@ -9,6 +9,9 @@ nmap X :q<CR>
 imap jj <esc>
 imap ;; <C-w>
 
+" Close read-only buffers with `q` (Use my `X` for write buffers)
+nnoremap <expr> q (&readonly ? ':q<CR>' : 'q')
+
 " toggle line numbers
 map <Leader>n :set invnumber<CR>                    
 
@@ -69,6 +72,11 @@ nnoremap <leader>fk <cmd>lua require('telescope.builtin').keymaps()<cr>
 nnoremap <Leader>e :NvimTreeFindFileToggle<CR>
 nnoremap <Leader>nf :NvimTreeFindFile<CR>
 nnoremap <Leader>nc :NvimTreeCollapse<CR>
+
+
+""" Fugitive
+nnoremap gst :G status<CR>
+
 
 """ Gitsigns
 " These maps are in my gitsigns.lua

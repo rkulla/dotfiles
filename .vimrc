@@ -183,7 +183,7 @@ nnoremap <silent> <Leader>mn mN:execute 'match Search /\%'.line('.').'l/'<CR>
 "" VCS / Git (note: other maps are in the coc section)
 ""
 
-nnoremap gst :Gstatus<CR>
+nnoremap gst :G status<CR>
 " Tooltips to show commit message and git blame of cursor position
 " Uses ~/.vim/autoload/git.vim
 noremap <silent> <Leader>gc :call git#show_commit(v:count)<CR>
