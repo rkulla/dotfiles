@@ -21,6 +21,7 @@ noremap * *``
 " ^n and ^p for next and prev buffer
 nmap <C-n> :bn<CR>
 nmap <C-p> :bp<CR>
+nmap <Leader><Leader> <c-^>
 
 " ^s to save file in command or insert mode
 imap <C-s> <C-o>:update!<CR>
@@ -65,7 +66,7 @@ nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 nnoremap <leader>fk <cmd>lua require('telescope.builtin').keymaps()<cr>
 """ Some stuff I don't bother mapping and can just run :Telescope such as:
-" :Telescope git_[tab]  (commits, branches, etc)
+" :Tel[tab] git[tab]  (commits, branches, etc)
 
 
 """ Nvim-tree
