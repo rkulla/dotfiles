@@ -30,6 +30,8 @@ return packer.startup(function(use)
   use 'tpope/vim-surround'
 
   use 'tpope/vim-fugitive'
+  -- rhubarb enables :GBrowse from fugitive to open GitHub
+  use 'tpope/vim-rhubarb'
 
   use 'lewis6991/gitsigns.nvim'
 
