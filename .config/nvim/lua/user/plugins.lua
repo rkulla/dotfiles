@@ -26,6 +26,9 @@ return packer.startup(function(use)
     'nvim-telescope/telescope.nvim',
     opt = true
   }
+  
+  -- requires telescope and `gh` cli
+  use 'nvim-telescope/telescope-github.nvim'
 
   use 'tpope/vim-surround'
 
