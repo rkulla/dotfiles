@@ -13,7 +13,7 @@ require('lualine').setup({
         show_filename_only = true,         -- Shows shortened relative path when set to false.
         hide_filename_extension = false,   -- Hide filename extension when set to true.
         show_modified_status = true,       -- Shows indicator when the buffer is modified.
-        max_length = vim.o.columns * 2 / 3,
+        icons_enabled = false,             -- If you want to see filetype icons next to each buffer
         mode = 4, 
 
         symbols = {
@@ -24,7 +24,7 @@ require('lualine').setup({
       }
     },
     lualine_c = {},                        -- Don't show filename since I do in buffers
-    lualine_x = {'encoding', 'fileformat'} -- Don't show filetype since I use icons
+    lualine_x = {'encoding', 'fileformat', 'filetype'}
   },
   winbar = {}
 })
