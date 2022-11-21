@@ -44,6 +44,8 @@ return packer.startup(function(use)
     'nvim-lualine/lualine.nvim',
   }
 
+  use 'fatih/vim-go'
+
   -- install markdown-preview without yarn or npm
   use({
     "iamcco/markdown-preview.nvim",
