@@ -71,7 +71,7 @@ Enable `mouse reporting` for each profile. Then in `General > Selection` enable
 `Applications in terminal may access clipboard`, `Copy to pasteboard on selection`,
 `Double-click performs smart selection`, `Triple-click selects entire wrapped lines`.
 
-Add the following maps for ergonomics/convenience. Under `Cmd+, > Profiles > select each profile > Keys > Key Mappings` click `+` to a new key map for and search for "Send text with vim special chars" and create maps:
+Add the following maps for ergonomics/convenience. Under `Cmd+, > Profiles > select each profile > Keys > Key Mappings` click `+` to a new key map for and search for **Send Text with "Vim" Special Chars** and create maps:
 
     Alt+k  to  \u001b[A   (arrow down)
     Alt+j  to  \u001b[B   (arrow down)
@@ -79,14 +79,14 @@ Add the following maps for ergonomics/convenience. Under `Cmd+, > Profiles > sel
     Alt+h  to  \u001b[D   (arrow left)
 
 With `\u001b[A` the `\u001b` means ESC and `[A` means `up` arrow
-Similarly [B means down, [C means right and [D means left
+Similarly `[B` means down, `[C` means right and `[D` means left.
 
-Also create the following but mapped to "Send escape sequence":
+Also create the following but mapped to **Send Escape Sequence**:
 
     Alt+b  to  b          (move left 1 word at a time)
     Alt+f  to  f          (move right 1 word at a time)
 
-And finally, create the ability to undo by typing cmd+z by mapping it in "Send hex code":
+And finally, create the ability to undo by typing cmd+z by mapping it in **Send Hex Code**:
 
     Cmd+z  to  0x1f       (undo)
 
