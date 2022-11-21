@@ -71,24 +71,22 @@ Enable `mouse reporting` for each profile. Then in `General > Selection` enable
 `Applications in terminal may access clipboard`, `Copy to pasteboard on selection`,
 `Double-click performs smart selection`, `Triple-click selects entire wrapped lines`.
 
-Make it so I can type Alt+k instead of up arrow for command history/ergonomics:
-    
-    Cmd+, > Profiles > select each profile > Keys > Key Mappings
-    Click `+` to a new key map for Option+k that "Send text with vim special chars"
-    Enter `\u001b[A` (\u001b means ESC and [A means up arrow.)
+Add the following maps for ergonomics/convenience. Under `Cmd+, > Profiles > select each profile > Keys > Key Mappings` click `+` to a new key map for and search for "Send text with vim special chars" and create maps:
 
-Similarly [B means down, [C means right and [D means left. Also map those:
-
+    Alt+k  to  \u001b[A   (arrow down)
     Alt+j  to  \u001b[B   (arrow down)
     Alt+l  to  \u001b[C   (arrow right)
     Alt+h  to  \u001b[D   (arrow left)
+
+With `\u001b[A` the `\u001b` means ESC and `[A` means `up` arrow
+Similarly [B means down, [C means right and [D means left
 
 Also create the following but mapped to "Send escape sequence":
 
     Alt+b  to  b          (move left 1 word at a time)
     Alt+f  to  f          (move right 1 word at a time)
 
-And finally, create the ability to undo by typing cmd+z by mapping it in "Send hex code"
+And finally, create the ability to undo by typing cmd+z by mapping it in "Send hex code":
 
     Cmd+z  to  0x1f       (undo)
 
