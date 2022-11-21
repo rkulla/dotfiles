@@ -79,10 +79,18 @@ Make it so I can type Alt+k instead of up arrow for command history/ergonomics:
 
 Similarly [B means down, [C means right and [D means left. Also map those:
 
-    Alt+j  to  \u001b[B
-    Alt+l  to  \u001b[C
-    Alt+h  to  \u001b[D
+    Alt+j  to  \u001b[B   (arrow down)
+    Alt+l  to  \u001b[C   (arrow right)
+    Alt+h  to  \u001b[D   (arrow left)
 
+Also create the following but mapped to "Send escape sequence":
+
+    Alt+b  to  b          (move left 1 word at a time)
+    Alt+f  to  f          (move right 1 word at a time)
+
+And finally, create the ability to undo by typing cmd+z by mapping it in "Send hex code"
+
+    Cmd+z  to  0x1f       (undo)
 
 Install `Hack Nerd Font` so I can see file-type logos in my terminal:
 
