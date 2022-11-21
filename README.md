@@ -71,6 +71,19 @@ Enable `mouse reporting` for each profile. Then in `General > Selection` enable
 `Applications in terminal may access clipboard`, `Copy to pasteboard on selection`,
 `Double-click performs smart selection`, `Triple-click selects entire wrapped lines`.
 
+Make it so I can type Alt+k instead of up arrow for command history/ergonomics:
+    
+    Cmd+, > Profiles > select each profile > Keys > Key Mappings
+    Click `+` to a new key map for Option+k that "Send text with vim special chars"
+    Enter `\u001b[A` (\u001b means ESC and [A means up arrow.)
+
+Similarly [B means down, [C means right and [D means left. Also map those:
+
+    Alt+j  to  \u001b[B
+    Alt+l  to  \u001b[C
+    Alt+h  to  \u001b[D
+
+
 Install `Hack Nerd Font` so I can see file-type logos in my terminal:
 
     $ brew tap homebrew/cask-fonts
