@@ -59,8 +59,8 @@ nnoremap <leader>cl :let @+ = join(map(split(execute('ls'),"\n"),{_,x->split(x,'
 """ Split windows
 " :Clear to close the current file w/o closing the split, then starts a new file
 com! Clear :enew <bar> bdel #
-" F2 to close the current file w/o closing the split, then jumps to the next file
-nmap <F2> :bn <bar> bd #<CR>
+" Close the current file w/o closing the split window then jumps to the next file
+nmap <Leader>wC  :bn <bar> bd #<CR>
 " Toggle between splits
 nnoremap <Leader>ww <C-w>w
 " Move windows

@@ -620,26 +620,27 @@ endif
 "" Split windows
 ""
 
-" So ,H resizes a split vertical window to be smaller. ,L for larger, etc. ,K for smaller horizontal, ,J for larger horizontal
-nmap <Leader>H :vertical res -5<CR>
-nmap <Leader>L :vertical res +5<CR>
-nmap <Leader>K :res -5<CR>
-nmap <Leader>J :res +5<CR>
+" Resize windows 
+nmap <Leader>wH :vertical res -5<CR>
+nmap <Leader>wL :vertical res +5<CR>
+nmap <Leader>wK :res -5<CR>
+nmap <Leader>wJ :res +5<CR>
+
 
 " Close the current file by typing :Clear w/o closing the split window and starts a new file
 com! Clear :enew <bar> bdel #
 " Close the current file by typing F2 w/o closing the split window then jumps to the next file
-nmap <F2> :bn <bar> bd #<CR>
+nmap <Leader>wC :bn <bar> bd #<CR>
 " So Wh moves to the window to the left and Wl moves to the right, etc.
 " Note that ^ww already toggles between split windows
-nmap Wh <C-w>h
-nmap Wl <C-w>l
-nmap Wk <C-w>k
-nmap Wj <C-w>j
+nnoremap <Leader>wh <C-w>h
+nnoremap <Leader>wl <C-w>l
+nnoremap <Leader>wk <C-w>k
+nnoremap <Leader>wj <C-w>j
 
 " To "fullscreen" the current split window buffer. When done, :q or :tabc and get back to the previous "viewport"
-" Think of gz as standing for 'go zoom'. It just opens a new tab window split window. Close tab when finished
-nnoremap gz <cmd>tab split<cr>
+" Think of wz as standing for 'window zoom'. It just opens a new tab window split window. Close tab when finished
+nnoremap <Leader>wz <cmd>tab split<cr>
 
 
 ""
