@@ -41,6 +41,8 @@ return packer.startup(function(use)
     end
   }
 
+  use 'tpope/vim-commentary'
+
   use 'tpope/vim-surround'
 
   use 'tpope/vim-fugitive'
@@ -48,8 +50,6 @@ return packer.startup(function(use)
   use 'tpope/vim-rhubarb'
 
   use 'lewis6991/gitsigns.nvim'
-
-  use 'vim-scripts/tComment'
 
   use {
     'nvim-lualine/lualine.nvim',
