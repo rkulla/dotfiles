@@ -17,6 +17,8 @@ return packer.startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
+  use 'neovim/nvim-lspconfig'
+
   use 'folke/tokyonight.nvim'
 
   -- Plenary is required for certain plugins like Telescope
@@ -29,6 +31,15 @@ return packer.startup(function(use)
   
   -- requires telescope and `gh` cli
   use 'nvim-telescope/telescope-github.nvim'
+
+  -- Lua
+  use {
+    "folke/which-key.nvim",
+    config = function()
+      require("which-key").setup {
+      }
+    end
+  }
 
   use 'tpope/vim-surround'
 
@@ -43,8 +54,6 @@ return packer.startup(function(use)
   use {
     'nvim-lualine/lualine.nvim',
   }
-
-  use 'fatih/vim-go'
 
   -- install markdown-preview without yarn or npm
   use({

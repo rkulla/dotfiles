@@ -35,6 +35,7 @@ lua require('user/plugins')
 " Comment out any `packadd` to not (lazy) load that plugin
 lua require('user/lualine')
 """ Load Misc. plugins / config
+lua require('user/lsp')
 packadd plenary.nvim
 packadd telescope.nvim
 lua require('user/telescope')

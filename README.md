@@ -191,6 +191,12 @@ Do this from ~/.config/nvim/init.vim instead of this dotfiles checkout, since no
 
 Install Packer then run `:PackerSync`
 
+Install (or update) LSP servers and Linters I integrate with:
+
+   $ go install golang.org/x/tools/gopls@latest
+   $ go install honnef.co/go/tools/cmd/staticcheck@latest
+
+
 
 ## VSCode
 For now manually copy my settings from vscode/settings.json into ~/Library/Application\ Support/Code/User/settings.json
