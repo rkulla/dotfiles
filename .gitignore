@@ -20,6 +20,7 @@
 !.config/nvim/lua/
 !.config/nvim/plugin/
 .config/nvim/plugin/packer_compiled.lua
+!.config/nvim/sessions/
 !.config/nvim/spell/
 !.config/nvim/swp/
 
