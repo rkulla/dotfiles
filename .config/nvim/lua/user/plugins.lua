@@ -32,7 +32,8 @@ return packer.startup(function(use)
   -- requires telescope and `gh` cli
   use 'nvim-telescope/telescope-github.nvim'
 
-  -- Lua
+  use 'glepnir/dashboard-nvim'
+
   use {
     "folke/which-key.nvim",
     config = function()

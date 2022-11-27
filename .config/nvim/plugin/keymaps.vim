@@ -56,6 +56,12 @@ nnoremap <leader>cn :let @+ = expand('%:t')<cr>
 nnoremap <leader>cl :let @+ = join(map(split(execute('ls'),"\n"),{_,x->split(x,'"')[1]}))<cr>
 
 
+""" Quickfix window
+" After :0Gclog, load next/prev result while not maintaining cursor position in the file
+nnoremap [q :let ws = winsaveview() <bar> cnext <bar> call winrestview(ws) <bar> unlet ws<CR>
+nnoremap ]q :let ws = winsaveview() <bar> cprev <bar> call winrestview(ws) <bar> unlet ws<CR>
+
+
 """ Split windows
 " :Clear to close the current file w/o closing the split, then starts a new file
 com! Clear :enew <bar> bdel #
@@ -102,12 +108,13 @@ nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>fX <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>X <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap ,X <cmd>lua require('telescope.builtin').find_files()<cr>
-nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
-nnoremap <leader>ag <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fw <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fe <cmd>Telescope file_browser<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>fr <cmd>lua require('telescope.builtin').oldfiles()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 nnoremap <leader>fk <cmd>lua require('telescope.builtin').keymaps()<cr>
+nnoremap <leader>fc <cmd>Telescope find_files find_command=rg,--hidden,--files,/Users/rkulla/.config/nvim<cr>,
 """ Some stuff I don't bother mapping and can just run :Telescope such as:
 " :Tel[tab] git[tab]  (commits, branches, etc)
-
 
