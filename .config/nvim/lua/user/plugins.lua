@@ -34,14 +34,6 @@ return packer.startup(function(use)
 
   use 'glepnir/dashboard-nvim'
 
-  use {
-    "folke/which-key.nvim",
-    config = function()
-      require("which-key").setup {
-      }
-    end
-  }
-
   use 'tpope/vim-commentary'
 
   use 'tpope/vim-surround'

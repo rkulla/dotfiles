@@ -114,7 +114,7 @@ nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fr <cmd>lua require('telescope.builtin').oldfiles()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 nnoremap <leader>fk <cmd>lua require('telescope.builtin').keymaps()<cr>
-nnoremap <leader>fc <cmd>Telescope find_files find_command=rg,--hidden,--files,/Users/rkulla/.config/nvim<cr>,
+nnoremap <leader>fc <cmd>Telescope find_files find_command=rg,--hidden,--files,/Users/rkulla/.config/nvim<cr>
 """ Some stuff I don't bother mapping and can just run :Telescope such as:
 " :Tel[tab] git[tab]  (commits, branches, etc)
 
