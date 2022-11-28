@@ -32,6 +32,7 @@ lua require('user/lualine')
 lua require('user/dashboard')
 """ Load Misc. plugins / config
 lua require('user/lsp')
+lua require('user/null-ls')
 packadd plenary.nvim
 packadd telescope.nvim
 lua require('user/telescope')
