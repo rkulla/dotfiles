@@ -1,4 +1,4 @@
-local null_ls_status_ok, null_ls = pcall(require, 'null-ls')
+local null_ls_status_ok, null_ls = pcall(require, "null-ls")
 if not null_ls_status_ok then
   return
 end
@@ -11,8 +11,10 @@ null_ls.setup({
   debug = true,
   sources = {
     formatting.stylua.with({ extra_args = { "--indent-type", "Spaces", "--indent-width", "2" } }),
+    formatting.goimports,
+    formatting.gofmt,
     formatting.eslint, -- change to prettier if project requires it
-    diagnostics.eslint
+    diagnostics.eslint,
   },
 
   -- Format On Save
