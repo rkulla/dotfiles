@@ -10,6 +10,7 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup({
   debug = true,
   sources = {
+    formatting.stylua.with({ extra_args = { "--indent-type", "Spaces", "--indent-width", "2" } }),
     formatting.eslint, -- change to prettier if project requires it
     diagnostics.eslint
   },

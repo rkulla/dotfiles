@@ -195,7 +195,7 @@ Install (or update) LSP servers and Linters I integrate with:
 
    $ go install golang.org/x/tools/gopls@latest
    $ go install honnef.co/go/tools/cmd/staticcheck@latest
-
+   $ cargo install stylua
 
 
 ## VSCode
