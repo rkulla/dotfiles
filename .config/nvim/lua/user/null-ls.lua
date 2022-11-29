@@ -11,8 +11,6 @@ null_ls.setup({
   debug = true,
   sources = {
     formatting.stylua.with({ extra_args = { "--indent-type", "Spaces", "--indent-width", "2" } }),
-    formatting.goimports,
-    formatting.gofmt,
     formatting.eslint, -- change to prettier if project requires it
     diagnostics.eslint,
   },
