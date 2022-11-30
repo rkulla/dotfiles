@@ -35,6 +35,8 @@ return packer.startup(function(use)
 
   use("glepnir/dashboard-nvim")
 
+  use("folke/trouble.nvim")
+
   use({
     "folke/which-key.nvim",
     config = function()
