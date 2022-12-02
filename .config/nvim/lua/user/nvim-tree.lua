@@ -1,3 +1,7 @@
+vim.keymap.set("n", "<leader>e", ":NvimTreeFindFileToggle<cr>")
+vim.keymap.set("n", "<leader>nf", ":NvimTreeFindFile<cr>")
+vim.keymap.set("n", "<leader>nc", ":NvimTreeCollapse<cr>")
+
 require("nvim-tree").setup({
   sort_by = "name",
   view = {
