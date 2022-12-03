@@ -77,6 +77,11 @@ lspconfig.gopls.setup({
     gopls = {
       analyses = {
         unusedparams = true,
+        unusedvariable = true,
+        shadow = true,
+        nilness = true,
+        useany = true,
+        unusedwrite = true,
       },
       staticcheck = true,
     },
