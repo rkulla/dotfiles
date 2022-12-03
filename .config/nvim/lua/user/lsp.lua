@@ -1,48 +1,42 @@
--- Note: see go.lua, typescript.lua, etc for language specific configuration
 local lspconfig = require("lspconfig")
-local lsp_util = require("lspconfig/util")
-
--- lspconfig --------------------------------
-
--- add more servers to this table as needed
-local servers = { "tsserver", "gopls" }
+local map = vim.keymap.set
 
 -- on_attach function to only map the following after lang server attaches to current buffer
 local on_attach = function(client, bufnr)
-  local opts = { noremap = true, silent = true }
-
-  vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-  vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-  vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-  vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-  vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-  vim.keymap.set("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-  vim.keymap.set("n", "<space>lwa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", opts)
-  vim.keymap.set("n", "<space>lwr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", opts)
-  vim.keymap.set("n", "<space>lwl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", opts)
-  vim.keymap.set("n", "<space>lD", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
-  vim.keymap.set("n", "<space>lr", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-  vim.keymap.set("n", "<space>lc", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-  vim.keymap.set("n", "<space>ldf", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-  vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
-  vim.keymap.set("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
-  vim.keymap.set("n", "<space>ldl", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
-  vim.keymap.set("n", "<space>lf", function()
+  map("n", "gd", vim.lsp.buf.definition, { buffer = bufnr, desc = "LSP go to definition" })
+  map("n", "gr", vim.lsp.buf.references, { buffer = bufnr, desc = "LSP references" })
+  map("n", "gi", vim.lsp.buf.implementation, { buffer = bufnr, desc = "LSP implementation" })
+  map("n", "<leader>ld", vim.diagnostic.setloclist, { buffer = bufnr, desc = "LSP diagnostic" })
+  map("n", "<leader>lt", vim.lsp.buf.type_definition, { buffer = bufnr, desc = "LSP type definition" })
+  map("n", "<leader>lk", vim.lsp.buf.hover, { buffer = bufnr, desc = "LSP hover" })
+  map("n", "<leader>lh", vim.lsp.buf.signature_help, { buffer = bufnr, desc = "LSP signature help" })
+  map("n", "<leader>la", vim.lsp.buf.code_action, { buffer = bufnr, desc = "LSP code action" })
+  map("n", "<leader>lR", vim.lsp.buf.rename, { buffer = bufnr, desc = "LSP rename" })
+  map("n", "<leader>lr", vim.lsp.buf.references, { buffer = bufnr, desc = "LSP references" })
+  map("n", "<leader>lf", function()
     vim.lsp.buf.format({ async = true })
-  end, opts)
+  end, { buffer = bufnr, desc = "LSP format" })
+  map("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", { desc = "Diagnostic goto_prev" })
+  map("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", { desc = "Diagnostic goto_next" })
 
-  -- Disable Autoformat
+  -- Telescope
+  map("n", "<leader>fd", "<cmd>Telescope diagnostics<cr>", { buffer = bufnr, desc = "Telescope lsp_definitions" })
+  map("n", "<leader>fr", "<cmd>Telescope lsp_references<cr>", { buffer = bufnr, desc = "Telescope lsp_references" })
+
+  -- Trouble
+  map("n", "<leader>tt", "<cmd>TroubleToggle<cr>", { buffer = bufnr, desc = "TroubleToggle" })
+  map(
+    "n",
+    "<leader>tr",
+    "<cmd>TroubleToggle lsp_references<cr>",
+    { buffer = bufnr, desc = "TroubleToggle lsp_references" }
+  )
+
+  -- Disable Autoformat for anything I use null-ls formatters for
   if client.name == "tsserver" then
     client.server_capabilities.document_formatting = false
     client.server_capabilities.document_range_formatting = false
   end
-end
-
--- Register the LSP key mappings above, for all language servers
-for _, server in ipairs(servers) do
-  lspconfig[server].setup({
-    on_attach = on_attach,
-  })
 end
 
 -- Golang: Auto-import / sort imports on save / format code
@@ -68,10 +62,14 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   end,
 })
 
+-- Use lspconfig.<server>.setup() below register each lang server
+
+lspconfig.tsserver.setup({
+  on_attach = on_attach,
+})
+
 lspconfig.gopls.setup({
-  cmd = { "gopls" },
-  filetypes = { "go", "gomod" },
-  root_dir = lsp_util.root_pattern("go.work", "go.mod", ".git"),
+  on_attach = on_attach,
   settings = {
     gopls = {
       analyses = {
@@ -81,5 +79,3 @@ lspconfig.gopls.setup({
     },
   },
 })
-
--- end lspconfig -----------------------------

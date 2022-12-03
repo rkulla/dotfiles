@@ -6,7 +6,7 @@ map("n", "<leader>fX", require("telescope.builtin").find_files, { desc = "Telesc
 map("n", "<leader>fw", require("telescope.builtin").live_grep, { desc = "Telescope live_grep" })
 map("n", "<leader>fe", "<cmd>Telescope file_browser<cr>", { desc = "Telescope file_browser" })
 map("n", "<leader>fb", require("telescope.builtin").buffers, { desc = "Telescope buffers" })
-map("n", "<leader>fr", require("telescope.builtin").oldfiles, { desc = "Telescope oldfiles" })
+map("n", "<leader>fo", require("telescope.builtin").oldfiles, { desc = "Telescope oldfiles" })
 map("n", "<leader>fh", require("telescope.builtin").help_tags, { desc = "Telescope help_tags" })
 map("n", "<leader>fk", require("telescope.builtin").keymaps, { desc = "Telescope keymaps" })
 map(
