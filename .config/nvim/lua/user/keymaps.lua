@@ -47,6 +47,10 @@ map("n", "<leader>cl", [[:let @+ = join(map(split(execute('ls'),'\n'),{_,x->spli
 -- After :0Gclog, load next/prev result while not maintaining cursor position in the file
 map("n", "[q", ":let ws = winsaveview() <bar> cnext <bar> call winrestview(ws) <bar> unlet ws<cr>")
 map("n", "]q", ":let ws = winsaveview() <bar> cprev <bar> call winrestview(ws) <bar> unlet ws<cr>")
+map("n", "<leader>wqq", ":cclose<cr>", { desc = "Close quickfix window" })
+
+--- Location list window --------------------------------------------------
+map("n", "<leader>wql", ":lclose<cr>", { desc = "Close location list window" })
 
 --- Split windows ---------------------------------------------------------
 
