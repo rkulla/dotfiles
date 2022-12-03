@@ -16,7 +16,6 @@ set spelllang=en_us                                   " Spellcheck language
 set spellfile=$HOME/.config/nvim/spell/en.utf-8.add   " Spellfile location
 autocmd BufRead,BufNewFile *.txt,*.md setlocal spell  " File types to enable spell checking on
 
-
 """ I put some configs in plugin/ (still loads on startup) to keep this file small
 " COLOR SCHEME:          plugin/colorscheme.vim
 " MARKDOWN:              plugin/markdown.vim

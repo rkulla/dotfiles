@@ -16,9 +16,7 @@ local on_attach = function(client, bufnr)
   map("n", "<leader>lR", vim.lsp.buf.rename, { buffer = bufnr, desc = "LSP rename" })
   map("n", "<leader>lh", vim.lsp.buf.signature_help, { buffer = bufnr, desc = "LSP signature help" })
   map("n", "<leader>la", vim.lsp.buf.code_action, { buffer = bufnr, desc = "LSP code action" })
-  map("n", "<leader>lf", function()
-    vim.lsp.buf.format({ async = true })
-  end, { buffer = bufnr, desc = "LSP format" })
+  map("n", "<leader>lf", function() vim.lsp.buf.format({ async = true }) end, { buffer = bufnr, desc = "LSP format" })
   map("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", { desc = "Diagnostic goto_prev" })
   map("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", { desc = "Diagnostic goto_next" })
 
@@ -28,12 +26,7 @@ local on_attach = function(client, bufnr)
 
   -- Trouble
   map("n", "<leader>tt", "<cmd>TroubleToggle<cr>", { buffer = bufnr, desc = "TroubleToggle" })
-  map(
-    "n",
-    "<leader>tr",
-    "<cmd>TroubleToggle lsp_references<cr>",
-    { buffer = bufnr, desc = "TroubleToggle lsp_references" }
-  )
+  map("n", "<leader>tr", "<cmd>TroubleToggle lsp_references<cr>", { buffer = bufnr, desc = "TroubleToggle lsp_references" })
 
   -- Disable Autoformat for anything I use null-ls formatters for
   if client.name == "tsserver" then
@@ -60,9 +53,7 @@ end
 
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = { "*.go" },
-  callback = function()
-    go_org_imports(1000)
-  end,
+  callback = function() go_org_imports(1000) end,
 })
 
 -- Use lspconfig.<server>.setup() below register each lang server

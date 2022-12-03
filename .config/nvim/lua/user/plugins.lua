@@ -17,10 +17,10 @@ return packer.startup(function(use)
   -- Packer can manage itself
   use("wbthomason/packer.nvim")
 
+  use("folke/tokyonight.nvim")
+
   use("neovim/nvim-lspconfig")
   use("jose-elias-alvarez/null-ls.nvim")
-
-  use("folke/tokyonight.nvim")
 
   -- Plenary is required for certain plugins like Telescope
   use("nvim-lua/plenary.nvim")
@@ -29,7 +29,8 @@ return packer.startup(function(use)
     "nvim-telescope/telescope.nvim",
     opt = true,
   })
-
+  -- requires telescope
+  use({ "nvim-telescope/telescope-file-browser.nvim" })
   -- requires telescope and `gh` cli
   use("nvim-telescope/telescope-github.nvim")
 
@@ -39,9 +40,7 @@ return packer.startup(function(use)
 
   use({
     "folke/which-key.nvim",
-    config = function()
-      require("which-key").setup({})
-    end,
+    config = function() require("which-key").setup({}) end,
   })
 
   use("tpope/vim-commentary")
@@ -59,9 +58,7 @@ return packer.startup(function(use)
   -- install markdown-preview without yarn or npm
   use({
     "iamcco/markdown-preview.nvim",
-    run = function()
-      vim.fn["mkdp#util#install"]()
-    end,
+    run = function() vim.fn["mkdp#util#install"]() end,
     opt = true,
   })
 
