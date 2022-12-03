@@ -1,6 +1,4 @@
 require("gitsigns").setup({
-
-  -- Maps
   on_attach = function(bufnr)
     local gs = package.loaded.gitsigns
 
@@ -47,5 +45,8 @@ require("gitsigns").setup({
       gs.diffthis("~")
     end, { desc = "Gitsigns diffthis vs last" }) -- show changes the current file last did
     map("n", "<leader>td", gs.toggle_deleted, { desc = "Gitsigns toggle_deleted" }) -- show deleted version of changed line too
+
+    -- Text object
+    map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
   end,
 })
