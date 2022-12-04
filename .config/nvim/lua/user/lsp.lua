@@ -1,4 +1,6 @@
 local lspconfig = require("lspconfig")
+local ih = require("inlay-hints")
+
 local map = vim.keymap.set
 
 -- on_attach function to only map the following after lang server attaches to current buffer
@@ -15,6 +17,7 @@ local on_attach = function(client, bufnr)
   map("n", "<leader>lr", vim.lsp.buf.references, { buffer = bufnr, desc = "LSP references" })
   map("n", "<leader>lR", vim.lsp.buf.rename, { buffer = bufnr, desc = "LSP rename" })
   map("n", "<leader>lh", vim.lsp.buf.signature_help, { buffer = bufnr, desc = "LSP signature help" })
+  map("n", "<leader>ll", vim.lsp.codelens.refresh, { buffer = bufnr, desc = "LSP Codelens Hint Inlays" })
   map("n", "<leader>la", vim.lsp.buf.code_action, { buffer = bufnr, desc = "LSP code action" })
   map("n", "<leader>lf", function() vim.lsp.buf.format({ async = true }) end, { buffer = bufnr, desc = "LSP format" })
   map("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", { desc = "Diagnostic goto_prev" })
@@ -24,7 +27,7 @@ local on_attach = function(client, bufnr)
   map("n", "<leader>fd", "<cmd>Telescope diagnostics<cr>", { buffer = bufnr, desc = "Telescope lsp_definitions" })
   map("n", "<leader>fr", "<cmd>Telescope lsp_references<cr>", { buffer = bufnr, desc = "Telescope lsp_references" })
 
-  -- Trouble
+  -- Trouble / Toggle
   map("n", "<leader>tt", "<cmd>TroubleToggle<cr>", { buffer = bufnr, desc = "TroubleToggle" })
   map("n", "<leader>tr", "<cmd>TroubleToggle lsp_references<cr>", { buffer = bufnr, desc = "TroubleToggle lsp_references" })
 
@@ -33,6 +36,9 @@ local on_attach = function(client, bufnr)
     client.server_capabilities.document_formatting = false
     client.server_capabilities.document_range_formatting = false
   end
+
+  -- Enable the 'hints' section of gopls
+  if client.name == "gopls" then ih.on_attach(client, bufnr) end
 end
 
 -- Golang: Auto-import / sort imports on save / format code
@@ -64,6 +70,7 @@ lspconfig.tsserver.setup({
 
 lspconfig.gopls.setup({
   on_attach = on_attach,
+  cmd = { "gopls" },
   settings = {
     gopls = {
       analyses = {
@@ -75,6 +82,24 @@ lspconfig.gopls.setup({
         unusedwrite = true,
       },
       staticcheck = true,
+      hints = { -- disabling all of them by default because my `K` map is less annoying usually
+        assignVariableTypes = true,
+        compositeLiteralFields = false,
+        compositeLiteralTypes = false,
+        constantValues = false,
+        functionTypeParameters = false,
+        parameterNames = false,
+        rangeVariableTypes = false,
+      },
+      codelenses = { -- <leader>ll to enable. Currently just shows additional hints
+        generate = true,
+        test = true,
+        gc_details = true,
+        regenerate_cgo = true,
+        tidy = true,
+        upgrade_dependency = true,
+        vendor = false,
+      },
     },
   },
 })

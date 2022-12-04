@@ -12,7 +12,7 @@ func! s:MyHighlights() abort
   " Make it so my window borders are visible in my colorscheme
   hi winseparator guifg=bold guibg=bg
   " Change the color of the current line number
-  set cul | hi CursorLine guibg=NONE | hi CursorLineNr guifg=#819090 guibg=NONE
+  set cul | hi CursorLine gui=bold | hi CursorLineNr guifg=#819090 guibg=NONE
   " Make line numbers italic (see my terminfo notes for enabling on MacOS)
   hi LineNr gui=italic
 endfunc

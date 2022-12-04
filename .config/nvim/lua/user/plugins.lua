@@ -21,6 +21,7 @@ return packer.startup(function(use)
 
   use("neovim/nvim-lspconfig")
   use("jose-elias-alvarez/null-ls.nvim")
+  use("simrat39/inlay-hints.nvim") -- EOL hints until nvim supports anticonceal
 
   -- Plenary is required for certain plugins like Telescope
   use("nvim-lua/plenary.nvim")
