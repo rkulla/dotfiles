@@ -17,6 +17,9 @@ map("n", "<leader>q", ":bw<cr>")
 -- toggle line numbers
 map("n", "<leader>n", ":set invnumber<cr>")
 
+-- Run omni-completion by typing TAB in insert mode
+map("i", "<Tab>", "<C-x><C-o>", { desc = "Omni-Completion" })
+
 -- Keep cursor where it is after * search of current word
 map("n", "*", "*``")
 

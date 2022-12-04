@@ -18,8 +18,10 @@ autocmd BufRead,BufNewFile *.txt,*.md setlocal spell  " File types to enable spe
 
 """ I put some configs in plugin/ (still loads on startup) to keep this file small
 " COLOR SCHEME:          plugin/colorscheme.vim
+" COMPLETION:            plugin/completion.vim
 " MARKDOWN:              plugin/markdown.vim
 " TERMINAL:              plugin/terminal.vim
+
 
 " Keymaps defines my <leader> key so it MUST go above all my other lua files!
 lua require('user/keymaps')
