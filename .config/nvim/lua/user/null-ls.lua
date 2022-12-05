@@ -13,7 +13,8 @@ null_ls.setup({
       extra_args = { "--indent-type", "Spaces", "--indent-width", "2", "--column-width", "138", "--collapse-simple-statement", "Always" },
     }),
     formatting.prettier,
-    diagnostics.eslint,
+    diagnostics.eslint_d, -- `eslint .` on large projects times out regular 'eslint', so I `npm i -g eslint_d` to cache
+    code_actions.eslint_d, -- enable code actions for eslint as well
   },
 
   -- Format On Save
