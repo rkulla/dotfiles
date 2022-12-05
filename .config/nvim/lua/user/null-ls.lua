@@ -19,7 +19,7 @@ null_ls.setup({
   -- Format On Save
   on_attach = function(client, bufnr)
     if client.supports_method("textDocument/formatting") then
-      map("n", "<leader>lF", require("user.utils").toggle_autoformat, { buffer = bufnr, desc = "Toggle Null-ls Format On Save" })
+      map("n", "<leader>tf", require("user.utils").toggle_autoformat, { buffer = bufnr, desc = "Toggle Null-ls Format On Save" })
 
       vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
       vim.api.nvim_create_autocmd("BufWritePre", {
