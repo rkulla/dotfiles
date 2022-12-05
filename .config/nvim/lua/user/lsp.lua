@@ -17,13 +17,16 @@ local on_attach = function(client, bufnr)
   map("n", "<leader>lr", vim.lsp.buf.references, { buffer = bufnr, desc = "LSP references" })
   map("n", "<leader>lR", vim.lsp.buf.rename, { buffer = bufnr, desc = "LSP rename" })
   map("n", "<leader>lh", vim.lsp.buf.signature_help, { buffer = bufnr, desc = "LSP signature help" })
-  map("n", "<leader>ll", vim.lsp.codelens.refresh, { buffer = bufnr, desc = "LSP Codelens Hint Inlays" })
   map("n", "<leader>la", vim.lsp.buf.code_action, { buffer = bufnr, desc = "LSP code action" })
   map("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", { desc = "Diagnostic goto_prev" })
   map("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", { desc = "Diagnostic goto_next" })
 
   -- Formatting: includes range formatting as long as your LSP client allows it, e.g., tsserver does, but gopls not yet
   map({ "n", "v" }, "<leader>lf", function() vim.lsp.buf.format({ async = true }) end, { buffer = bufnr, desc = "LSP format" })
+
+  -- Codelens
+  map("n", "<leader>ll", vim.lsp.codelens.refresh, { buffer = bufnr, desc = "LSP Show Codelens Inlays" })
+  map("n", "<leader>rc", vim.lsp.codelens.run, { buffer = bufnr, desc = "LSP Run Codelens Action" })
 
   -- Telescope
   map("n", "<leader>fd", "<cmd>Telescope diagnostics<cr>", { buffer = bufnr, desc = "Telescope lsp_definitions" })
