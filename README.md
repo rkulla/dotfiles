@@ -196,6 +196,7 @@ Install (or update) LSP servers and Linters I integrate with:
    $ go install golang.org/x/tools/gopls@latest
    $ go install honnef.co/go/tools/cmd/staticcheck@latest
    $ cargo install stylua
+   $ npm i -g typescript-language-server  (tsserver LSP wrapper; when not in package.json)
    $ npm i -g eslint_d
 
 
