@@ -1,40 +1,9 @@
 local lspconfig = require("lspconfig")
 local ih = require("inlay-hints")
 
-local map = vim.keymap.set
-
--- on_attach function to only map the following after lang server attaches to current buffer
+-- on_attach function to only do the following after lang server attaches to current buffer
 local on_attach = function(client, bufnr)
-  map("n", "gd", vim.lsp.buf.definition, { buffer = bufnr, desc = "LSP go to definition" })
-  map("n", "gr", vim.lsp.buf.references, { buffer = bufnr, desc = "LSP references" })
-  map("n", "gi", vim.lsp.buf.implementation, { buffer = bufnr, desc = "LSP implementation" })
-  map("n", "K", vim.lsp.buf.hover, { buffer = bufnr, desc = "LSP hover" })
-  map("n", "<leader>lk", vim.lsp.buf.hover, { buffer = bufnr, desc = "LSP hover" })
-  map("n", "<leader>ld", vim.lsp.buf.definition, { buffer = bufnr, desc = "LSP go to definition" })
-  map("n", "<leader>lD", vim.diagnostic.setloclist, { buffer = bufnr, desc = "LSP diagnostic" })
-  map("n", "<leader>li", vim.lsp.buf.implementation, { buffer = bufnr, desc = "LSP implementation" })
-  map("n", "<leader>lt", vim.lsp.buf.type_definition, { buffer = bufnr, desc = "LSP type definition" })
-  map("n", "<leader>lr", vim.lsp.buf.references, { buffer = bufnr, desc = "LSP references" })
-  map("n", "<leader>lR", vim.lsp.buf.rename, { buffer = bufnr, desc = "LSP rename" })
-  map("n", "<leader>lh", vim.lsp.buf.signature_help, { buffer = bufnr, desc = "LSP signature help" })
-  map("n", "<leader>la", vim.lsp.buf.code_action, { buffer = bufnr, desc = "LSP code action" })
-  map("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", { desc = "Diagnostic goto_prev" })
-  map("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", { desc = "Diagnostic goto_next" })
-
-  -- Formatting: includes range formatting as long as your LSP client allows it, e.g., tsserver does, but gopls not yet
-  map({ "n", "v" }, "<leader>lf", function() vim.lsp.buf.format({ async = true }) end, { buffer = bufnr, desc = "LSP format" })
-
-  -- Codelens
-  map("n", "<leader>ll", vim.lsp.codelens.refresh, { buffer = bufnr, desc = "LSP Show Codelens Inlays" })
-  map("n", "<leader>rc", vim.lsp.codelens.run, { buffer = bufnr, desc = "LSP Run Codelens Action" })
-
-  -- Telescope
-  map("n", "<leader>fd", "<cmd>Telescope diagnostics<cr>", { buffer = bufnr, desc = "Telescope lsp_definitions" })
-  map("n", "<leader>fr", "<cmd>Telescope lsp_references<cr>", { buffer = bufnr, desc = "Telescope lsp_references" })
-
-  -- Trouble / Toggle
-  map("n", "<leader>tt", "<cmd>TroubleToggle<cr>", { buffer = bufnr, desc = "TroubleToggle" })
-  map("n", "<leader>tr", "<cmd>TroubleToggle lsp_references<cr>", { buffer = bufnr, desc = "TroubleToggle lsp_references" })
+  -- Note: all LSP related keymaps are in my null-ls config
 
   -- Disable Autoformat for anything I use null-ls formatters for
   if client.name == "tsserver" then
