@@ -62,6 +62,7 @@ main() {
     linkdot ".inputrc" "$HOME"
     linkdot ".irbrc" "$HOME"
     linkdot ".npmrc" "$HOME"
+    linkdot ".prettierrc" "$HOME"
     linkdot ".pryrc" "$HOME"
     linkdot ".psqlrc" "$HOME"
     linkdot ".screenrc" "$HOME"

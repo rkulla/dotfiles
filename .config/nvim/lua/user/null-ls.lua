@@ -8,16 +8,20 @@ local code_actions = null_ls.builtins.code_actions
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 null_ls.setup({
-  debug = true,
+  debug = false,
   sources = {
     formatting.stylua.with({
       extra_args = { "--indent-type", "Spaces", "--indent-width", "2", "--column-width", "138", "--collapse-simple-statement", "Always" },
     }),
-    formatting.prettierd,
+    -- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md
+    formatting.prettierd, -- Work likes this but at home I prefer eslint for formatting
     diagnostics.eslint_d, -- `eslint .` on large projects timesout so caching is better
     code_actions.eslint_d, -- enable code actions for eslint as well
+    diagnostics.tsc, -- additional typescript-compiler typechecking
+    diagnostics.vint, -- vim file linting
     diagnostics.shellcheck,
     code_actions.shellcheck,
+    code_actions.gitsigns, -- git action on a hunk
   },
 
   -- All LSP keymaps go in this file so anything null-ls related will work as well
