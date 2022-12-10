@@ -14,12 +14,14 @@ null_ls.setup({
       extra_args = { "--indent-type", "Spaces", "--indent-width", "2", "--column-width", "138", "--collapse-simple-statement", "Always" },
     }),
     -- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md
-    formatting.prettierd, -- Work likes this but at home I prefer eslint for formatting
+    formatting.prettierd, -- Employer likes it but at home I prefer eslint for formatting
     diagnostics.eslint_d, -- `eslint .` on large projects timesout so caching is better
     code_actions.eslint_d, -- enable code actions for eslint as well
     diagnostics.tsc, -- additional typescript-compiler typechecking
+    diagnostics.jsonlint, -- json file linter
     diagnostics.vint, -- vim file linting
-    diagnostics.shellcheck,
+    diagnostics.hadolint, -- Dockerifle linter
+    diagnostics.shellcheck, -- Shell script linter
     code_actions.shellcheck,
     code_actions.gitsigns, -- git action on a hunk
   },

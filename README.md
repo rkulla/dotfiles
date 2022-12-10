@@ -5,12 +5,13 @@ My dotfiles and configuration files in general!
 [Summary](#summary) | [Installing](#installing) | [Zsh](#zsh) | [Iterm2](#iterm2) | [Git](#git) | [Finder](#finder) | [Tmux](#tmux) | [~/bin scripts](#bin-scripts) | [irssi](#irssi) | [ESLint](#eslint) | [Neovim](#neovim) | [VSCode](#vscode) | [Uninstalling](#uninstalling)
 
 ## Summary
+
 Adding new files requires 3 steps:
 
-   1. Add the file or directory to this repo
-   2. Add to the root .gitignore anything I want to ignore/unignore
-      Add anything I don't want in the committed .gitignore file my global ~/.gitignore such as README.rkulla
-   3. Update install.sh to do the symlinking and optionally creating needed empty dirs
+1.  Add the file or directory to this repo
+2.  Add to the root .gitignore anything I want to ignore/unignore
+    Add anything I don't want in the committed .gitignore file my global ~/.gitignore such as README.rkulla
+3.  Update install.sh to do the symlinking and optionally creating needed empty dirs
 
 ## Installing
 
@@ -35,7 +36,8 @@ The `realpath` command from coreutils is required to run install.sh. I typically
     $ brew install gh tig tmux autojump tree aws-sam-cli gnu-sed watch coreutils mysql postgresql \
       pyenv wget ctags diffutils nmap fd nnn reattach-to-user-namespace zenity htop rsync screen \
       zsh-syntax-highlighting zsh-you-should-use shellcheck jsonlint fzf irssi sqlite jq asdf \
-      the_silver_searcher ripgrep yamllint httpie diff-so-fancy fnm glow lazygit lazydocker lsd
+      the_silver_searcher ripgrep yamllint httpie diff-so-fancy fnm glow lazygit lazydocker lsd \
+      hadolint
 
 ### Run the dotfiles install script
 
@@ -45,14 +47,16 @@ After doing the above steps, cd to my dotfiles checkout and run:
     $ ./install.sh
 
 It will backup any existing files by prepending the current datetime and then
-will create symlinks from $HOME/*filename* this repo's corresponding *filename*.
+will create symlinks from $HOME/_filename_ this repo's corresponding _filename_.
 
 ### Post installation steps
+
 After running ./install.sh to automate most things, do these manual steps.
 
-
 ## Zsh
+
 #### site-functions
+
 Copy scripts to first path in $fpath, e.g., /usr/local/share/zsh/site-functions
 
 Enable my custom git completion for Zsh:
@@ -67,7 +71,7 @@ Search PATH modifications in .zshrc and .zprofile `/PATH=\C` adjust accordingly.
 
 ## iterm2
 
-Enable `mouse reporting` for each profile. Then in `General > Selection` enable 
+Enable `mouse reporting` for each profile. Then in `General > Selection` enable
 `Applications in terminal may access clipboard`, `Copy to pasteboard on selection`,
 `Double-click performs smart selection`, `Triple-click selects entire wrapped lines`.
 
@@ -95,14 +99,14 @@ Install `Hack Nerd Font` so I can see file-type logos in my terminal:
     $ brew tap homebrew/cask-fonts
     $ brew install --cask font-hack-nerd-font
 
-Under `Cmd+i` > `Colors` tab import tokyonight_*.itermcolors by downloading them from
+Under `Cmd+i` > `Colors` tab import tokyonight\_\*.itermcolors by downloading them from
 [here](https://github.com/folke/tokyonight.nvim/tree/main/extras/iterm)
 
 Then create a light profile called `l` and a dark profile called `d` with `cmd+, > Profiles > +` and use `tokyonight-day` for `l`
-and `tokyonight-storm` for `d`.  You'll want the iterm2 background to match whatever vim color scheme I use
+and `tokyonight-storm` for `d`. You'll want the iterm2 background to match whatever vim color scheme I use
 
 Under `General` > `Title` check `Job name` and `PWD`, so I can see things like the tab is vim and the directory name its in.
-   
+
 Under `Text` enable `Box` and `Blinking cursor`. Change font to `Hack Nerd Font` / regular / 32. Uncheck 'Use ligatures'
 
 Under `Terminal` enable `unlimited scrollback`
@@ -114,9 +118,10 @@ Right click 'Other actions' and make `l` the default profile.
 By default, new split panes reset back to $HOME but I want pwd:
 
 - `Cmd+,` > `Profiles` > `[profile name]` > `Working directory` > `Advanced Config` > `Edit` ><br>
-   Under `Working Directory for New Split Panes` select `Reuse previous sessions's directory`.
+  Under `Working Directory for New Split Panes` select `Reuse previous sessions's directory`.
 
 ### terminfo-sources
+
 Most termcap files are already installed with ncurses: xterm-256color, etc.
 However, my special tmux-256color.src is in this repo. Compile it manually:
 
@@ -130,11 +135,12 @@ Also, enable italics, e.g., Vim's line numbers when not in tmux:
     $ /usr/bin/tic -xe xterm-256color xterm-256color.src
 
 ## Git
+
 On a work machine with a personal github account, edit ~/.gitconfig and update my [user] section. E.g.,
 
-	name = Ryan Kulla
-	email = <work github email>
-	login = <work github username>
+    name = Ryan Kulla
+    email = <work github email>
+    login = <work github username>
 
 Do not add tokens here, use a real credential store for privacy.
 
@@ -145,6 +151,7 @@ Run the following in a terminal to show full file paths in Finder:
     $ defaults write com.apple.finder _FXShowPosixPathInTitle -bool YES;
 
 ## Tmux
+
 Make sure to: brew install reattach-to-user-namespace
 
 Install plugins:
@@ -166,6 +173,7 @@ to something more readable if needed, such as:
 I prefer this over installing 'themes' since usually I just use my default background color and change the statusbar
 
 ## ESLint
+
 Install eslint PER project, not globally:
 
     $ npm install eslint -D
@@ -176,11 +184,12 @@ Or typescript/.eslintrc.json and tsconfig.json if it's **my** TypeScript project
 jsconfig.json or tsconfig.json can't live in $HOME either.
 
 Don't forget to look at my .vim/coc-settings.json as well and **make sure** at least coc-eslint and coc-tsserver are installed
-   $ ls ~/.config/coc/extensions/node_modules  # install.sh should have installed them
+$ ls ~/.config/coc/extensions/node_modules # install.sh should have installed them
 
 See also typescript/README.md in this repo.
 
 ## bin scripts
+
 my ~/bin directory is in my PATH and has misc. scripts
 
 Backup to/fro manually from ~/Dropbox/pf/code/my-bin-dir-scripts/
@@ -193,17 +202,19 @@ Install Packer then run `:PackerSync`
 
 Install (or update) LSP servers and Linters I integrate with:
 
-   $ go install golang.org/x/tools/gopls@latest
-   $ go install honnef.co/go/tools/cmd/staticcheck@latest
-   $ cargo install stylua
-   $ npm i -g typescript-language-server typescript (tsserver LSP wrapper; when not in package.json)
-   $ npm i -g eslint_d prettierd
-
+$ go install golang.org/x/tools/gopls@latest
+$ go install honnef.co/go/tools/cmd/staticcheck@latest
+$ cargo install stylua
+$ npm i -g typescript-language-server typescript (tsserver LSP wrapper; when not in package.json)
+$ npm i -g eslint_d
+$ brew install prettierd
 
 ## VSCode
+
 For now manually copy my settings from vscode/settings.json into ~/Library/Application\ Support/Code/User/settings.json
 
 ## Uninstalling
+
 Simply `git rm` any files and remove linking references from install.sh. Then
 use my `lslb` alias to list broken symlinks for removal. Also uninstall with vimogen
 if it was a vim plugin.
