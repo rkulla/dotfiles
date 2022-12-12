@@ -12,7 +12,9 @@ map("i", "jj", "<Esc>")
 map("i", ";;", "<C-w>")
 
 -- Close read or write buffers quicker
-map("n", "<leader>q", ":bw<cr>")
+-- Close read or write buffers quicker
+-- leave the buffer running in :ls! to reopen with <leader><leader>
+map("n", "<leader>q", ":bd<cr>")
 
 -- toggle line numbers
 map("n", "<leader>n", ":set invnumber<cr>")
