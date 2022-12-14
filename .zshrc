@@ -22,9 +22,10 @@ function precmd {
         else
             psvar[2]=( "$branchName" )
         fi
-        PS1="%K{214}%F{100}%n%f%F{96}@%f%F{100}%m %F{0}%1v %F{100}%2v %f%k%F{96}$%f "
+        # %(1j.[%j].) prints [n] if there are 1+ bg jobs, else prints nothing
+        PS1="%(1j.[%j].)%K{214}%F{100}%n%f%F{96}@%f%F{100}%m %F{0}%1v %F{100}%2v %f%k%F{96}$%f "
     else
-        PS1="%K{214}%F{100}%n%f%F{96}@%f%F{100}%m %F{0}%1v %f%k%F{96}$%f "
+        PS1="%K{214}%F{100}%n%f%F{96}@%f%F{100}%m %F{0}%1v %F{100}%2v %f%k%F{96}$%f "
     fi
 }
 
