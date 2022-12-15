@@ -193,6 +193,8 @@ alias gsur='git submodule update --init --recursive' # gsur [--remote] when need
 alias pj='prettyjson'
 # Node.js
 alias nag='ag --js --ts --ignore-dir=node_modules\* --ignore=\*-min.js'
+# Golang
+alias gag='ag --go --ignore-dir=vendor'
 # Docker
 alias dcu='docker-compose up'
 alias dcd='docker-compose down'
