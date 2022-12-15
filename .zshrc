@@ -135,6 +135,7 @@ alias ls='ls --color -p'
 alias la='ls --color -a'
 alias ll='ls --color -lh'
 alias lla='ls --color -lha'
+alias fd='fd --color=never' # colors look terrible in fd, and aren't needed
 alias lsab='fd -a -d 1' # # see absolute paths prepended to filenames!
 alias lsl='ls --color -la | grep "^l"' # list symlinks in current dir
 alias lslb='find . -maxdepth 1 -type l ! -exec test -e {} \; -print' # find only broken symlinks in pwd
