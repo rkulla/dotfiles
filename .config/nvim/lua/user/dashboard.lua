@@ -20,19 +20,19 @@ db.custom_center = {
   },
   {
     icon = "  ",
-    desc = "Find File                               ",
+    desc = "Find file                               ",
     action = "Telescope find_files",
     shortcut = "SPC f f",
   },
   {
     icon = "  ",
-    desc = "File Explorer                           ",
+    desc = "File explorer                           ",
     action = "Telescope file_browser",
     shortcut = "SPC f e",
   },
   {
     icon = "  ",
-    desc = "Find word                               ",
+    desc = "Find with grep                          ",
     action = "Telescope live_grep",
     shortcut = "SPC f w",
   },

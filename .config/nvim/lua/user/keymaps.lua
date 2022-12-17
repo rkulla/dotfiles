@@ -50,9 +50,13 @@ map("n", "<leader>cl", [[:let @+ = join(map(split(execute('ls'),'\n'),{_,x->spli
 --- Quickfix window -------------------------------------------------------
 
 -- After :0Gclog, load next/prev result while not maintaining cursor position in the file
-map("n", "[q", ":let ws = winsaveview() <bar> cnext <bar> call winrestview(ws) <bar> unlet ws<cr>")
-map("n", "]q", ":let ws = winsaveview() <bar> cprev <bar> call winrestview(ws) <bar> unlet ws<cr>")
+map("n", "[q", ":let ws = winsaveview() <bar> cprev <bar> call winrestview(ws) <bar> unlet ws<cr>")
+map("n", "]q", ":let ws = winsaveview() <bar> cnext <bar> call winrestview(ws) <bar> unlet ws<cr>")
 map("n", "<leader>wqq", ":cclose<cr>", { desc = "Close quickfix window" })
+
+-- Don't map things to [c or ]c as they're already used for jumping next change/diff item, etc.
+map("n", "<End>", ":cnext<cr>")
+map("n", "<Home>", ":cprev<cr>")
 
 --- Location list window --------------------------------------------------
 map("n", "<leader>wql", ":lclose<cr>", { desc = "Close location list window" })
