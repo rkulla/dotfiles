@@ -27,8 +27,7 @@ require("lualine").setup({
       },
     },
     lualine_c = {}, -- Don't show filename since I do in buffers
-    -- lualine_x = { "encoding", "fileformat", "filetype" },
-    lualine_x = { "encoding" },
+    lualine_x = { "encoding", "filetype" },
   },
   winbar = {},
 })
