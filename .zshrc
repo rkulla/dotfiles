@@ -192,6 +192,8 @@ alias gdc='git diff --cached --word-diff'
 alias gst='git status'
 alias gsur='git submodule update --init --recursive' # gsur [--remote] when needed
 alias pj='prettyjson'
+# ag
+alias ag='ag -s --path-to-ignore ~/.ignore'
 # Node.js
 alias nag='ag --js --ts --ignore-dir=node_modules\* --ignore=\*-min.js'
 # Golang
@@ -209,8 +211,12 @@ alias tms='tmux new -s '
 alias tma='tmux attach -t '
 alias tm='tmux'
 alias tl='tmux ls'
-# ag
-alias ag='ag -s --path-to-ignore ~/.ignore'
+
+# `agr` command that only shows the root-level directories a search pattern is in (case-insensitive)
+# Useful for things like just seeing what repo's contain a string
+function agr {
+    ag -i "$1" -l --ignore-dir=node_modules\* --ignore-dir=vendor\* | cut -d/ -f1 | sort | uniq
+}
 
 # `vg` command that opens vim on glob/substr, e.g., `vg pack` opens
 # package.json and package-lock.json, etc.  Sort's in reverse, using
