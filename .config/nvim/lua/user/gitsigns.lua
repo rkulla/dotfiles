@@ -1,6 +1,7 @@
 require("gitsigns").setup({
   on_attach = function(bufnr)
     local gs = package.loaded.gitsigns
+    gs.toggle_current_line_blame() -- enable current line blame by default
 
     local function map(mode, l, r, opts)
       opts = opts or {}
