@@ -14,7 +14,7 @@ let g:matchup_matchparen_offscreen = { 'method': 'popup', 'scrolloff': 1 }
 
 " Remap <Leader> to spacebar
 let mapleader = " "                                 " remap <Leader> to space so you can do: <space>s instead of \s, etc. 
-nnoremap <SPACE> <Nop>
+"nnoremap <SPACE> <Nop>
 
 set dir=~/.vim/swp                                  " My .swp file location
 set nocompatible                                    " Prevent unexpected things your distro might make
