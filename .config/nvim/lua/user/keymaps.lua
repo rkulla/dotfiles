@@ -20,7 +20,7 @@ map("n", "<leader>q", ":bd<cr>")
 map("n", "<leader>n", ":set invnumber<cr>")
 
 -- Open/Switch to README.rkulla in a split window for rapid viewing/editing
-map("n", "<leader>R", ":10sp README.rkulla<cr>")
+map("n", "<leader>R", ":10sp README.rkulla<cr><cmd>set number!<cr>", { silent = true })
 
 -- Run omni-completion by typing TAB in insert mode
 map("i", "<Tab>", "<C-x><C-o>", { desc = "Omni-Completion" })
