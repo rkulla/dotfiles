@@ -13,7 +13,7 @@ let g:loaded_matchit = 1
 let g:matchup_matchparen_offscreen = { 'method': 'popup', 'scrolloff': 1 }
 
 " Remap <Leader> to spacebar
-let mapleader = " "                                 " remap <Leader> to space so you can do: <space>s instead of \s, etc. 
+let mapleader = ","                                 " remap <Leader> to space so you can do: <space>s instead of \s, etc. 
 "nnoremap <SPACE> <Nop>
 
 set dir=~/.vim/swp                                  " My .swp file location

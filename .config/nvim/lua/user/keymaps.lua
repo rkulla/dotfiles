@@ -16,8 +16,11 @@ map("i", ";;", "<C-w>")
 -- leave the buffer running in :ls! to reopen with <leader><leader>
 map("n", "<leader>q", ":bd<cr>")
 
--- toggle line numbers
+-- Toggle line numbers
 map("n", "<leader>n", ":set invnumber<cr>")
+
+-- Open/Switch to README.rkulla in a split window for rapid viewing/editing
+map("n", "<leader>R", ":10sp README.rkulla<cr>")
 
 -- Run omni-completion by typing TAB in insert mode
 map("i", "<Tab>", "<C-x><C-o>", { desc = "Omni-Completion" })
