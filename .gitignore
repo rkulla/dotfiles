@@ -1,6 +1,6 @@
-# ~/.config is used by random apps and constantly changes and sometimes
-# contains private data. Gitignore makes you blacklist subdirs individually
-# and then whitelist the files from them you want to commit using '!'
+# ~/.config is used by random apps and constantly changes and sometimes. Contains private data. 
+# Gitignore has you blacklist subdirs individually, then whitelist files you want to commit with '!'
+
 .config/coc/*
 !.config/coc/commands
 .config/configstore/
@@ -20,6 +20,7 @@
 !.config/nvim/lua/
 !.config/nvim/plugin/
 .config/nvim/plugin/packer_compiled.lua
+!.config/nvim/ftplugin/
 !.config/nvim/sessions/
 !.config/nvim/spell/
 !.config/nvim/swp/
