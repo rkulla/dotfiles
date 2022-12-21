@@ -46,3 +46,4 @@ rkulla-urls.test
 serverless.yml.rkulla
 Session.vim
 tags
+*.out
