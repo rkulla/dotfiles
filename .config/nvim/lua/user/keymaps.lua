@@ -68,26 +68,22 @@ map("n", "<leader>wql", ":lclose<cr>", { desc = "Close location list window" })
 
 --- :Clear to close the current file w/o closing the split, then starts a new file
 vim.cmd([[com! Clear :enew <bar> bdel #]])
--- Close the current file w/o closing the split window then jumps to the next file
-map("n", "<leader>wC", ":bn <bar> bd #<cr>")
--- Toggle between split windows
-map("n", "<leader>ww", "<C-w>w")
+map("n", "<leader>wC", ":bn <bar> bd #<cr>", { desc = "Close file but keep split open" })
+map("n", "<leader>ww", "<C-w>w", { desc = "Toggle between split windows" })
 
--- Move to windows by direction
-map("n", "<leader>wh", "<C-w>h")
-map("n", "<leader>wl", "<C-w>l")
-map("n", "<leader>wk", "<C-w>k")
-map("n", "<leader>wj", "<C-w>j")
+map("n", "<leader>wh", "<C-w>h", { desc = "Switch to left window" })
+map("n", "<leader>wl", "<C-w>l", { desc = "Switch to right window" })
+map("n", "<leader>wk", "<C-w>k", { desc = "Switch to top window" })
+map("n", "<leader>wj", "<C-w>j", { desc = "Switch to bottom window" })
 
--- Resize windows
-map("n", "<leader>wH", ":vertical res -5<cr>")
-map("n", "<leader>wL", ":vertical res +5<cr>")
-map("n", "<leader>wK", ":res -5<cr>")
-map("n", "<leader>wJ", ":res +5<cr>")
+map("n", "<leader>wH", ":vertical res -5<cr>", { desc = "Resize split (smaller/vertical)" })
+map("n", "<leader>wL", ":vertical res +5<cr>", { desc = "Resize split (larger/vertical)" })
+map("n", "<leader>wK", ":res -5<cr>", { desc = "Resize split (smaller/horiz)" })
+map("n", "<leader>wJ", ":res +5<cr>", { desc = "Resize split (larger/horiz)" })
 
 -- To "fullscreen" the current split window buffer. When done, :q or :tabc and get back to the previous "viewport"
 -- Think of wz as standing for 'window zoom'. It just opens a new tab window split window. Close tab when finished
-map("n", "<leader>wz", "<cmd>tab split<cr>")
+map("n", "<leader>wz", "<cmd>tab split<cr>", { desc = "Zoom current split to full-screen" })
 
 -- Winbar toggle
 map("n", "<leader>wb", function()
