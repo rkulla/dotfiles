@@ -14,13 +14,13 @@ map("i", ";;", "<C-w>")
 -- Close read or write buffers quicker
 -- Close read or write buffers quicker
 -- leave the buffer running in :ls! to reopen with <leader><leader>
-map("n", "<leader>q", ":bd<cr>")
+map("n", "<leader>q", ":bd<cr>", { desc = "Close buffer" })
 
 -- Toggle line numbers
-map("n", "<leader>n", ":set invnumber<cr>")
+map("n", "<leader>n", ":set invnumber<cr>", { desc = "Toggle line numbers" })
 
 -- Open/Switch to README.rkulla in a split window for rapid viewing/editing
-map("n", "<leader>R", ":10sp README.rkulla<cr><cmd>set number!<cr>", { silent = true })
+map("n", "<leader>R", ":10sp README.rkulla<cr><cmd>set number!<cr>", { silent = true, desc = "Open README.rkulla" })
 
 -- Run omni-completion by typing TAB in insert mode
 map("i", "<Tab>", "<C-x><C-o>", { desc = "Omni-Completion" })
@@ -31,14 +31,13 @@ map("n", "*", "*``")
 -- " ^n and ^p for next and prev buffer
 map("n", "<C-n>", ":bn<cr>")
 map("n", "<C-p>", ":bp<cr>")
-map("n", "<leader><leader>", "<C-^>")
+map("n", "<leader><leader>", "<C-^>", { desc = "Toggle last buffer" })
 
 -- ^s to save file in normal or insert mode
 map("n", "<C-s>", ":update!<cr>")
 map("i", "<C-s>", "<C-o>:update!<cr>")
 
--- Auto-select text what was just pasted (gv for last selected)
-map("n", "<leader>sp", "`[v`]")
+map("n", "<leader>sp", "`[v`]", { desc = "Select last pasted text" })
 
 -- `` to toggle last cursor position
 map("n", "<LeftMouse>", "m'<LeftMouse>")
@@ -46,15 +45,16 @@ map("n", "<LeftMouse>", "m'<LeftMouse>")
 --- Copying currently open file names to the clipboard --------------------
 
 --- Copy current buffer's relative path (useful to paste for CLI args)
-map("n", "<leader>cp", ":let @+ = @%<cr>")
-map("n", "<leader>cn", ":let @+ = expand('%:t')<cr>")
-map("n", "<leader>cl", [[:let @+ = join(map(split(execute('ls'),'\n'),{_,x->split(x,'"')[1]}))<cr>]])
+map("n", "<leader>cp", ":let @+ = @%<cr>", { desc = "copy current file's relative path" })
+map("n", "<leader>cn", ":let @+ = expand('%:t')<cr>", { desc = "copy current file's name" })
+map("n", "<leader>cl", [[:let @+ = join(map(split(execute('ls'),'\n'),{_,x->split(x,'"')[1]}))<cr>]], { desc = "Copy paths of all open files" })
 
 --- Quickfix window -------------------------------------------------------
 
 -- After :0Gclog, load next/prev result while not maintaining cursor position in the file
-map("n", "[q", ":let ws = winsaveview() <bar> cprev <bar> call winrestview(ws) <bar> unlet ws<cr>")
-map("n", "]q", ":let ws = winsaveview() <bar> cnext <bar> call winrestview(ws) <bar> unlet ws<cr>")
+map("n", "[q", ":let ws = winsaveview() <bar> cprev <bar> call winrestview(ws) <bar> unlet ws<cr>", { desc = "cprev but maintain cursor pos" })
+map("n", "]q", ":let ws = winsaveview() <bar> cnext <bar> call winrestview(ws) <bar> unlet ws<cr>", { desc = "cnext but maintain cursor pos" })
+
 map("n", "<leader>wqq", ":cclose<cr>", { desc = "Close quickfix window" })
 
 -- Don't map things to [c or ]c as they're already used for jumping next change/diff item, etc.
@@ -86,6 +86,7 @@ map("n", "<leader>wJ", ":res +5<cr>", { desc = "Resize split (larger/horiz)" })
 map("n", "<leader>wz", "<cmd>tab split<cr>", { desc = "Zoom current split to full-screen" })
 
 -- Winbar toggle
+vim.o.winbar = "%=%m %f" -- Default to on
 map("n", "<leader>wb", function()
   if vim.o.winbar == "" then
     vim.o.winbar = "%=%m %f"

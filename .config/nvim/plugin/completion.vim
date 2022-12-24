@@ -13,6 +13,7 @@ set completeopt=longest,menuone
 
 " Toggle preview window when omni-completing
 nnoremap <leader>tp :call ToggleCompletionPreview()<cr>
+set completeopt+=preview " default to on
 function! ToggleCompletionPreview()
   if stridx(&completeopt, "preview") >= 0
     set completeopt-=preview
