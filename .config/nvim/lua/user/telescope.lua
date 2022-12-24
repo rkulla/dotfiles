@@ -13,7 +13,7 @@ map(
   "n",
   "<leader>fc",
   "<cmd>Telescope find_files find_command=rg,--hidden,--files,/Users/rkulla/.config/nvim<cr>",
-  { desc = "Telescope search nvim/" }
+  { desc = "Telescope search nvim configs" }
 )
 --- Some stuff I don't bother mapping and can just run :Telescope such as:
 --- :Tel[tab] git[tab]  (commits, branches, etc)
