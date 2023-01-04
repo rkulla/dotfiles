@@ -8,6 +8,7 @@ vim.g.mapleader = " "
 
 -- Close / escape / delete words faster
 map("n", "X", ":q<cr>")
+map("i", "jk", "<Esc>")
 map("i", "jj", "<Esc>")
 map("i", ";;", "<C-w>")
 
@@ -63,6 +64,13 @@ map("n", "<Home>", ":cprev<cr>")
 
 --- Location list window --------------------------------------------------
 map("n", "<leader>wql", ":lclose<cr>", { desc = "Close location list window" })
+
+--- Terminal --------------------------------------------------------------
+-- lowercase j is used for navigation in many TUI apps, so map to uppercase JJ
+map("t", "JJ", "<C-\\><C-n><cr>", { desc = "ESC in terminal mode" })
+map("t", "JK", "<C-\\><C-n><cr>", { desc = "ESC in terminal mode" })
+-- Most of the time I just type :term to use a full-screen terminal
+map("n", "<leader>ta", "10split +term", { desc = "Open terminal above" })
 
 --- Split windows ---------------------------------------------------------
 
