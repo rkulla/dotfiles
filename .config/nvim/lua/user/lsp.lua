@@ -87,7 +87,7 @@ lspconfig.gopls.setup({
       },
       staticcheck = true,
       hints = { -- disabling all of them by default because my `K` map is less annoying usually
-        assignVariableTypes = true,
+        assignVariableTypes = false,
         compositeLiteralFields = false,
         compositeLiteralTypes = false,
         constantValues = false,
