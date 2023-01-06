@@ -12,9 +12,10 @@ execute pathogen#infect()
 let g:loaded_matchit = 1
 let g:matchup_matchparen_offscreen = { 'method': 'popup', 'scrolloff': 1 }
 
-" Remap <Leader> to spacebar
-let mapleader = ","                                 " remap <Leader> to space so you can do: <space>s instead of \s, etc. 
-"nnoremap <SPACE> <Nop>
+" Remap <Leader> to spacebar (don't create imap's starting with <Leader> or space will lag
+let mapleader = " "                                 " remap <Leader> to space so you can do: <space>s instead of \s, etc.
+nnoremap <SPACE> <Nop>
+
 
 set dir=~/.vim/swp                                  " My .swp file location
 set nocompatible                                    " Prevent unexpected things your distro might make
@@ -60,7 +61,7 @@ endif
 command! -nargs=1 -complete=dir Rename saveas <args> | call delete(expand("#"))
 
 " Run the omni-completion by typing ,tab
-imap <Leader><TAB> <C-X><C-O>
+imap ,<TAB> <C-X><C-O>
 
 " Have ^l clear all highlighted text on the screen
 nnoremap <C-l> :nohl<CR><C-l>
@@ -702,7 +703,7 @@ nmap <Leader>u :call append(line("."), repeat("-", len(getline("."))))<CR>
 
 " So ,<space> Moves all text behind cursor one space forward (w/o moving text in front),
 " useful for aligning text to the cursor position
-nmap <Leader><Space> d0p
+nmap ,<Space> d0p
 
 " In insert mode, typing 2 commas will insert 30 spaces. 3 commas inserts 50.
 imap ,, <Space><Esc>30i<Space><Esc>i
