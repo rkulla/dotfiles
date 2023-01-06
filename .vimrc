@@ -13,9 +13,9 @@ let g:loaded_matchit = 1
 let g:matchup_matchparen_offscreen = { 'method': 'popup', 'scrolloff': 1 }
 
 " Remap <Leader> to spacebar (don't create imap's starting with <Leader> or space will lag
-let mapleader = " "                                 " remap <Leader> to space so you can do: <space>s instead of \s, etc.
+let mapleader = " "                                 " Remap <Leader> to space so you can do: <space>s instead of \s, etc.
 nnoremap <SPACE> <Nop>
-
+nnoremap <Space> za                                 " So space will still open folds (and even close them)
 
 set dir=~/.vim/swp                                  " My .swp file location
 set nocompatible                                    " Prevent unexpected things your distro might make
@@ -700,6 +700,7 @@ nmap <leader>md :!glow %<CR>
 
 " So you can underline any line of text you are on with dashes
 nmap <Leader>u :call append(line("."), repeat("-", len(getline("."))))<CR>
+nmap ,u :call append(line("."), repeat("-", len(getline("."))))<CR>
 
 " So ,<space> Moves all text behind cursor one space forward (w/o moving text in front),
 " useful for aligning text to the cursor position
