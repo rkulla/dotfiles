@@ -241,16 +241,26 @@ function vnotmerged {
     v $(git diff "$1"...$(git branch --show-current) --name-status | awk "/^M|^A.*/ {print \$2}")
 }
 
+# neovim alias of vnotmerged
+function nnotmerged {
+    n $(git diff "$1"...$(git branch --show-current) --name-status | awk "/^M|^A.*/ {print \$2}")
+}
+
 # Open files with VSCode in current branch that haven't been merged with specified branch
 # $ cnotmerged main  # opens files in current branch not merged to main yet (great for PR reviews)
 function cnotmerged {
     code $(git diff "$1"...$(git branch --show-current) --name-status | awk "/^M|^A.*/ {print \$2}")
 }
 
-# Open files in Vim in current branch that have already been committed
+# Open files in Vim in current branch even if they've already been committed or merged
 # $ vcom main # opens files in current branch already merged to main (great for WIP PR additions)
 function vcom {
     v $(git log --name-only "$1".. --oneline | sed 1d)
+}
+
+# neovim alias of vcom
+function ncom {
+    n $(git log --name-only "$1".. --oneline | sed 1d)
 }
 
 # Open files in VSCode in current branch that have already been committed
