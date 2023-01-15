@@ -105,6 +105,9 @@ setopt autopushd pushdignoredups
 # Alias so i can just type `d` for the last 10 dirs then of ~# to cd to it
 alias d='dirs -v | head -10'
 
+# cd to the local iCloud Drive folder easily (Dropbox replacement)
+alias icd='cd ~/Library/Mobile\ Documents/com\~apple\~CloudDocs'
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
