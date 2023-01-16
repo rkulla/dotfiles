@@ -2,7 +2,7 @@
 
 My dotfiles and configuration files in general!
 
-[Summary](#summary) | [Installing](#installing) | [Zsh](#zsh) | [Iterm2](#iterm2) | [Git](#git) | [Finder](#finder) | [Tmux](#tmux) | [~/bin scripts](#bin-scripts) | [irssi](#irssi) | [ESLint](#eslint) | [Neovim](#neovim) | [VSCode](#vscode) | [Uninstalling](#uninstalling)
+[Summary](#summary) | [Installing](#installing) | [Zsh](#zsh) | [~/bin scripts](#bin-scripts) | [Vim](#vim) | [Iterm2](#iterm2) | [Git](#git) | [Finder](#finder) | [Tmux](#tmux) | [irssi](#irssi) | [ESLint](#eslint) | [Neovim](#neovim) | [VSCode](#vscode) | [Uninstalling](#uninstalling)
 
 ## Summary
 
@@ -60,6 +60,12 @@ Enable my custom git completion for Zsh:
     $ cp zsh-site-functions/_git "$fpath[1]"
 
 Search PATH modifications in .zshrc and .zprofile `/PATH=\C` adjust accordingly.
+
+## bin scripts
+
+my ~/bin directory is in my PATH and has misc. scripts
+
+Backup to/fro manually from ~/Dropbox/pf/code/my-bin-dir-scripts/
 
 ## Vim
 Install MacVim and then install my plugins by cloning vimogen to ~/repos and running
@@ -143,13 +149,13 @@ Do not add tokens here, use a real credential store for privacy.
 
 ## Finder
 
-Run the following in a terminal to show full file paths in Finder:
+Optionally run the following in a terminal to show full file paths in Finder:
 
     $ defaults write com.apple.finder _FXShowPosixPathInTitle -bool YES;
 
 ## Tmux
 
-Make sure to: brew install reattach-to-user-namespace
+Make sure to first: brew install reattach-to-user-namespace
 
 Install plugins:
 
@@ -181,12 +187,6 @@ Or typescript/.eslintrc.json and tsconfig.json if it's **my** TypeScript project
 jsconfig.json or tsconfig.json can't live in $HOME either.
 
 See also typescript/README.md in this repo.
-
-## bin scripts
-
-my ~/bin directory is in my PATH and has misc. scripts
-
-Backup to/fro manually from ~/Dropbox/pf/code/my-bin-dir-scripts/
 
 ## Neovim
 
