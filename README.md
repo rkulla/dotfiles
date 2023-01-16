@@ -61,6 +61,11 @@ Enable my custom git completion for Zsh:
 
 Search PATH modifications in .zshrc and .zprofile `/PATH=\C` adjust accordingly.
 
+## Vim
+Install MacVim and then install my plugins by cloning vimogen to ~/repos and running
+   $ vimogen
+   1 # install
+
 ## iterm2
 
 Enable `mouse reporting` for each profile. Then in `General > Selection` enable
@@ -206,4 +211,4 @@ For now manually copy my settings from vscode/settings.json into ~/Library/Appli
 
 Simply `git rm` any files and remove linking references from install.sh. Then
 use my `lslb` alias to list broken symlinks for removal. Also uninstall with vimogen
-if it was a vim plugin.
+and/or packer if it was a vim or neovim plugin, respectively.
