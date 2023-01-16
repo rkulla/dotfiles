@@ -3,10 +3,6 @@
 " Stuff that has to run _before_ plugins are loaded
 
 " Put first to ensure pathogen will work
-if has("gui_running")                               " list plugins to disable if GUI Vim is running
-  let g:pathogen_disabled = []
-  call add(g:pathogen_disabled, 'coc')
-endif
 execute pathogen#infect()
 
 let g:loaded_matchit = 1
@@ -182,7 +178,7 @@ let g:qf_mapping_ack_style=1
 nnoremap <silent> <Leader>mn mN:execute 'match Search /\%'.line('.').'l/'<CR>
 
 ""
-"" VCS / Git (note: other maps are in the coc section)
+"" VCS / Git
 ""
 
 nnoremap gst :G status<CR>
@@ -196,33 +192,9 @@ noremap <silent> <Leader>gb :call git#blame()<CR>
 "" Statusline
 ""
 set laststatus=2
-" Get and truncate long git branch names or not display one if window width is too short.
-function! CocGitStat()
-    let status = get(g:, 'coc_git_status', '')
-    let ccount = strchars(get(g:, 'coc_git_status', ''))
-    " truncate if branch name is too long
-    if ccount > 0
-        let truncatedLeast = ccount > 35 ? status[0:59] . '…' : status
-
-        " if window is too narrow truncate even further
-        let winwid = winwidth(0)
-        if winwid <= 79
-            let status = ccount > 10 ? status[0:20] . '…' : status
-        elseif winwid >= 80 && winwid <= 89
-            let status = ccount > 23 ? status[0:33] . '…' : status
-        elseif winwid >= 90 && winwid <= 100
-            let status = ccount > 30 ? status[0:40] . '…' : status
-        else
-           let status = truncatedLeast
-        endif
-    endif
-    return status
-endfunction
-
 set statusline=%n\%{StatuslineMultiFileFlag()}\ %f\   " Num buffers, file
 set statusline+=%h%m%r%w  " help, modified, readonly and preview flags , e.g. [+] if modified
 set statusline+=%P\  " percent of current line in file
-set statusline+=%{CocGitStat()}\  " git branch
 set statusline+=%=  " start right-aligning any further set statusline+= lines below
 set statusline+=%l:%c%V\  " line number, column number/virtual column number
 set statusline+=%o\ \\|\  " byte number of current char
@@ -269,7 +241,6 @@ func! s:MyHighlights() abort
     set termguicolors
     " change the color of the current line number
     set cul | hi CursorLine ctermbg=NONE guibg=NONE | hi CursorLineNr ctermfg=0 guifg=#819090 guibg=NONE
-    " To still see coc-tsserver auto-highlight all references under cursor
     hi cursorColumn guifg=NONE guibg=#ebdbb2
     " Make line numbers italic (see my terminfo notes for enabling on MacOS)
     hi LineNr cterm=italic
@@ -769,147 +740,3 @@ let g:indentLine_char_list = ['|', '¦', '┆', '┊', '┊']
 let g:elm_format_autosave=1
 " disable keybindings since they use <Leader> maps i already have
 let g:elm_setup_keybindings = 0
-
-""
-"" coc.vim
-""
-
-if !has("gui_running") " Since we do NOT run coc.vim if the GUI vim (see top of file)
-  set cmdheight=1
-
-  " Play with fnm so individual projects can still load their own node version from .nvimrc
-  " First symlink my `fnm` node to ~/bin by running:  ln -s $FNM_MULTISHELL_PATH/bin/node ~/bin/node
-  " Making sure to `fnm use <whatever version of node coc says it wants`
-  let g:coc_node_path='$HOME/bin/node'
-
-  " You will have bad experience for diagnostic messages when it's default 4000.
-  set updatetime=300
-
-  " don't give |ins-completion-menu| messages.
-  set shortmess+=c
-
-  " always show signcolumns
-  set signcolumn=yes
-
-  " Use tab for trigger completion with characters ahead and navigate.
-  " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-  inoremap <silent><expr> <TAB>
-        \ pumvisible() ? "\<C-n>" :
-        \ <SID>check_back_space() ? "\<TAB>" :
-        \ coc#refresh()
-  inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-  function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~# '\s'
-  endfunction
-
-  " Use <c-space> to trigger completion.
-  inoremap <silent><expr> <c-space> coc#refresh()
-
-  " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
-  " Coc only does snippet and additional edit on confirm.
-  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
-  " Use `[C` and `]C` to navigate diagnostics. Lowercase [c is already in vimdiff
-  nmap <silent> [C <Plug>(coc-diagnostic-prev)
-  nmap <silent> ]C <Plug>(coc-diagnostic-next)
-
-  " Remap keys for gotos
-  nmap <silent> gd <Plug>(coc-definition)
-  nmap <silent> gy <Plug>(coc-type-definition)
-  nmap <silent> gi <Plug>(coc-implementation)
-  nmap <silent> gr <Plug>(coc-references)
-
-  " Use K to show documentation in preview window
-  nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-  function! s:show_documentation()
-    if (index(['vim','help'], &filetype) >= 0)
-      execute 'h '.expand('<cword>')
-    else
-      call CocAction('doHover')
-    endif
-  endfunction
-
-  " Highlight symbol under cursor on CursorHold
-  autocmd CursorHold * silent call CocActionAsync('highlight')
-
-  " Remap for rename current word
-  nmap <leader>rn <Plug>(coc-rename)
-
-  " Remap for format selected region
-  xmap <leader>f  <Plug>(coc-format-selected)
-  nmap <leader>f  <Plug>(coc-format-selected)
-
-  augroup mygroup
-    autocmd!
-    " Setup formatexpr specified filetype(s).
-    autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-    " Update signature help on jump placeholder
-    autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-  augroup end
-
-  " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
-  xmap <leader>a  <Plug>(coc-codeaction-selected)
-  nmap <leader>a  <Plug>(coc-codeaction-selected)
-
-  " Remap for do codeAction of current line
-  nmap <leader>ac  <Plug>(coc-codeaction)
-  " Fix autofix problem of current line
-  nmap <leader>qf  <Plug>(coc-fix-current)
-
-  " Use <tab> for select selections ranges, needs server support, like: coc-tsserver, coc-python
-  " Don't map to <tab> because <C-i> is an alias and will break and can't be mapped to other things 
-  " So map coc-range-select to anything but <TAB>. I like <vr> since it sounds like selecting a range
-  nmap <silent> vr <Plug>(coc-range-select)
-  xmap <silent> vr <Plug>(coc-range-select)
-  " I don't map VR to coc-range-select-backword since it won't work right and I don't use it any way
-
-  " Use `:Format` to format current buffer
-  command! -nargs=0 Format :call CocAction('format')
-
-  " Use `:Fold` to fold current buffer
-  command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-
-  " use `:OR` for organize import of current buffer
-  command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
-
-  " Using CocList
-  " Show all diagnostics
-  nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
-  " Manage extensions
-  nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
-  " Show commands
-  nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
-  " Find symbol of current document
-  nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
-  " Search workspace symbols
-  nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
-  " Do default action for next item.
-  nnoremap <silent> <space>j  :<C-u>CocNext<CR>
-  " Do default action for previous item.
-  nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
-  " Resume latest coc list
-  nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
-
-" coc-git mappings (uninstall vim-gitgutter first since this does that and more)
-"
-" so typing gs on a modified line will show just that diff in a floating window
-nmap gs <Plug>(coc-git-chunkinfo)
-" stage the chunk with ,gs
-nmap <Leader>gs :CocCommand git.chunkStage<CR>
-" after staging with ,gs see the changes with with ,gsd
-nmap <Leader>gsd :CocCommand git.diffCached<CR>
-" Undo modifications for the chunk with ,gX
-nmap <Leader>gX :CocCommand git.chunkUndo<CR>
-" so typing gC shows the most recent commit of the (unmodified) line
-nmap gC <Plug>(coc-git-commit)
-" jump to next change and prev change with gn and gp (instead of ]c and [c)
-nmap gn <Plug>(coc-git-nextchunk)
-nmap gp <Plug>(coc-git-prevchunk)
-" fold all unchanged parts of the file so you can just see modifications
-nmap <Leader>gu :CocCommand git.foldUnchanged<CR>
-" Show branches in fuzzyfinder to switch branches by typing ,gB
-nmap <Leader>gB :CocList branches<CR>
-endif

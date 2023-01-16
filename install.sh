@@ -79,10 +79,6 @@ main() {
     if [[ "$OSTYPE" == darwin* && -e "$FFMacOS/distribution" ]]; then
         linkdot "firefox/policies.json" "$FFMacOS/distribution"
     fi
-
-    # Post install commands
-    # Install the CoC plugins I use
-    vim -c 'CocInstall -sync coc-tsserver coc-eslint coc-json coc-pyright coc-gocode coc-snippets coc-vimlsp coc-pairs coc-git coc-lists|qa!'
 }
 
 main

@@ -15,20 +15,12 @@ Adding new files requires 3 steps:
 
 ## Installing
 
-First make sure `vimogen` is cloned to ~/repos/ and then run it manually once to ensure coc.nvim is installed. Make sure node.js is installed too. Note that if you only have node installed via `nvm`, I may have to add the following to ~/.vimrc:
+Clone my code-snippets repo to ~/repos unless it's a work machine, in which case comment out the code-snippets line from install.sh
 
-    let g:coc_node_path = '/path/to/node'
-
-and if using `fnm`, I symlink that node path to ~/bin and set g:coc_node_path to ~/bin.
-
-Make sure 'vim' is running properly, if CoC is complaining about needing to 'yarn install', it's because my vimogen script only clones with a depth of 3, so I need to **manually delete that checkout** and install it fully so I can switch to its release branch which doesn't have that issue:
-
-    $ cd ~/.vim/bundle
-    $ rm -rf coc
-    $ git clone https://github.com/neoclide/coc.nvim.git coc
-    $ cd coc && git checkout origin/release
-
-If it's a work machine, comment out the code-snippets line from install.sh
+Install Homebrew and if it's an m-chip mac, add the following to ~/.zprofile so brew and brew installed commands show in my $PATH
+  # Homebrew on apple silicon has a different location  (don't do this step on x86)
+  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/rkulla/.zprofile
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 
 The `realpath` command from coreutils is required to run install.sh. I typically brew install:
 
@@ -37,7 +29,7 @@ The `realpath` command from coreutils is required to run install.sh. I typically
       pyenv wget ctags diffutils nmap fd nnn reattach-to-user-namespace zenity htop ncdu rsync \
       screen zsh-syntax-highlighting zsh-you-should-use shellcheck jsonlint fzf irssi sqlite jq \
       asdf the_silver_searcher ripgrep yamllint httpie diff-so-fancy fnm glow lazygit lazydocker \
-      lsd \ hadolint
+      lsd hadolint
 
 ### Run the dotfiles install script
 
@@ -57,15 +49,15 @@ After running ./install.sh to automate most things, do these manual steps.
 
 #### site-functions
 
-Copy scripts to first path in $fpath, e.g., /usr/local/share/zsh/site-functions
-
-Enable my custom git completion for Zsh:
-
-    $ cp zsh-site-functions/_git /usr/local/share/zsh/site-functions/
+Copy scripts to first path in $fpath, e.g., /usr/local/share/zsh/site-functions (intel) or /opt/homebrew/share/zsh/site-functions
+(Apple Silicon). "echo $fpath[1]" to find out.
 
 Enable script to abbreviate and disambiguate the PWD in my prompt.
 
-    $ cp zsh-site-functions/disambiguate /usr/local/share/zsh/site-functions/
+    $ cp zsh-site-functions/disambiguate "$fpath[1]"
+Enable my custom git completion for Zsh:
+
+    $ cp zsh-site-functions/_git "$fpath[1]"
 
 Search PATH modifications in .zshrc and .zprofile `/PATH=\C` adjust accordingly.
 
@@ -182,9 +174,6 @@ Make sure to copy javascript/.eslintrc.json and jsconfig.json to any of **my** J
 Or typescript/.eslintrc.json and tsconfig.json if it's **my** TypeScript projects
 (I ONLY symlink it to my code-snippets folder). Putting eslintrc in $HOME is deprecated and
 jsconfig.json or tsconfig.json can't live in $HOME either.
-
-Don't forget to look at my .vim/coc-settings.json as well and **make sure** at least coc-eslint and coc-tsserver are installed
-$ ls ~/.config/coc/extensions/node_modules # install.sh should have installed them
 
 See also typescript/README.md in this repo.
 

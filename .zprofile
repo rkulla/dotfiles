@@ -29,5 +29,9 @@ PATH="$HOME/go/bin:$PATH"
 # Rust stuff
 PATH="$HOME/.cargo/bin:$PATH"
 
+# Homebrew on M1 (apple silicon) has a different location (comment this out on x86)
+if [[ $(sysctl -n machdep.cpu.brand_string) =~ "Apple" ]]; then
+    path+=(/opt/homebrew/bin)
+fi
 
 export PATH

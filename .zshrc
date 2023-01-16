@@ -3,7 +3,7 @@
 # %F{number} means foreground colors 0-255
 # %2~ means truncate path to only the last 2 dirs
 zstyle ':vcs_info:git:*' formats '%b'
-autoload -U disambiguate  # copy this script from dotfiles repo into my $fpath
+autoload -U disambiguate  # copy dotfiles/zsh-site-functions/disambiguate script to `echo $fpath`
 autoload -Uz vcs_info
 function precmd {
     psvar=()
@@ -70,9 +70,9 @@ zle -N backward-kill-dir
 bindkey '^_' backward-kill-dir
 
 # syntax highlight commands (brew install zsh-syntax-highlighting)
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Remind me to use the alias of a command (brew install zsh-you-should-use)
-source /usr/local/share/zsh-you-should-use/you-should-use.plugin.zsh
+source $(brew --prefix)/share/zsh-you-should-use/you-should-use.plugin.zsh
 # but exclude certain aliases where I still like to use the real form sometimes
 export YSU_IGNORED_ALIASES=("g" "ll")
 
@@ -296,7 +296,7 @@ function nn()
 }
 
 # autojump (brew install autojump)
-[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+[ -f $(brew --prefix)/etc/profile.d/autojump.sh ] && . $(brew --prefix)/etc/profile.d/autojump.sh
 # make completion work with autojump and the menu selection below
 autoload -U compinit; compinit # load and initialize zsh's completion
 # make it so pressing tab a second time lets you scroll down the menu when doing 'ls tab', etc
@@ -335,9 +335,9 @@ function rcd {
 # fzf (brew install fzf)
 # Adding node_modules/ to ~/.ignore will make `fzf` ignore node_modules.
 export FZF_DEFAULT_COMMAND='ag --nocolor -l -u -p ~/.ignore -g ""'
-source /usr/local/opt/fzf/shell/completion.zsh
+source $(brew --prefix)/opt/fzf/shell/completion.zsh
 # Source keybindings like ^T will search ALL files (unlike my fzf command that uses ~/.ignore), ^R history, etc
-source /usr/local/opt/fzf/shell/key-bindings.zsh
+source $(brew --prefix)/opt/fzf/shell/key-bindings.zsh
 # make fzf-cd-widget work on MacOS when you type ^F (since alt+a default won't work)
 bindkey "^F" fzf-cd-widget
 # fcd - cd to selected directory. Showing only top-level subdirs
@@ -404,7 +404,7 @@ if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -
 
 # Misc
 # brew install asdf
-. /usr/local/opt/asdf/libexec/asdf.sh
+. $(brew --prefix)/opt/asdf/libexec/asdf.sh
 
 # AWS
 # OPT out of SAM CLI collecting telemetry data
