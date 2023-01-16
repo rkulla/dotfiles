@@ -68,9 +68,10 @@ my ~/bin directory is in my PATH and has misc. scripts
 Backup to/fro manually from ~/Dropbox/pf/code/my-bin-dir-scripts/
 
 ## Vim
-Install MacVim and then install my plugins by cloning vimogen to ~/repos and running
-   $ vimogen
-   1 # install
+Install MacVim and then install my plugins by cloning vimogen to ~/repos and running:
+
+     $ vimogen
+     1 # install
 
 ## iterm2
 
