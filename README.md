@@ -2,7 +2,7 @@
 
 My dotfiles and configuration files in general!
 
-[Summary](#summary) | [Installing](#installing) | [Zsh](#zsh) | [~/bin scripts](#bin-scripts) | [Vim](#vim) | [Iterm2](#iterm2) | [Git](#git) | [Finder](#finder) | [Tmux](#tmux) | [irssi](#irssi) | [ESLint](#eslint) | [Neovim](#neovim) | [VSCode](#vscode) | [Uninstalling](#uninstalling)
+[Summary](#summary) | [Installing](#installing) | [Zsh](#zsh) | [Keyboard speed](#keyboard-speed) | [~/bin scripts](#bin-scripts) | [Vim](#vim) | [Iterm2](#iterm2) | [Git](#git) | [Finder](#finder) | [Tmux](#tmux) | [irssi](#irssi) | [ESLint](#eslint) | [Neovim](#neovim) | [VSCode](#vscode) | [Uninstalling](#uninstalling)
 
 ## Summary
 
@@ -60,6 +60,12 @@ Enable my custom git completion for Zsh:
     $ cp zsh-site-functions/_git "$fpath[1]"
 
 Search PATH modifications in .zshrc and .zprofile `/PATH=\C` adjust accordingly.
+
+## Keyboard speed
+
+Increase the speed of typing by going into `System Preferences -> Keyboard`. 
+
+I like to slide Key Repeat all the way to the right (Fast) and slide Delay Until Repeat all to the right (Short)
 
 ## bin scripts
 
