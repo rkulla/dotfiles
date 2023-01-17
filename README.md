@@ -2,7 +2,7 @@
 
 My dotfiles and configuration files in general!
 
-[Summary](#summary) | [Installing](#installing) | [Zsh](#zsh) | [Keyboard speed](#keyboard-speed) | [~/bin scripts](#bin-scripts) | [Vim](#vim) | [Iterm2](#iterm2) | [Git](#git) | [Go](#golang) | [NodeJS](#nodejs) | [Rust](#rust) | [Neovim](#neovim) | [VSCode](#vscode) | [Uninstalling](#uninstalling) | [ESLint](#eslint) | [Tmux](#tmux) | [irssi](#irssi) | [Finder](#finder)
+[Summary](#summary) | [Installing](#installing) | [Zsh](#zsh) | [Keyboard speed](#keyboard-speed) | [~/bin scripts](#bin-scripts) | [Vim](#vim) | [Git](#git) | [Go](#golang) | [NodeJS](#nodejs) | [Rust](#rust) | [Neovim](#neovim) | [Iterm2](#iterm2) | [VSCode](#vscode) | [Uninstalling](#uninstalling) | [ESLint](#eslint) | [Tmux](#tmux) | [irssi](#irssi) | [Finder](#finder)
 
 ## Summary
 
@@ -81,13 +81,44 @@ Install MacVim and then install my plugins by cloning vimogen to ~/repos and run
 
 ## iterm2
 
-Enable `mouse reporting` for each profile. Then in `General > Selection` enable
+Install `Hack Nerd Font` so I can see file-type logos in my terminal:
+
+    $ brew tap homebrew/cask-fonts
+    $ brew install --cask font-hack-nerd-font
+
+`Cmd+i`>`Colors` and import tokyonight\_\*.itermcolors from
+~/.local/share/nvim/site/pack/packer/start/tokyonight.nvim/extras/iterm. First `Cmd+Shift+.` to have the file dialog show hidden
+files first.
+
+Make sure to do this from `Cmd+,` not `Cmd+i` or the changes will not stick.
+
+Then create a light profile called `l` and a dark profile called `d` with `cmd+, > Profiles > +` and use `tokyonight-day` for `l`
+and `tokyonight-storm` for `d`. I'll want the iterm2 background to match whatever vim color scheme I use.
+
+Do the following for all the profiles I'll use.
+
+Under `General` > `Title` check `Job name` and `PWD`, so I can see things like the tab is vim and the directory name its in.
+
+Under `Text` enable `Box` and `Blinking cursor`. 
+Change font to `Hack Nerd Font` / regular / 32. Uncheck 'Use ligatures'.  By having the same size font in each profile, you'll
+prevent the window resizing when you see profiles.
+
+Under `Terminal` enable `unlimited scrollback` and `mouse reporting`
+
+Right click 'Other actions' and make `l` the default profile.
+
+By default, new split panes reset back to $HOME but I want pwd:
+
+- `[profile name]` > `Working directory` > `Advanced Config` > `Edit` ><br>
+  Under `Working Directory for New Split Panes` select `Reuse previous sessions's directory`.
+
+In `General > Selection` (the gear icon not the general tab) enable
 `Applications in terminal may access clipboard`, `Copy to pasteboard on selection`,
 `Double-click performs smart selection`, `Triple-click selects entire wrapped lines`.
 
-Add the following maps for ergonomics/convenience. Under `Cmd+, > Profiles > select each profile > Keys > Key Mappings` click `+` to a new key map for and search for **Send Text with "Vim" Special Chars** and create maps:
+Add the following maps for ergonomics/convenience in each profile: `Keys > Key Mappings` click `+` to a new key map for and search for **Send Text with "Vim" Special Chars** and create maps:
 
-    Alt+k  to  \u001b[A   (arrow down)
+    Alt+k  to  \u001b[A   (arrow up)
     Alt+j  to  \u001b[B   (arrow down)
     Alt+l  to  \u001b[C   (arrow right)
     Alt+h  to  \u001b[D   (arrow left)
@@ -98,37 +129,11 @@ Similarly `[B` means down, `[C` means right and `[D` means left.
 Also create the following but mapped to **Send Escape Sequence**:
 
     Alt+b  to  b          (move left 1 word at a time)
-    Alt+f  to  f          (move right 1 word at a time)
+    Alt+w  to  f          (move right 1 word at a time)
 
 And finally, create the ability to undo by typing cmd+z by mapping it in **Send Hex Code**:
 
     Cmd+z  to  0x1f       (undo)
-
-Install `Hack Nerd Font` so I can see file-type logos in my terminal:
-
-    $ brew tap homebrew/cask-fonts
-    $ brew install --cask font-hack-nerd-font
-
-Under `Cmd+i` > `Colors` tab import tokyonight\_\*.itermcolors by downloading them from
-[here](https://github.com/folke/tokyonight.nvim/tree/main/extras/iterm)
-
-Then create a light profile called `l` and a dark profile called `d` with `cmd+, > Profiles > +` and use `tokyonight-day` for `l`
-and `tokyonight-storm` for `d`. You'll want the iterm2 background to match whatever vim color scheme I use
-
-Under `General` > `Title` check `Job name` and `PWD`, so I can see things like the tab is vim and the directory name its in.
-
-Under `Text` enable `Box` and `Blinking cursor`. Change font to `Hack Nerd Font` / regular / 32. Uncheck 'Use ligatures'
-
-Under `Terminal` enable `unlimited scrollback`
-
-Make sure to do this from `Cmd+,` not `cmd+i` or the changes will not stick.
-
-Right click 'Other actions' and make `l` the default profile.
-
-By default, new split panes reset back to $HOME but I want pwd:
-
-- `Cmd+,` > `Profiles` > `[profile name]` > `Working directory` > `Advanced Config` > `Edit` ><br>
-  Under `Working Directory for New Split Panes` select `Reuse previous sessions's directory`.
 
 ### terminfo-sources
 
@@ -138,7 +143,7 @@ However, my special tmux-256color.src is in this repo. Compile it manually:
     $ cd dotfiles/terminfo-sources
     $ /usr/bin/tic -xe tmux-256color tmux-256color.src
 
-which installs the compiled binaries to ~/.terminfo ready for use.
+Which installs the compiled binaries to ~/.terminfo ready for use.
 
 Also, enable italics, e.g., Vim's line numbers when not in tmux:
 
