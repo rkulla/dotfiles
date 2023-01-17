@@ -18,7 +18,7 @@ Adding new files requires 3 steps:
 Clone my code-snippets repo to ~/repos unless it's a work machine, in which case comment out the code-snippets line from install.sh
 
 Install Homebrew and if it's an m-chip mac, add the following to ~/.zprofile so brew and brew installed commands show in my $PATH
-  # Homebrew on apple silicon has a different location  (don't do this step on x86)
+  Note: Homebrew on apple silicon has a different location  (don't do this step on x86)
   echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/rkulla/.zprofile
   eval "$(/opt/homebrew/bin/brew shellenv)"
 
