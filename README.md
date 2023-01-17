@@ -2,7 +2,7 @@
 
 My dotfiles and configuration files in general!
 
-[Summary](#summary) | [Installing](#installing) | [Zsh](#zsh) | [Keyboard speed](#keyboard-speed) | [~/bin scripts](#bin-scripts) | [Vim](#vim) | [Iterm2](#iterm2) | [Git](#git) | [Finder](#finder) | [Tmux](#tmux) | [irssi](#irssi) | [ESLint](#eslint) | [Neovim](#neovim) | [VSCode](#vscode) | [Uninstalling](#uninstalling)
+[Summary](#summary) | [Installing](#installing) | [Zsh](#zsh) | [Keyboard speed](#keyboard-speed) | [~/bin scripts](#bin-scripts) | [Vim](#vim) | [Iterm2](#iterm2) | [Git](#git) | [Neovim](#neovim) | [Golang](#go) | [NodeJS](nodejs) | [Rust](#rust) | [Neovim](#neovim) | [VSCode](#vscode) | [Uninstalling](#uninstalling) | [ESLint](#eslint) | [Tmux](#tmux) | [irssi](#irssi) | [Finder](#finder)
 
 ## Summary
 
@@ -154,33 +154,66 @@ On a work machine with a personal github account, edit ~/.gitconfig and update m
 
 Do not add tokens here, use a real credential store for privacy.
 
-## Finder
+## Golang
 
-Optionally run the following in a terminal to show full file paths in Finder:
+Make sure Golang is installed first. E.g., get the pkg installer from the Go website.
 
-    $ defaults write com.apple.finder _FXShowPosixPathInTitle -bool YES;
+## NodeJS
 
-## Tmux
+Node.js comes with MacOS but rather than using the system node.js first install a 'virtual' version through `fnm`:
 
-Make sure to first: brew install reattach-to-user-namespace
+   $ fnm install v18.13.0  # or whatever version you want
+   $ fnm default v18.13.0  # make it the default, to avoid using the 'system' node that comes with MacOs
 
-Install plugins:
+## Rust
 
-    $ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+Make sure Rust is installed first (`curl https://sh.rustup.rs -sSf | sh` or whatever is currently recommended)
+I already have pathing set up for it in ~/.zprofile
 
-Open tmux and type `Ctrl+a I` to install the plugins listed in .tmux.conf
+## Neovim
 
-## Irssi
+#### Install nvim 
+Download NeoVim from https://github.com/neovim/neovim/releases/ and scroll to the bottom of the release you want and click 'Assets'
+and download nvim-macos.tar.gz and run:
+ 
+    $ mkdir ~/opt
+    $ mv ~/Downloads/nvim-macos.tar.gz ~/opt
+    $ cd ~/opt
+    $ xattr -c ./nvim-macos.tar.gz   # avoids "unknown developer"
+    $ tar xzvf nvim-macos.tar.gz
 
-`find` or `locate` the `default.theme` file, and change:
+I then have aliases `n`, etc in .zshrc already that point to ~/opt/nvim-macos/bin/nvim
 
-    sb_background = "%4%k";
+#### Install neovim plugins
 
-to something more readable if needed, such as:
+Install Packer:
 
-    sb_background = "%5%w";
+    $ git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
-I prefer this over installing 'themes' since usually I just use my default background color and change the statusbar
+Then do this from ~/.config/nvim/init.vim instead of this dotfiles checkout, since not everything is symlinked:
+
+    Open nvim and run `:PackerSync`
+
+Install (or update) LSP servers and Linters I integrate with:
+
+    $ go install golang.org/x/tools/gopls@latest
+    $ go install honnef.co/go/tools/cmd/staticcheck@latest
+
+$ cargo install stylua
+
+$ npm i -g typescript-language-server typescript (tsserver LSP wrapper; when not in package.json)
+$ npm i -g eslint_d
+$ brew install prettierd
+
+## VSCode
+
+For now manually copy my settings from vscode/settings.json into ~/Library/Application\ Support/Code/User/settings.json
+
+## Uninstalling
+
+Simply `git rm` any files and remove linking references from install.sh. Then
+use my `lslb` alias to list broken symlinks for removal. Also uninstall with vimogen
+and/or packer if it was a vim or neovim plugin, respectively.
 
 ## ESLint
 
@@ -195,27 +228,31 @@ jsconfig.json or tsconfig.json can't live in $HOME either.
 
 See also typescript/README.md in this repo.
 
-## Neovim
+## Irssi
 
-Do this from ~/.config/nvim/init.vim instead of this dotfiles checkout, since not everything is symlinked
+`find` or `locate` the `default.theme` file, and change:
 
-Install Packer then run `:PackerSync`
+    sb_background = "%4%k";
 
-Install (or update) LSP servers and Linters I integrate with:
+to something more readable if needed, such as:
 
-$ go install golang.org/x/tools/gopls@latest
-$ go install honnef.co/go/tools/cmd/staticcheck@latest
-$ cargo install stylua
-$ npm i -g typescript-language-server typescript (tsserver LSP wrapper; when not in package.json)
-$ npm i -g eslint_d
-$ brew install prettierd
+    sb_background = "%5%w";
 
-## VSCode
+I prefer this over installing 'themes' since usually I just use my default background color and change the statusbar
 
-For now manually copy my settings from vscode/settings.json into ~/Library/Application\ Support/Code/User/settings.json
+## Tmux
 
-## Uninstalling
+Make sure to first: brew install reattach-to-user-namespace
 
-Simply `git rm` any files and remove linking references from install.sh. Then
-use my `lslb` alias to list broken symlinks for removal. Also uninstall with vimogen
-and/or packer if it was a vim or neovim plugin, respectively.
+Install plugins:
+
+    $ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+Open tmux and type `Ctrl+a I` to install the plugins listed in .tmux.conf
+
+## Finder
+
+Optionally run the following in a terminal to show full file paths in Finder:
+
+    $ defaults write com.apple.finder _FXShowPosixPathInTitle -bool YES;
+
