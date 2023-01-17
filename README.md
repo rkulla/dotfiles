@@ -2,7 +2,7 @@
 
 My dotfiles and configuration files in general!
 
-[Summary](#summary) | [Installing](#installing) | [Zsh](#zsh) | [Keyboard speed](#keyboard-speed) | [~/bin scripts](#bin-scripts) | [Vim](#vim) | [Git](#git) | [Go](#golang) | [NodeJS](#nodejs) | [Rust](#rust) | [Neovim](#neovim) | [Iterm2](#iterm2) | [VSCode](#vscode) | [Uninstalling](#uninstalling) | [ESLint](#eslint) | [Tmux](#tmux) | [irssi](#irssi) | [Finder](#finder)
+[Summary](#summary) | [Installing](#installing) | [Zsh](#zsh) | [Keyboard speed](#keyboard-speed) | [~/bin scripts](#bin-scripts) | [Vim](#vim) | [Git](#git) | [Go](#golang) | [NodeJS](#nodejs) | [Rust](#rust) | [Neovim](#neovim) | [Iterm2](#iterm2) | [Terminfo](#terminfo-sources) | [VSCode](#vscode) | [Uninstalling](#uninstalling) | [ESLint](#eslint) | [Tmux](#tmux) | [irssi](#irssi) | [Finder](#finder)
 
 ## Summary
 
@@ -135,7 +135,7 @@ And finally, create the ability to undo by typing cmd+z by mapping it in **Send 
 
     Cmd+z  to  0x1f       (undo)
 
-### terminfo-sources
+## terminfo-sources
 
 Most termcap files are already installed with ncurses: xterm-256color, etc.
 However, my special tmux-256color.src is in this repo. Compile it manually:
