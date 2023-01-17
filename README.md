@@ -2,7 +2,7 @@
 
 My dotfiles and configuration files in general!
 
-[Summary](#summary) | [Installing](#installing) | [Zsh](#zsh) | [Keyboard speed](#keyboard-speed) | [~/bin scripts](#bin-scripts) | [Vim](#vim) | [Iterm2](#iterm2) | [Git](#git) | [Neovim](#neovim) | [Golang](#go) | [NodeJS](nodejs) | [Rust](#rust) | [Neovim](#neovim) | [VSCode](#vscode) | [Uninstalling](#uninstalling) | [ESLint](#eslint) | [Tmux](#tmux) | [irssi](#irssi) | [Finder](#finder)
+[Summary](#summary) | [Installing](#installing) | [Zsh](#zsh) | [Keyboard speed](#keyboard-speed) | [~/bin scripts](#bin-scripts) | [Vim](#vim) | [Iterm2](#iterm2) | [Git](#git) | [Go](#golang) | [NodeJS](nodejs) | [Rust](#rust) | [Neovim](#neovim) | [VSCode](#vscode) | [Uninstalling](#uninstalling) | [ESLint](#eslint) | [Tmux](#tmux) | [irssi](#irssi) | [Finder](#finder)
 
 ## Summary
 
