@@ -19,8 +19,8 @@ https://github.com/rkulla/vim-signature
 https://github.com/Yggdroot/indentLine
 https://github.com/jeetsukumaran/vim-indentwise
 https://github.com/chrisbra/NrrwRgn
-https://github.com/ludovicchabant/vim-gutentags
-https://github.com/majutsushi/tagbar
+#https://github.com/ludovicchabant/vim-gutentags
+#https://github.com/majutsushi/tagbar
 
 # File Navigation
 https://github.com/junegunn/fzf.vim

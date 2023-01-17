@@ -515,12 +515,12 @@ nmap <Leader>wf :TagbarCurrentTag<CR>
 " By default it only looks for SCM projects (.git, .svn, .hg, etc) to generate
 " tags, but since i might have nested JS projects or only tmp files that have
 " index.js I'll make my own files to look for to dictate a project:
-let g:gutentags_add_default_project_roots = 0
-let g:gutentags_project_root = ['package.json', 'index.js', 'app.js', '.git', '.svn', '.hg' .'project']
+"let g:gutentags_add_default_project_roots = 0
+"let g:gutentags_project_root = ['package.json', 'index.js', 'app.js', '.git', '.svn', '.hg' .'project']
 " Store 'tags' files in ~/.cache/vim/ctags/ instead of the project's root
-let g:gutentags_cache_dir = expand('~/.cache/vim/ctags/')
+"let g:gutentags_cache_dir = expand('~/.cache/vim/ctags/')
 " See "ctags" show up in statusline whenever tags are generating
-set statusline+=%{gutentags#statusline()}
+"set statusline+=%{gutentags#statusline()}
 
 """ Fonts
 if has('unix') && has('gui')
