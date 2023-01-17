@@ -163,7 +163,7 @@ Make sure Golang is installed first. E.g., get the pkg installer from the Go web
 Node.js comes with MacOS but rather than using the system node.js first install a 'virtual' version through `fnm`:
 
     $ fnm install v18.13.0  # or whatever version you want
-    $ fnm default v18.13.0  # make it the default, to avoid using the 'system' node that comes with MacOs
+    $ fnm default v18.13.0  # make default to avoid using the system node that comes w/ MacOS
 
 ## Rust
 
