@@ -2,7 +2,7 @@
 
 My dotfiles and configuration files in general!
 
-[Summary](#summary) | [Installing](#installing) | [iCloud Drive](#icloud-drive) | [Zsh](#zsh) | [Keyboard speed](#keyboard-speed) | [~/bin scripts](#bin-scripts) | [Vim](#vim) | [Git](#git) | [Go](#golang) | [NodeJS](#nodejs) | [Rust](#rust) | [Neovim](#neovim) | [Iterm2](#iterm2) | [Terminfo](#terminfo-sources) | [VSCode](#vscode) | [Uninstalling](#uninstalling) | [ESLint](#eslint) | [Tmux](#tmux) | [irssi](#irssi) | [Finder](#finder)
+[Summary](#summary) | [Installing](#installing) | [iCloud Drive](#icloud-drive) | [Spotlight](#spotlight) | [Zsh](#zsh) | [Keyboard speed](#keyboard-speed) | [~/bin scripts](#bin-scripts) | [Vim](#vim) | [Git](#git) | [Go](#golang) | [NodeJS](#nodejs) | [Rust](#rust) | [Neovim](#neovim) | [Iterm2](#iterm2) | [Terminfo](#terminfo-sources) | [VSCode](#vscode) | [Uninstalling](#uninstalling) | [ESLint](#eslint) | [Tmux](#tmux) | [irssi](#irssi) | [Finder](#finder)
 
 ## Summary
 
@@ -13,36 +13,13 @@ Adding new files requires 3 steps:
     Add anything I don't want in the committed .gitignore file my global ~/.gitignore such as README.rkulla
 3.  Update install.sh to do the symlinking and optionally creating needed empty dirs
 
-## Pre-installation steps
-
-## iCloud-Drive
-
-I prefer this over Dropbox since it's native and works better.
-
-- In Finder's preferences, go to 'sidebar' and enable 'iCloud Drive' to see it in finder
-- Simply create folders in it and they will appear in ~/Library/Mobile\ Documents/com\~apple\~CloudDocs
-  - I alias `icd` to cd to this folder by typing
-- Do NOT enable 'Desktop and Documents', which will sync your Desktop and Documents folders to iCloud drive. No need.
-
-## Spotlight
-
-I prefer this over Alfred since it's native and works better.
-
-Make alt+space open it (instead of the default cmd+space) in `System Preferences > Spotlight > Shortcuts`
-
-Tell it what NOT to search in `System Preferences > Spotlight > Search Results`. Uncheck things like 'bookmarks & history, 'developer' 'siri suggestions', 'Music', 'Mail and Messages', 'Other' Leave everything else checked: 'Applications', 'calculator', 'definition', 'Documents', 'events and reminders', 'conversion', 'folders', 'movies', 'PDF', 'system preferences', etc.
-
-The 'Documents' one is how it finds .txt files.
-
-In finder, don't forget to set .txt files to open in MacVim or it will open in TextEdit by default
-
-Make sure to click the `privacy` tab and add any dirs you to ignore, such as a backup drive (so it doesn't try to load your backups instead of the main file). Checking the statusbar in MacVim will help confirm the path!
-
 ## Installing
 
-Clone my code-snippets repo to ~/repos unless it's a work machine, in which case comment out the code-snippets line from install.sh
+Clone my `code-snippets` repo to ~/repos unless it's a work machine, in which case comment out the code-snippets line from install.sh
 
-Install Homebrew and if it's an m-chip mac, add the following to ~/.zprofile so brew and brew installed commands show in my $PATH
+Install `Firefox`
+
+Install `Homebrew` and if it's an m-chip mac, add the following to ~/.zprofile so brew and brew installed commands show in my $PATH
   Note: Homebrew on apple silicon has a different location  (don't do this step on x86)
   echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/rkulla/.zprofile
 eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -69,6 +46,29 @@ will create symlinks from $HOME/_filename_ this repo's corresponding _filename_.
 ### Post installation steps
 
 After running ./install.sh to automate most things, do these manual steps.
+
+## iCloud-Drive
+
+I prefer this over Dropbox since it's native and works better.
+
+- In Finder's preferences, go to 'sidebar' and enable 'iCloud Drive' to see it in finder
+- Simply create folders in it and they will appear in ~/Library/Mobile\ Documents/com\~apple\~CloudDocs
+  - I alias `icd` to cd to this folder by typing
+- Do NOT enable 'Desktop and Documents', which will sync your Desktop and Documents folders to iCloud drive. No need.
+
+## Spotlight
+
+I prefer this over Alfred since it's native and works better.
+
+Make alt+space open it (instead of the default cmd+space) in `System Preferences > Spotlight > Shortcuts`
+
+Tell it what NOT to search in `System Preferences > Spotlight > Search Results`. Uncheck things like 'bookmarks & history, 'developer' 'siri suggestions', 'Music', 'Mail and Messages', 'Other' Leave everything else checked: 'Applications', 'calculator', 'definition', 'Documents', 'events and reminders', 'conversion', 'folders', 'movies', 'PDF', 'system preferences', etc.
+
+The 'Documents' one is how it finds .txt files.
+
+In finder, don't forget to set .txt files to open in MacVim or it will open in TextEdit by default
+
+Make sure to click the `privacy` tab and add any dirs you to ignore, such as a backup drive (so it doesn't try to load your backups instead of the main file). Checking the statusbar in MacVim will help confirm the path!
 
 ## Zsh
 
