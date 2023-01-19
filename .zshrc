@@ -255,6 +255,17 @@ function cnotmerged {
     code $(git diff "$1"...$(git branch --show-current) --name-status | awk "/^M|^A.*/ {print \$2}")
 }
 
+# List files that were last committed. Optionally takes a commit
+function lcom {
+    if [[ -z "$1" ]]; then
+        echo "not exists"
+        git show --pretty="format:" --name-only
+    else
+        echo "exists"
+        git show --pretty="format:" --name-only "$1"
+    fi
+}
+
 # Open files in Vim in current branch even if they've already been committed or merged
 # $ vcom main # opens files in current branch already merged to main (great for WIP PR additions)
 function vcom {
