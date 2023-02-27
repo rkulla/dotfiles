@@ -163,10 +163,9 @@ alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
 # Open last committed/merged files (best guess)
 alias lastcom='n $(git diff --name-only HEAD^ | xargs)'
 # Open modified staged and unstaged files (great for reopening where you left off)
-alias vmod='n $(git diff --diff-filter=d --cached --name-only && git diff --diff-filter=d --name-only)'
+alias vmod='n $(git diff --diff-filter=d --cached --name-only && git diff --diff-filter=d --name-only --ignore-submodules)'
 alias nmod=vmod
-alias vimod='n $(git diff --diff-filter=d --cached --name-only && git diff --diff-filter=d --name-only)'
-alias cmod='code $(git diff --diff-filter=d --cached --name-only && git diff --diff-filter=d --name-only)'
+alias cmod='code $(git diff --diff-filter=d --cached --name-only && git diff --diff-filter=d --name-only --ignore-submodules)'
 # See my vcom and ccom functions for if I already committed
 # Open modified files (even committed) that a branch changed (be in the branch first)
 # find out our external IP
