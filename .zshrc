@@ -160,8 +160,6 @@ alias wt='watch -n 1 -d -t -c tree -CF' # watch tree.
 alias wgt='watch -n 1 -d -t -c "git lolgraph --color && tree -CF"' # watch git log graph and tree at the same time.
 # Use macvim for cli vim because it's better than standard vim on macs
 alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
-# Open last committed/merged files (best guess)
-alias lastcom='n $(git diff --name-only HEAD^ | xargs)'
 # Open modified staged and unstaged files (great for reopening where you left off)
 alias vmod='n $(git diff --diff-filter=d --cached --name-only && git diff --diff-filter=d --name-only --ignore-submodules)'
 alias nmod=vmod
@@ -272,6 +270,7 @@ function vcom {
 }
 
 # neovim alias of vcom
+# alias lastcom='n $(git diff --name-only HEAD^ --ignore-submodules | xargs)'
 function ncom {
     n $(git log --name-only "$1".. --oneline | sed 1d)
 }
