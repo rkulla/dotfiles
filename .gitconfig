@@ -34,8 +34,9 @@
 	lol = log --pretty=format:\"%C(yellow)%h%d%Creset %s - %an [%ar]\"
     # like git lol but show graph
     lolgraph = "log --graph --decorate --pretty=oneline --abbrev-commit --all"
+    lolgraphbest = "log --graph --decorate --pretty=format:'%C(auto)%h -%d %s (%an, %ar)%C(reset)' --abbrev-commit --all"
     # show author. Add --all (to see all branches). Add --first-parent to make more concise
-    lolgraphbest = "log --graph --pretty=format:'%C(auto)%h %C(green)%an %Cblue%ar%Creset%C(auto)%d %s %Creset' --author-date-order --decorate=short"
+    lolgraphbest2 = "log --graph --pretty=format:'%C(auto)%h %C(green)%an %Cblue%ar%Creset%C(auto)%d %s %Creset' --author-date-order --decorate=short"
     # GREAT command for figuring out what you or your team last changed and getting filenames easily
     # also use the awesome 'git changed --remotes' command to see remote branch changes too!
 	changed = log --pretty=format:\"%C(yellow)%h%d%Creset %s - %an [%ar]\" --name-only
