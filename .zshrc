@@ -255,10 +255,8 @@ function cnotmerged {
 # List files that were last committed. Optionally takes a commit
 function lcom {
     if [[ -z "$1" ]]; then
-        echo "not exists"
         git show --pretty="format:" --name-only
     else
-        echo "exists"
         git show --pretty="format:" --name-only "$1"
     fi
 }
