@@ -1,7 +1,7 @@
 ## VSCode notes
 
 Note: I don't symlink my vscode settings to a dotfile. So make sure to adjust those settings manually for each machine after
-copy/pasting my generic settings.json. E.g., editor.zoomLevel and editor.fontSize especially.
+copy/pasting my generic settings.json. E.g., editor.zoomLevel and editor.fontSize and vim stuff.
 
 #### Extensions I use
 
@@ -10,7 +10,7 @@ copy/pasting my generic settings.json. E.g., editor.zoomLevel and editor.fontSiz
 - `Vim`
 - [GitLens](https://github.com/gitkraken/vscode-gitlens)
 - [ESLint](https://github.com/Microsoft/vscode-eslint)
-- `Markdownlint` 
+- `Markdownlint`
 - [Jest](https://github.com/jest-community/vscode-jest)
 - `Jest Runner` (don't need unless I truly need to run individual tests and can't get vscode-jest to)
 - `Bookmarks`
@@ -39,4 +39,3 @@ copy/pasting my generic settings.json. E.g., editor.zoomLevel and editor.fontSiz
     $ defaults delete -g ApplePressAndHoldEnabled
 
 Then increase Key Repeat and Delay Until Repeat settings in `System Preferences -> Keyboard`. Slide Key Repeat all the way to the right (Fast) and slide Delay Until Repeat all to the right (Short)
-

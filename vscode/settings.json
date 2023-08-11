@@ -1,134 +1,135 @@
 {
-    "window.zoomLevel": 4.5,
-    "editor.fontSize": 17.9,
-    "editor.fontFamily": "Hack Nerd Font",
-    "editor.fontLigatures": true,
-    "terminal.integrated.fontFamily": "Hack Nerd Font Mono",
-    "editor.detectIndentation": false,
-    "editor.tabSize": 4,
-    "editor.minimap.enabled": false,
-    "[javascript][typescript][json][jsonc][javascriptreact][html][ruby][css]": {
-      "editor.tabSize": 2,
-    },
-    "editor.insertSpaces": true,
-    "editor.formatOnSave": true,
-    "editor.cursorBlinking": "smooth",
-    "editor.bracketPairColorization.enabled": true,
-    "editor.guides.bracketPairs":"active",
-    "editor.formatOnPaste": true,
-    "editor.snippetSuggestions": "top",
-    "workbench.editor.highlightModifiedTabs": true,
-    "files.trimFinalNewlines": true,
-    "editor.acceptSuggestionOnEnter": "off",
-    "settings.cycle": [
+  "window.zoomLevel": 4.5,
+  "editor.fontSize": 17.9,
+  "editor.fontFamily": "Hack Nerd Font",
+  "editor.fontLigatures": true,
+  "terminal.integrated.fontFamily": "Hack Nerd Font Mono",
+  "editor.detectIndentation": false,
+  "editor.tabSize": 4,
+  "editor.minimap.enabled": false,
+  "[javascript][typescript][json][jsonc][javascriptreact][html][ruby][css]": {
+    "editor.tabSize": 2
+  },
+  "editor.insertSpaces": true,
+  "editor.formatOnSave": true,
+  "editor.cursorBlinking": "smooth",
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": "active",
+  "editor.formatOnPaste": true,
+  "editor.snippetSuggestions": "top",
+  "workbench.editor.highlightModifiedTabs": true,
+  "files.trimFinalNewlines": true,
+  "editor.acceptSuggestionOnEnter": "off",
+  "settings.cycle": [
+    {
+      "id": "lineNumbers",
+      "values": [
         {
-            "id": "lineNumbers",
-            "values": [
-                {
-                    "editor.lineNumbers": "off",
-                    "editor.folding": false,
-                    "editor.glyphMargin": false
-                },
-                {
-                    "editor.lineNumbers": "on",
-                    "editor.folding": true,
-                    "editor.glyphMargin": true
-                }
-            ]
+          "editor.lineNumbers": "off",
+          "editor.folding": false,
+          "editor.glyphMargin": false
         },
         {
-            "id": "codeLens",
-            "values": [
-                {
-                    "javascript.referencesCodeLens.enabled": false,
-                    "typescript.referencesCodeLens.enabled": false,
-                    "typescript.referencesCodeLens.showOnAllFunctions": false,
-                    "typescript.implementationsCodeLens.enabled": false,
-                    "javascript.referencesCodeLens.showOnAllFunctions": false,
-                    "diffEditor.codeLens": false,
-                    "typescript.inlayHints.parameterNames.enabled": "none"
-                },
-                {
-                    "javascript.referencesCodeLens.enabled": true,
-                    "typescript.referencesCodeLens.enabled": true,
-                    "typescript.referencesCodeLens.showOnAllFunctions": true,
-                    "typescript.implementationsCodeLens.enabled": true,
-                    "javascript.referencesCodeLens.showOnAllFunctions": true,
-                    "diffEditor.codeLens": true,
-                    "typescript.inlayHints.parameterNames.enabled": "all"
-                }
-            ]
+          "editor.lineNumbers": "on",
+          "editor.folding": true,
+          "editor.glyphMargin": true
         }
-    ],
-    "editor.lineNumbers": "on",
-    "editor.folding": true,
-    "editor.glyphMargin": true,
-    "javascript.referencesCodeLens.enabled": false,
-    "typescript.referencesCodeLens.enabled": false,
-    "typescript.referencesCodeLens.showOnAllFunctions": false,
-    "typescript.implementationsCodeLens.enabled": false,
-    "javascript.referencesCodeLens.showOnAllFunctions": false,
-    "diffEditor.codeLens": false,
-    "typescript.inlayHints.parameterNames.enabled": "none",
-    "vim.leader": ",",
-    "vim.normalModeKeyBindingsNonRecursive": [
-        {
-            "before": [
-                "<leader>",
-                "l"
-            ],
-            "commands": [
-                "code-runner.run",
-            ]
-        },
-    ],
-    "vim.incsearch": true,
-    "vim.useSystemClipboard": true,
-    "vim.useCtrlKeys": true,
-    "vim.hlsearch": true,
-    "vim.insertModeKeyBindings": [
-        {
-            "before": [
-                "j",
-                "j"
-            ],
-            "after": [
-                "<Esc>"
-            ]
-        },
-        {
-            "before": [
-                ";",
-                ";"
-            ],
-            "after": [
-                "<C-w>"
-            ]
-        }
-    ],
-    "code-runner.executorMap": {
-        "javascript": "node",
-        "typescript": "npx ts-node",
+      ]
     },
-    "code-runner.clearPreviousOutput": true,
-    "jest.autoRun": "off",
-    "jest.debugCodeLens.showWhenTestStateIn": [
-      "pass",
-      "fail",
-      "unknown"
-    ],
-    "jest.jestCommandLine": "npm test --",
-    "diffEditor.renderSideBySide": false,
-    "explorer.excludeGitIgnore": true,
-    "explorer.fileNesting.enabled": true,
-    "explorer.fileNesting.expand": false,
-    "explorer.fileNesting.patterns": {
-      ".env": "*.env, .env.*, .envrc, env.d.ts",
-      ".gitignore": ".gitattributes, .gitmodules, .gitmessage, .mailmap, .git-blame*",
-      "dockerfile": ".dockerignore, docker-compose.*, dockerfile*",
-      ".eslintignore": ".eslint*, .prettier*, tslint*, tsconfig*",
-      "package.json": "package-lock.json, .node-version, .npm*, .nvmrc",
-      "JenkinsFile": "Jenkinsfile*",
-      "go.mod": ".air*, go.sum"
+    {
+      "id": "codeLens",
+      "values": [
+        {
+          "javascript.referencesCodeLens.enabled": false,
+          "typescript.referencesCodeLens.enabled": false,
+          "typescript.referencesCodeLens.showOnAllFunctions": false,
+          "typescript.implementationsCodeLens.enabled": false,
+          "javascript.referencesCodeLens.showOnAllFunctions": false,
+          "diffEditor.codeLens": false,
+          "typescript.inlayHints.parameterNames.enabled": "none"
+        },
+        {
+          "javascript.referencesCodeLens.enabled": true,
+          "typescript.referencesCodeLens.enabled": true,
+          "typescript.referencesCodeLens.showOnAllFunctions": true,
+          "typescript.implementationsCodeLens.enabled": true,
+          "javascript.referencesCodeLens.showOnAllFunctions": true,
+          "diffEditor.codeLens": true,
+          "typescript.inlayHints.parameterNames.enabled": "all"
+        }
+      ]
     }
+  ],
+  "editor.lineNumbers": "on",
+  "editor.folding": true,
+  "editor.glyphMargin": true,
+  "javascript.referencesCodeLens.enabled": false,
+  "typescript.referencesCodeLens.enabled": false,
+  "typescript.referencesCodeLens.showOnAllFunctions": false,
+  "typescript.implementationsCodeLens.enabled": false,
+  "javascript.referencesCodeLens.showOnAllFunctions": false,
+  "diffEditor.codeLens": false,
+  "typescript.inlayHints.parameterNames.enabled": "none",
+  "vim.leader": " ",
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "x"],
+      "commands": ["workbench.action.quickOpen"]
+    },
+    {
+      "before": [" ", "f", "g"],
+      "commands": ["workbench.view.search"]
+    },
+    {
+      "before": ["<leader>", "e"],
+      "commands": ["workbench.action.toggleSidebarVisibility"]
+    },
+    {
+      "before": ["<leader>", "l"],
+      "commands": ["code-runner.run"]
+    },
+    {
+      "before": [" ", "n"],
+      "commands": ["settings.cycle.lineNumbers"]
+    },
+    {
+      "before": [" ", " "],
+      "commands": ["workbench.action.quickOpenPreviousRecentlyUsedEditor"]
+    }
+  ],
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    },
+    {
+      "before": [";", ";"],
+      "after": ["<C-w>"]
+    }
+  ],
+  "code-runner.executorMap": {
+    "javascript": "node",
+    "typescript": "npx ts-node"
+  },
+  "code-runner.clearPreviousOutput": true,
+  "jest.autoRun": "off",
+  "jest.debugCodeLens.showWhenTestStateIn": ["pass", "fail", "unknown"],
+  "jest.jestCommandLine": "npm test --",
+  "diffEditor.renderSideBySide": false,
+  "explorer.excludeGitIgnore": true,
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.expand": false,
+  "explorer.fileNesting.patterns": {
+    ".env": "*.env, .env.*, .envrc, env.d.ts",
+    ".gitignore": ".gitattributes, .gitmodules, .gitmessage, .mailmap, .git-blame*",
+    "dockerfile": ".dockerignore, docker-compose.*, dockerfile*",
+    ".eslintignore": ".eslint*, .prettier*, tslint*, tsconfig*",
+    "package.json": "package-lock.json, .node-version, .npm*, .nvmrc",
+    "JenkinsFile": "Jenkinsfile*",
+    "go.mod": ".air*, go.sum"
+  }
 }

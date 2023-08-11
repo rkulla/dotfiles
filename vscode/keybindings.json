@@ -1,16 +1,11 @@
 [
-    {
-        "key": "ctrl+n",
-        "command": "settings.cycle.lineNumbers",
-        "when": "editorFocus"
-    },
-    {
-        "key": "cmd+l",
-        "command": "settings.cycle.codeLens",
-        "when": "editorFocus"
-    },
-    {
-        "key": "shift+cmd+a",
-        "command": "workbench.action.toggleActivityBarVisibility"
-    }
+  {
+    "key": "cmd+l",
+    "command": "settings.cycle.codeLens",
+    "when": "editorFocus"
+  },
+  {
+    "key": "shift+cmd+a",
+    "command": "workbench.action.toggleActivityBarVisibility"
+  }
 ]
