@@ -76,9 +76,6 @@ imap ;h <Esc>I
 nnoremap <End> :cnext<CR>
 nnoremap <Home> :cprevious<CR>
 
-" To quickly open files in the pwd, or its subdirs, automatically by typing substrings of filenames
-map <Leader>e :e **/*
-
 "
 " Quitting vim maps
 "
@@ -573,7 +570,7 @@ endif
 " autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " make ctrl+e start NerdTree if it's closed, and again will toggle it off.
-nmap <C-e> :NERDTreeToggle<CR>
+nmap <Leader>e :NERDTreeToggle<CR>
 " ignore the following diretories and files
 let NERDTreeIgnore = ['node_modules', 'coverage', '\.git$', '\.yardoc', 'jsdoc', 'tags.*', 'log', '\.DS_Store$', '\.so$', '\.date$', '\.pyc$']
 " Make it so ,nf loads the current file i'm on in nerdtree
