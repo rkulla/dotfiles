@@ -31,12 +31,9 @@
 	ds = diff --staged
 	pa = log -S # pickaxe
     logp = log -p # shows actual code that changed, all the way to beginning. Add -1 for last commit, last -2 for 2 commits, etc.
-	lol = log --pretty=format:\"%C(yellow)%h%d%Creset %s - %an [%ar]\"
-    # like git lol but show graph
-    lolgraph = "log --graph --decorate --pretty=oneline --abbrev-commit --all"
-    lolgraphbest = "log --graph --decorate --pretty=format:'%C(auto)%h -%d %s (%an, %ar)%C(reset)' --abbrev-commit --all"
-    # show author. Add --all (to see all branches). Add --first-parent to make more concise
-    lolgraphbest2 = "log --graph --pretty=format:'%C(auto)%h %C(green)%an %Cblue%ar%Creset%C(auto)%d %s %Creset' --author-date-order --decorate=short"
+    lol = "log --graph --pretty=format:'%C(auto)%h %C(green)%an %Cblue%ar%Creset%C(auto)%d %s %Creset' --author-date-order --decorate=short"
+    # like git lol but show graph, useful for seeing branches. Note: Top level stuff (*'s) will be in proper order of when things were merged to current branch
+    lolgraph = "log --graph --pretty=format:'%C(auto)%h %C(green)%an %Cblue%ar%Creset%C(auto)%d %s %Creset' --author-date-order --decorate --all"
     # GREAT command for figuring out what you or your team last changed and getting filenames easily
     # also use the awesome 'git changed --remotes' command to see remote branch changes too!
 	changed = log --pretty=format:\"%C(yellow)%h%d%Creset %s - %an [%ar]\" --name-only
