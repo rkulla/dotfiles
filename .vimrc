@@ -56,6 +56,9 @@ endif
 " Rename the current file with :Rename <new_name>
 command! -nargs=1 -complete=dir Rename saveas <args> | call delete(expand("#"))
 
+" So `:SE foo` finds exact word `foo`. NOTE: vim regex is \<foo\> not \bfoo\b
+command! -nargs=1 SE execute 'normal! /\<' . <q-args> . '\><CR>'
+
 " Run the omni-completion by typing ,tab
 imap ,<TAB> <C-X><C-O>
 
