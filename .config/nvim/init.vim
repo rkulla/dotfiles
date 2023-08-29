@@ -42,8 +42,6 @@ lua require('user/plugins')
 " Comment out any `packadd` to not load that plugin
 " Only plugins that have opt=true in user/plugins.lua will go to /opt (be lazyloaded)
 lua require('user/lualine')
-lua require('user/dashboard')
-""" Load Misc. plugins / config
 lua require('user/lsp')
 lua require('user/null-ls')
 packadd plenary.nvim

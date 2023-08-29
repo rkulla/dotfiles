@@ -35,8 +35,6 @@ return packer.startup(function(use)
   -- requires telescope and `gh` cli
   use("nvim-telescope/telescope-github.nvim")
 
-  use("glepnir/dashboard-nvim")
-
   use("folke/trouble.nvim")
 
   use({
