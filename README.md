@@ -227,7 +227,7 @@ Install Packer:
 
 Then do this from ~/.config/nvim/init.vim instead of this dotfiles checkout, since not everything is symlinked:
 
-    Open nvim and run `:PackerSync`
+    Open nvim and run `:PackerSync` then `:PackerCompile`
 
 Install (or update) LSP servers and Linters I integrate with:
 

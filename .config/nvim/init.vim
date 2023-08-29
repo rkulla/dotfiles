@@ -26,23 +26,30 @@ command! -nargs=1 SE execute 'normal! /\<' . <q-args> . '\><CR>'
 " MARKDOWN:              plugin/markdown.vim
 " TERMINAL:              plugin/terminal.vim
 
-
-" Keymaps defines my <leader> key so it MUST go above all my other lua files!
+""" Keymaps - Defines my <leader> key so it MUST go above all my other lua files!
 lua require('user/keymaps')
 
-""" Plugin Initialization (requirements: Packer)
-" Load ~/.config/nvim/lua/user/plugins.lua
+""" Plugin Initialization (requires: Packer)
+" Loads ~/.config/nvim/lua/user/plugins.lua (LIST of plugins I include). Then run one of
+"   :PackerInstall (just install new plugins added to user/plugins.lua)
+"   :PackerUpdate (just update existing plugins)
+"   :PackerSync (Install+Update plugins)
+" AND run:
+" :PackerCompile (regenerate plugin cache file: ~/.config/nvim/plugin/packer_compiled.lua)
 lua require('user/plugins')
-" Comment out any `packadd` to not (lazy) load that plugin
+
+""" Plugin custom config files
+" Comment out any `packadd` to not load that plugin
+" Only plugins that have opt=true in user/plugins.lua will go to /opt (be lazyloaded)
 lua require('user/lualine')
 lua require('user/dashboard')
 """ Load Misc. plugins / config
 lua require('user/lsp')
 lua require('user/null-ls')
-lua require('user/inlay-hints')
 packadd plenary.nvim
 packadd telescope.nvim
 lua require('user/telescope')
 packadd nvim-tree.lua
 lua require('user/nvim-tree')
 lua require('user/gitsigns')
+lua require('user/inlay-hints')
