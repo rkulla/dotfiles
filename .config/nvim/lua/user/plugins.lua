@@ -54,6 +54,8 @@ return packer.startup(function(use)
 
   use("nvim-lualine/lualine.nvim")
 
+  use("lukas-reineke/indent-blankline.nvim")
+
   -- install markdown-preview without yarn or npm
   use({
     "iamcco/markdown-preview.nvim",
