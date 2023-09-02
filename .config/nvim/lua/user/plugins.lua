@@ -42,9 +42,17 @@ return packer.startup(function(use)
     config = function() require("which-key").setup({}) end,
   })
 
-  use("tpope/vim-commentary")
+  use({
+    "kylechui/nvim-surround",
+    tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+    config = function()
+      require("nvim-surround").setup({
+        -- Configuration here, or leave empty to use defaults
+      })
+    end,
+  })
 
-  use("tpope/vim-surround")
+  use("tpope/vim-commentary")
 
   use("tpope/vim-fugitive")
   -- rhubarb enables :GBrowse from fugitive to open GitHub
