@@ -18,6 +18,21 @@ map(
 --- Some stuff I don't bother mapping and can just run :Telescope such as:
 --- :Tel[tab] git[tab]  (commits, branches, etc)
 
+-- TODO: TEMPORARY WORKAROUND UNTIL THE OFFICIAL PR #807 IS MERGED TO OPEN MULTIPLE SECTIONS:
+-- Taken from https://github.com/nvim-telescope/telescope.nvim/issues/1048
+local select_one_or_multi = function(prompt_bufnr)
+  local picker = require("telescope.actions.state").get_current_picker(prompt_bufnr)
+  local multi = picker:get_multi_selection()
+  if not vim.tbl_isempty(multi) then
+    require("telescope.actions").close(prompt_bufnr)
+    for _, j in pairs(multi) do
+      if j.path ~= nil then vim.cmd(string.format("%s %s", "edit", j.path)) end
+    end
+  else
+    require("telescope.actions").select_default(prompt_bufnr)
+  end
+end
+
 require("telescope").setup({
   pickers = {
     find_files = {
@@ -28,6 +43,13 @@ require("telescope").setup({
     file_browser = {
       -- disables netrw and use telescope-file-browser in its place
       hijack_netrw = true,
+    },
+  },
+  defaults = { -- TODO: TEMP WORKAROUND from https://github.com/nvim-telescope/telescope.nvim/issues/1048
+    mappings = {
+      i = {
+        ["<CR>"] = select_one_or_multi,
+      },
     },
   },
 })
