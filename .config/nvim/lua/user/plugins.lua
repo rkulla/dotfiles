@@ -35,6 +35,9 @@ return packer.startup(function(use)
   -- requires telescope and `gh` cli
   use("nvim-telescope/telescope-github.nvim")
 
+  -- Better quickfix. Gives telescope previews to quickfix, etc
+  use({ "kevinhwang91/nvim-bqf" })
+
   use("folke/trouble.nvim")
 
   use({
