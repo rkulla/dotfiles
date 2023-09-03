@@ -3,7 +3,6 @@ map("n", "<leader>fx", require("telescope.builtin").git_files, { desc = "Telesco
 map("n", "<leader>x", require("telescope.builtin").git_files, { desc = "Telescope git_files" })
 map("n", "<leader>ff", require("telescope.builtin").find_files, { desc = "Telescope find_files" })
 map("n", "<leader>X", require("telescope.builtin").find_files, { desc = "Telescope find_files" })
-map("n", "<leader>fg", require("telescope.builtin").live_grep, { desc = "Telescope live_grep" })
 map("n", "<leader>fe", "<cmd>Telescope file_browser<cr>", { desc = "Telescope file_browser" })
 map("n", "<leader>fb", require("telescope.builtin").buffers, { desc = "Telescope buffers" })
 map("n", "<leader>fo", require("telescope.builtin").oldfiles, { desc = "Telescope oldfiles" })
@@ -15,6 +14,19 @@ map(
   "<cmd>Telescope find_files find_command=rg,--hidden,--files,/Users/rkulla/.config/nvim<cr>",
   { desc = "Telescope search nvim configs" }
 )
+map(
+  "n",
+  "<leader>fg",
+  '<cmd>lua require("telescope.builtin").live_grep({ vimgrep_arguments = {"rg", "-H", "-n", "--column", "-i"} })<CR>',
+  { desc = "Telescope file grep case-insensitive" }
+)
+map(
+  "n",
+  "<leader>fG",
+  '<cmd>lua require("telescope.builtin").live_grep({ vimgrep_arguments = {"rg", "-H", "-n", "--column"}, "-s" })<CR>',
+  { desc = "Telescope file grep case-sensitive" }
+)
+
 --- Some stuff I don't bother mapping and can just run :Telescope such as:
 --- :Tel[tab] git[tab]  (commits, branches, etc)
 
