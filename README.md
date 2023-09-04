@@ -112,9 +112,8 @@ Install MacVim and then install my plugins by cloning vimogen to ~/repos and run
 
 Install `Hack Nerd Font` so I can see file-type logos in my terminal:
 
-    # Install Hack Nerd Font manually from nerdfonts.com
-    # Dont use homebrew until they support nerd fonts v3
-    # or certain fonts won't work in neovim even with nvim-web-devicons
+    # Install Hack Nerd Font v3+ either manually from nerdfonts.com or with brew
+    # Must be v3 for certain fonts won't work in NeoVim even with nvim-web-devicons
     $ brew tap homebrew/cask-fonts
     $ brew install --cask font-hack-nerd-font
 
