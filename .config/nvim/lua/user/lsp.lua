@@ -1,5 +1,6 @@
 local lspconfig = require("lspconfig")
 local ih = require("inlay-hints")
+local navbuddy = require("nvim-navbuddy")
 
 -- Hide virtual text but keep the signs for lower severity things. View as float with LSP Diagnostic Float or TroubleToggle maps
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
@@ -14,6 +15,8 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
 -- on_attach function to only do the following after lang server attaches to current buffer
 local on_attach = function(client, bufnr)
   -- Note: all LSP related keymaps are in my null-ls config
+
+  navbuddy.attach(client, bufnr)
 
   -- Disable Autoformat for anything I use null-ls formatters for
   if client.name == "tsserver" then

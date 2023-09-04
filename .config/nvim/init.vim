@@ -43,6 +43,7 @@ lua require('user/plugins')
 " Only plugins that have opt=true in user/plugins.lua will go to /opt (be lazyloaded)
 lua require('user/lualine')
 lua require('user/indent-blankline')
+lua require('user/navbuddy')
 lua require('user/lsp')
 lua require('user/null-ls')
 packadd plenary.nvim

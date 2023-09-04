@@ -17,14 +17,21 @@ return packer.startup(function(use)
   -- Packer can manage itself
   use("wbthomason/packer.nvim")
 
+  -- colorscheme should go before most plugins
   use("folke/tokyonight.nvim")
+
+  use({
+    "SmiteshP/nvim-navbuddy",
+    requires = {
+      "SmiteshP/nvim-navic",
+      "MunifTanjim/nui.nvim",
+    },
+  })
 
   use({
     "utilyre/barbecue.nvim",
     tag = "*",
-    requires = {
-      "SmiteshP/nvim-navic",
-    },
+    requires = {},
     config = function() require("barbecue").setup() end,
   })
 

@@ -93,6 +93,9 @@ map("n", "<leader>wJ", ":res +5<cr>", { desc = "Resize split (larger/horiz)" })
 -- Think of wz as standing for 'window zoom'. It just opens a new tab window split window. Close tab when finished
 map("n", "<leader>wz", "<cmd>tab split<cr>", { desc = "Zoom current split to full-screen" })
 
+-- :NavBuddy shortcut
+map("n", "<leader>NB", function() require("nvim-navbuddy").open() end, { desc = "Navbuddy" })
+
 -- Winbar toggles
 vim.o.winbar = "%=%m %f" -- Default to on
 
