@@ -93,15 +93,21 @@ map("n", "<leader>wJ", ":res +5<cr>", { desc = "Resize split (larger/horiz)" })
 -- Think of wz as standing for 'window zoom'. It just opens a new tab window split window. Close tab when finished
 map("n", "<leader>wz", "<cmd>tab split<cr>", { desc = "Zoom current split to full-screen" })
 
--- Winbar toggle
+-- Winbar toggles
 vim.o.winbar = "%=%m %f" -- Default to on
+
 map("n", "<leader>wb", function()
   if vim.o.winbar == "" then
     vim.o.winbar = "%=%m %f"
   else
-    vim.o.winbar = ""
+    require("barbecue.ui").toggle()
   end
-end, { desc = "Winbar Toggle" })
+end, { desc = "Winbar Toggle Between Barbecue" })
+
+map("n", "<leader>wB", function()
+  require("barbecue.ui").toggle(false)
+  vim.o.winbar = ""
+end, { desc = "Winbar Hide" })
 
 -- Vimscript-based plugins ------------------------------------------------
 

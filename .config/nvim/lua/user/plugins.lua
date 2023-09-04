@@ -19,6 +19,15 @@ return packer.startup(function(use)
 
   use("folke/tokyonight.nvim")
 
+  use({
+    "utilyre/barbecue.nvim",
+    tag = "*",
+    requires = {
+      "SmiteshP/nvim-navic",
+    },
+    config = function() require("barbecue").setup() end,
+  })
+
   use("neovim/nvim-lspconfig")
   use("jose-elias-alvarez/null-ls.nvim")
   use("simrat39/inlay-hints.nvim") -- EOL hints until nvim supports anticonceal
