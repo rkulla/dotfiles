@@ -46,6 +46,7 @@ lua require('user/indent-blankline')
 lua require('user/navbuddy')
 lua require('user/lsp')
 lua require('user/null-ls')
+lua require('user/oil')
 packadd plenary.nvim
 packadd telescope.nvim
 lua require('user/telescope')
