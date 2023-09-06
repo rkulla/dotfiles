@@ -29,13 +29,13 @@ require("gitsigns").setup({
     map("n", "<leader>guf", "<cmd>G restore --staged %<cr>", { desc = "Git unstage file" })
     map({ "n", "v" }, "<leader>gRh", ":Gitsigns reset_hunk<CR>", { desc = "Git reset HUNK's modifications!" })
     map("n", "<leader>gRf", gs.reset_buffer, { desc = "Git reset FULL FILE's modifications!" })
-    map("n", "<leader>gp", gs.preview_hunk, { desc = "Git preview hunk" })
     map("n", "<leader>gbd", function() gs.blame_line({ full = true }) end, { desc = "Git blame line w/diff" })
     map("n", "<leader>gbl", gs.toggle_current_line_blame, { desc = "Git toggle current line blame" })
     map("n", "<leader>gbf", "<cmd>G blame<cr>", { desc = "Git blame file" })
-    map("n", "<leader>gdt", gs.diffthis, { desc = "Git diff this file" })
-    map("n", "<leader>gdl", function() gs.diffthis("~") end, { desc = "Git diff last file" })
-    map("n", "<leader>gdi", gs.toggle_deleted, { desc = "Git toggle inline Diff Preview" })
+    map("n", "<leader>gdc", gs.diffthis, { desc = "Git diff current changes to this file" })
+    map("n", "<leader>gdl", function() gs.diffthis("~") end, { desc = "Git diff last changes to this file" })
+    map("n", "<leader>gdp", gs.preview_hunk, { desc = "Git diff preview hunk" })
+    map("n", "<leader>gdP", gs.toggle_deleted, { desc = "Git diff preview file" })
 
     -- Text object
     map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
