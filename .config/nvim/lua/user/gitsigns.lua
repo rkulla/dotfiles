@@ -23,11 +23,12 @@ require("gitsigns").setup({
     end, { expr = true })
 
     -- Actions
+    map("n", "<leader>gsf", gs.stage_buffer, { desc = "Git stage file" })
     map({ "n", "v" }, "<leader>gsh", ":Gitsigns stage_hunk<CR>", { desc = "Git stage hunk" })
-    map("n", "<leader>gus", gs.undo_stage_hunk, { desc = "Gitsigns unstage hunk" })
-    map({ "n", "v" }, "<leader>guh", ":Gitsigns reset_hunk<CR>", { desc = "Git HUNK's modifications" })
-    map("n", "<leader>gsf", gs.stage_buffer, { desc = "Git stage (add) current file" })
-    map("n", "<leader>guF", gs.reset_buffer, { desc = "Git undo FULL FILE's modifications" })
+    map("n", "<leader>guh", gs.undo_stage_hunk, { desc = "Git unstage hunk" })
+    map("n", "<leader>guf", "<cmd>G restore --staged %<cr>", { desc = "Git unstage file" })
+    map({ "n", "v" }, "<leader>gRh", ":Gitsigns reset_hunk<CR>", { desc = "Git reset HUNK's modifications!" })
+    map("n", "<leader>gRf", gs.reset_buffer, { desc = "Git reset FULL FILE's modifications!" })
     map("n", "<leader>gp", gs.preview_hunk, { desc = "Git preview hunk" })
     map("n", "<leader>gbd", function() gs.blame_line({ full = true }) end, { desc = "Git blame line w/diff" })
     map("n", "<leader>gbl", gs.toggle_current_line_blame, { desc = "Git toggle current line blame" })
