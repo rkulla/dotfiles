@@ -1,7 +1,7 @@
 require("gitsigns").setup({
   on_attach = function(bufnr)
     local gs = package.loaded.gitsigns
-    -- gs.toggle_current_line_blame() -- enable current line blame by default
+    gs.toggle_current_line_blame() -- enable current line blame by default
 
     local function map(mode, l, r, opts)
       opts = opts or {}
@@ -23,17 +23,18 @@ require("gitsigns").setup({
     end, { expr = true })
 
     -- Actions
-    map({ "n", "v" }, "<leader>hs", ":Gitsigns stage_hunk<CR>")
-    map({ "n", "v" }, "<leader>hr", ":Gitsigns reset_hunk<CR>")
-    map("n", "<leader>hS", gs.stage_buffer, { desc = "Gitsigns stage_buffer" })
-    map("n", "<leader>hu", gs.undo_stage_hunk, { desc = "Gitsigns stage_hunk" })
-    map("n", "<leader>hp", gs.preview_hunk, { desc = "Gitsigns preview_hunk" })
-    map("n", "<leader>hB", function() gs.blame_line({ full = true }) end, { desc = "Gitsigns blame_line" })
-    map("n", "<leader>hb", gs.toggle_current_line_blame, { desc = "Gitsigns toggle_current_line_blame" })
-    map("n", "<leader>hq", gs.reset_buffer, { desc = "Gitsigns reset_buffer" }) -- delete all changes to the file
-    map("n", "<leader>hd", gs.diffthis, { desc = "Gitsigns diffthis" }) -- show current changes of full file
-    map("n", "<leader>hD", function() gs.diffthis("~") end, { desc = "Gitsigns diffthis vs last" }) -- show changes the current file last did
-    map("n", "<leader>td", gs.toggle_deleted, { desc = "Gitsigns toggle_deleted" }) -- show deleted version of changed line too
+    map({ "n", "v" }, "<leader>gsh", ":Gitsigns stage_hunk<CR>", { desc = "Git stage hunk" })
+    map("n", "<leader>gus", gs.undo_stage_hunk, { desc = "Gitsigns unstage hunk" })
+    map({ "n", "v" }, "<leader>guh", ":Gitsigns reset_hunk<CR>", { desc = "Git HUNK's modifications" })
+    map("n", "<leader>gsf", gs.stage_buffer, { desc = "Git stage (add) current file" })
+    map("n", "<leader>guF", gs.reset_buffer, { desc = "Git undo FULL FILE's modifications" })
+    map("n", "<leader>gp", gs.preview_hunk, { desc = "Git preview hunk" })
+    map("n", "<leader>gbd", function() gs.blame_line({ full = true }) end, { desc = "Git blame line w/diff" })
+    map("n", "<leader>gbl", gs.toggle_current_line_blame, { desc = "Git toggle current line blame" })
+    map("n", "<leader>gbf", "<cmd>G blame<cr>", { desc = "Git blame file" })
+    map("n", "<leader>gdt", gs.diffthis, { desc = "Git diff this file" }) -- show current changes of full file
+    map("n", "<leader>gdl", function() gs.diffthis("~") end, { desc = "Git diff last file" })
+    map("n", "<leader>gdi", gs.toggle_deleted, { desc = "Git diff inline toggle" }) -- Preview deleted changes
 
     -- Text object
     map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
