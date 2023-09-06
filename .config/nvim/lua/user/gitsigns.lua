@@ -33,9 +33,9 @@ require("gitsigns").setup({
     map("n", "<leader>gbd", function() gs.blame_line({ full = true }) end, { desc = "Git blame line w/diff" })
     map("n", "<leader>gbl", gs.toggle_current_line_blame, { desc = "Git toggle current line blame" })
     map("n", "<leader>gbf", "<cmd>G blame<cr>", { desc = "Git blame file" })
-    map("n", "<leader>gdt", gs.diffthis, { desc = "Git diff this file" }) -- show current changes of full file
+    map("n", "<leader>gdt", gs.diffthis, { desc = "Git diff this file" })
     map("n", "<leader>gdl", function() gs.diffthis("~") end, { desc = "Git diff last file" })
-    map("n", "<leader>gdi", gs.toggle_deleted, { desc = "Git diff inline toggle" }) -- Preview deleted changes
+    map("n", "<leader>gdi", gs.toggle_deleted, { desc = "Git toggle inline Diff Preview" })
 
     -- Text object
     map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
