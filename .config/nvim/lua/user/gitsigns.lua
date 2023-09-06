@@ -34,8 +34,8 @@ require("gitsigns").setup({
     map("n", "<leader>gbf", "<cmd>G blame<cr>", { desc = "Git blame file" })
     map("n", "<leader>gdc", gs.diffthis, { desc = "Git diff current changes to this file" })
     map("n", "<leader>gdl", function() gs.diffthis("~") end, { desc = "Git diff last changes to this file" })
-    map("n", "<leader>gdp", gs.preview_hunk, { desc = "Git diff preview hunk" })
     map("n", "<leader>gdP", gs.toggle_deleted, { desc = "Git diff preview file" })
+    map("n", "<leader>gdp", gs.preview_hunk, { desc = "Git diff preview hunk" })
 
     -- Text object
     map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
