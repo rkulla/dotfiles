@@ -55,12 +55,13 @@ null_ls.setup({
     map("n", "<leader>fd", "<cmd>Telescope diagnostics<cr>", { buffer = bufnr, desc = "Telescope LSP diagnostics" })
     map("n", "<leader>fr", "<cmd>Telescope lsp_references<cr>", { buffer = bufnr, desc = "Telescope LSP references" })
     map("n", "<leader>fsd", "<cmd>Telescope lsp_document_symbols<cr>", { buffer = bufnr, desc = "Telescope LSP Document Symbols" })
-    map(
-      "n",
-      "<leader>fsw",
-      function() require("telescope.builtin").lsp_dynamic_workspace_symbols({ file_ignore_patterns = { "node_modules", "vendor" } }) end,
-      { buffer = bufnr, desc = "Telescope LSP Workspace Symbols" }
-    )
+    map("n", "<leader>fsw", function()
+      require("telescope.builtin").lsp_dynamic_workspace_symbols({
+        file_ignore_patterns = { "node_modules", "vendor" },
+        -- symbol_width = 40,  -- Only enable this on wider monitor, like at work
+        -- fname_width = 40,   -- Only enable this on wider monitor, like at work
+      })
+    end, { buffer = bufnr, desc = "Telescope LSP Workspace Symbols" })
 
     -- Trouble / Toggle
     map("n", "<leader>tt", "<cmd>TroubleToggle<cr>", { buffer = bufnr, desc = "TroubleToggle" })

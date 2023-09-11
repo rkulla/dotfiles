@@ -73,6 +73,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 
 lspconfig.tsserver.setup({
   on_attach = on_attach,
+  -- TODO get auto-imports working. (null-ls was abanandoed so may wait for native ability)
 })
 
 lspconfig.gopls.setup({
