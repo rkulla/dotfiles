@@ -1,4 +1,7 @@
+local actions = require("telescope.actions")
+local actions_state = require("telescope.actions.state")
 local map = vim.keymap.set
+
 map("n", "<leader>fx", require("telescope.builtin").git_files, { desc = "Telescope git_files" })
 map("n", "<leader>x", require("telescope.builtin").git_files, { desc = "Telescope git_files" })
 map("n", "<leader>ff", require("telescope.builtin").find_files, { desc = "Telescope find_files" })
@@ -33,15 +36,15 @@ map(
 -- TODO: TEMPORARY WORKAROUND UNTIL THE OFFICIAL PR #807 IS MERGED TO OPEN MULTIPLE SECTIONS:
 -- Taken from https://github.com/nvim-telescope/telescope.nvim/issues/1048
 local select_one_or_multi = function(prompt_bufnr)
-  local picker = require("telescope.actions.state").get_current_picker(prompt_bufnr)
+  local picker = actions_state.get_current_picker(prompt_bufnr)
   local multi = picker:get_multi_selection()
   if not vim.tbl_isempty(multi) then
-    require("telescope.actions").close(prompt_bufnr)
+    actions.close(prompt_bufnr)
     for _, j in pairs(multi) do
       if j.path ~= nil then vim.cmd(string.format("%s %s", "edit", j.path)) end
     end
   else
-    require("telescope.actions").select_default(prompt_bufnr)
+    actions.select_default(prompt_bufnr)
   end
 end
 
@@ -58,9 +61,28 @@ require("telescope").setup({
     },
   },
   defaults = { -- TODO: TEMP WORKAROUND from https://github.com/nvim-telescope/telescope.nvim/issues/1048
+    layout_config = {
+      width = 0.99, -- This will set the width to 90% of the screen width
+      height = 0.99, -- This will set the height to 80% of the screen height
+      horizontal = {
+        width_padding = 0.1,
+        height_padding = 0.1,
+        preview_width = function(_, cols, _)
+          return math.floor(cols * 0.50) -- Adjust as needed
+        end,
+      },
+    },
+
     mappings = {
       i = {
-        ["<CR>"] = select_one_or_multi,
+        ["<CR>"] = select_one_or_multi, -- TODO: My temp multi-file select workaround
+        ["<esc>"] = actions.close, -- Close telescope instead of escaping to NORMAL mode
+        ["<C-k>"] = actions.preview_scrolling_up,
+        ["<C-j>"] = actions.preview_scrolling_down,
+        ["<C-l>"] = actions.preview_scrolling_right,
+        ["<C-h>"] = actions.preview_scrolling_left,
+        ["<C-S-L>"] = actions.results_scrolling_right,
+        ["<C-S-H>"] = actions.results_scrolling_left,
       },
     },
   },
