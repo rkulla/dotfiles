@@ -42,6 +42,7 @@ lua require('user/plugins')
 " Comment out any `packadd` to not load that plugin
 " Only plugins that have opt=true in user/plugins.lua will go to /opt (be lazyloaded)
 lua require('user/lualine')
+lua require('user/flash')
 lua require('user/indent-blankline')
 lua require('user/navbuddy')
 lua require('user/lsp')
