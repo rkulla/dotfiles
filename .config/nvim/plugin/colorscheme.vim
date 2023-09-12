@@ -20,10 +20,14 @@ au ColorScheme * call s:MyHighlights()
 
 " Flash.nvim color highlighting functions
 function! s:setFlashLight()
-    hi FlashLabel guibg=yellow guifg=black
+    hi FlashMatch guibg=magenta guifg=white " distinguish from / Search colors
+    hi FlashCurrent guibg=lightgreen guifg=black gui=bold " first match
+    hi FlashLabel guibg=yellow guifg=black gui=bold
 endfunction
 
 function! s:setFlashDark()
+    hi FlashMatch guibg=magenta guifg=white " distinguish from / Search colors
+    hi FlashCurrent guibg=lightgreen guifg=black gui=bold " first match
     hi FlashLabel guibg=yellow guifg=black
 endfunction
 

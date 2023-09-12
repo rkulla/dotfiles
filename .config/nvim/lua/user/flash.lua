@@ -1,6 +1,7 @@
 local map = vim.keymap.set
 
 map({ "n", "o", "x" }, "s", function() require("flash").jump() end, { desc = "Flash" })
+map("o", "r", function() require("flash").remote() end, { desc = "Remote Flash" })
 
 require("flash").setup({
   modes = {
