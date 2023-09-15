@@ -13,15 +13,14 @@ null_ls.setup({
     formatting.stylua.with({
       extra_args = { "--indent-type", "Spaces", "--indent-width", "2", "--column-width", "145", "--collapse-simple-statement", "Always" },
     }),
-    -- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md
-    formatting.prettierd, -- Employer likes it but at home I prefer eslint for formatting
+    formatting.prettierd, -- Work likes using this but at home I prefer eslint for formatting. Toggle accordingly
     diagnostics.eslint_d, -- `eslint .` on large projects timesout so caching is better
     code_actions.eslint_d, -- enable code actions for eslint as well
     diagnostics.tsc, -- additional typescript-compiler typechecking
     diagnostics.jsonlint, -- json file linter
     diagnostics.vint, -- vim file linting
-    diagnostics.hadolint, -- Dockerifle linter
-    diagnostics.shellcheck, -- Shell script linter
+    diagnostics.hadolint, -- Dockerfile linter
+    diagnostics.shellcheck, -- shell file linting
     code_actions.shellcheck,
     code_actions.gitsigns, -- git action on a hunk
   },
@@ -32,17 +31,17 @@ null_ls.setup({
     map("n", "gr", vim.lsp.buf.references, { buffer = bufnr, desc = "LSP references" })
     map("n", "K", vim.lsp.buf.hover, { buffer = bufnr, desc = "LSP hover" })
     map("n", "<leader>la", vim.lsp.buf.code_action, { buffer = bufnr, desc = "LSP code action" })
-    map("n", "<leader>ld", vim.diagnostic.open_float, { buffer = bufnr, desc = "LSP diagnostic float" })
-    map("n", "<leader>lD", vim.diagnostic.setloclist, { buffer = bufnr, desc = "LSP diagnostic loclist" })
+    map("n", "<leader>lDF", vim.diagnostic.open_float, { buffer = bufnr, desc = "LSP diagnostic float" })
+    map("n", "<leader>lDL", vim.diagnostic.setloclist, { buffer = bufnr, desc = "LSP diagnostic loclist" })
     map("n", "<leader>lh", vim.diagnostic.hide, { buffer = bufnr, desc = "LSP diagnostic hide" })
     map("n", "<leader>li", vim.lsp.buf.implementation, { buffer = bufnr, desc = "LSP implementation" })
     map("n", "<leader>lR", vim.lsp.buf.rename, { buffer = bufnr, desc = "LSP rename" })
     map("n", "<leader>lS", vim.lsp.buf.signature_help, { buffer = bufnr, desc = "LSP signature help" })
-    map("n", "<leader>lsd", vim.lsp.buf.document_symbol, { buffer = bufnr, desc = "LSP document symbols" })
-    map("n", "<leader>lsw", vim.lsp.buf.workspace_symbol, { buffer = bufnr, desc = "LSP workspace symbols" })
+    map("n", "<leader>ld", vim.lsp.buf.document_symbol, { buffer = bufnr, desc = "LSP document symbols" })
+    map("n", "<leader>lw", vim.lsp.buf.workspace_symbol, { buffer = bufnr, desc = "LSP workspace symbols" })
     map("n", "<leader>lt", vim.lsp.buf.type_definition, { buffer = bufnr, desc = "LSP type definition" })
-    map("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", { desc = "Diagnostic goto_next" })
     map("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", { desc = "Diagnostic goto_prev" })
+    map("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", { desc = "Diagnostic goto_next" })
 
     -- Formatting: includes range formatting as long as your LSP client allows it, e.g., tsserver does, but gopls not yet
     map({ "n", "v" }, "<leader>lf", function() vim.lsp.buf.format({ async = true }) end, { buffer = bufnr, desc = "LSP format" })
@@ -52,16 +51,16 @@ null_ls.setup({
     map("n", "<leader>rc", vim.lsp.codelens.run, { buffer = bufnr, desc = "LSP run codelens action" })
 
     -- Telescope
-    map("n", "<leader>fd", "<cmd>Telescope diagnostics<cr>", { buffer = bufnr, desc = "Telescope LSP diagnostics" })
-    map("n", "<leader>fr", "<cmd>Telescope lsp_references<cr>", { buffer = bufnr, desc = "Telescope LSP references" })
-    map("n", "<leader>fsd", "<cmd>Telescope lsp_document_symbols<cr>", { buffer = bufnr, desc = "Telescope LSP Document Symbols" })
-    map("n", "<leader>fsw", function()
+    map("n", "<leader>fD", "<cmd>Telescope diagnostics<cr>", { buffer = bufnr, desc = "Find LSP diagnostics" })
+    map("n", "<leader>fr", "<cmd>Telescope lsp_references<cr>", { buffer = bufnr, desc = "Find LSP references" })
+    map("n", "<leader>fd", "<cmd>Telescope lsp_document_symbols<cr>", { buffer = bufnr, desc = "Find LSP Document Symbols" })
+    map("n", "<leader>fw", function()
       require("telescope.builtin").lsp_dynamic_workspace_symbols({
         file_ignore_patterns = { "node_modules", "vendor" },
-        -- symbol_width = 40,  -- Only enable this on wider monitor, like at work
-        -- fname_width = 40,   -- Only enable this on wider monitor, like at work
+        symbol_width = 40, -- since my work computer uses a 32" monitor this is fine
+        fname_width = 40,
       })
-    end, { buffer = bufnr, desc = "Telescope LSP Workspace Symbols" })
+    end, { buffer = bufnr, desc = "Find LSP Workspace Symbols" })
 
     -- Trouble / Toggle
     map("n", "<leader>tt", "<cmd>TroubleToggle<cr>", { buffer = bufnr, desc = "TroubleToggle" })
