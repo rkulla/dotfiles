@@ -115,7 +115,16 @@ require("telescope").setup({
         ["<C-S-L>"] = actions.results_scrolling_right,
         ["<C-S-H>"] = actions.results_scrolling_left,
       },
-      n = { s = flash },
+      n = {
+        s = flash,
+        ["<CR>"] = select_one_or_multi, -- TODO: My temp multi-file select workaround
+        ["<C-k>"] = actions.preview_scrolling_up,
+        ["<C-j>"] = actions.preview_scrolling_down,
+        ["<C-l>"] = actions.preview_scrolling_right,
+        ["<C-h>"] = actions.preview_scrolling_left,
+        ["<C-S-L>"] = actions.results_scrolling_right,
+        ["<C-S-H>"] = actions.results_scrolling_left,
+      },
     },
   },
 })
