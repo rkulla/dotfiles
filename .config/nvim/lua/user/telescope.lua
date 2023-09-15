@@ -89,7 +89,7 @@ require("telescope").setup({
     mappings = {
       i = {
         ["<CR>"] = select_one_or_multi, -- TODO: My temp multi-file select workaround
-        ["<esc>"] = actions.close, -- Close telescope instead of escaping to NORMAL mode
+        -- ["<esc>"] = actions.close, -- Close telescope instead of escaping to NORMAL mode
         ["<C-k>"] = actions.preview_scrolling_up,
         ["<C-j>"] = actions.preview_scrolling_down,
         ["<C-l>"] = actions.preview_scrolling_right,
