@@ -61,6 +61,24 @@ local select_one_or_multi = function(prompt_bufnr)
   end
 end
 
+-- Function to bind Telescope mappings to for Flash.nvim integration
+local function flash(prompt_bufnr)
+  require("flash").jump({
+    pattern = "^",
+    label = { after = { 0, 0 } },
+    search = {
+      mode = "search",
+      exclude = {
+        function(win) return vim.bo[vim.api.nvim_win_get_buf(win)].filetype ~= "TelescopeResults" end,
+      },
+    },
+    action = function(match)
+      local picker = actions_state.get_current_picker(prompt_bufnr)
+      picker:set_selection(match.pos[1] - 1)
+    end,
+  })
+end
+
 require("telescope").setup({
   pickers = {
     find_files = {
@@ -97,6 +115,7 @@ require("telescope").setup({
         ["<C-S-L>"] = actions.results_scrolling_right,
         ["<C-S-H>"] = actions.results_scrolling_left,
       },
+      n = { s = flash },
     },
   },
 })
