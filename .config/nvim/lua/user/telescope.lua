@@ -120,16 +120,18 @@ require("telescope").setup({
       hijack_netrw = true,
     },
   },
-  defaults = { -- TODO: TEMP WORKAROUND from https://github.com/nvim-telescope/telescope.nvim/issues/1048
+  defaults = {
+    -- This path_display/dynamic_preview_title/layout_config combo allows me to avoid wanting a 43" monitor!
     path_display = { "truncate" },
+    dynamic_preview_title = true,
     layout_config = {
-      width = 0.99, -- This will set the width to 90% of the screen width
-      height = 0.99, -- This will set the height to 80% of the screen height
+      width = 0.99, -- 0.99 will set the width to 99% of the screen width
+      height = 0.99, -- % of screen height
       horizontal = {
         width_padding = 0.1,
         height_padding = 0.1,
         preview_width = function(_, cols, _)
-          return math.floor(cols * 0.50) -- Adjust as needed
+          return math.floor(cols * 0.60) -- Adjust as needed
         end,
       },
     },
