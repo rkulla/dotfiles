@@ -55,3 +55,4 @@ packadd nvim-tree.lua
 lua require('user/nvim-tree')
 lua require('user/gitsigns')
 lua require('user/inlay-hints')
+lua require('user/vim-signature')

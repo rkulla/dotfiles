@@ -84,6 +84,8 @@ return packer.startup(function(use)
 
   use("nvim-lualine/lualine.nvim")
 
+  use("kshenoy/vim-signature")
+
   use("lukas-reineke/indent-blankline.nvim")
 
   -- install markdown-preview without yarn or npm
