@@ -19,6 +19,7 @@ return packer.startup(function(use)
 
   -- colorscheme should go before most plugins
   use("folke/tokyonight.nvim")
+  use({ "catppuccin/nvim", as = "catppuccin" })
   use("folke/flash.nvim")
 
   use({
