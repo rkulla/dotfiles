@@ -1,4 +1,6 @@
+local telescope = require("telescope")
 local actions = require("telescope.actions")
+local actions_layout = require("telescope.actions.layout")
 local actions_state = require("telescope.actions.state")
 local map = vim.keymap.set
 
@@ -108,10 +110,30 @@ local function flash(prompt_bufnr)
   })
 end
 
-require("telescope").setup({
+local M = {
+  telescope_display_mode = "truncate",
+}
+
+local function toggle_path(prompt_bufnr)
+  if M.telescope_display_mode == "truncate" then
+    telescope.setup({ defaults = { path_display = { "absolute" } } })
+    M.telescope_display_mode = "absolute"
+  else
+    telescope.setup({ defaults = { path_display = { "truncate" } } })
+    M.telescope_display_mode = "truncate"
+  end
+
+  actions_state.get_current_picker(prompt_bufnr):refresh()
+end
+
+telescope.setup({
   pickers = {
+    git_files = {
+      layout_strategy = "horizontal",
+    },
     find_files = {
       find_command = { "fd", "--type", "f", "-H" },
+      layout_strategy = "horizontal",
     },
   },
   extensions = {
@@ -124,6 +146,7 @@ require("telescope").setup({
     -- This path_display/dynamic_preview_title/layout_config combo allows me to avoid wanting a 43" monitor!
     path_display = { "truncate" },
     dynamic_preview_title = true,
+    results_title = false,
     layout_config = {
       width = 0.99, -- 0.99 will set the width to 99% of the screen width
       height = 0.99, -- % of screen height
@@ -131,7 +154,7 @@ require("telescope").setup({
         width_padding = 0.1,
         height_padding = 0.1,
         preview_width = function(_, cols, _)
-          return math.floor(cols * 0.60) -- Adjust as needed
+          return math.floor(cols * 0.60) -- % the Preview window should consume
         end,
       },
     },
@@ -146,6 +169,9 @@ require("telescope").setup({
         ["<C-h>"] = actions.preview_scrolling_left,
         ["<C-S-L>"] = actions.results_scrolling_right,
         ["<C-S-H>"] = actions.results_scrolling_left,
+        ["<C-p>"] = actions_layout.toggle_preview,
+        ["<C-S-P>"] = toggle_path,
+        ["<C-n>"] = actions_layout.cycle_layout_next,
       },
       n = {
         s = flash,
@@ -156,6 +182,9 @@ require("telescope").setup({
         ["<C-h>"] = actions.preview_scrolling_left,
         ["<C-S-L>"] = actions.results_scrolling_right,
         ["<C-S-H>"] = actions.results_scrolling_left,
+        ["<C-p>"] = actions_layout.toggle_preview,
+        ["<C-S-P>"] = toggle_path,
+        ["<C-n>"] = actions_layout.cycle_layout_next,
       },
     },
   },
