@@ -284,6 +284,11 @@ function gfadded {
     git log -n 1 --follow --diff-filter=A -- "$1"
 }
 
+# Find all the commits of a file, printed concisely (`gsa` in neovim)
+function gfallcom {
+    git log --pretty=reference -- "$1"
+}
+
 # wraps cht.sh curl calls for faster lookup
 function how { 
     curl cheat.sh/"$1"/"$2?Q" 

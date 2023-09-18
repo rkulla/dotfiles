@@ -117,5 +117,6 @@ end, { desc = "Winbar Hide" })
 -- Vimscript-based plugins ------------------------------------------------
 
 -- Fugitive
-map("n", "gst", "<cmd>G status<cr>", { desc = "Fugitive status" })
-map("n", "gsf", "<cmd>Gclog -n 1 --follow --diff-filter=A -- %<cr>", { desc = "Git first added commit" })
+map("n", "gst", "<cmd>G status<cr>", { desc = "Git status" })
+map("n", "gsf", "<cmd>Gclog -n 1 --follow --diff-filter=A -- %<cr>", { desc = "Git [curr file] first added" })
+map("n", "gsa", "<cmd>Gclog --pretty=reference -- %<cr>", { desc = "Git all commits [curr file]" })
