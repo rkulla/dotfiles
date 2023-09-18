@@ -118,3 +118,4 @@ end, { desc = "Winbar Hide" })
 
 -- Fugitive
 map("n", "gst", "<cmd>G status<cr>", { desc = "Fugitive status" })
+map("n", "gsf", "<cmd>Gclog -n 1 --follow --diff-filter=A -- %<cr>", { desc = "Git first added commit" })

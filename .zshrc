@@ -279,6 +279,11 @@ function ccom {
     code $(git log --name-only "$1".. --oneline | sed 1d)
 }
 
+# Find the commit/date a file was first added to git (`gsf` in neovim)
+function gfadded {
+    git log -n 1 --follow --diff-filter=A -- "$1"
+}
+
 # wraps cht.sh curl calls for faster lookup
 function how { 
     curl cheat.sh/"$1"/"$2?Q" 
