@@ -11,7 +11,8 @@ require("flash").setup({
     search = {
       -- when `true`, flash will be activated during regular search by default.
       -- You can always toggle when searching with `require("flash").toggle()`
-      enabled = true,
+      -- I NEVER enable this because I hate how it escapes out of my searches
+      enabled = false,
     },
   },
 })
