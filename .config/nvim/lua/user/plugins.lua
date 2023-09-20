@@ -34,7 +34,6 @@ return packer.startup(function(use)
     "utilyre/barbecue.nvim",
     tag = "*",
     requires = {},
-    config = function() require("barbecue").setup() end,
   })
 
   use("neovim/nvim-lspconfig")
