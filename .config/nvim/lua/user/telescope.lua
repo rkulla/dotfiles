@@ -128,12 +128,18 @@ end
 
 telescope.setup({
   pickers = {
+    live_grep = {
+      layout_strategy = "horizontal",
+      prompt_prefix = " ",
+    },
     git_files = {
       layout_strategy = "horizontal",
+      prompt_prefix = " ",
     },
     find_files = {
       find_command = { "fd", "--type", "f", "-H" },
       layout_strategy = "horizontal",
+      prompt_prefix = " ",
     },
   },
   extensions = {
