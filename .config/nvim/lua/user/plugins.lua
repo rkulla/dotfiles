@@ -58,6 +58,8 @@ return packer.startup(function(use)
   -- Better quickfix. Gives telescope previews to quickfix, etc
   use({ "kevinhwang91/nvim-bqf" })
 
+  use({ "rmagatti/goto-preview" })
+
   use("folke/trouble.nvim")
 
   use({
