@@ -51,6 +51,7 @@ lua require('user/oil')
 packadd plenary.nvim
 packadd telescope.nvim
 lua require('user/telescope')
+lua require('user/bqf')
 packadd nvim-tree.lua
 lua require('user/nvim-tree')
 lua require('user/gitsigns')
