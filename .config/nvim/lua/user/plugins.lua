@@ -22,6 +22,8 @@ return packer.startup(function(use)
   use({ "catppuccin/nvim", as = "catppuccin" })
   use("folke/flash.nvim")
 
+  use("simrat39/symbols-outline.nvim")
+
   use({
     "SmiteshP/nvim-navbuddy",
     requires = {
