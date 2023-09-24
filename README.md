@@ -76,7 +76,7 @@ Make sure to click the `privacy` tab and add any dirs you to ignore, such as a b
 
 I also prefer spotlight over Karabiner Elements/Automator.app/Shortcuts.app/BetterTouchTool for keyboard shortcuts because none of those work proprerly with Sharemouse, Barrier or other Virtual KVM's because those vKVM tools don't respect shortcuts on anything but the primary device (whatever machine the keyboard is plugged into) and/or they will get intercepted by applications that also look for similar shortcuts. I've yet to find a single native or 3rd party app that supports this and it's just as good to use spotlight than remember more shortcuts anyway. So just open/switch to firefox with spolight `alt+space f[ire]` and once it's open use FF's browser search keyboard shortcuts:
 
-    %  # Search for an open tab by typing a term it has in the title such as `foo`
+    %  # Search for an open tab
     *  # Search bookmarks
     ^  # Search history
 
