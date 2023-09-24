@@ -20,9 +20,11 @@ Clone my `code-snippets` repo to ~/repos unless it's a work machine, in which ca
 Install `Firefox`
 
 Install `Homebrew` and if it's an m-chip mac, add the following to ~/.zprofile so brew and brew installed commands show in my $PATH
-  Note: Homebrew on apple silicon has a different location  (don't do this step on x86)
-  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/rkulla/.zprofile
-eval "$(/opt/homebrew/bin/brew shellenv)"
+
+Note: Homebrew on apple silicon has a different location (don't do this step on x86):
+
+    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/rkulla/.zprofile
+    eval "$(/opt/homebrew/bin/brew shellenv)"
 
 The `realpath` command from coreutils is required to run install.sh. I typically brew install:
 
