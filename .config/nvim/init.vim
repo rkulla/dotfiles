@@ -17,6 +17,11 @@ set spellfile=$HOME/.config/nvim/spell/en.utf-8.add   " Spellfile location
 autocmd BufRead,BufNewFile *.txt,*.md setlocal spell  " File types to enable spell checking on
 autocmd User TelescopePreviewerLoaded setlocal number " Make file numbers work in Telescope's preview window
 
+" Block cursor in normal mode, always blinking so ^z to terminal maintains blinking
+set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
+    \,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor
+    \,sm:block-blinkwait175-blinkoff150-blinkon175
+
 " So `:SE foo` finds exact word `foo`. NOTE: vim regex is \<foo\> not \bfoo\b
 command! -nargs=1 SE execute 'normal! /\<' . <q-args> . '\><CR>'
 
