@@ -35,14 +35,12 @@ command! SetFlashLight call s:setFlashLight()
 command! SetFlashDark call s:setFlashDark()
 
 " Default colors
-" Explicitly default to the light version to avoid flickering on nvim startup
-" Automatic/default configs don't, so I run `:Dark` when needed
-colorscheme tokyonight-day
+colorscheme catppuccin-macchiato
 
 " Make it so you can just type :Dark to use my dark theme
 " And :Light to go back to my normal theme
 function! Dark()
-  colorscheme catppuccin-mocha
+  colorscheme catppuccin-macchiato
   set background=dark
   SetFlashDark
 endfunction
@@ -51,5 +49,7 @@ function! Light()
   color tokyonight-day
   set background=light
   SetFlashLight
+
 endfunction
 command! -nargs=0 Light call Light()
+

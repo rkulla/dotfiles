@@ -144,7 +144,7 @@ prevent the window resizing when you see profiles.
 
 Under `Terminal` enable `unlimited scrollback` and `mouse reporting`
 
-Right click 'Other actions' and make `l` the default profile.
+Right click 'Other actions' and make `d` the default profile.
 
 By default, new split panes reset back to $HOME but I want pwd:
 

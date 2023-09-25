@@ -50,7 +50,6 @@ lua require('user/barbecue')
 lua require('user/lsp')
 lua require('user/null-ls')
 lua require('user/oil')
-packadd plenary.nvim
 packadd telescope.nvim
 lua require('user/telescope')
 lua require('user/bqf')
