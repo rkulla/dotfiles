@@ -285,6 +285,8 @@ I prefer this over installing 'themes' since usually I just use my default backg
 
 ## Tmux
 
+See also: [terminfo-sources section of this README](#terminfo-sources)
+
 Make sure to first: brew install reattach-to-user-namespace
 
 Install plugins:
