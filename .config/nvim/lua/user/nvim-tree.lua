@@ -18,7 +18,7 @@ end
 require("nvim-tree").setup({
   sort_by = "name",
   view = {
-    width = table,
+    width = 32, -- If need wider, drag window
   },
 
   on_attach = my_on_attach,
