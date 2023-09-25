@@ -21,6 +21,7 @@ return packer.startup(function(use)
   use("folke/tokyonight.nvim")
   use({ "catppuccin/nvim", as = "catppuccin" })
   use("folke/flash.nvim")
+  use("NvChad/nvim-colorizer.lua")
 
   use("simrat39/symbols-outline.nvim")
 
