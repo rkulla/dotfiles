@@ -46,7 +46,7 @@ function! Dark()
 endfunction
 command! -nargs=0 Dark call Dark()
 function! Light()
-  color tokyonight-day
+  color catppuccin-latte
   set background=light
   SetFlashLight
 
