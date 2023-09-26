@@ -2,7 +2,7 @@
 
 My dotfiles and configuration files in general!
 
-[Summary](#summary) | [Installing](#installing) | [iCloud Drive](#icloud-drive) | [Spotlight](#spotlight) | [Zsh](#zsh) | [Keyboard speed](#keyboard-speed) | [~/bin scripts](#bin-scripts) | [Vim](#vim) | [Git](#git) | [Go](#golang) | [NodeJS](#nodejs) | [Rust](#rust) | [Neovim](#neovim) | [Iterm2](#iterm2) | [Terminfo](#terminfo-sources) | [VSCode](#vscode) | [Uninstalling](#uninstalling) | [ESLint](#eslint) | [Tmux](#tmux) | [irssi](#irssi) | [Finder](#finder)
+[Summary](#summary) | [Installing](#installing) | [iCloud Drive](#icloud-drive) | [Spotlight](#spotlight) | [Shortcuts](#shortcuts) | [Zsh](#zsh) | [Keyboard speed](#keyboard-speed) | [~/bin scripts](#bin-scripts) | [Vim](#vim) | [Git](#git) | [Go](#golang) | [NodeJS](#nodejs) | [Rust](#rust) | [Neovim](#neovim) | [Iterm2](#iterm2) | [Terminfo](#terminfo-sources) | [VSCode](#vscode) | [Uninstalling](#uninstalling) | [ESLint](#eslint) | [Tmux](#tmux) | [irssi](#irssi) | [Finder](#finder)
 
 ## Summary
 
@@ -74,11 +74,26 @@ In finder, don't forget to set .txt files to open in MacVim or it will open in T
 
 Make sure to click the `privacy` tab and add any dirs you to ignore, such as a backup drive (so it doesn't try to load your backups instead of the main file). Checking the statusbar in MacVim will help confirm the path!
 
-I also prefer spotlight over Karabiner Elements/Automator.app/Shortcuts.app/BetterTouchTool for keyboard shortcuts because none of those work proprerly with Sharemouse, Barrier or other Virtual KVM's because those vKVM tools don't respect shortcuts on anything but the primary device (whatever machine the keyboard is plugged into) and/or they will get intercepted by applications that also look for similar shortcuts. I've yet to find a single native or 3rd party app that supports this and it's just as good to use spotlight than remember more shortcuts anyway. So just open/switch to firefox with spolight `alt+space f[ire]` and once it's open use FF's browser search keyboard shortcuts:
+## Shortcuts
+
+To launch apps I prefer Spotlight over Karabiner Elements/Automator.app/Shortcuts.app/BetterTouchTool for keyboard shortcuts because none of those work proprerly with Sharemouse, Barrier or other Virtual KVM's because those vKVM tools don't respect shortcuts on anything but the primary device (whatever machine the keyboard is plugged into) and/or they will get intercepted by applications that also look for similar shortcuts. I've yet to find a single native or 3rd party app that supports this and it's just as good to use spotlight than remember more shortcuts anyway. So just open/switch to firefox with spolight `alt+space f[ire]` and once it's open use FF's browser search keyboard shortcuts:
 
     %  # Search for an open tab
     *  # Search bookmarks
     ^  # Search history
+
+To switch between open apps use `cmd+tab` to see all apps but I also `brew install alt-tab` to use alt+tab and blacklist certain apps from showing up. Can optionally enable screen recording for it to show window previews. Works better than Ctrl+Up to Mission Control because that doesn't support keyboard movements to select windows once it's open (but does support window hiding with Cmd+h). I prefer this to `Witch` since it's free and open-source.
+
+To disable caps lock:
+
+    - Go to System Preferences > Keyboard shortcuts > keyboard shortcuts > Modifier Keys
+    - In the dropdown menu next to `Caps Lock Key`, choose "No Action" to disable it
+
+To switch between headphones and speakers with keyboard shortcut:
+
+    - Get the 'Instant Audio Switcher' app for free from the Apple store
+    - In the preferences set a keyboard shortcut cmd+alt+1 to toggle between headphones and speakers
+    - Might also have to go into the device tab in the app's preferences and enable a secondary device first (choosing speaker for one and headphones for the primary)
 
 ## Zsh
 
