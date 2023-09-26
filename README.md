@@ -2,7 +2,7 @@
 
 My dotfiles and configuration files in general!
 
-[Summary](#summary) | [Installing](#installing) | [iCloud Drive](#icloud-drive) | [Spotlight](#spotlight) | [Shortcuts](#shortcuts) | [Zsh](#zsh) | [Keyboard speed](#keyboard-speed) | [~/bin scripts](#bin-scripts) | [Vim](#vim) | [Git](#git) | [Go](#golang) | [NodeJS](#nodejs) | [Rust](#rust) | [Neovim](#neovim) | [Iterm2](#iterm2) | [Terminfo](#terminfo-sources) | [VSCode](#vscode) | [Uninstalling](#uninstalling) | [ESLint](#eslint) | [Tmux](#tmux) | [irssi](#irssi) | [Finder](#finder)
+[Summary](#summary) | [Installing](#installing) | [iCloud Drive](#icloud-drive) | [Spotlight](#spotlight) | [Shortcuts](#shortcuts) | [Zsh](#zsh) | [Keyboard speed](#keyboard-speed) | [~/bin scripts](#bin-scripts) | [Vim](#vim) | [Git](#git) | [Go](#golang) | [NodeJS](#nodejs) | [Rust](#rust) | [Neovim](#neovim) | [Alacritty](#alacritty) | [Iterm2](#iterm2) | [Terminfo](#terminfo-sources) | [VSCode](#vscode) | [Uninstalling](#uninstalling) | [ESLint](#eslint) | [Tmux](#tmux) | [irssi](#irssi) | [Finder](#finder)
 
 ## Summary
 
@@ -33,7 +33,7 @@ The `realpath` command from coreutils is required to run install.sh. I typically
       pyenv wget ctags diffutils nmap fd nnn reattach-to-user-namespace zenity htop ncdu rsync \
       screen zsh-syntax-highlighting zsh-you-should-use shellcheck jsonlint fzf irssi sqlite jq \
       asdf the_silver_searcher ripgrep yamllint httpie diff-so-fancy fnm glow lazygit lazydocker \
-      lsd vint hadolint groff
+      lsd vint hadolint groff alacritty alt-tab amethyst
 
 ### Run the dotfiles install script
 
@@ -95,6 +95,12 @@ To switch between headphones and speakers with keyboard shortcut:
 - In the preferences set a keyboard shortcut cmd+alt+1 to toggle between headphones and speakers
 - Might also have to go into the device tab in the app's preferences and enable a secondary device first (choosing speaker for one and headphones for the primary)
 
+Things NOT to bother with (already tried and didn't like or work well):
+
+- App launchers: Automator.app, Shortcuts.App, Karabiner Elements, BetterTouchTool (none work with virtual KVM software like Sharemouse. Alfred works but just use Spotlight)
+- App shortcuts: Google Chrome app shortcuts don't work well for UI elements. Use native apps and/or dedicated Firefox window for site + Fullscreen workspace
+- Bookmark/history search from Spotlight/Alfred. Not consistent. Just use firefox's \* search in address bar to search bookmarks and ^ for history
+
 ## Zsh
 
 #### site-functions
@@ -130,6 +136,11 @@ Install MacVim and then install my plugins by cloning vimogen to ~/repos and run
 
      $ vimogen
      1 # install
+
+## Alacritty
+
+Brew install `alacritty` and it will use my config file automatically. No further setup required!
+Use with Tiling Window manager `amethyst`, ideally, so windows will auto-title.
 
 ## iterm2
 
