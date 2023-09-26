@@ -86,14 +86,14 @@ To switch between open apps use `cmd+tab` to see all apps but I also `brew insta
 
 To disable caps lock:
 
-    - Go to System Preferences > Keyboard shortcuts > keyboard shortcuts > Modifier Keys
-    - In the dropdown menu next to `Caps Lock Key`, choose "No Action" to disable it
+- Go to System Preferences > Keyboard shortcuts > keyboard shortcuts > Modifier Keys
+- In the dropdown menu next to `Caps Lock Key`, choose "No Action" to disable it
 
 To switch between headphones and speakers with keyboard shortcut:
 
-    - Get the 'Instant Audio Switcher' app for free from the Apple store
-    - In the preferences set a keyboard shortcut cmd+alt+1 to toggle between headphones and speakers
-    - Might also have to go into the device tab in the app's preferences and enable a secondary device first (choosing speaker for one and headphones for the primary)
+- Get the 'Instant Audio Switcher' app for free from the Apple store
+- In the preferences set a keyboard shortcut cmd+alt+1 to toggle between headphones and speakers
+- Might also have to go into the device tab in the app's preferences and enable a secondary device first (choosing speaker for one and headphones for the primary)
 
 ## Zsh
 
