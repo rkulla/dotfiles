@@ -767,10 +767,11 @@ cursor:
 # in the order they were defined in.
 key_bindings:
   - {key: 9, mods: Command, action: ResetFontSize}
-#- { key: Paste,                                       action: Paste          }
-#- { key: Copy,                                        action: Copy           }
-#- { key: L,         mods: Control,                    action: ClearLogNotice }
-#- { key: L,         mods: Control, mode: ~Vi|~Search, chars: "\x0c"          }
+  #- { key: Paste,                                       action: Paste          }
+  #- { key: Copy,                                        action: Copy           }
+  - {key: K, mods: Control, action: ClearHistory}
+  #- { key: L,         mods: Control,                    action: ClearLogNotice }
+  - {key: L, mods: Control, mode: ~Vi|~Search, chars: "\x0c"}
 #- { key: PageUp,    mods: Shift,   mode: ~Alt,        action: ScrollPageUp   }
 #- { key: PageDown,  mods: Shift,   mode: ~Alt,        action: ScrollPageDown }
 #- { key: Home,      mods: Shift,   mode: ~Alt,        action: ScrollToTop    }
@@ -807,4 +808,3 @@ key_bindings:
 #- { key: Up,                          mode: Vi|~Search, action: Up                      }
 #- { key: Down,                        mode: Vi|~Search, action: Down                    }
 #- { key: Left,                        mode: Vi|~Search, action: Left                    }
-
