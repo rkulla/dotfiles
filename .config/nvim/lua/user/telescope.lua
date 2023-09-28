@@ -130,15 +130,20 @@ telescope.setup({
   pickers = {
     live_grep = {
       layout_strategy = "horizontal",
-      prompt_prefix = " ",
+      prompt_title = " Grep ",
+      prompt_prefix = "󰙔 ",
+      results_title = "󰱽 Ripgrep Results",
     },
     git_files = {
       layout_strategy = "horizontal",
-      prompt_prefix = " ",
+      prompt_title = " Repo Files",
+      prompt_prefix = "  ",
+      results_title = " Results",
     },
     find_files = {
       find_command = { "fd", "--type", "f", "-H" },
       layout_strategy = "horizontal",
+      prompt_title = " All Files",
       prompt_prefix = " ",
     },
   },
