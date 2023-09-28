@@ -201,5 +201,7 @@ telescope.setup({
   },
 })
 
--- Enable Downloaded Extensions
+-- Enable Downloaded Extensions (install these plugins first, after telescope)
 require("telescope").load_extension("file_browser")
+-- telescope-fzf-native.nvim (Let's me use fzf syntax)
+require("telescope").load_extension("fzf")

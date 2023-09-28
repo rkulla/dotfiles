@@ -54,7 +54,12 @@ return packer.startup(function(use)
   })
   -- requires telescope
   use({ "nvim-telescope/telescope-file-browser.nvim" })
-  -- requires telescope and `gh` cli
+  -- requires telescope and `brew install cmake`. Makes it so I can use fzf syntax operators like ', ^, !, etc.
+  use({
+    "nvim-telescope/telescope-fzf-native.nvim",
+    run = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+  })
+  -- requires telescope and `brew install gh`
   use("nvim-telescope/telescope-github.nvim")
 
   -- Better quickfix. Gives telescope previews to quickfix, etc
