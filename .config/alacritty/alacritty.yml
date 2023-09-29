@@ -769,7 +769,8 @@ key_bindings:
   - {key: 9, mods: Command, action: ResetFontSize}
   #- { key: Paste,                                       action: Paste          }
   #- { key: Copy,                                        action: Copy           }
-  - {key: K, mods: Control, action: ClearHistory}
+  # Don't map to Contrl-k since conflicts with my Telescope.nvim scrollup map!
+  - {key: K, mods: Command, action: ClearHistory}
   #- { key: L,         mods: Control,                    action: ClearLogNotice }
   - {key: L, mods: Control, mode: ~Vi|~Search, chars: "\x0c"}
 #- { key: PageUp,    mods: Shift,   mode: ~Alt,        action: ScrollPageUp   }
