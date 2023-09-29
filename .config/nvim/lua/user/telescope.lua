@@ -205,3 +205,4 @@ telescope.setup({
 require("telescope").load_extension("file_browser")
 -- telescope-fzf-native.nvim (Let's me use fzf syntax)
 require("telescope").load_extension("fzf")
+require("telescope").load_extension("gh")
