@@ -17,6 +17,7 @@ map(
   '<cmd>lua require("telescope.builtin").buffers(require("telescope.themes").get_ivy { winblend = 10, previewer = true } )<CR>',
   { desc = "Find buffers" }
 )
+map("n", "<space>fB", [[<Cmd>lua require('telescope').extensions.bookmarks.bookmarks()<CR>]], { desc = "Find Firefox Bookmarks" })
 map(
   "n",
   "<leader>fc",

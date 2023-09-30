@@ -47,6 +47,8 @@ return packer.startup(function(use)
 
   -- Plenary is required for certain plugins like Telescope
   use("nvim-lua/plenary.nvim")
+  -- sqlite.lua is needed for certain plugins, like telescope-bookmarks
+  use({ "kkharji/sqlite.lua" })
 
   use({
     "nvim-telescope/telescope.nvim",
@@ -61,6 +63,8 @@ return packer.startup(function(use)
   })
   -- requires telescope and `brew install gh`
   use("nvim-telescope/telescope-github.nvim")
+  -- requires telescope and sqlite.lua (for firefox bookmarks to work)
+  use({ "dhruvmanila/browser-bookmarks.nvim", tag = "*" })
 
   -- Better quickfix. Gives telescope previews to quickfix, etc
   use({ "kevinhwang91/nvim-bqf" })

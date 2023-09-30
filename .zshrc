@@ -188,7 +188,7 @@ alias gba='git branch -a'
 # Make my diff-so-fancy alias even shorter
 alias dsf='git dsf'
 alias gd='dsf' # brew install diff-so-fancy
-alias gdc='git diff --cached --word-diff'
+alias gdc='gd --cached --word-diff'
 alias gst='git status'
 alias gsur='git submodule update --init --recursive' # gsur [--remote] when needed
 alias pj='prettyjson'
