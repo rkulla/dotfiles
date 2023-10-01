@@ -37,6 +37,8 @@ require("gitsigns").setup({
     map("n", "<leader>gdP", gs.toggle_deleted, { desc = "Git diff preview file" })
     map("n", "<leader>gdp", gs.preview_hunk, { desc = "Git diff preview hunk" })
 
+    -- Note: Telescope keymaps for git signs are in telescope.lua (git_files, git_branches, etc)
+
     -- Text object
     map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
   end,

@@ -5,12 +5,15 @@ local actions_state = require("telescope.actions.state")
 local map = vim.keymap.set
 
 map("n", "<leader>?", require("telescope.builtin").help_tags, { desc = "Find help tags" })
-map("n", "<leader>fx", require("telescope.builtin").git_files, { desc = "Find git files" })
-map("n", "<leader>x", require("telescope.builtin").git_files, { desc = "Find git files" })
+map("n", "<leader>fx", require("telescope.builtin").git_files, { desc = "Find git files" }) -- git_signs
+map("n", "<leader>x", require("telescope.builtin").git_files, { desc = "Find git files" }) -- git_signs
 map("n", "<leader>X", require("telescope.builtin").find_files, { desc = "Find all files" })
 map("n", "<leader>fe", "<cmd>Telescope file_browser<cr>", { desc = "File expolorer" })
 map("n", "<leader>fl", require("telescope.builtin").oldfiles, { desc = "Find last opened files" })
 map("n", "<leader>fk", require("telescope.builtin").keymaps, { desc = "Find keymaps" })
+map("n", "<leader>gtb", require("telescope.builtin").git_branches, { desc = "Git Telescope branches" }) -- git_signs
+map("n", "<leader>gtl", require("telescope.builtin").git_commits, { desc = "Git Telescope log" }) -- git_signs
+map("n", "<leader>gts", require("telescope.builtin").git_status, { desc = "Git Telescope status" }) -- git_signs
 map(
   "n",
   "<leader>fb",
