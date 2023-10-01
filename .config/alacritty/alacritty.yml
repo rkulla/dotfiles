@@ -202,7 +202,7 @@ colors:
   primary:
     # background: '#1d1f21'
     # foreground: '#c5c8c6'
-    background: '#141414'
+    background: '#24273A'
     foreground: '#eff6ef'
   # Bright and dim foreground colors
   #
