@@ -1,5 +1,6 @@
 require("colorizer").setup({
   filetypes = {
+    "lua",
     "css",
     "javascript",
     "json",
