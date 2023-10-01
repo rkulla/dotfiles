@@ -22,11 +22,9 @@ set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
     \,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor
     \,sm:block-blinkwait175-blinkoff150-blinkon175
 
-" So `:SE foo` finds exact word `foo`. NOTE: vim regex is \<foo\> not \bfoo\b
-command! -nargs=1 SE execute 'normal! /\<' . <q-args> . '\><CR>'
-
 """ I put some configs in plugin/ (still loads on startup) to keep this file small
 " COLOR SCHEME:          plugin/colorscheme.vim
+" COMMANDS:              plugin/commands.vim
 " COMPLETION:            plugin/completion.vim
 " MARKDOWN:              plugin/markdown.vim
 " TERMINAL:              plugin/terminal.vim

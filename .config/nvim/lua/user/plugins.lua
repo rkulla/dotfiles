@@ -92,6 +92,7 @@ return packer.startup(function(use)
 
   use("tpope/vim-fugitive")
   -- rhubarb enables :GBrowse from fugitive to open GitHub
+  -- (Still required setting my own :Browse command, though)
   use("tpope/vim-rhubarb")
 
   use("lewis6991/gitsigns.nvim")
