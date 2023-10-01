@@ -315,6 +315,15 @@ function nn()
     fi
 }
 
+function fc() {
+    if [ "$#" -eq 0 ]; then
+        echo "fc without arguments is disabled. cd'ing to my neovim config instead."
+        cd ~/.config/nvim  # see also my cn alias
+    else
+        builtin fc "$@"
+    fi
+}
+
 # autojump (brew install autojump)
 [ -f $(brew --prefix)/etc/profile.d/autojump.sh ] && . $(brew --prefix)/etc/profile.d/autojump.sh
 # make completion work with autojump and the menu selection below
