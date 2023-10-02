@@ -20,6 +20,14 @@ map("n", "<leader>q", ":bd<cr>", { desc = "Close buffer" })
 -- Toggle line numbers
 map("n", "<leader>n", ":set invnumber<cr>", { desc = "Toggle line numbers" })
 
+-- Open ~/my-shortcuts.txt in a floating / telescope fuzzy find window
+map(
+  "n",
+  "<leader>sc",
+  ':lua require"user.myfloat".open_file_in_floating_window("~/my-shortcuts.txt")<CR><cmd>lua require("telescope.builtin").current_buffer_fuzzy_find()<CR>',
+  { silent = true, desc = "Open file in floating window" }
+)
+
 -- Open/Switch to README.rkulla in a split window for rapid viewing/editing
 map("n", "<leader>R", ":10sp README.rkulla<cr><cmd>set number!<cr>", { silent = true, desc = "Open README.rkulla" })
 
