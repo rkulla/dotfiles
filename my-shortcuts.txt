@@ -1,0 +1,313 @@
+_____________________________NVIM SHORTCUTS______________________
+
+Open files from CLI
+-------------------
+$ lcom                   List files last committed. Optionally pass a commit hash
+$ nmod                   Re-open modified files not yet committed
+                         - Can also SIMPLY open neovim, and in nvim-tree look for folders/files with an 'X' next to them and open those! 
+                           which has the added benefit of not opening modifiled files I might not want such as package-lock.json
+$ nnotmerged <merge-to>  Re-open committed but not merged files in a branch
+                         Then see the diffs: :Gvdiff <merge-to> on any file
+$ ncom <merged-to>       Re-open files you already merged. I.e, PR needs more work
+
+Open/Close buffers
+------------------
+X           Quit nvim
+<spc>q      Close buffer. <spc><spc> immediately to reopen it
+<spc><spc>  Toggle buffer
+<spc>wC     Close buffer and jump to next one. (<spc>q instead, to control which buffer to move to next. E.g., ^p for previous)
+:Clear      Close buffer and start a new one (keeps nvim-tree or split open)
+
+Search (Telescope)
+------------------
+NOTE:       I use telescope-fzf-native to use fzf syntax: 'foo (exact), ^foo (starts with), go$ (ends with), etc. (For grep use PCRE)
+            `|` for OR. EX: search just .json and yaml files in lex-authn-synacor/ subdir but not dev or local:
+               .json$ | .yml$ | .yaml$  ^lex-authn-synacor/ !dev !local
+<spc>sc     Opens THIS file for quick fuzzy filtering of shortcuts!
+<spc>x      Fuzzy Search for filenames tracked by git. Fastest. (Unlike X and fe it's REPO relative, not CWD relative)
+<spc>X      Fuzzy Search for ALL filenames (no git required. Slightly slower but more thorough)
+<spc>fe     Like <spc>X but a clearer/real TUI file explorer where you're navigating the file system
+<spc>fg     Fuzzy Grep all files in project (case-insensitive). Order is reversed, so scroll upward. ^d/^u to scroll file preview itself
+            This is like space+space in Webstorm, letting you grep with preview. Also do <Leader>gr to trace an object through code!
+            Since I'm using Rip-Grep (rg), use pcre-regex syntax, e.g., \bfoo\b to search the exact word `foo`
+            TAB to select multiple files and hit Enter to open (I have a workaround in user/telescope.lua)
+            Ctrl+q to send all telescope results to the quickfix
+<spc>fG     Same as <spc>fg but case-sensitive
+
+<spc>ff     Grep current file only  (TODO hoping current_buffer_fuzzy_find gets case-sensitive support to make a <spc>fF)
+<spc>fo     Grep only open files
+<spc>fO     Same as <spc>fo but case-sensitive
+<spc>*      Find word under cursor (exact word)
+<spc>fC     Command history
+<spc>fS     Search history
+
+<spc>fw     Fuzz search entire workspace's LSP symbols (ALL files. Like <spc>fg grepping for symbols. MY FAV! <spc>lw for quickfix)
+<spc>fd     Like <spc>fw but just search current document's LSP symbols
+<spc>fr     Like <spc>fw but exact match based on current word under cursor. `gr` for quickfix version
+<spc>fD     Fuzzy Search LSP diagnostic messages
+
+<spc>?      Fuzzy Search help_tags, including NeoVim plugin help (faster than googling!)
+<spc>fb     Like :ls and :b foo<cr> on steroids. Jump to buffer. (don't tab with :b unless needed or it slows down switching)
+<spc>fc     Fuzzy Search nvim configs (no need to cd ~/.config/nvim/...)
+<spc>fk     Fuzzy Search all NeoVim keymaps
+<spc>fl     Fuzzy search last opened files
+<spc>fm     Fuzzy search marks (use CAPITAL A-Z for multi-file. `:delmarks A-Z` deletes. `:SignatureToggleSigns` toggles)
+            Upper-case marks also make it so I don't have to reopen all the files containing them, it can load them as-needed!
+            ^o / ^i moves backwards/forwards through :jumps list (last _cursor positions_ / implicit marks). `` toggles. 
+            g; / gi moves backward/forwards through _changes_. `. always moves to last change. Use ALL of these!
+
+GitHub PR / Issues Search (Telescope gh extension)
+--------------------------------------------------
+:Telescope gh pull_request          Find PRs by author ('kulla) and view its modified files! Better than global author search
+                                    state=open (default), state=all, or state=closed
+                                    ^e toggle diff view.  ^f browse modified files. ^t open in web browser
+                                    My <spc>fC to search command history to find/RUN past commands
+                                    CAREFUL: <cr> checks out PR (:G co - to get back) ^a approves, ^r MERGES
+:Telescope gh issues author=rkulla  We don't use GitHub issues at work, but useful for home/open source
+
+Telescope Results & Preview windows
+-----------------------------------
+`*`     Highlight word                            (jj to NORMAL first)
+s       Flash.nvim jump to RESULTS line           (jj to NORMAL first)
+H/M/L   Jump to Highest, Middle, or Lowest result (jj to NOMRAL first)
+
+k       Scroll up RESULTS window                  (jj to NORMAL first)
+j       Scroll down RESULTS window                (jj to NORMAL first)
+^H      Scroll left RESULTS window
+^L      Scroll right RESULTS window
+
+^k      Scroll up PREVIEW window
+^j      Scroll down PREVIEW window
+^h      Scroll left PREVIEW window
+^l      Scroll right PREVIEW window
+
+^p      Toggle preview window
+^P      Toggle path (truncate vs absolute)
+^n      Cycle through different layouts (horizontal / vertical)
+
+Search (Flash.nvim)
+-------------------
+s           Start flash mode, next letter(s) will get highlighted with random letter next to it to jump to that pos
+            <CR> will jump to first match (highlighted a different color)
+            Note that this ONLY shows you matches on the CURRENT PAGE for quick jumping. Use /foo to search full file
+            Also works in Telescope's results window if you ESC to normal mode
+f<char>     Works with (`f`, `F`, `t`, `T`, `;` and `,` motions). E.g., f( anywhere in file can jump to next with ;
+yr<char>    Prepare to yank at position <char>. First jump to the char then finish the y command, e.g., `t}` `iw`, etc.,
+            Which acts as if you were already on that line/pos and typed yt}, yiw, etc but puts you back where you were.
+            Useful for quickly yanking text "remotely" (from elsewhere in the file) to paste at the current position
+            
+Search (Misc)
+-------------
+:SE foo           Find the exact word `foo` on the page. Faster than typing \<foo\> (vim's version of \bfoo\b)
+/foo              Then ^g / ^t to preview search down/up IN THE / PROMPT. After applying with ENTER, use N to go upward. foo|\bar too
+Cursor on symbol  Auto-highlights all of that symbol in file. (gr to see all references to it). Cursor on 'func' or 'return' args too!
+
+LSP (includes linting)
+----------------------
+Note: If LSP doesn't work on a JS/TS project:
+  - make sure node -v is at least v14 (fnm use 14.20.0). And make sure 'node_modules/' exists.
+  - make sure `which typescript-language-server` is found, else install with:
+        $ npm i -g typescript-language-server  # yes install THIS globally since `npm ci` would wipe it out each time
+    Then RESTART neovim before trying commands or even `:LspInfo` again (which should now show 'tsserver' is attached)
+
+K         Shows hover documentation for thing under cursor (also works more than signature help)
+gd        Go to definition (<spc>li is similar but shows in quickfix if multiple results)
+gr        View/jump to references (callees/callers/symbols). Great for tracing flow of code! <spc>fr for Fuzzy version
+<spc>la   Show code actions for current line
+<spc>fd   Search all symbols in current document. <spc>ld for quickfix version
+<spc>tt   Toggle Trouble.nvim to see all diagnostic for current buffer
+<spc>ll   Show codelens inlay action (e.g., show 'run test')
+<spc>rc   Run codelens action (e.g., run unit test)
+
+End / Home  Next/prev quickfix item. <spc>wqq (quit quickfix window)
+^d / ^u     Scroll down/up Telescope file preview float
+]q / [q     Next/prev quickfix item (w/o moving cursor)
+]d / [d     Next/prev LSP diagnostic
+]c / [c     Next/prev git change
+
+NavBuddy (navigate LSP symbols)
+-------------------------------
+:Nav[buddy]  `:Nav` alone will open Navbuddy to QUICKLY review a code file! (since it shows the main outline you can navigate)
+t            Fuzzy filter with Telescope integration. `/` for exact word search
+j / k        Move CURSOR down/up
+h / l        Move CURSOR to right/left panel (parent/children)
+0            Move CURSOR all the way up to left most panel (root)
+J / K        Move SYMBOL down/up IN THE CODE!
+r            Renames a symbol (across the whole file! Like my <spc>lR)
+d            Delete a symbol / scope (e.g., maybe the full block alone. See the selected text in preview)
+f / F        Fold / unfold
+y / Y        Yanks the symbol name to clipboard. `Y` yanks the scoped block
+i / I        Insert mode at beginning of name or scope
+a / A        Insert mode appended at end of name / scope
+^v / ^s      Opens selected node in a vertical or horizontal split. :on to close other one
+c            Comment out (requires Comment.nvim)
+g?           Shortcut reference
+
+
+Select
+------
+vi{        Select everything INSIDE {} - even multiple lines or if cursor is anywhere. Works for parens, quotes, etc.
+va{        Like vi{ but also includes the {}'s themselves. Again works on other types of enclosing chars too. Triple-Click too
+Shift+V %  Select everything INCLUDING the lines { and } start and end on, just start the Shift+V on the first line
+vit        Select everything in <tag></tags> - even if it's a multi-line block
+
+TODO: typescript-language-server supports LSP's textDocument.selectionRange (range selection) however neovim still requires plugin
+      camilledejoye/nvim-lsp-selection-range which is more trouble than its worth so wait for native support to vim.lsp.buf:
+         https://github.com/neovim/neovim/issues/19492
+      I can basically do this in vscode with ctrl+cmd+shift+<right> or <left> to expand/shrink the selection
+Note: range-select is largely overrated, I still love vim's native selection stuff as shown above
+
+nvim-surround
+-------------
+cs'"     Change single quotes to double quotes:  'foo' becomes "foo"
+ds(      Deletes ()'s around text. Works on word or line and from any cursor position!
+dsf      Delete function. E.g., foo(bar) becomes bar, foo() becomes nothing
+csf      Change function name. Even works on methods and jumps straight to them
+yswf     Surround a word in a function. Prompts you for function name to surround a word with. Even works for adding foo.bar()
+ysw(     Surround a word with ()'s 
+yss(     Surround a line with ()'s 
+ysa{[    Add []'s around existing {}'s
+dst      Removes html/xml tags from line:  <foo>bar</foo> becomes bar
+ysst     Put <p></p> around a line of text by typing `p` at the prompt
+yswt     Put <p> tags around a single word
+cst      Change existing <foo> tags to <p> by typing `p` at the prompt
+
+File Explorer buffer (oil.nvim)
+-------------------------------
+-            Typing a dash in normal mode opens a file explorer in a buffer, relative to the current file
+             Simply edit, add or remove files using vim commands and :w to write changes. :bw to close oil
+
+File Explorer pane (nvim-tree. Type g? for all shortcuts)
+---------------------------------------------------------
+<spc>e       Toggle nvim-tree
+<spc>nf      Expand current file's path in nvim-tree (or just <spc>e to toggle nvim-tree)
+<spc>nc / W  Collapse all nvim-tree dir
+H            Toggle hidden (dot) files / 
+TAB          Open file as a 'preview' buffer. Keeps cursor in nvim-tree and further TABS ovewrite that buffer
+]c / [c      Jump to next / prev git item
+a / r / d    Add / Rename / Delete. (a trailing slash will create a directory instead of a file)
+y / Y / gy   Copy filename / relative path / absolute path
+c / x / p    Copy file / Cut File / Paste file (meant to do within the tree itself)
+m / bmv      Toggle mark / bmv will then bulk move all the files you selected
+^v / ^x      Open in vertical or horizontal split
+P / J / -    Move cursor to parent dir / last sibling / Actually Navigate to full parent dir (like cd ..)
+^k / .       Show file info / Enter vim command mode (:) e.g., to do things like `:ls -l`
+S / s        Prompts for a file/word to search for in tree / Open file in associated system app
+
+File Explorer preview (Telescope)
+---------------------------------
+<spc>fe      Run telescope file_browser. Great for fuzzy search/PREVIEWING FILE CONTENTS quickly w/o opening a buffer
+             Enter on a dir will go into that dir so you can preview ITS files. Enter to open a file
+
+Git (Gitsigns)
+--------------
+]c / [c       Jump to next / prev git item
+<spc>gsf      Stage file
+<spc>gsh      Stage hunk
+<spc>guh      Unstage hunk
+<spc>guf      Unstage file
+<spc>gRh      Reset HUNK's modifications!
+<spc>gRf      Reset FULL FILE's modifications!
+<spc>gbd      Blame line w/diff
+<spc>gbl      Toggle current line blame
+<spc>gbf      Blame file
+<spc>gdc      Diff current changes to this file
+<spc>gdl      Diff last changes to this file
+<spc>gdP      diff preview file  (type again to toggle off)
+<spc>gdp      diff preview hunk  (move cursor to turn off)
+
+<spc>gtb      `git branches` as a Telescope fuzzy search (enter checks out branch)
+<spc>gtl      `git log` as a Telescope fuzzy search / diff preview!
+<spc>gts      `git status` as a Telescope fuzzy search / diff preview!
+
+Git (Fugitive)
+--------------
+:G                       with no args brings up the interactive staging/commit area. USE this not the shell prompt/git cli!
+                         `=` Toggles an inline diff of file under cursor
+                         `-` Toggles between `s` and `u`. Stage/Unstage. (Shift+V to select multiple and toggle at once)
+                         `cc` Open a commit window to enter a message, then you can :wq and `:G push`
+                         `Enter` Opens file 
+                         `X` CAREFUL, this wipes all changes to the file under cursor! To undo see :messages
+
+:G <any git cli command> Great for `:G blame`, etc. <Leader>q to close. ^o to nav back a level
+:G add %                 Stage current file. Or my <spc>gsf  (git state file git-signs map)
+:G log %                 See git log of current file in split. ENTER on commit for diff. ^o for previous view
+                         `:G lol` for my lol alias (quick view, no split) or `G lol %` for current file
+:Gclog                   See git log+diff in quickfix. `:Gclog %` for current file. Use -Sfoo for pixaxe (great for history of a LINE)
+
+:Gvdiff [<branch>]       Current file's diff (vertical split). No args for modified changes. `:Gvdiff HEAD~1` for last commit
+                         `Gvdiff master` from my branch rkulla/foo to be just like a PR's diff!
+:Ghdiff [<branch>]       Like :Gvdiff but horizontal split.
+
+:G co -b foo             Create/switch to branch `foo`
+
+:GBrowse [<file|sha>]    Opens github.com link to current file (or specific file or commit) in web browser
+
+gst                      Keymap for `git status`
+gsf                      Keymap for finding when the current file was FIRST ADDED to the repo (or `gfadded <path>` on the cli)
+gsa                      Keymap for listing all commit message/date of current file (or `gfallcom <path>` on the cli)
+
+
+Unit Testing (find corresponding tests)
+---------------------------------------
+gr    View references to real function under cursor. In vim-bqf's preview I can scroll quickfix for test files to preview all tests
+gpr   Like gr, but a floating window instead (uses goto-preview.nvim)
+
+
+terminal-mode
+-------------
+:term        Open full-screen terminal shell buffer
+<sp>ta       Opens a horizontal split above current buffer, with a terminal shell
+(TUI apps like glow <spc>mp and lazygit inside of vim)
+JJ / JK      Esc terminal-mode (so it's not an interactive terminal but acts like a regular buffer)
+<spc>si      Runs `:startinsert` on the terminal buffer to interact with the process again
+
+Misc.
+-----
+<Spc>R            Opens gitignored README.rkulla for brief per-project notes (current findings, todo)
+foo[tab]          Auto-complete with OmniComplete. ctrl+n / ctrl+p to scroll results down/up. Enter to select
+
+
+_____________________________MACOS SHORTCUTS______________________
+
+- MacOS Workspaces/window Switching:
+  - Note: Each monitor will have its own workspaces, so create them on the expected monitor(s)
+  - Note: LOOK at ANY window's title-bar to see if it's bold (focused) or dimmed (not focused) before using that window!
+  - Note: Right-click an app > Options > All desktops (to see that app/window on all workspaces. I do this for:
+            `System Preferences`, `Microsoft Outlook (so I always see meeting reminders!)`
+  - Ctrl-UP:                   See windows/workspaces (Mission Control)
+  - Cmd+h                      Hide window from workspace (^UP/Mission Control)
+  - Ctrl-Right/Left            Move to next/prev workspace
+  - Ctrl-Alt-Shift-Right/Left  Move window to next/prev work space
+  - Ctrl+<n>                   Move straight to workspace n
+  - Cmd+`                      Cycle through multiple open windows by the same app
+  - Alt-Tab                    Like Cmd-Tab but filters apps I don't want to see (brew install alt-tab). Single press toggles last window 
+
+- MacOS Terminals:
+  - Use Alacritty since it's faster, but doesn't support tabs or splits (use multiple windows+tiling window manager or tmux for that)
+    - I use `amethyst` tiling manager. Also, alacritty cmd+n creates new windows from relative dir of term you run that from!
+  - Optionally USE SSH, even if from my HOME computer on my desk + tmux, to see e.g., unit tests, web server logs, etc.
+  - Use Neovim for filesystem navigation:
+    - <spc>fe Telescope fuzzy file browser. Enter on ../ to go up a dir
+    - Typing `-` in normal mode opens a file explorer in a buffer, relative to the current file. Create/rm/edit filenames. :w to save
+
+
+_____________________________AMETHYST SHORTCUTS______________________
+
+Cmd+`                MacOS's shortcut to cycle an app's windows. (See top/left color menu bar buttons to see which window is active)
+Alt+Shift+Space      cycle through layouts. One will be a fullscreen window of main window
+Alt+Shift+enter      full-screen toggle any window. Default: Alt+Shift+d
+Alt+Shift+d          Select Row Layout)
+Alt+Shift+m          make focused window the main window. Default: Alt+Shift+enter
+Alt+Shift+k/j        shift focus clockwise or counter-clockwise)
+Ctrl+alt+Shift+k/j   swap focused window clockwise or counter-clockwise
+
+
+
+_____________________________FIREFOX SHORTCUTS______________________
+
+%  # Search for an open tab
+*  # Search bookmarks
+^  # Search history
+
+
