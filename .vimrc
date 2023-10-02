@@ -24,7 +24,6 @@ set incsearch                                       " Do incremental searching
 set shortmess=filnxtToOc                            " Don't add S or you won't see search counts in status, e.g., [1/2]
 set backspace=indent,eol,start                      " Allow backspacing over everything in insert mode
 set path+=**                                        " Allow :find, :tabf, etc to search the pwd and its subdirs
-set hidden                                          " To change buffers without having to save modified ones first
 set ignorecase                                      " Allow case-insensitive /searching
 set timeoutlen=1000 ttimeoutlen=0                   " Make Esc key a lot faster, e.g., closing fzf
 set tabpagemax=30                                   " So :tab ball will open up to 30 tabs instead of default 10
@@ -35,6 +34,10 @@ set confirm                                         " So :q, :bd, etc. on a chan
 set fo=t                                            " I don't want the format options that auto create comments
 set enc=utf-8                                       " Causes fencs to default to ucs-bom,utf-8,default,latin1
 set pastetoggle=<F10>                               " Useful when normal pasting doesn't work
+
+if !has('gui_running')                              " Don't set this for Gui/MacVim so cmd+w will confirm unsaved changes when I Cmd+W
+    set hidden                                      " To change buffers without having to save modified ones first
+endif
 
 " spellcheck
 set spelllang=en_us
