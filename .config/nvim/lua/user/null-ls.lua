@@ -18,6 +18,7 @@ null_ls.setup({
     code_actions.eslint_d, -- enable code actions for eslint as well
     diagnostics.tsc, -- additional typescript-compiler typechecking
     diagnostics.jsonlint, -- json file linter
+    diagnostics.yamllint, -- yaml file linter
     diagnostics.vint, -- vim file linting
     diagnostics.hadolint, -- Dockerfile linter
     diagnostics.shellcheck, -- shell file linting
@@ -67,7 +68,7 @@ null_ls.setup({
     map("n", "<leader>tr", "<cmd>TroubleToggle lsp_references<cr>", { buffer = bufnr, desc = "TroubleToggle lsp_references" })
 
     -- Format On Save
-    if client.supports_method("textDocument/formatting") then
+    if client.supports_method("textDocument/formatting") and client.name == "null_ls" then
       map("n", "<leader>tf", require("user.utils").toggle_autoformat, { buffer = bufnr, desc = "Toggle Null-ls Format On Save" })
 
       vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
