@@ -51,6 +51,7 @@ NOTE:       I use telescope-fzf-native to use fzf syntax: 'foo (exact), ^foo (st
 <spc>fc     Fuzzy Search nvim configs (no need to cd ~/.config/nvim/...)
 <spc>fk     Fuzzy Search all NeoVim keymaps
 <spc>fl     Fuzzy search last opened files
+<spc>fn     Fuzzy search notifications (e.g., after nvim-notify banners close)
 <spc>fm     Fuzzy search marks (use CAPITAL A-Z for multi-file. `:delmarks A-Z` deletes. `:SignatureToggleSigns` toggles)
             Upper-case marks also make it so I don't have to reopen all the files containing them, it can load them as-needed!
             ^o / ^i moves backwards/forwards through :jumps list (last _cursor positions_ / implicit marks). `` toggles. 

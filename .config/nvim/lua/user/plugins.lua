@@ -110,6 +110,8 @@ return packer.startup(function(use)
     opt = true,
   })
 
+  use 'rcarriga/nvim-notify'
+
   use({
     "nvim-tree/nvim-tree.lua",
     requires = {

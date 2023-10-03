@@ -8,7 +8,6 @@ endif
 
 " Overrides
 func! s:MyHighlights() abort
-  set termguicolors
   " Make it so my window borders are visible in my colorscheme
   hi winseparator guifg=bold guibg=bg
   " Change the color of the current line number

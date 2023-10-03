@@ -11,6 +11,7 @@ map("n", "<leader>X", require("telescope.builtin").find_files, { desc = "Find al
 map("n", "<leader>fe", "<cmd>Telescope file_browser<cr>", { desc = "File expolorer" })
 map("n", "<leader>fl", require("telescope.builtin").oldfiles, { desc = "Find last opened files" })
 map("n", "<leader>fk", require("telescope.builtin").keymaps, { desc = "Find keymaps" })
+map("n", "<leader>fn", require("telescope").extensions.notify.notify, { desc = "Find notifications" })
 map("n", "<leader>gtb", require("telescope.builtin").git_branches, { desc = "Git Telescope branches" }) -- git_signs
 map("n", "<leader>gtl", require("telescope.builtin").git_commits, { desc = "Git Telescope log" }) -- git_signs
 map("n", "<leader>gts", require("telescope.builtin").git_status, { desc = "Git Telescope status" }) -- git_signs
