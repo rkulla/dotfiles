@@ -296,11 +296,11 @@ _____________________________MACOS SHORTCUTS______________________
 _____________________________AMETHYST SHORTCUTS______________________
 
 Cmd+`                MacOS's shortcut to cycle an app's windows. (See top/left color menu bar buttons to see which window is active)
+Alt+Shift+k/j        shift focus clockwise or counter-clockwise). Like Cmd+` but works cycle focus of tiled windows of any app
 Alt+Shift+Space      cycle through layouts. One will be a fullscreen window of main window
 Alt+Shift+enter      full-screen toggle any window. Default: Alt+Shift+d
 Alt+Shift+d          Select Row Layout)
 Alt+Shift+m          make focused window the main window. Default: Alt+Shift+enter
-Alt+Shift+k/j        shift focus clockwise or counter-clockwise)
 Ctrl+alt+Shift+k/j   swap focused window clockwise or counter-clockwise
 
 

@@ -100,6 +100,7 @@ To switch between headphones and speakers with keyboard shortcut:
 Things NOT to bother with (already tried and didn't like or work well):
 
 - App launchers: Automator.app, Shortcuts.App, Karabiner Elements, BetterTouchTool (none work with virtual KVM software like Sharemouse. Alfred works but just use Spotlight)
+  (I still use Karabiner for certain additional shortcuts on my personal computer)
 - App shortcuts: Google Chrome app shortcuts don't work well for UI elements. Use native apps and/or dedicated Firefox window for site + Fullscreen workspace
 - Bookmark/history search from Spotlight/Alfred. Not consistent. Just use firefox's \* search in address bar to search bookmarks and ^ for history
 
