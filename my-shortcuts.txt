@@ -98,9 +98,10 @@ yr<char>    Prepare to yank at position <char>. First jump to the char then fini
             
 Search (Misc)
 -------------
-:SE foo           Find the exact word `foo` on the page. Faster than typing \<foo\> (vim's version of \bfoo\b)
-/foo              Then ^g / ^t to preview search down/up IN THE / PROMPT. After applying with ENTER, use N to go upward. foo|\bar too
-Cursor on symbol  Auto-highlights all of that symbol in file. (gr to see all references to it). Cursor on 'func' or 'return' args too!
+:SE foo                Find the exact word `foo` on the page. Faster than typing \<foo\> (vim's version of \bfoo\b)
+/foo                   Then ^g / ^t to preview search down/up IN THE / PROMPT. After applying with ENTER, use N to go upward. foo|\bar too
+?http://foo.com/x      Simply searching backwards with ? let's you paste a URLs without having to escape all the /'s 
+Cursor on symbol       Auto-highlights all of that symbol in file. (gr to see all references to it). Cursor on 'func' or 'return' args too!
 
 LSP (includes linting)
 ----------------------
@@ -307,7 +308,7 @@ Ctrl+alt+Shift+k/j   swap focused window clockwise or counter-clockwise
 _____________________________FIREFOX SHORTCUTS______________________
 
 %  # Search for an open tab
-*  # Search bookmarks
+*  # Search bookmarks (also use <spc>sc from nvim)
 ^  # Search history
 
 
