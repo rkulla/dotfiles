@@ -1,3 +1,50 @@
+# Ensure apps' name (and more) shows in title bar, of e.g., Alacritty
+function set_pro_title() {
+    if [[ "$1" == "precmd" ]]; then
+        COMMAND="${(j: :)DIRSTACK}"
+    else
+        COMMAND="$1"
+    fi
+
+    # Identify the terminal emulator
+    # case "$TERM_PROGRAM" in
+    case "${MY_TERM_PROGRAM:-$TERM_PROGRAM}" in
+        iTerm.app)
+            CURR_TERMINAL="iTerm2"
+            ;;
+        Alacritty)
+            CURR_TERMINAL="Alacritty"
+            ;;
+        *)
+            # Fallback or unknown terminal, you can adjust this
+            CURR_TERMINAL="Terminal Unknown"
+            ;;
+    esac
+
+    # Disambiguate $PWD if it is longer than 15 characters
+    if [[ ${#${(D)PWD}} -gt 15 ]]; then 
+        disambiguate
+        DISPLAY_PWD="$REPLY"
+    else 
+        DISPLAY_PWD="${(D)PWD}"
+    fi
+
+    # Add command to title if non-empty
+    if [[ -n "$COMMAND" ]]; then
+        CMD_STRING="(${COMMAND})"
+    else
+        CMD_STRING=""
+    fi
+
+    PRO_TITLE="\e]0;${CURR_TERMINAL} ${CMD_STRING} ${DISPLAY_PWD}\a"
+
+    echo -ne "$PRO_TITLE"
+}
+
+function preexec() {
+    set_pro_title "$1"
+}
+
 
 # Colored prompt with user, host, abbreviated cwd, and truncated branch name
 # %F{number} means foreground colors 0-255
@@ -27,6 +74,8 @@ function precmd {
     else
         PS1="%K{214}%F{100}%n%f%F{96}@%f%F{100}%m %F{0}%1v %F{100}%2v %f%k%F{96}$%f "
     fi
+
+    set_pro_title "precmd"
 }
 
 # 10ms for key sequences instead of 400ms (make ESC key fast in vim, etc)

@@ -165,7 +165,9 @@ and `tokyonight-storm` for `d`. I'll want the iterm2 background to match whateve
 
 Do the following for all the profiles I'll use.
 
-Under `General` > `Title` check `Job name` and `PWD`, so I can see things like the tab is vim and the directory name its in.
+Under `General` > `Title` check `Job` and `Applications in terminal may change the title`
+
+My zshrc already has config to set the title to the app, pwd and even which terminal program is being used (iterm2 or alacritty) but since iterm2 tries to force at least job name, I have logic to handle that in zshrc as well.
 
 Under `Text` enable `Box` and `Blinking cursor`.
 Change font to `Hack Nerd Font` / regular / 32. Uncheck 'Use ligatures'. By having the same size font in each profile, you'll
