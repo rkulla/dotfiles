@@ -1,10 +1,3 @@
-" Setting `termguicolors` means we'll use guifg/guibg not cterm.
-" Since some colorschemes reference &termguicolors, set this first
-if $TERM !~ 'rxvt\|linux' && (has('termguicolors'))
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
-endif
 
 " Overrides
 func! s:MyHighlights() abort
