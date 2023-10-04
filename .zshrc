@@ -232,6 +232,12 @@ alias grem='gh repo view --web'
 alias grempr='gh pr view --web'
 alias gp='git push'
 alias g='git'
+alias gad='git add .'
+alias ga.='git add .'
+# So i can just type `gcm "foo"` instead of `git commit -m "foo"`
+gcm() {
+  git ci -m "$1"
+}
 alias gb='git branch'
 alias gba='git branch -a'
 # Make my diff-so-fancy alias even shorter
