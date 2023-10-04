@@ -234,9 +234,13 @@ alias gp='git push'
 alias g='git'
 alias gad='git add .'
 alias ga.='git add .'
-# So i can just type `gcm "foo"` instead of `git commit -m "foo"`
+# So i can just type `gcm "foo"` instead of `git ci -m "foo"`
 gcm() {
-  git ci -m "$1"
+  if [ -z "$1" ]; then
+    echo "Please provide a commit message"
+    return 1
+  fi
+  git commit -m "$1"
 }
 alias gb='git branch'
 alias gba='git branch -a'
