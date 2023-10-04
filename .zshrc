@@ -230,7 +230,7 @@ alias get='echo "$(tput smul)WAS$(tput rmul)" && git lol | head -n 1 && echo "\n
 alias grem='gh repo view --web'
 # open PR in browser
 alias grempr='gh pr view --web'
-alias gpod='git pull origin develop'
+alias gp='git push'
 alias g='git'
 alias gb='git branch'
 alias gba='git branch -a'
