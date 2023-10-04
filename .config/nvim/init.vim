@@ -51,8 +51,9 @@ lua require('user/plugins')
 
 """ Plugin custom config files
 " Comment out any `packadd` to not load that plugin
-" Only plugins that have opt=true in user/plugins.lua will go to /opt (be lazyloaded)
+" Only plugins that have opt=true in user/plugins.lua will go to opt/ (be lazyloaded)
 lua require('user/lualine')
+lua require('user/notify')
 lua require('user/flash')
 lua require('user/nvim-colorizer')
 lua require('user/indent-blankline')
