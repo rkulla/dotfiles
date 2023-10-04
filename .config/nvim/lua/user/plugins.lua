@@ -110,12 +110,19 @@ return packer.startup(function(use)
     opt = true,
   })
 
-  use 'rcarriga/nvim-notify'
-
   use({
     "nvim-tree/nvim-tree.lua",
     requires = {
       "nvim-tree/nvim-web-devicons",
     },
   })
+
+  use({
+    "nvim-treesitter/nvim-treesitter",
+    run = ":TSUpdate",
+  })
+
+  use 'rcarriga/nvim-notify'
+  use("folke/noice.nvim")
+
 end)
