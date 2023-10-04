@@ -278,7 +278,7 @@ _____________________________MACOS SHORTCUTS______________________
   - Note: Right-click an app > Options > All desktops (to see that app/window on all workspaces. I do this for:
             `System Preferences`, `Microsoft Outlook (so I always see meeting reminders!)`
   - Ctrl-UP:                   See windows/workspaces (Mission Control)
-  - Cmd+h                      Hide window from workspace (^UP/Mission Control)
+  - Cmd+h                      Hide window from workspace (^UP/Mission Control). Tip: MINIMIZING is better for outlook, to see notifications
   - Ctrl-Right/Left            Move to next/prev workspace
   - Ctrl-Alt-Shift-Right/Left  Move window to next/prev work space
   - Ctrl+<n>                   Move straight to workspace n
@@ -295,7 +295,7 @@ _____________________________MACOS SHORTCUTS______________________
 
 
 _____________________________AMETHYST SHORTCUTS______________________
-
+NOTE:                Don't cmd+h to hide Outlook, or I won't see meeting notifications. INSTEAD, _minimize_ it!
 Cmd+`                MacOS's shortcut to cycle an app's windows. (See top/left color menu bar buttons to see which window is active)
 Alt+Shift+k/j        shift focus clockwise or counter-clockwise). Like Cmd+` but works cycle focus of tiled windows of any app
 Alt+Shift+Space      cycle through layouts. One will be a fullscreen window of main window
