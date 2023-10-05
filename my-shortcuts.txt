@@ -150,6 +150,12 @@ Completion
 foo[tab]  Auto-complete with OmniComplete (no plugin needed). Tab / Shift-Tab to scroll results down/up. Enter to select
           Note: noice.nvim shows function signature once I'm in function arguments, highlights current arg
 
+Markdown preview
+----------------
+<spc>md  Markdown renderer (uses `glow`). md for dark mode
+<spc>ml  like <spc>md but for when in light mode
+<spc>mp  Markdown Preview server (:6969). For EDITING (split screen to see Browser next to Neovim) :MarkdownPreviewStop when done
+
 Select
 ------
 vi{        Select everything INSIDE {} - even multiple lines or if cursor is anywhere. Works for parens, quotes, etc.
