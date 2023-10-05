@@ -4,6 +4,7 @@
 local map = vim.keymap.set
 
 -- Remap <Leader> to spacebar
+-- Note: don't create imap's starting with <Leader> or <Space> or they'll lag
 vim.g.mapleader = " "
 
 -- Close / escape / delete words faster
@@ -19,6 +20,9 @@ map("n", "<leader>q", ":bd<cr>", { desc = "Close buffer" })
 
 -- Toggle line numbers
 map("n", "<leader>n", ":set invnumber<cr>", { desc = "Toggle line numbers" })
+
+-- Underline the current line with dashes
+map('n', '<Leader>u', [[:call append(line("."), repeat("-", len(getline("."))))<CR>]])
 
 -- Open ~/my-shortcuts.txt in a floating / telescope fuzzy find window
 map(
