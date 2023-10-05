@@ -65,6 +65,8 @@ return packer.startup(function(use)
   use("nvim-telescope/telescope-github.nvim")
   -- requires telescope and sqlite.lua (for firefox bookmarks to work)
   use({ "dhruvmanila/browser-bookmarks.nvim", tag = "*" })
+  -- requires telescope and `brew install zoxide`
+  use("jvgrootveld/telescope-zoxide")
 
   -- Better quickfix. Gives telescope previews to quickfix, etc
   use({ "kevinhwang91/nvim-bqf" })

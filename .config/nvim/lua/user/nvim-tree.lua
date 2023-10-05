@@ -23,10 +23,12 @@ require("nvim-tree").setup({
 
   on_attach = my_on_attach,
 
+  update_cwd = true,
+
   -- Use my <spc>nc if i want to collapse everything after and <spc>nf to launch current only
   update_focused_file = {
     enable = true, -- automatically focus on the current file when changing buffers
-    update_root = false, -- Update the root dir if the focused file is outside of the cwd
+    update_root = true, -- Update root dir if focused file is outside of CWD (useful for zoxide)
     ignore_list = {},
   },
 

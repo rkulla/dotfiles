@@ -303,6 +303,10 @@ _____________________________MACOS SHORTCUTS______________________
     - <spc>fe Telescope fuzzy file browser. Enter on ../ to go up a dir
     - Typing `-` in normal mode opens a file explorer in a buffer, relative to the current file. Create/rm/edit filenames. :w to save
 
+_____________________________ZOXIDE SHORTCUTS______________________
+z <str>    Auto jump to a path containing "str" (as long as you've z'd or cd'd there before). Can use multiple words: `z foo bar`
+zi <str>   FZF filter all results, instead of just most used
+<spc>z     Fuzzy cd via zoxide but from Telescope.nvim! Also mapped to <spc>fz. Only changes relative dir inside of nvim, e.g., for <spc>x
 
 _____________________________AMETHYST SHORTCUTS______________________
 NOTE:                Don't cmd+h to hide Outlook, or I won't see meeting notifications. INSTEAD, _minimize_ it!

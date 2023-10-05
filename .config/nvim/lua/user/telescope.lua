@@ -78,6 +78,10 @@ map(
   '<cmd>lua require("telescope.builtin").grep_string({word_match = "-w", additional_args = function(opts) return {"--hidden", "--glob", "!.git", "-s" } end})<CR>',
   { desc = "Find word on cursor" }
 )
+-- Open Zoxide list
+map("n", "<leader>z", ":lua require'telescope'.extensions.zoxide.list{results_title='Z Directories', prompt_title='Z Prompt'}<CR>", { desc = "Zoxide List" })
+map("n", "<leader>fz", ":lua require'telescope'.extensions.zoxide.list{results_title='Z Directories', prompt_title='Z Prompt'}<CR>", { desc = "Zoxide List" })
+
 
 --- Some stuff I don't bother mapping and can just run :Telescope such as:
 --- :Tel[tab] git[tab]  (commits, branches, etc)
@@ -213,3 +217,5 @@ require("telescope").load_extension("fzf")
 require("telescope").load_extension("gh")
 require("telescope").load_extension("bookmarks")
 require("telescope").load_extension("notify")
+require("telescope").load_extension('zoxide')
+
