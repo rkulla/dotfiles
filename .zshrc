@@ -242,6 +242,7 @@ gcm() {
   fi
   git commit -m "$1"
 }
+alias gc-='git co -'
 alias gb='git branch'
 alias gba='git branch -a'
 # Make my diff-so-fancy alias even shorter
