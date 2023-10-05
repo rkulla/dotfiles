@@ -31,8 +31,9 @@ map(
 -- Open/Switch to README.rkulla in a split window for rapid viewing/editing
 map("n", "<leader>R", ":10sp README.rkulla<cr><cmd>set number!<cr>", { silent = true, desc = "Open README.rkulla" })
 
--- Run omni-completion by typing TAB in insert mode
-map("i", "<Tab>", "<C-x><C-o>", { desc = "Omni-Completion" })
+-- Run omni-completion by typing TAB in insert mode. TAB again cycles forward, Shift+Tab cycle backward. Enter selects
+map('i', '<Tab>', "pumvisible() ? \"\\<C-n>\" : \"\\<C-x>\\<C-o>\"", {expr = true})
+map('i', '<S-Tab>', "pumvisible() ? \"\\<C-p>\" : \"\\<Tab>\"", {expr = true})
 
 -- Keep cursor where it is after * search of current word
 map("n", "*", "*``")
