@@ -384,9 +384,6 @@ function fc() {
     fi
 }
 
-# autojump (brew install autojump)
-[ -f $(brew --prefix)/etc/profile.d/autojump.sh ] && . $(brew --prefix)/etc/profile.d/autojump.sh
-# make completion work with autojump and the menu selection below
 autoload -U compinit; compinit # load and initialize zsh's completion
 # make it so pressing tab a second time lets you scroll down the menu when doing 'ls tab', etc
 zstyle ':completion:*' menu select
@@ -507,3 +504,6 @@ if [ -f "$HOME/opt/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/opt/goo
 
 # I use fnm instead of nvm now, since it's faster and works the same.
 eval "$(fnm env --use-on-cd)"
+
+# Load Zoxide after compinit (brew install zoxide). It's like autojump, but better
+eval "$(zoxide init zsh)"
