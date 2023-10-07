@@ -1,3 +1,6 @@
+# Apple silicon uses this fpath, e.g., for my disambiguate script
+[[ -d /opt/homebrew/share/zsh/site-functions ]] && fpath=(/opt/homebrew/share/zsh/site-functions $fpath)
+
 # Ensure apps' name (and more) shows in title bar, of e.g., Alacritty
 function set_pro_title() {
     if [[ "$1" == "precmd" ]]; then
