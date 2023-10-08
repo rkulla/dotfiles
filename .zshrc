@@ -494,6 +494,8 @@ if which glocate > /dev/null; then
   [[ -f "$HOME/locatedb" ]] && export LOCATE_PATH="$HOME/locatedb"
 fi
 alias loaddb="gupdatedb --localpaths=$HOME --prunepaths='/Volumes .*node_modules.*' --output=$HOME/locatedb"
+# Also run this hourly from a cronjob
+# 0 * * * * /usr/local/bin/gupdatedb --localpaths=$HOME --prunepaths="/Volumes .*node_modules.*" --output="$HOME/locatedb" > "$HOME/cron-output-loaddb.log" 2>&1
 
 
 # Python
