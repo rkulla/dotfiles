@@ -33,6 +33,8 @@ NOTE:       I use telescope-fzf-native to use fzf syntax: 'foo (exact), ^foo (st
             TAB to select multiple files and hit Enter to open (I have a workaround in user/telescope.lua)
             Ctrl+q to send all telescope results to the quickfix
 <spc>fG     Same as <spc>fg but case-sensitive
+<spc>fp     Fuzzy search just git repos (anywhere under $HOME). Shows README preview. <CR> to preview/open its files. Doesn't cd there but :Glcd after does
+<spc>fz     Fuzzy/Zoxide search previously cd'd dirs. <CR> changes to that CWD. ^f previews files. ^s/^v opens dir in horz/vert split. ^e edit in Oil.
 
 <spc>ff     Grep current file only  (TODO hoping current_buffer_fuzzy_find gets case-sensitive support to make a <spc>fF)
 <spc>fo     Grep only open files
@@ -304,9 +306,9 @@ _____________________________MACOS SHORTCUTS______________________
     - Typing `-` in normal mode opens a file explorer in a buffer, relative to the current file. Create/rm/edit filenames. :w to save
 
 _____________________________ZOXIDE SHORTCUTS______________________
-z <str>    Auto jump to a path containing "str" (as long as you've z'd or cd'd there before). Can use multiple words: `z foo bar`
-zi <str>   FZF filter all results, instead of just most used
-<spc>z     Fuzzy cd via zoxide but from Telescope.nvim! Also mapped to <spc>fz. Only changes relative dir inside of nvim, e.g., for <spc>x
+$ z <str>    Auto jump to a path containing "str" (as long as you've z'd or cd'd there before). Can use multiple words: `z foo bar`
+$ zi <str>   FZF filter all results, instead of just most used
+<spc>fz      Use zoxide from Telescope.nvim. Only changes relative dir inside of nvim, e.g., for <spc>x (<spc>fp for JUST git repos)
 
 _____________________________AMETHYST SHORTCUTS______________________
 NOTE:                Don't cmd+h to hide Outlook, or I won't see meeting notifications. INSTEAD, _minimize_ it!
