@@ -81,6 +81,14 @@ map(
 -- Open Zoxide list
 map("n", "<leader>z", ":lua require'telescope'.extensions.zoxide.list{results_title='Z Directories', prompt_title='Z Prompt'}<CR>", { desc = "Zoxide List" })
 map("n", "<leader>fz", ":lua require'telescope'.extensions.zoxide.list{results_title='Z Directories', prompt_title='Z Prompt'}<CR>", { desc = "Zoxide List" })
+-- Open telescope-repo extension's list
+-- map("n", "<leader>fp", ":lua require'telescope'.extensions.repo.list{results_title='Projects'}<CR>", { desc = "Find Projects (repos)" })
+map(
+  "n",
+  "<leader>fp", 
+  ":lua require'telescope'.extensions.repo.cached_list({results_title='Projects', file_ignore_patterns={'/%.cache/', '/%.cargo/', '/%.local/', '/%.vim/', '/%.nvm/', '/%.tmux/', '/tmp/'}})<CR>", 
+  { desc = "Find Projects (repos)"}
+)
 
 
 --- Some stuff I don't bother mapping and can just run :Telescope such as:
@@ -218,4 +226,4 @@ require("telescope").load_extension("gh")
 require("telescope").load_extension("bookmarks")
 require("telescope").load_extension("notify")
 require("telescope").load_extension('zoxide')
-
+require("telescope").load_extension "repo"

@@ -30,10 +30,10 @@ The `realpath` command from coreutils is required to run install.sh. I typically
 
     # Note: don't forget to periodically `brew upgrade <name` from these installed tools
     $ brew tap aws/tap
-    $ brew install cmake gh tig tmux zoxide tree aws-sam-cli gnu-sed watch coreutils mysql postgresql \
+    $ brew install cmake gh tig tmux zoxide tree aws-sam-cli gnu-sed watch coreutils findutils mysql postgresql \
       ssh-copy-id pyenv wget ctags diffutils nmap fd nnn reattach-to-user-namespace zenity htop ncdu rsync \
       screen zsh-syntax-highlighting zsh-you-should-use shellcheck jsonlint fzf irssi sqlite jq \
-      asdf the_silver_searcher ripgrep yamllint httpie diff-so-fancy fnm glow lazygit lazydocker \
+      asdf the_silver_searcher ripgrep yamllint httpie diff-so-fancy fnm glow bat lazygit lazydocker \
       lsd vint hadolint groff alacritty alt-tab amethyst
 
 ### Run the dotfiles install script

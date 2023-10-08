@@ -485,6 +485,17 @@ case "$OSTYPE" in
   ;;
 esac
 
+# Use gnu update from `brew install findutils`as my 'locate' database
+# https://egeek.me/2020/04/18/enabling-locate-on-osx/
+if which glocate > /dev/null; then
+  alias locate="glocate -d $HOME/locatedb"
+
+  # Using cache_list for telescope-repo.nvim requires LOCATE_PATH env var to exist
+  [[ -f "$HOME/locatedb" ]] && export LOCATE_PATH="$HOME/locatedb"
+fi
+alias loaddb="gupdatedb --localpaths=$HOME --prunepaths=/Volumes --output=$HOME/locatedb"
+
+
 # Python
 ### activate appropriate python version: shell > local > global
 eval "$(pyenv init -)"
