@@ -493,7 +493,7 @@ if which glocate > /dev/null; then
   # Using cache_list for telescope-repo.nvim requires LOCATE_PATH env var to exist
   [[ -f "$HOME/locatedb" ]] && export LOCATE_PATH="$HOME/locatedb"
 fi
-alias loaddb="gupdatedb --localpaths=$HOME --prunepaths=/Volumes --output=$HOME/locatedb"
+alias loaddb="gupdatedb --localpaths=$HOME --prunepaths='/Volumes .*node_modules.*' --output=$HOME/locatedb"
 
 
 # Python
