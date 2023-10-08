@@ -1,4 +1,4 @@
-# Apple silicon uses this fpath, e.g., for my disambiguate script
+# Apple silicon uses this fpath, e.g., for my disambiguate script. Only append/prepend to fpath, zsh sets it
 [[ -d /opt/homebrew/share/zsh/site-functions ]] && fpath=(/opt/homebrew/share/zsh/site-functions $fpath)
 
 # Ensure apps' name (and more) shows in title bar, of e.g., Alacritty
