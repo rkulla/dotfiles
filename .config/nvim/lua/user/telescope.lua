@@ -81,14 +81,12 @@ map(
 -- Open Zoxide list
 map("n", "<leader>z", ":lua require'telescope'.extensions.zoxide.list{results_title='Z Directories', prompt_title='Z Prompt'}<CR>", { desc = "Zoxide List" })
 map("n", "<leader>fz", ":lua require'telescope'.extensions.zoxide.list{results_title='Z Directories', prompt_title='Z Prompt'}<CR>", { desc = "Zoxide List" })
--- Open telescope-repo extension's list
--- map("n", "<leader>fp", ":lua require'telescope'.extensions.repo.list{results_title='Projects'}<CR>", { desc = "Find Projects (repos)" })
-map(
-  "n",
-  "<leader>fp", 
-  ":lua require'telescope'.extensions.repo.cached_list({results_title='Projects', file_ignore_patterns={'/%.cache/', '/%.cargo/', '/%.local/', '/%.vim/', '/%.nvm/', '/%.tmux/', '/tmp/'}})<CR>", 
-  { desc = "Find Projects (repos)"}
-)
+-- Use telescope-repo extensions cached version (which uses my locatedb set up in .zshrc. I ignore files here since I may want them index for the cli still
+-- Keep the cache up-to-date hourly by creating this cronjob: 
+-- 0 * * * * /usr/local/bin/gupdatedb --localpaths=/Users/rkulla --prunepaths=/Volumes --output=/Users/rkulla/locatedb > /Users/rkulla/bin/cron-output-loaddb.log 2>&1
+map('n', '<leader>fp', 
+  ":lua require'telescope'.extensions.repo.cached_list({results_title='Projects', file_ignore_patterns={'/%.Volumes/', '/%.Library/', '/%.Trash/', '/%.asdf/', '/%.cache/', '/%.cargo/', '/%.local/', '/%.vim/', '/%.nvm/', '/%.tmux/', '/%.tmp/'}})<CR>",
+  { desc = "Find Projects (repos)" })
 
 
 --- Some stuff I don't bother mapping and can just run :Telescope such as:
