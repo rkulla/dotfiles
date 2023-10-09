@@ -497,7 +497,7 @@ fi
 # I use `mfind` on the cli to use spotlights more extensive database
 alias loaddb="gupdatedb --localpaths=$HOME/repos --prunepaths='.*node_modules.*' --output=$HOME/locatedb"
 # Also run this every 5m from a cronjob. Note: On Apple Silicon based machines, use /opt/homebrew/bin/gupdatedb instead
-# 0/5 * * * * /usr/local/bin/gupdatedb --localpaths=$HOME/repos --prunepaths="/Volumes .*node_modules.*" --output="$HOME/locatedb" > "$HOME/cron-output-loaddb.log" 2>&1
+# 0/5 * * * * /usr/local/bin/gupdatedb --localpaths=$HOME/repos --prunepaths=".*node_modules.*" --output="$HOME/locatedb" > "$HOME/cron-output-loaddb.log" 2>&1
 
 
 # Python

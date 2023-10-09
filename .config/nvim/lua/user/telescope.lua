@@ -82,9 +82,10 @@ map(
 map("n", "<leader>fz", ":lua require'telescope'.extensions.zoxide.list{results_title='Z Directories', prompt_title='Z Prompt'}<CR>", { desc = "Zoxide List" })
 -- Use telescope-repo extensions cached version (which uses my locatedb set up in .zshrc. I ignore files here since I may want them index for the cli still
 -- Keep the cache up-to-date hourly by creating this cronjob (on Apple Silicon use /opt/homebrew/bin/gupdatedb instead): 
--- 0 * * * * /usr/local/bin/gupdatedb --localpaths=$HOME/repos --prunepaths="/Volumes .*node_modules.*" --output="$HOME/locatedb" > "$HOME/cron-output-loaddb.log" 2>&1
+-- 0 * * * * /usr/local/bin/gupdatedb --localpaths=$HOME/repos --prunepaths=".*node_modules.*" --output="$HOME/locatedb" > "$HOME/cron-output-loaddb.log" 2>&1
+-- To filter out unwanted dirs, add file_ignore_patterns={'foo'}
 map('n', '<leader>fp', 
-  ":lua require'telescope'.extensions.repo.cached_list({results_title='Projects', file_ignore_patterns={'/%.Volumes/', '/%.Library/', '/%.Trash/', '/%.asdf/', '/%.cache/', '/%.cargo/', '/%.local/', '/%.vim/', '/%.nvm/', '/%.tmux/', '/%tmp/'}})<CR>",
+  ":lua require'telescope'.extensions.repo.cached_list({results_title='Projects'})<CR>",
   { desc = "Find Projects (repos)" })
 
 
