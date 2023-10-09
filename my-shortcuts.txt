@@ -64,9 +64,14 @@ GitHub PR / Issues Search (Telescope gh extension)
 --------------------------------------------------
 :Telescope gh pull_request          Find PRs by author ('kulla) and view its modified files! Better than global author search
                                     state=open (default), state=all, or state=closed
-                                    ^e toggle diff view.  ^f browse modified files. ^t open in web browser
+                                    ^e toggle diff view. ^t open in web browser
+                                    ^f browse modified files 
                                     My <spc>fC to search command history to find/RUN past commands
-                                    CAREFUL: <cr> checks out PR (:G co - to get back) ^a approves, ^r MERGES
+                                    For PR requests, DO THIS: 
+                                       <cr> checks out PR (:G co - to get back)
+                                       Run `:Telescope gh pull_request` again, ^f to browse modified files. Tab to select them all/open
+                                       Once open use my `<spc>fb` map to browse open buffers and see previews. ^n for vertical split preview
+                                    CAREFUL: ^a approves, ^r MERGES
 :Telescope gh issues author=rkulla  We don't use GitHub issues at work, but useful for home/open source
 
 Telescope Results & Preview windows
