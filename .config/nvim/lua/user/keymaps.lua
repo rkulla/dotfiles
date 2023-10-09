@@ -58,10 +58,12 @@ map("n", "<LeftMouse>", "m'<LeftMouse>")
 
 --- Copying currently open file names to the clipboard --------------------
 
---- Copy current buffer's relative path (useful to paste for CLI args)
-map("n", "<leader>cp", ":let @+ = @%<cr>", { desc = "copy current file's relative path" })
-map("n", "<leader>cn", ":let @+ = expand('%:t')<cr>", { desc = "copy current file's name" })
+--- Copy current buffer's path (useful to paste for CLI args)
+map("n", "<leader>cp", ":let @+ = @%<cr>", { desc = "Copy current file's relative path" })
+map("n", "<leader>cn", ":let @+ = expand('%:t')<cr>", { desc = "Copy current file's name" })
 map("n", "<leader>cl", [[:let @+ = join(map(split(execute('ls'),'\n'),{_,x->split(x,'"')[1]}))<cr>]], { desc = "Copy paths of all open files" })
+map('n', '<leader>cw', ":let @+ = system('pwd')<CR>", { desc = "Copy CWD to clipboard" })
+
 
 --- Quickfix window -------------------------------------------------------
 
