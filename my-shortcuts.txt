@@ -33,9 +33,9 @@ NOTE:       I use telescope-fzf-native to use fzf syntax: 'foo (exact), ^foo (st
             TAB to select multiple files and hit Enter to open (I have a workaround in user/telescope.lua)
             Ctrl+q to send all telescope results to the quickfix
 <spc>fG     Same as <spc>fg but case-sensitive
-<spc>fp     Search git repos (anywhere under $HOME). Shows README preview. <CR> to preview/open files. Doesn't cd but I map :Glcd to `gl` which will.
-            `<spc>cw` will also copy the value of `:pwd` to clipboard, to paste on the cli, to cd to that dir
-<spc>fz     Fuzzy/Zoxide search previously cd'd dirs. <CR> changes to that CWD. ^f previews files. ^s/^v opens dir in horz/vert split. ^e edit in Oil
+<spc>fp     Browse git repos (anywhere under $HOME). Shows README preview. <CR> to preview/open files. Use zoxide if I want to cd around since this
+            doesn't cd but my `gl` map will, then <spc>cw to copy :pwd to clipboard to paste on the cli. However: `$ zi <dir>` is only one step 
+<spc>fz     Fuzzy/Zoxide search previously cd'd dirs. <CR> changes to that CWD. ^f previews files. ^s/^v opens dir in horiz/vert split. ^e edit in Oil
 
 <spc>ff     Grep current file only  (TODO hoping current_buffer_fuzzy_find gets case-sensitive support to make a <spc>fF)
 <spc>fo     Grep only open files
@@ -313,7 +313,7 @@ _____________________________MACOS SHORTCUTS______________________
 
 _____________________________ZOXIDE SHORTCUTS______________________
 $ z <str>    Auto jump to a path containing "str" (as long as you've z'd or cd'd there before). Can use multiple words: `z foo bar`
-$ zi <str>   FZF filter all results, instead of just most used
+$ zi <str>   FZF filter all results, instead of just most used (just do this MOST of the time)
 <spc>fz      Use zoxide from Telescope.nvim. Only changes relative dir inside of nvim, e.g., for <spc>x (<spc>fp for JUST git repos)
 
 _____________________________AMETHYST SHORTCUTS______________________
