@@ -133,3 +133,4 @@ end, { desc = "Winbar Hide" })
 map("n", "gst", "<cmd>G status<cr>", { desc = "Git status" })
 map("n", "gsf", "<cmd>Gclog -n 1 --follow --diff-filter=A -- %<cr>", { desc = "Git [curr file] first added" })
 map("n", "gsa", '<cmd>Gclog --date=short --pretty=format:"%h ┃ %cd ┃ %an ┃ %s" -- %<cr>', { desc = "Git all commits [curr file]" })
+map("n", "gl", "<cmd>Glcd<cr>", { desc = ":Glcd" }) -- useful with telescope-repo.nvim to cd after opening

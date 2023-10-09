@@ -33,8 +33,8 @@ NOTE:       I use telescope-fzf-native to use fzf syntax: 'foo (exact), ^foo (st
             TAB to select multiple files and hit Enter to open (I have a workaround in user/telescope.lua)
             Ctrl+q to send all telescope results to the quickfix
 <spc>fG     Same as <spc>fg but case-sensitive
-<spc>fp     Fuzzy search just git repos (anywhere under $HOME). Shows README preview. <CR> to preview/open its files. Doesn't cd there but :Glcd after does
-<spc>fz     Fuzzy/Zoxide search previously cd'd dirs. <CR> changes to that CWD. ^f previews files. ^s/^v opens dir in horz/vert split. ^e edit in Oil.
+<spc>fp     Search git repos (anywhere under $HOME). Shows README preview. <CR> to preview/open files. Doesn't cd but I map :Glcd to `gl` which will
+<spc>fz     Fuzzy/Zoxide search previously cd'd dirs. <CR> changes to that CWD. ^f previews files. ^s/^v opens dir in horz/vert split. ^e edit in Oil
 
 <spc>ff     Grep current file only  (TODO hoping current_buffer_fuzzy_find gets case-sensitive support to make a <spc>fF)
 <spc>fo     Grep only open files
