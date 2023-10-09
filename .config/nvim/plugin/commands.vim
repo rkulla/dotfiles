@@ -6,3 +6,7 @@ command! -nargs=1 Browse silent execute '!open' shellescape(<q-args>,1)
 
 " Open any file in a floating window (uses my custom myfloat.lua function)
 command! -nargs=1 FloatingOpen :lua require'user.myfloat'.open_file_in_floating_window(<q-args>)<CR>
+
+" Open a terminal in a floating window (uses my custom myfloat.lua function).
+" Mapped to <Leader>5
+command! TermFloat lua require'user.myfloat'.open_term_in_floating_window()

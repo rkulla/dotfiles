@@ -24,6 +24,14 @@ map("n", "<leader>n", ":set invnumber<cr>", { desc = "Toggle line numbers" })
 -- Underline the current line with dashes
 map('n', '<Leader>u', [[:call append(line("."), repeat("-", len(getline("."))))<CR>]])
 
+-- Open a floating terminal. Useful for very shortlived "Hotkey terminal" commands
+map(
+  "n",
+  "<leader>5",
+  ':lua require"user.myfloat".open_term_in_floating_window()<CR>',
+  { desc = "Open term in floating window" }
+)
+
 -- Open ~/my-shortcuts.txt in a floating / telescope fuzzy find window
 map(
   "n",
