@@ -493,9 +493,11 @@ if which glocate > /dev/null; then
   # Using cache_list for telescope-repo.nvim requires LOCATE_PATH env var to exist
   [[ -f "$HOME/locatedb" ]] && export LOCATE_PATH="$HOME/locatedb"
 fi
-alias loaddb="gupdatedb --localpaths=$HOME --prunepaths='/Volumes .*node_modules.*' --output=$HOME/locatedb"
-# Also run this hourly from a cronjob. Note: On Apple Silicon based machines, use /opt/homebrew/bin/gupdatedb instead
-# 0 * * * * /usr/local/bin/gupdatedb --localpaths=$HOME --prunepaths="/Volumes .*node_modules.*" --output="$HOME/locatedb" > "$HOME/cron-output-loaddb.log" 2>&1
+# Keeping locatedb small (by only loading my $HOME/repos path and ignoring node_modules, makes it load MUCH faster.
+# I use `mfind` on the cli to use spotlights more extensive database
+alias loaddb="gupdatedb --localpaths=$HOME/repos --prunepaths='.*node_modules.*' --output=$HOME/locatedb"
+# Also run this every 5m from a cronjob. Note: On Apple Silicon based machines, use /opt/homebrew/bin/gupdatedb instead
+# 0/5 * * * * /usr/local/bin/gupdatedb --localpaths=$HOME/repos --prunepaths="/Volumes .*node_modules.*" --output="$HOME/locatedb" > "$HOME/cron-output-loaddb.log" 2>&1
 
 
 # Python
