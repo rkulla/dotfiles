@@ -277,6 +277,7 @@ gpr   Like gr, but a floating window instead (uses goto-preview.nvim)
 terminal-mode
 -------------
 :term        Open full-screen terminal shell buffer
+<spc>5       Open a floating-term (think hotkey terminal window. For quick things)
 <sp>ta       Opens a horizontal split above current buffer, with a terminal shell
 (TUI apps like glow <spc>mp and lazygit inside of vim)
 JJ / JK      Esc terminal-mode (so it's not an interactive terminal but acts like a regular buffer)
