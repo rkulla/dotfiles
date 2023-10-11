@@ -69,6 +69,8 @@ return packer.startup(function(use)
   use("jvgrootveld/telescope-zoxide")
   -- requires `brew install fd glow`
   use("cljoly/telescope-repo.nvim")
+  -- Dependency free, aside from telescope
+  use("ahmedkhalf/project.nvim")
 
   -- Better quickfix. Gives telescope previews to quickfix, etc
   use({ "kevinhwang91/nvim-bqf" })

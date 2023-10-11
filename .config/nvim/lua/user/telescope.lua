@@ -80,7 +80,9 @@ map(
 )
 -- Open Zoxide list
 map("n", "<leader>fz", ":lua require'telescope'.extensions.zoxide.list{results_title='Z Directories', prompt_title='Z Prompt'}<CR>", { desc = "Zoxide List" })
--- Use telescope-repo extensions cached version (which uses my locatedb set up in .zshrc. I ignore files here since I may want them index for the cli still
+-- Open `:Telescope projects` (ahmedkhalf/project.nvim extension). Like WebStorm's "recent project" list but better since it's fuzzy
+map('n', '<leader>p', ":lua require'telescope'.extensions.projects.projects()<CR>", { desc = "Find Recent Projects" })
+-- Use telescope-repo extension's cached version (which uses my locatedb set up in .zshrc. I ignore files here since I may want them index for the cli still
 -- Keep the cache up-to-date hourly by creating this cronjob (on Apple Silicon use /opt/homebrew/bin/gupdatedb instead): 
 -- 0 * * * * /usr/local/bin/gupdatedb --localpaths=$HOME/repos --prunepaths=".*node_modules.*" --output="$HOME/locatedb" > "$HOME/cron-output-loaddb.log" 2>&1
 -- To filter out unwanted dirs, add file_ignore_patterns={'foo'}
@@ -225,3 +227,5 @@ require("telescope").load_extension("bookmarks")
 require("telescope").load_extension("notify")
 require("telescope").load_extension('zoxide')
 require("telescope").load_extension "repo"
+require('telescope').load_extension('projects')
+

@@ -33,6 +33,7 @@ NOTE:       I use telescope-fzf-native to use fzf syntax: 'foo (exact), ^foo (st
             TAB to select multiple files and hit Enter to open (I have a workaround in user/telescope.lua)
             Ctrl+q to send all telescope results to the quickfix
 <spc>fG     Same as <spc>fg but case-sensitive
+<spc>p      Browse projects (Like WebStorm's Recent Project list but better). ESC still cd's. ^r for recent files. ^s to grep. ^d to remove from list
 <spc>fp     Browse git repos (anywhere under $HOME). Shows README preview. <CR> to preview/open files. Use zoxide if I want to cd around since this
             doesn't cd but my `gl` map will, then <spc>cw to copy :pwd to clipboard to paste on the cli. However: `$ zi <dir>` is only one step 
 <spc>fz     Fuzzy/Zoxide search previously cd'd dirs. <CR> changes to that CWD. ^f previews files. ^s/^v opens dir in horiz/vert split. ^e edit in Oil
@@ -62,6 +63,7 @@ NOTE:       I use telescope-fzf-native to use fzf syntax: 'foo (exact), ^foo (st
 
 GitHub PR / Issues Search (Telescope gh extension)
 --------------------------------------------------
+NOTE                                Also use the new PR icon/button at the top/right of github.com to see all your PRs!
 :Telescope gh pull_request          Find PRs by author ('kulla) and view its modified files! Better than global author search
                                     state=open (default), state=all, or state=closed
                                     ^e toggle diff view. ^t open in web browser
@@ -73,6 +75,7 @@ GitHub PR / Issues Search (Telescope gh extension)
                                        Once open use my `<spc>fb` map to browse open buffers and see previews. ^n for vertical split preview
                                     CAREFUL: ^a approves, ^r MERGES
 :Telescope gh issues author=rkulla  We don't use GitHub issues at work, but useful for home/open source
+
 
 Telescope Results & Preview windows
 -----------------------------------

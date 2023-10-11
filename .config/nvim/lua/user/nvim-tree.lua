@@ -24,6 +24,8 @@ require("nvim-tree").setup({
   on_attach = my_on_attach,
 
   update_cwd = true,
+  sync_root_with_cwd = true,
+  respect_buf_cwd = true,
 
   -- Use my <spc>nc if i want to collapse everything after and <spc>nf to launch current only
   update_focused_file = {
