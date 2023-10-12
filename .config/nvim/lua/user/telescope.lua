@@ -79,17 +79,19 @@ map(
   { desc = "Find word on cursor" }
 )
 -- Open Zoxide list
-map("n", "<leader>fz", ":lua require'telescope'.extensions.zoxide.list{results_title='Z Directories', prompt_title='Z Prompt'}<CR>", { desc = "Zoxide List" })
+map(
+  "n",
+  "<leader>fz",
+  ":lua require'telescope'.extensions.zoxide.list{results_title='Z Directories', prompt_title='Z Prompt'}<CR>",
+  { desc = "Zoxide List" }
+)
 -- Open `:Telescope projects` (ahmedkhalf/project.nvim extension). Like WebStorm's "recent project" list but better since it's fuzzy
-map('n', '<leader>p', ":lua require'telescope'.extensions.projects.projects()<CR>", { desc = "Find Recent Projects" })
+map("n", "<leader>p", ":lua require'telescope'.extensions.projects.projects()<CR>", { desc = "Find Recent Projects" })
 -- Use telescope-repo extension's cached version (which uses my locatedb set up in .zshrc. I ignore files here since I may want them index for the cli still
--- Keep the cache up-to-date hourly by creating this cronjob (on Apple Silicon use /opt/homebrew/bin/gupdatedb instead): 
+-- Keep the cache up-to-date hourly by creating this cronjob (on Apple Silicon use /opt/homebrew/bin/gupdatedb instead):
 -- 0 * * * * /usr/local/bin/gupdatedb --localpaths=$HOME/repos --prunepaths=".*node_modules.*" --output="$HOME/locatedb" > "$HOME/cron-output-loaddb.log" 2>&1
 -- To filter out unwanted dirs, add file_ignore_patterns={'foo'}
-map('n', '<leader>fp', 
-  ":lua require'telescope'.extensions.repo.cached_list({results_title='Projects'})<CR>",
-  { desc = "Find Projects (repos)" })
-
+map("n", "<leader>fp", ":lua require'telescope'.extensions.repo.cached_list({results_title='Projects'})<CR>", { desc = "Find Projects (repos)" })
 
 --- Some stuff I don't bother mapping and can just run :Telescope such as:
 --- :Tel[tab] git[tab]  (commits, branches, etc)
@@ -225,7 +227,7 @@ require("telescope").load_extension("fzf")
 require("telescope").load_extension("gh")
 require("telescope").load_extension("bookmarks")
 require("telescope").load_extension("notify")
-require("telescope").load_extension('zoxide')
-require("telescope").load_extension "repo"
-require('telescope').load_extension('projects')
-
+require("telescope").load_extension("zoxide")
+require("telescope").load_extension("repo")
+require("telescope").load_extension("projects")
+require("telescope").load_extension("ui-select")

@@ -71,6 +71,8 @@ return packer.startup(function(use)
   use("cljoly/telescope-repo.nvim")
   -- Dependency free, aside from telescope
   use("ahmedkhalf/project.nvim")
+  -- Dependency free, aside from telescope
+  use({ "nvim-telescope/telescope-ui-select.nvim" })
 
   -- Better quickfix. Gives telescope previews to quickfix, etc
   use({ "kevinhwang91/nvim-bqf" })
@@ -128,7 +130,6 @@ return packer.startup(function(use)
     run = ":TSUpdate",
   })
 
-  use 'rcarriga/nvim-notify'
+  use("rcarriga/nvim-notify")
   use("folke/noice.nvim")
-
 end)
