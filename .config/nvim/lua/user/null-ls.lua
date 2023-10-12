@@ -7,6 +7,7 @@ local diagnostics = null_ls.builtins.diagnostics
 local code_actions = null_ls.builtins.code_actions
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
+-- Note not everything is an LSP, e.g., prettierd, sylua aren't, but gopls and tsserver are
 null_ls.setup({
   debug = false,
   sources = {
@@ -68,19 +69,22 @@ null_ls.setup({
     map("n", "<leader>tr", "<cmd>TroubleToggle lsp_references<cr>", { buffer = bufnr, desc = "TroubleToggle lsp_references" })
 
     -- Format On Save
-    if client.supports_method("textDocument/formatting") and client.name == "null_ls" then
-      map("n", "<leader>tf", require("user.utils").toggle_autoformat, { buffer = bufnr, desc = "Toggle Null-ls Format On Save" })
+    if client.supports_method("textDocument/formatting") then
+      -- Explicitly add what I want to allow to format-on-save ("null_ls" means all attached LSP servers, the rest are by filetype
+      if client.name == "null_ls" or vim.bo.filetype == "lua" then
+        map("n", "<leader>tf", require("user.utils").toggle_autoformat, { buffer = bufnr, desc = "Toggle Null-ls Format On Save" })
 
-      vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-      vim.api.nvim_create_autocmd("BufWritePre", {
-        group = augroup,
-        buffer = bufnr,
-        callback = function()
-          if AUTOFORMAT_ACTIVE then -- global var defined in utils.lua
-            vim.lsp.buf.format({ bufnr = bufnr })
-          end
-        end,
-      })
+        vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+        vim.api.nvim_create_autocmd("BufWritePre", {
+          group = augroup,
+          buffer = bufnr,
+          callback = function()
+            if AUTOFORMAT_ACTIVE then -- global var defined in utils.lua
+              vim.lsp.buf.format({ bufnr = bufnr })
+            end
+          end,
+        })
+      end
     end
   end,
 })
