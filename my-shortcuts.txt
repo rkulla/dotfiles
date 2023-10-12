@@ -34,7 +34,7 @@ NOTE:       I use telescope-fzf-native to use fzf syntax: 'foo (exact), ^foo (st
             Ctrl+q to send all telescope results to the quickfix
 <spc>fG     Same as <spc>fg but case-sensitive
 <spc>p      Browse projects (Like WebStorm's Recent Project list but better). ESC still cd's. ^r for recent files. ^s to grep. ^d to remove from list
-<spc>fp     Browse git repos (anywhere under $HOME). Shows README preview. <CR> to preview/open files. Use zoxide if I want to cd around since this
+<spc>fp     Browse git repos (anywhere under $HOME). Shows README preview. <CR> to preview/open files. Use <spc>p or zoxide to cd around since this
             doesn't cd but my `gl` map will, then <spc>cw to copy :pwd to clipboard to paste on the cli. However: `$ zi <dir>` is only one step 
 <spc>fz     Fuzzy/Zoxide search previously cd'd dirs. <CR> changes to that CWD. ^f previews files. ^s/^v opens dir in horiz/vert split. ^e edit in Oil
 
