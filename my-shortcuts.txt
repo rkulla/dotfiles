@@ -66,7 +66,7 @@ GitHub PR / Issues Search (Telescope gh extension)
 NOTE                                Also use the new PR icon/button at the top/right of github.com to see all your PRs!
 :Telescope gh pull_request          Find PRs by author ('kulla) and view its modified files! Better than global author search
                                     state=open (default), state=all, or state=closed
-                                    ^e toggle diff view. ^t open in web browser
+                                    ^e toggle diff view. ^t open PR in web browser
                                     ^f browse modified files 
                                     My <spc>fC to search command history to find/RUN past commands
                                     For PR requests, DO THIS: 
@@ -321,6 +321,7 @@ $ zi <str>   FZF filter all results, instead of just most used (just do this MOS
 <spc>fz      Use zoxide from Telescope.nvim. Only changes relative dir inside of nvim, e.g., for <spc>x (<spc>fp for JUST git repos)
 
 _____________________________AMETHYST SHORTCUTS______________________
+NOTE:                I keep this disabled most of the time and just use SizeUp
 NOTE:                Don't cmd+h to hide Outlook, or I won't see meeting notifications. INSTEAD, _minimize_ it!
 Cmd+`                MacOS's shortcut to cycle an app's windows. (See top/left color menu bar buttons to see which window is active)
 Alt+Shift+k/j        shift focus clockwise or counter-clockwise). Like Cmd+` but works cycle focus of tiled windows of any app
