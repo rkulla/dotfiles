@@ -321,7 +321,7 @@ $ zi <str>   FZF filter all results, instead of just most used (just do this MOS
 <spc>fz      Use zoxide from Telescope.nvim. Only changes relative dir inside of nvim, e.g., for <spc>x (<spc>fp for JUST git repos)
 
 _____________________________AMETHYST SHORTCUTS______________________
-NOTE:                I keep this disabled most of the time and just use SizeUp
+NOTE:                I ONLY whitelist alacritty since it doesn't support split terminals. I use SizeUp for other apps. Least annoying!
 NOTE:                Don't cmd+h to hide Outlook, or I won't see meeting notifications. INSTEAD, _minimize_ it!
 Cmd+`                MacOS's shortcut to cycle an app's windows. (See top/left color menu bar buttons to see which window is active)
 Alt+Shift+k/j        shift focus clockwise or counter-clockwise). Like Cmd+` but works cycle focus of tiled windows of any app
