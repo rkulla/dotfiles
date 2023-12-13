@@ -32,7 +32,7 @@ The `realpath` command from coreutils is required to run install.sh. I typically
     $ brew tap aws/tap
     $ brew install cmake gh tig tmux zoxide tree aws-sam-cli gnu-sed watch coreutils findutils mysql postgresql \
       ssh-copy-id pyenv wget ctags diffutils nmap fd nnn reattach-to-user-namespace zenity htop ncdu rsync \
-      screen zsh-syntax-highlighting zsh-you-should-use shellcheck jsonlint fzf irssi sqlite jq \
+      screen zsh-syntax-highlighting zsh-you-should-use shellcheck jsonlint fzf irssi sqlite jq yq \
       asdf the_silver_searcher ripgrep yamllint httpie diff-so-fancy fnm glow bat lazygit lazydocker \
       lsd vint hadolint groff alacritty alt-tab amethyst
 
