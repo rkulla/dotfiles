@@ -1,0 +1,18 @@
+# Put this in ~/.yamllint to change defaults so that formatting things are a warning, not an error
+# Then I can `yamlllint foo.yaml | grep -i error` on projects that don't have their own yamllint config file
+extends: default
+
+rules:
+  document-start:
+    level: warning
+
+  indentation:
+    level: warning
+
+  line-length:
+    max: 200
+    level: warning
+    allow-non-breakable-inline-mappings: true
+
+  trailing-spaces:
+    level: warning 

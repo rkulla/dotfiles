@@ -70,6 +70,7 @@ main() {
     linkdot ".vim" "$HOME"
     linkdot ".vimrc" "$HOME"
     linkdot ".vimogen_repos" "$HOME"
+    linkdot ".yamllint" "$HOME"
     linkdot ".zprofile" "$HOME"
     linkdot ".zshrc" "$HOME"
 
