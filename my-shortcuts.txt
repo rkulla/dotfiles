@@ -128,6 +128,7 @@ gd        Go to definition (<spc>li is similar but shows in quickfix if multiple
 gr        View/jump to references (callees/callers/symbols). Great for tracing flow of code! <spc>fr for Fuzzy version
 <spc>la   Show code actions for current line
 <spc>fd   Search all symbols in current document. <spc>ld for quickfix version
+<spc>tf   Toggle Format On Save (only works if null-ls is attached or explicit file types I configured. See my null-ls.lua)
 <spc>tt   Toggle Trouble.nvim to see ALL diagnostics across project (<spc>fD for fuzzy finding diagnostics in current buffer)
 <spc>ll   Show codelens inlay action (e.g., show 'run test')
 <spc>rc   Run codelens action (e.g., run unit test)
