@@ -327,6 +327,24 @@ Install plugins:
 
 Open tmux and type `Ctrl+a I` to install the plugins listed in .tmux.conf
 
+Install themes:
+
+    # First `mkdir ~/.tmux/themes`
+    # and install copy these there https://github.com/folke/tokyonight.nvim/tree/main/extras/tmux
+    # then source it in ~/.tmux.conf like
+    source-file ~/.tmux/themes/tokyonight_storm.tmux
+
+    I then like to replace the y-m-d in the status-right inside of tokyonight_storm.tmux with wttr.in (weather):
+    set -g status-interval 60
+    set -g status-right "#[fg=#1f2335,bg=#1f2335,nobold,nounderscore,noitalics]#[fg=#7aa2f7,bg=#1f2335] #{prefix_highlight} #[fg=#3b4261,bg=#1f2335,nobold,nounderscore,noitalics]#[fg=#7aa2f7,bg=#3b4261] #(curl -s 'v2n.wttr.in/92563?format=1&u' | sed 's/  / /' | tr -d '+')  %I:%M %p #[fg=#7aa2f7,bg=#3b4261,nobold,nounderscore,noitalics]#[fg=#1d202f,bg=#7aa2f7,bold] #h "
+    if-shell '[ "$(tmux show-option -gqv "clock-mode-style")" == "24" ]' {
+        set -g status-right "#[fg=#1f2335,bg=#1f2335,nobold,nounderscore,noitalics]#[fg=#7aa2f7,bg=#1f2335] #{prefix_highlight} #[fg=#3b4261,bg=#1f2335,nobold,nounderscore,noitalics]#[fg=#7aa2f7,bg=#3b4261] #(curl -s 'v2n.wttr.in/92563?format=1&u' | sed 's/  / /' | tr -d '+')  %H:%M #[fg=#7aa2f7,bg=#3b4261,nobold,nounderscore,noitalics]#[fg=#1d202f,bg=#7aa2f7,bold] #h "
+    }
+
+
+
+
+
 ## Finder
 
 Optionally run the following in a terminal to show full file paths in Finder:
