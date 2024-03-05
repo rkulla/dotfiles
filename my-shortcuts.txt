@@ -71,9 +71,9 @@ Harpoon 2
 <spc>hh     Show harpoon list
 <spc>hc     Clear harpoon list
 <spc>1      Select file at index 1
-<spc>2      Select file at index 1
-<spc>3      Select file at index 1
-<spc>4      Select file at index 1
+<spc>2      Select file at index 2
+<spc>3      Select file at index 3
+<spc>4      Select file at index 4
 
 
 GitHub PR / Issues Search (Telescope gh extension)
