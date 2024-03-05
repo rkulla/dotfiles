@@ -45,7 +45,7 @@ return packer.startup(function(use)
 
   use({ "stevearc/oil.nvim" })
 
-  -- Plenary is required for certain plugins like Telescope
+  -- Plenary is required for certain plugins like Telescope and Harpoon
   use("nvim-lua/plenary.nvim")
   -- sqlite.lua is needed for certain plugins, like telescope-bookmarks
   use({ "kkharji/sqlite.lua" })
@@ -73,6 +73,13 @@ return packer.startup(function(use)
   use("ahmedkhalf/project.nvim")
   -- Dependency free, aside from telescope
   use({ "nvim-telescope/telescope-ui-select.nvim" })
+
+  -- Harpoon2 ("pin" frequently used buffers)
+  use({
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    requires = { { "nvim-lua/plenary.nvim" } },
+  })
 
   -- Better quickfix. Gives telescope previews to quickfix, etc
   use({ "kevinhwang91/nvim-bqf" })

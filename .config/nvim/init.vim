@@ -75,4 +75,4 @@ lua require('user/inlay-hints')
 lua require('user/vim-signature')
 lua require('user/browser-bookmarks')
 lua require('user/telescope-project')
-
+lua require('user/harpoon')

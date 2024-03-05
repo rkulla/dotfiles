@@ -26,7 +26,7 @@ NOTE:       I use telescope-fzf-native to use fzf syntax: 'foo (exact), ^foo (st
 <spc>sc     Opens THIS file for quick fuzzy filtering of shortcuts!
 <spc>x      Fuzzy Search for filenames tracked by git. Fastest. (Unlike X and fe it's REPO relative, not CWD relative)
 <spc>X      Fuzzy Search for ALL filenames (no git required. Slightly slower but more thorough)
-<spc>fe     Like <spc>X but a clearer/real TUI file explorer where you're navigating the file system
+<spc>fe     Like <spc>X but a clearer/real TUI file explorer where you're navigating the file system. Use arrow keys to CD to a dir first!
 <spc>fg     Fuzzy Grep all files in project (case-insensitive). Order is reversed, so scroll upward. ^d/^u to scroll file preview itself
             This is like space+space in Webstorm, letting you grep with preview. Also do <Leader>gr to trace an object through code!
             Since I'm using Rip-Grep (rg), use pcre-regex syntax, e.g., \bfoo\b to search the exact word `foo`
@@ -51,6 +51,7 @@ NOTE:       I use telescope-fzf-native to use fzf syntax: 'foo (exact), ^foo (st
 <spc>fD     Fuzzy Search LSP diagnostic messages
 
 <spc>?      Fuzzy Search help_tags, including NeoVim plugin help (faster than googling!)
+<spc>fh     Fuzzy Find Harpoon2 buffers
 <spc>fb     Like :ls and :b foo<cr> on steroids. Jump to buffer. (don't tab with :b unless needed or it slows down switching)
 <spc>fc     Fuzzy Search nvim configs (no need to cd ~/.config/nvim/...)
 <spc>fk     Fuzzy Search all NeoVim keymaps
@@ -60,6 +61,20 @@ NOTE:       I use telescope-fzf-native to use fzf syntax: 'foo (exact), ^foo (st
             Upper-case marks also make it so I don't have to reopen all the files containing them, it can load them as-needed!
             ^o / ^i moves backwards/forwards through :jumps list (last _cursor positions_ / implicit marks). `` toggles. 
             g; / gi moves backward/forwards through _changes_. `. always moves to last change. Use ALL of these!
+
+Harpoon 2
+---------
+<spc>fh     Fuzzy Find Harpoon2 buffers
+<spc>ha     Append current file to harpoon list
+<spc>hp     Prepend current file to harpoon list
+<spc>hr     Remove current file from harpoon list
+<spc>hh     Show harpoon list
+<spc>hc     Clear harpoon list
+<spc>1      Select file at index 1
+<spc>2      Select file at index 1
+<spc>3      Select file at index 1
+<spc>4      Select file at index 1
+
 
 GitHub PR / Issues Search (Telescope gh extension)
 --------------------------------------------------
