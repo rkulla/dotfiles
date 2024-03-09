@@ -188,6 +188,13 @@ GitHub CoPilot
 Completion         Just start typing code and it will auto-suggest code completion items. [tab] to complete
 Chat               Currently neovim plugin doesn't support this and microsoft/github have no ETA for this as of march 2024
 
+Copy paths
+----------
+<spc>cp     Copy current file's relative path (Y in nvim-tree)
+<spc>ca     Copy current file's absolute path (gy in nvim-tree)
+<spc>cn     Copy current file's name (y in nvim-tree)
+<spc>w      Copy CWD
+<spc>l      Copy the full paths of ALL open files
 
 Markdown preview
 ----------------

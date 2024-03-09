@@ -68,6 +68,7 @@ map(
   ":let @+ = substitute(expand('%:p'), escape(getcwd(), ' ') . '/', '', '')<cr>",
   { desc = "Copy current file's relative path" }
 )
+map("n", "<leader>ca", ":let @+ = expand('%:p')<CR>", { desc = "Copy current file's absolute path" })
 map("n", "<leader>cn", ":let @+ = expand('%:t')<cr>", { desc = "Copy current file's name" })
 map("n", "<leader>cl", [[:let @+ = join(map(split(execute('ls'),'\n'),{_,x->split(x,'"')[1]}))<cr>]], { desc = "Copy paths of all open files" })
 map("n", "<leader>cw", ":let @+ = system('pwd')<CR>", { desc = "Copy CWD to clipboard" })
