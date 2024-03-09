@@ -154,6 +154,8 @@ End / Home  Next/prev quickfix item. <spc>wqq (quit quickfix window)
 ]d / [d     Next/prev LSP diagnostic
 ]c / [c     Next/prev git change
 
+:LspStop    Disable LSP messages
+
 NavBuddy (navigate LSP symbols)
 -------------------------------
 :Nav[buddy]  `:Nav` alone will open Navbuddy to QUICKLY review a code file! (since it shows the main outline you can navigate)
@@ -175,7 +177,17 @@ g?           Shortcut reference
 Completion
 ----------
 foo[tab]  Auto-complete with OmniComplete (no plugin needed). Tab / Shift-Tab to scroll results down/up. Enter to select
-          Note: noice.nvim shows function signature once I'm in function arguments, highlights current arg
+          Note: noice.nvim shows function signature once I'm in function arguments, highlights current arg. :NoiceDisable disables Noice
+          Also doesn't conflict with GitHub Copilot tab completion
+
+GitHub CoPilot
+--------------
+:Copilot status    Check if its operational for the current buffer and report any issues
+:Copilot disable   Disable the plugin
+:Copilot panel     Open a window with up to 10 completions for current buffer. <CR> to accept a solution. ]] jumps to next
+Completion         Just start typing code and it will auto-suggest code completion items. [tab] to complete
+Chat               Currently neovim plugin doesn't support this and microsoft/github have no ETA for this as of march 2024
+
 
 Markdown preview
 ----------------
