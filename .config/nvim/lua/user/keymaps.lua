@@ -22,15 +22,10 @@ map("n", "<leader>q", ":bd<cr>", { desc = "Close buffer" })
 map("n", "<leader>n", ":set invnumber<cr>", { desc = "Toggle line numbers" })
 
 -- Underline the current line with dashes
-map('n', '<Leader>u', [[:call append(line("."), repeat("-", len(getline("."))))<CR>]])
+map("n", "<Leader>u", [[:call append(line("."), repeat("-", len(getline("."))))<CR>]])
 
 -- Open a floating terminal. Useful for very shortlived "Hotkey terminal" commands
-map(
-  "n",
-  "<leader>5",
-  ':lua require"user.myfloat".open_term_in_floating_window()<CR>',
-  { desc = "Open term in floating window" }
-)
+map("n", "<leader>5", ':lua require"user.myfloat".open_term_in_floating_window()<CR>', { desc = "Open term in floating window" })
 
 -- Open ~/my-shortcuts.txt in a floating / telescope fuzzy find window
 map(
@@ -44,8 +39,8 @@ map(
 map("n", "<leader>R", ":10sp README.rkulla<cr><cmd>set number!<cr>", { silent = true, desc = "Open README.rkulla" })
 
 -- Run omni-completion by typing TAB in insert mode. TAB again cycles forward, Shift+Tab cycle backward. Enter selects
-map('i', '<Tab>', "pumvisible() ? \"\\<C-n>\" : \"\\<C-x>\\<C-o>\"", {expr = true})
-map('i', '<S-Tab>', "pumvisible() ? \"\\<C-p>\" : \"\\<Tab>\"", {expr = true})
+map("i", "<Tab>", 'pumvisible() ? "\\<C-n>" : "\\<C-x>\\<C-o>"', { expr = true })
+map("i", "<S-Tab>", 'pumvisible() ? "\\<C-p>" : "\\<Tab>"', { expr = true })
 
 -- Keep cursor where it is after * search of current word
 map("n", "*", "*``")
@@ -67,11 +62,15 @@ map("n", "<LeftMouse>", "m'<LeftMouse>")
 --- Copying currently open file names to the clipboard --------------------
 
 --- Copy current buffer's path (useful to paste for CLI args)
-map("n", "<leader>cp", ":let @+ = @%<cr>", { desc = "Copy current file's relative path" })
+map(
+  "n",
+  "<leader>cp",
+  ":let @+ = substitute(expand('%:p'), escape(getcwd(), ' ') . '/', '', '')<cr>",
+  { desc = "Copy current file's relative path" }
+)
 map("n", "<leader>cn", ":let @+ = expand('%:t')<cr>", { desc = "Copy current file's name" })
 map("n", "<leader>cl", [[:let @+ = join(map(split(execute('ls'),'\n'),{_,x->split(x,'"')[1]}))<cr>]], { desc = "Copy paths of all open files" })
-map('n', '<leader>cw', ":let @+ = system('pwd')<CR>", { desc = "Copy CWD to clipboard" })
-
+map("n", "<leader>cw", ":let @+ = system('pwd')<CR>", { desc = "Copy CWD to clipboard" })
 
 --- Quickfix window -------------------------------------------------------
 
