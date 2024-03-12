@@ -51,7 +51,7 @@ NOTE:       I use telescope-fzf-native to use fzf syntax: 'foo (exact), ^foo (st
 <spc>fD     Fuzzy Search LSP diagnostic messages
 
 <spc>?      Fuzzy Search help_tags, including NeoVim plugin help (faster than googling!)
-<spc>fh     Fuzzy Find Harpoon2 buffers
+<spc>fh     Fuzzy Find Harpoon2 buffers, added with <spc>ha
 <spc>fb     Like :ls and :b foo<cr> on steroids. Jump to buffer. (don't tab with :b unless needed or it slows down switching)
 <spc>fc     Fuzzy Search nvim configs (no need to cd ~/.config/nvim/...)
 <spc>fk     Fuzzy Search all NeoVim keymaps
@@ -61,6 +61,17 @@ NOTE:       I use telescope-fzf-native to use fzf syntax: 'foo (exact), ^foo (st
             Upper-case marks also make it so I don't have to reopen all the files containing them, it can load them as-needed!
             ^o / ^i moves backwards/forwards through :jumps list (last _cursor positions_ / implicit marks). `` toggles. 
             g; / gi moves backward/forwards through _changes_. `. always moves to last change. Use ALL of these!
+
+
+goto-preview
+------------
+gpd    Shows preview of what `gd` (goto-definition) would jump (e.g., variable init or func def) including filename. Scroll in popup! Often beats gd and K
+gpr    Shows preview of where a definition is referenced (used). Useful but only a previews. Use gr to actually go to references
+gpD    Shows preview of delcaration. Generally doesn't work
+gpt    Shows preview of type definition. Generally use gpd though, since this often doesn't work
+gpi    Shows preview of implementation. Generally use gpd though, since this often doesn't work
+gpc    Close the preview windows. Don't use :bw or it closes the file. gP also is defined by default to do this
+
 
 Harpoon 2
 ---------
@@ -138,9 +149,9 @@ Note: If LSP doesn't work on a JS/TS project:
         $ npm i -g typescript-language-server  # yes install THIS globally since `npm ci` would wipe it out each time
     Then RESTART neovim before trying commands or even `:LspInfo` again (which should now show 'tsserver' is attached)
 
-K         Shows hover documentation for thing under cursor (also works more than signature help)
+K         Shows hover documentation for thing under cursor (also works more than signature help). `gpd` is often better, though
 gd        Go to definition (<spc>li is similar but shows in quickfix if multiple results)
-gr        View/jump to references (callees/callers/symbols). Great for tracing flow of code! <spc>fr for Fuzzy version
+gr        View/jump to references (callees/callers/symbols). Great for tracing flow of code! <spc>fr for Fuzzy version. gpr for preview only
 <spc>la   Show code actions for current line
 <spc>fd   Search all symbols in current document. <spc>ld for quickfix version
 <spc>tf   Toggle Format On Save (only works if null-ls is attached or explicit file types I configured. See null-ls.lua or :LspStop if needed)
@@ -159,6 +170,7 @@ End / Home  Next/prev quickfix item. <spc>wqq (quit quickfix window)
 NavBuddy (navigate LSP symbols)
 -------------------------------
 :Nav[buddy]  `:Nav` alone will open Navbuddy to QUICKLY review a code file! (since it shows the main outline you can navigate)
+             `:SymbolsOutline` is a similar plugin/command I have if I want to see it as a vertical split instead
 t            Fuzzy filter with Telescope integration. `/` for exact word search
 j / k        Move CURSOR down/up
 h / l        Move CURSOR to right/left panel (parent/children)
@@ -233,7 +245,9 @@ cst      Change existing <foo> tags to <p> by typing `p` at the prompt
 File Explorer buffer (oil.nvim)
 -------------------------------
 -            Typing a dash in normal mode opens a file explorer in a buffer, relative to the current file
+             Typing `-` again cd's up to parent dir
              Simply edit, add or remove files using vim commands and :w to write changes. :bw to close oil
+g.           Show hidden files
 
 File Explorer pane (nvim-tree. Type g? for all shortcuts)
 ---------------------------------------------------------

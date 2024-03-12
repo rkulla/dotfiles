@@ -1,3 +1,5 @@
+local map = vim.keymap.set
+
 require("goto-preview").setup({
   border = { "↖", "─", "┐", "│", "┘", "─", "└", "│" }, -- Border characters of the floating window
   default_mappings = true, -- Bind default mappings
@@ -34,3 +36,10 @@ require("goto-preview").setup({
   stack_floating_preview_windows = true, -- Whether to nest floating windows
   preview_window_title = { enable = true, position = "left" }, -- Whether to set the preview window title as the filename
 })
+
+map("n", "gpd", "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", { desc = "Preview definition [works]" })
+map("n", "gpD", "<cmd>lua require('goto-preview').goto_preview_declaration()<CR>", { desc = "Preview declaration" })
+map("n", "gpr", "<cmd>lua require('goto-preview').goto_preview_references()<CR>", { desc = "Preview references [works]" })
+map("n", "gpt", "<cmd>lua require('goto-preview').goto_preview_type_definition()<CR>", { desc = "Preview type definition" })
+map("n", "gpi", "<cmd>lua require('goto-preview').goto_preview_implementation()<CR>", { desc = "Preview implementation" })
+map("n", "gpc", "<cmd>lua require('goto-preview').close_all_win()<CR>", { desc = "Preview close [works]" })
