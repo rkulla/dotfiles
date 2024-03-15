@@ -224,6 +224,7 @@ telescope.setup({
         ["<C-p>"] = actions_layout.toggle_preview,
         ["<C-S-P>"] = toggle_path,
         ["<C-n>"] = actions_layout.cycle_layout_next,
+        ["<C-r>"] = send_to_qflist_handler,
       },
       n = {
         s = flash,

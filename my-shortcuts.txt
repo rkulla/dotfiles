@@ -25,6 +25,7 @@ NOTE:       I use telescope-fzf-native to use fzf syntax: 'foo (exact), ^foo (st
                .json$ | .yml$ | .yaml$  ^lex-authn-synacor/ !dev !local
 <spc>sc     Opens THIS file for quick fuzzy filtering of shortcuts!
 <spc>x      Fuzzy Search for filenames tracked by git. Fastest. (Unlike X and fe it's REPO relative, not CWD relative)
+            Ctlr+r to send results to quickfix (or Noice) allowing me to grep based on just that refined subset of files!
 <spc>X      Fuzzy Search for ALL filenames (no git required. Slightly slower but more thorough)
 <spc>fe     Like <spc>X but a clearer/real TUI file explorer where you're navigating the file system. Use arrow keys to CD to a dir first!
 <spc>fg     Fuzzy Grep all files in project (case-insensitive). Order is reversed, so scroll upward. ^d/^u to scroll file preview itself
@@ -32,6 +33,7 @@ NOTE:       I use telescope-fzf-native to use fzf syntax: 'foo (exact), ^foo (st
             Since I'm using Rip-Grep (rg), use pcre-regex syntax, e.g., \bfoo\b to search the exact word `foo`
             TAB to select multiple files and hit Enter to open (I have a workaround in user/telescope.lua)
             Ctrl+q to send all telescope results to the quickfix
+            Ctlr+r to send results to quickfix (or Noice) allowing me to FURTHER Refine my search based on THOSE files!
 <spc>fG     Same as <spc>fg but case-sensitive
 <spc>p      Browse projects (Like WebStorm's Recent Project list but better). ESC still cd's. ^r for recent files. ^s to grep. ^d to remove from list
 <spc>fp     Browse git repos (anywhere under $HOME). Shows README preview. <CR> to preview/open files. Use <spc>p or zoxide to cd around since this
