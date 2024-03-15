@@ -35,7 +35,10 @@ NOTE:       I use telescope-fzf-native to use fzf syntax: 'foo (exact), ^foo (st
             Ctrl+q to send all telescope results to the quickfix
             Ctlr+r to send results to quickfix (or Noice) allowing me to FURTHER Refine my search based on THOSE files!
 <spc>fG     Same as <spc>fg but case-sensitive
+<spc>fu     Like <spg>fg but only shows filenames (like ag -l)
+<spc>fU     Same as <spc>fu but case-sensitive
 <spc>p      Browse projects (Like WebStorm's Recent Project list but better). ESC still cd's. ^r for recent files. ^s to grep. ^d to remove from list
+            TODO: this might be even better https://github.com/nvim-telescope/telescope-frecency.nvim
 <spc>fp     Browse git repos (anywhere under $HOME). Shows README preview. <CR> to preview/open files. Use <spc>p or zoxide to cd around since this
             doesn't cd but my `gl` map will, then <spc>cw to copy :pwd to clipboard to paste on the cli. However: `$ zi <dir>` is only one step 
 <spc>fz     Fuzzy/Zoxide search previously cd'd dirs. <CR> changes to that CWD. ^f previews files. ^s/^v opens dir in horiz/vert split. ^e edit in Oil
@@ -64,6 +67,25 @@ NOTE:       I use telescope-fzf-native to use fzf syntax: 'foo (exact), ^foo (st
             ^o / ^i moves backwards/forwards through :jumps list (last _cursor positions_ / implicit marks). `` toggles. 
             g; / gi moves backward/forwards through _changes_. `. always moves to last change. Use ALL of these!
 
+Telescope Results & Preview windows
+-----------------------------------
+`*`     Highlight word                            (jj to NORMAL first)
+s       Flash.nvim jump to RESULTS line           (jj to NORMAL first)
+H/M/L   Jump to Highest, Middle, or Lowest result (jj to NOMRAL first)
+
+k       Scroll up RESULTS window                  (jj to NORMAL first)
+j       Scroll down RESULTS window                (jj to NORMAL first)
+^H      Scroll left RESULTS window
+^L      Scroll right RESULTS window
+
+^k      Scroll up PREVIEW window
+^j      Scroll down PREVIEW window
+^h      Scroll left PREVIEW window
+^l      Scroll right PREVIEW window
+
+^p      Toggle preview window
+^P      Toggle path (truncate vs absolute)
+^n      Cycle through different layouts (horizontal / vertical)
 
 goto-preview
 ------------
@@ -104,26 +126,6 @@ NOTE                                Also use the new PR icon/button at the top/r
                                     CAREFUL: ^a approves, ^r MERGES
 :Telescope gh issues author=rkulla  We don't use GitHub issues at work, but useful for home/open source
 
-
-Telescope Results & Preview windows
------------------------------------
-`*`     Highlight word                            (jj to NORMAL first)
-s       Flash.nvim jump to RESULTS line           (jj to NORMAL first)
-H/M/L   Jump to Highest, Middle, or Lowest result (jj to NOMRAL first)
-
-k       Scroll up RESULTS window                  (jj to NORMAL first)
-j       Scroll down RESULTS window                (jj to NORMAL first)
-^H      Scroll left RESULTS window
-^L      Scroll right RESULTS window
-
-^k      Scroll up PREVIEW window
-^j      Scroll down PREVIEW window
-^h      Scroll left PREVIEW window
-^l      Scroll right PREVIEW window
-
-^p      Toggle preview window
-^P      Toggle path (truncate vs absolute)
-^n      Cycle through different layouts (horizontal / vertical)
 
 Search (Flash.nvim)
 -------------------

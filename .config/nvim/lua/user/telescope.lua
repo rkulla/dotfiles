@@ -42,6 +42,18 @@ map(
 )
 map(
   "n",
+  "<leader>fu",
+  '<cmd>lua require("telescope.builtin").live_grep({ vimgrep_arguments = {"rg", "-H", "-l", "-i"} })<CR>',
+  { desc = "Find in all files, unique filename" }
+)
+map(
+  "n",
+  "<leader>fU",
+  '<cmd>lua require("telescope.builtin").live_grep({ vimgrep_arguments = {"rg", "-H", "-l", "-s"} })<CR>',
+  { desc = "Find in all files, unique filename (case-sensitive)" }
+)
+map(
+  "n",
   "<leader>fC",
   '<cmd>lua require("telescope.builtin").command_history(require("telescope.themes").get_dropdown { winblend = 10, previewer = true } )<CR>',
   { desc = "Command history" }
