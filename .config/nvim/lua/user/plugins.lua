@@ -73,6 +73,8 @@ return packer.startup(function(use)
   use("ahmedkhalf/project.nvim")
   -- Dependency free, aside from telescope
   use({ "nvim-telescope/telescope-ui-select.nvim" })
+  -- Dependency free, aside from telescope
+  use({ "nvim-telescope/telescope-live-grep-args.nvim" })
 
   -- Harpoon2 ("pin" frequently used buffers)
   use({
