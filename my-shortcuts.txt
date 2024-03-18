@@ -287,7 +287,7 @@ Git (Gitsigns)
 <spc>gbd      Blame line w/diff
 <spc>gbl      Toggle current line blame
 <spc>gbf      Blame file
-<spc>gdc      Diff current changes to this file
+<spc>gdc      Diff current changes to this file  (:G diff to diff ALL files)
 <spc>gdl      Diff last changes to this file
 <spc>gdP      diff preview file  (type again to toggle off)
 <spc>gdp      diff preview hunk  (move cursor to turn off)
