@@ -175,6 +175,7 @@ NavBuddy (navigate LSP symbols)
 -------------------------------
 :Nav[buddy]  `:Nav` alone will open Navbuddy to QUICKLY review a code file! (since it shows the main outline you can navigate)
              `:SymbolsOutline` is a similar plugin/command I have if I want to see it as a vertical split instead
+             Note: To see the function 'calls' a file is making, use an LLMM like `:ChatGPTRun explain_code`
 t            Fuzzy filter with Telescope integration. `/` for exact word search
 j / k        Move CURSOR down/up
 h / l        Move CURSOR to right/left panel (parent/children)
