@@ -7,6 +7,18 @@ local diagnostics = null_ls.builtins.diagnostics
 local code_actions = null_ls.builtins.code_actions
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
+-- Function to let me copy current line's LSP diagnostic msg to clipboard. Mapped below
+function CopyDiagnosticMessage()
+  local diagnostics = vim.lsp.diagnostic.get_line_diagnostics()
+  if #diagnostics > 0 then
+    local message = diagnostics[1].message
+    vim.fn.setreg("+", message) -- Copy to system clipboard
+    print("Copied diagnostic message to clipboard: " .. message)
+  else
+    print("No diagnostics found on this line.")
+  end
+end
+
 -- Note not everything is an LSP, e.g., prettierd, sylua aren't, but gopls and tsserver are
 null_ls.setup({
   debug = false,
@@ -32,6 +44,7 @@ null_ls.setup({
     map("n", "gd", vim.lsp.buf.definition, { buffer = bufnr, desc = "LSP go to definition" })
     map("n", "gr", vim.lsp.buf.references, { buffer = bufnr, desc = "LSP references" })
     map("n", "K", vim.lsp.buf.hover, { buffer = bufnr, desc = "LSP hover" })
+    map("n", "<leader>cd", ":lua CopyDiagnosticMessage()<CR>", { desc = "Copy diagnostic msg (current line)" })
     map("n", "<leader>la", vim.lsp.buf.code_action, { buffer = bufnr, desc = "LSP code action" })
     map("n", "<leader>lDF", vim.diagnostic.open_float, { buffer = bufnr, desc = "LSP diagnostic float" })
     map("n", "<leader>lDL", vim.diagnostic.setloclist, { buffer = bufnr, desc = "LSP diagnostic loclist" })
