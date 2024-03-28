@@ -267,6 +267,9 @@ function! Light()
   set bg=light
 endfunction
 command! -nargs=0 Light call Light()
+" Set Dark color scheme by default
+autocmd VimEnter * call Dark()
+
 
 " Enable on rainbow brackets
 let g:rainbow_active=1
