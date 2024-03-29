@@ -23,8 +23,13 @@ PATH="$HOME/.nvm/versions/node/v14.15.4/bin:$PATH"
 PATH="$HOME/.pyenv/shims:$PATH"
 
 # Golang stuff
+# Main/default go version I have installed
 PATH=/usr/local/go/bin/go:$PATH
 PATH="$HOME/go/bin:$PATH"
+# Switch `go version` to point to whatever newer Go version I `go install/go download`
+# Allows multiple installs. Commenting out these 2 lines out will use my default go version
+GOROOT=~/sdk/go1.21.8
+PATH=$GOROOT/bin:$PATH
 
 # Rust stuff
 PATH="$HOME/.cargo/bin:$PATH"
