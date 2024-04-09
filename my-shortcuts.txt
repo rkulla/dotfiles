@@ -206,6 +206,11 @@ GitHub CoPilot
 Completion         Just start typing code and it will auto-suggest code completion items. [tab] to complete
 Chat               Currently neovim plugin doesn't support this and microsoft/github have no ETA for this as of march 2024
 
+Noice
+-----
+:NoiceDisable   Disables it completely but :LSPStop may be what you want instead.
+                You can click the Noice Banner to freeze it and even yank from it (click back on main window for it to go away)
+
 Copy paths
 ----------
 <spc>cp     Copy current file's relative path (Y in nvim-tree)
