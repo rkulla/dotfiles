@@ -162,6 +162,22 @@ alias icd='cd ~/Library/Mobile\ Documents/com\~apple\~CloudDocs'
 
 alias j='zi'
 
+# alias to fd "all" files (case-insensitive/hidden)
+alias fda='fd -iH'
+
+# Useful after `fd -H foo` to open files in nvim: `fd foo | x
+# Think of `x` as `xargs nvim` (and only opens if its a file not dir)
+# use fdh for `fd -H` (hidden files too).
+function x() {
+    files=()
+    while IFS= read -r line; do
+        if [ -f "$line" ]; then
+            files+=("$line")
+        fi
+    done
+    ~/opt/nvim-macos/bin/nvim "${files[@]}"
+}
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
