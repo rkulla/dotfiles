@@ -45,6 +45,7 @@
 	lastmessage = cat-file commit HEAD  # Use this more though: git show
     # great for seeing changes in remote branches (compliments my git branches Golang command) and git changed --remotes
     branchez = "!git --no-pager branch -a -vv"
+    # Remember `git clean -f` will remove untracked files (opposite of bonk). Use `git clean -f` to dry-run first!
     bonk = reset --hard  # so I can bonk HEAD to revert
     # list aliases
     la = "!git config -l | grep alias | cut -c 7-"
