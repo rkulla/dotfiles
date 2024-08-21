@@ -4,9 +4,12 @@ local actions_layout = require("telescope.actions.layout")
 local actions_state = require("telescope.actions.state")
 local map = vim.keymap.set
 
+-- function git_files maps to to exclude committed dirs like vendor/
+local function get_git_command() return { "git", "ls-files", "--exclude-standard", "--cached", "--others", "--", ":(exclude)**/vendor/*" } end
+
 map("n", "<leader>?", require("telescope.builtin").help_tags, { desc = "Find help tags" })
-map("n", "<leader>fx", require("telescope.builtin").git_files, { desc = "Find git files" }) -- git_signs
-map("n", "<leader>x", require("telescope.builtin").git_files, { desc = "Find git files" }) -- git_signs
+map("n", "<leader>fx", function() require("telescope.builtin").git_files({ git_command = get_git_command() }) end, { desc = "Find git files" })
+map("n", "<leader>x", function() require("telescope.builtin").git_files({ git_command = get_git_command() }) end, { desc = "Find git files" })
 map("n", "<leader>X", require("telescope.builtin").find_files, { desc = "Find all files" })
 map("n", "<leader>fe", "<cmd>Telescope file_browser<cr>", { desc = "File expolorer" })
 map("n", "<leader>fl", require("telescope.builtin").oldfiles, { desc = "Find last opened files" })
