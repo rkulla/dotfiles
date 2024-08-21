@@ -108,6 +108,7 @@ lspconfig.gopls.setup({
         upgrade_dependency = true,
         vendor = false,
       },
+      buildFlags = { "-tags=integration" }, -- work with integration tests that do //go:build integration
     },
   },
 })
