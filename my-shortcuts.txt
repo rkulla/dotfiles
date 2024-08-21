@@ -164,6 +164,7 @@ gr        View/jump to references (callees/callers/symbols). Great for tracing f
           <spc>cd copy diagnostic msg (INLINE diagnostics are LSP, not Trouble. Hide those with: :LspStop)
 <spc>ll   Show codelens inlay action (e.g., show 'run test')
 <spc>rc   Run codelens action (e.g., run unit test)
+<spc>rr   Run current file by filetype. E.g., 'go run %' if it's a .go file
 
 End / Home  Next/prev quickfix item. <spc>wqq (quit quickfix window)
 ^d / ^u     Scroll down/up Telescope file preview float
