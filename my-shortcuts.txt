@@ -28,7 +28,7 @@ NOTE:       I use telescope-fzf-native to use fzf syntax: 'foo (exact), ^foo (st
 <spc>x      Fuzzy Search for filenames tracked by git. Fastest. (Unlike X and fe it's REPO relative, not CWD relative)
             Ctlr+r to send results to quickfix (or Noice) allowing me to grep based on just that refined subset of files! E.g., grep just .yml
 <spc>X      Fuzzy Search for ALL filenames (no git required. Slightly slower but more thorough)
-<spc>fe     Like <spc>X but a clearer/real TUI file explorer where you're navigating the file system. Use arrow keys to CD to a dir first!
+<spc>fe     Like <spc>X but a real TUI file explorer where you're navigating the file system. Use arrow keys to CD to a dir first!
 <spc>fg     Fuzzy Grep all files in project (case-insensitive). Order is reversed, so scroll upward. ^d/^u to scroll file preview itself
             This is like space+space in Webstorm, letting you grep with preview. Also do <Leader>gr to trace an object through code!
             Since I'm using Rip-Grep (rg), use pcre-regex syntax, e.g., \bfoo\b to search the exact word `foo`
@@ -38,7 +38,8 @@ NOTE:       I use telescope-fzf-native to use fzf syntax: 'foo (exact), ^foo (st
 <spc>fG     Same as <spc>fg but case-sensitive
 <spc>fu     Like <spg>fg but only shows filenames (like ag -l)
 <spc>fU     Same as <spc>fu but case-sensitive
-<spc>p      Browse projects (Like WebStorm's Recent Project list but better). ESC still cd's. ^r for recent files. ^s to grep. ^d to remove from list
+<spc>p      Browse projects with project.nvim (Like WebStorm's Recent Project list but better). ESC still cd's. ^r for recent files. ^s to
+            grep. ^d to remove from list
             TODO: this might be even better https://github.com/nvim-telescope/telescope-frecency.nvim
 <spc>fp     Browse git repos (anywhere under $HOME). Shows README preview. <CR> to preview/open files. Use <spc>p or zoxide to cd around since this
             doesn't cd but my `gl` map will, then <spc>cw to copy :pwd to clipboard to paste on the cli. However: `$ zi <dir>` is only one step 
@@ -116,11 +117,11 @@ GitHub PR / Issues Search (Telescope gh extension)
 --------------------------------------------------
 NOTE                                Also use the new PR icon/button at the top/right of github.com to see all your PRs!
 :Telescope gh pull_request          Find PRs by author ('kulla) and view its modified files! Better than global author search
-                                    state=open (default), state=all, or state=closed
+                                    Additional args: state=open (default), state=all, or state=closed
                                     ^e toggle diff view. ^t open PR in web browser
                                     ^f browse modified files 
                                     My <spc>fC to search command history to find/RUN past commands
-                                    For PR requests, DO THIS: 
+                                    For PR reviews, DO THIS: 
                                        <cr> checks out PR (:G co - to get back)
                                        Run `:Telescope gh pull_request` again, ^f to browse modified files. Tab to select them all/open
                                        Once open use my `<spc>fb` map to browse open buffers and see previews. ^n for vertical split preview
