@@ -35,8 +35,13 @@ map(
   { silent = true, desc = "Open file in floating window" }
 )
 
--- Open/Switch to README.rkulla in a split window for rapid viewing/editing
-map("n", "<leader>R", ":10sp README.rkulla<cr><cmd>set number!<cr>", { silent = true, desc = "Open README.rkulla" })
+-- Open README.rkulla in for rapid viewing/editing. Uses telescope in case there are multiple files with that name
+map(
+  "n",
+  "<leader>R",
+  ":lua require('telescope.builtin').find_files({ search_file = 'README.rkulla', prompt_title = 'Find README.rkulla', no_ignore = true })<CR>",
+  { silent = true, desc = "Open README.rkulla" }
+)
 
 -- Run omni-completion by typing TAB in insert mode. TAB again cycles forward, Shift+Tab cycle backward. Enter selects
 map("i", "<Tab>", 'pumvisible() ? "\\<C-n>" : "\\<C-x>\\<C-o>"', { expr = true })
