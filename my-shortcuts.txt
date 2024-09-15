@@ -24,17 +24,18 @@ Search (Telescope)
 NOTE:       I use telescope-fzf-native to use fzf syntax: 'foo (exact), ^foo (starts with), go$ (ends with), etc. (For grep use PCRE)
             `|` for OR. EX: search just .json and yaml files in lex-authn-synacor/ subdir but not dev or local:
                .json$ | .yml$ | .yaml$  ^lex-authn-synacor/ !dev !local
+NOTE:       I can DOUBLE filter by first doing a search (e.g. `,x` or `,fu`), TAB to select multiple files and hit Enter to open (I have a
+            workaround in user/telescope.lua). Then Ctlr+r will open a second telescop live_grep prompt, to FURTHER grep THOSE files!
+            (this is akin to `ag -l foo | xargs ag -l bar` on the cli)
 <spc>sc     Opens THIS file for quick fuzzy filtering of shortcuts!
 <spc>x      Fuzzy Search for filenames tracked by git. Fastest. (Unlike X and fe it's REPO relative, not CWD relative)
             Ctlr+r to send results to quickfix (or Noice) allowing me to grep based on just that refined subset of files! E.g., grep just .yml
+            Ctrl+q to send all telescope results to the quickfix but not grep them
 <spc>X      Fuzzy Search for ALL filenames (no git required. Slightly slower but more thorough)
 <spc>fe     Like <spc>X but a real TUI file explorer where you're navigating the file system. Use arrow keys to CD to a dir first!
 <spc>fg     Fuzzy Grep all files in project (case-insensitive). Order is reversed, so scroll upward. ^d/^u to scroll file preview itself
             This is like space+space in Webstorm, letting you grep with preview. Also do <Leader>gr to trace an object through code!
-            Since I'm using Rip-Grep (rg), use pcre-regex syntax, e.g., \bfoo\b to search the exact word `foo`
-            TAB to select multiple files and hit Enter to open (I have a workaround in user/telescope.lua)
-            Ctrl+q to send all telescope results to the quickfix
-            Ctlr+r to send results to quickfix (or Noice) allowing me to FURTHER Refine my search based on THOSE files!
+            Note: since I'm using Rip-Grep (rg), use pcre-regex syntax, e.g., \bfoo\b to search the exact word `foo`
 <spc>fG     Same as <spc>fg but case-sensitive
 <spc>fu     Like <spg>fg but only shows filenames (like ag -l)
 <spc>fU     Same as <spc>fu but case-sensitive
@@ -142,6 +143,9 @@ yr<char>    Prepare to yank at position <char>. First jump to the char then fini
             
 Search (Misc)
 -------------
+ag -l x | xargs ag y   Find files containing both "x" and "y" on different lines. (add -l to to second ag to list just file names) 
+                       (Note: can do this in nvim with telescope search (`,fu`, `,x`, etc) then select those results and ^r to send to
+                        quickfix, which opens a second telescope live_grep for me to grep on just those results!)
 :SE foo                Find the exact word `foo` on the page. Faster than typing \<foo\> (vim's version of \bfoo\b)
 /foo                   Then ^g / ^t to preview search down/up IN THE / PROMPT. After applying with ENTER, use N to go upward. foo|\bar too
 ?http://foo.com/x      Simply searching backwards with ? let's you paste a URLs without having to escape all the /'s 
@@ -327,7 +331,8 @@ Git (Fugitive)
 
 :G co -b foo             Create/switch to branch `foo`
 
-:GBrowse [<file|sha>]    Opens github.com link to current file (or specific file or commit) in web browser
+:GBrowse [<file|sha>]    Opens file or commit in GitHub.com. No arg opens current file. Shift+v to select line opens specific line number
+                       
 
 gst                      Keymap for `git status`
 gsf                      Keymap for finding when the current file was FIRST ADDED to the repo (or `gfadded <path>` on the cli)

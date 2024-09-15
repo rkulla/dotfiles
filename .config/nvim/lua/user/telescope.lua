@@ -208,6 +208,14 @@ telescope.setup({
       -- disables netrw and use telescope-file-browser in its place
       hijack_netrw = true,
     },
+    gh = {
+      pull_request = {
+        mappings = {
+          i = { ["<C-r>"] = false }, -- disable the default <C-r> merge keymap in insert mode
+          n = { ["<C-r>"] = false }, -- disable the default <C-r> merge keymap in normal mode
+        },
+      },
+    },
   },
   defaults = {
     -- This path_display/dynamic_preview_title/layout_config combo allows me to avoid wanting a 43" monitor!
