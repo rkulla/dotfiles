@@ -126,7 +126,7 @@ NOTE                                Also use the new PR icon/button at the top/r
                                        <cr> checks out PR (:G co - to get back)
                                        Run `:Telescope gh pull_request` again, ^f to browse modified files. Tab to select them all/open
                                        Once open use my `<spc>fb` map to browse open buffers and see previews. ^n for vertical split preview
-                                    CAREFUL: ^a approves, ^r MERGES
+                                    CAREFUL: ^a approves, ^r MERGES (fortunately it prompts you first)
 :Telescope gh issues author=rkulla  We don't use GitHub issues at work, but useful for home/open source
 
 
