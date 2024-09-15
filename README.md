@@ -6,7 +6,7 @@ My dotfiles and configuration files in general!
 
 ## Summary
 
-Adding new files requires 3 steps:
+Adding new files requires three steps:
 
 1.  Add the file or directory to this repo
 2.  Add to the root .gitignore anything I want to ignore/unignore
