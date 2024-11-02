@@ -76,8 +76,8 @@ In finder, don't forget to set .txt files to open in MacVim or it will open in T
 Make sure to click the `privacy` tab and add any dirs you to ignore, such as a backup drive (so it doesn't try to load your backups instead of the main file). Checking the statusbar in MacVim will help confirm the path!
 
 TROUBLESHOOTING: 
-  - If Spotlight search still finds things but won't OPEN them, do:  $ sudo killall Spotlight  # this restarts it and rebuilds the index
-  - If you don't see anything indexed, you can usually add/remove from the 'privacy' section of the spotlight UI settings OR do: sudo mdutil -i off <dir> && sudo mdutil -i on <dir>
+  - If Spotlight search still finds things but won't OPEN them, do: `$ sudo killall Spotlight` # this restarts it and rebuilds the index
+  - If you don't see anything indexed, you can usually add/remove from the 'privacy' section of the spotlight UI settings OR do: `sudo mdutil -i off <dir> && sudo mdutil -i on <dir>`
 
 ## Shortcuts
 
