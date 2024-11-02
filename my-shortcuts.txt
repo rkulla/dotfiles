@@ -9,7 +9,9 @@ $ nmod                   Re-open modified files not yet committed
                            which has the added benefit of not opening modifiled files I might not want such as package-lock.json
 $ nnotmerged <merge-to>  Re-open committed but not merged files in a branch
                          Then see the diffs: :Gvdiff <merge-to> on any file
-$ ncom <merged-to>       Re-open files you already merged. I.e, PR needs more work
+$ ncom <merged-to>      
+:Telescope pull_request  Re-open files specific to a PR, weather merged or not: ^f  after finding the PR in telescope. (works best?)
+
 
 Open/Close buffers
 ------------------
@@ -36,6 +38,7 @@ NOTE:       I can DOUBLE filter by first doing a search (e.g. `,x` or `,fu`), TA
 <spc>fg     Fuzzy Grep all files in project (case-insensitive). Order is reversed, so scroll upward. ^d/^u to scroll file preview itself
             This is like space+space in Webstorm, letting you grep with preview. Also do <Leader>gr to trace an object through code!
             Note: since I'm using Rip-Grep (rg), use pcre-regex syntax, e.g., \bfoo\b to search the exact word `foo`
+            Search `'func | 'method` will show all function and method calls and definitions
 <spc>fG     Same as <spc>fg but case-sensitive
 <spc>fu     Like <spg>fg but only shows filenames (like ag -l)
 <spc>fU     Same as <spc>fu but case-sensitive
