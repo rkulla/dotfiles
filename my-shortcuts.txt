@@ -381,6 +381,11 @@ _____________________________MACOS SHORTCUTS______________________
 - MacOS Terminals:
   - Use Alacritty since it's faster, but doesn't support tabs or splits (use multiple windows+tiling window manager or tmux for that)
     - I use `amethyst` tiling manager. Also, alacritty cmd+n creates new windows from relative dir of term you run that from!
+    - Note: when searching for a string in tmux such as "body" in:
+          2024-11-03T13:43:59.850-0800    INFO            {"type": "INFO", "body": {"aggregator":"synacor"}
+      try searching:
+         .*body
+      if exact searches aren't finding it. This happens to me a lot.  Also should work: /info.*body
   - Optionally USE SSH, even if from my HOME computer on my desk + tmux, to see e.g., unit tests, web server logs, etc.
   - Use Neovim for filesystem navigation:
     - <spc>fe Telescope fuzzy file browser. Enter on ../ to go up a dir
