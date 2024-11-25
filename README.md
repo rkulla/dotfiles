@@ -57,7 +57,8 @@ I prefer this over Dropbox since it's native and works better.
 - In Finder's preferences, go to 'sidebar' and enable 'iCloud Drive' to see it in finder
 - Simply create folders in it and they will appear in ~/Library/Mobile\ Documents/com\~apple\~CloudDocs
   - I alias `icd` to cd to this folder by typing
-- Do NOT enable 'Desktop and Documents', which will sync your Desktop and Documents folders to iCloud drive. No need.
+
+NOTE: If spotlight stops loading things, make sure I don't check too many things in spotlight AND then make sure to rebuild the Spotlight index by going to Spotlight's preferences > Click on "Spotlight Privacy" to see a list of locations excluded from Spotlight searches > Then temporarily + add my iCloud Drive to the exclusions list but then immediately remove it from there, and that will trigger a rebuild of the index.
 
 ## Spotlight
 
@@ -65,7 +66,7 @@ I prefer this over Alfred since it's native and works better.
 
 Make alt+space open it (instead of the default cmd+space) in `System Preferences > Spotlight > Shortcuts`
 
-Tell it what NOT to search in `System Preferences > Spotlight > Search Results`. Uncheck things like 'bookmarks & history, 'developer' 'siri suggestions', 'Music', 'Mail and Messages', 'Other'.
+Tell it what NOT to search in `System Preferences > Spotlight > Search Results`. Uncheck things like 'bookmarks & history, 'developer' 'siri suggestions', 'Music', 'Mail and Messages', 'Other'.  I uncheck everything but `Applications`, `Calculator`, `Documents`, `Folders` and `System Settings` to avoid conflicts.
 
 Leave everything else checked: 'Applications', 'calculator', 'definition', 'Documents', 'events and reminders', 'conversion', 'folders', 'movies', 'PDF', 'system preferences', etc.
 
