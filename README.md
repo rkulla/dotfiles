@@ -150,9 +150,20 @@ Install MacVim and then install my plugins by cloning vimogen to ~/repos and run
 ## Alacritty
 
 Brew install `alacritty` and it will use my config file automatically. No further setup required!
-Use with Tiling Window manager `amethyst`, ideally, so windows will auto-title.
+Optionally use with Tiling Window manager `amethyst`, ideally, so windows will auto-title.
+
+To change configs, such as the color of the background dynamically, just:
+
+    alacritty msg config "colors.primary.background='#eff6ef'"
+
+which means it's all script-able! To change tmux's status bar dynamically:
+
+    tmux source-file ~/.tmux/themes/tokyonight_day.tmux
+
 
 ## iterm2
+
+NOTE: I don't use iterm2 anymore, just alacritty
 
 Install `Hack Nerd Font` so I can see file-type logos in my terminal:
 
