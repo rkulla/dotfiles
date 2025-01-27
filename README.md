@@ -79,7 +79,9 @@ Make sure to click the `privacy` tab and add any dirs you to ignore, such as a b
 TROUBLESHOOTING: 
   - If Spotlight isn't finding or opening things anymore, rebuild the index for the FOLDER in question, e.g., /Applications if it stops finding apps, or add your iCloud Drive folder if files in that stop being indexd, etc. THEN make sure to immediately remove that folder before clicking Done to trigger a rebuild of the index.
   - If Spotlight search still finds things but won't OPEN them, do: `$ sudo killall Spotlight` # this restarts it and rebuilds the index
-  - If you don't see anything indexed, you can usually add/remove from the 'privacy' section of the spotlight UI settings OR do: `sudo mdutil -i off <dir>` && `sudo mdutil -i on <dir>` but try it through the UI first.
+  - If you don't see anything indexed, you can usually add/remove from the 'privacy' section of the spotlight UI settings OR do: `sudo mdutil -i off <dir>` && `sudo mdutil -i on <dir>` but try it through the UI first but what worked BEST for me last time was:
+     $ sudo mdutil -E /
+     $ sudo killall Spotlight  # do this if it's still not working
 
 ## Shortcuts
 

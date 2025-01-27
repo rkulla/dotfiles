@@ -252,7 +252,8 @@ nvim-surround
 -------------
 cs'"     Change single quotes to double quotes:  'foo' becomes "foo"
 ds(      Deletes ()'s around text. Works on word or line and from any cursor position!
-dsf      Delete function. E.g., foo(bar) becomes bar, foo() becomes nothing
+         Use <CR> once or twice to highlight an entire func/block with treesitter and delete it that way
+dsf      Delete function name. E.g., foo(bar) becomes bar, foo() becomes nothing
 csf      Change function name. Even works on methods and jumps straight to them
 yswf     Surround a word in a function. Prompts you for function name to surround a word with. Even works for adding foo.bar()
 ysw(     Surround a word with ()'s 
@@ -348,7 +349,7 @@ gr    View references to real function under cursor. In vim-bqf's preview I can 
 gpr   Like gr, but a floating window instead (uses goto-preview.nvim)
 
 
-terminal-mode
+terminal-mode (this works but I mostly just use tmux)
 -------------
 :term        Open full-screen terminal shell buffer
 <spc>5       Open a floating-term (think hotkey terminal window. For quick things)
