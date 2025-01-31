@@ -35,6 +35,7 @@ The `realpath` command from coreutils is required to run install.sh. I typically
       screen zsh-syntax-highlighting zsh-you-should-use shellcheck jsonlint fzf irssi sqlite jq yq \
       asdf the_silver_searcher ripgrep yamllint httpie diff-so-fancy fnm glow bat lazygit lazydocker \
       lsd vint hadolint groff alacritty alt-tab amethyst
+    $ brew install --cask lookaway
 
 ### Run the dotfiles install script
 
