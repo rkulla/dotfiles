@@ -28,7 +28,8 @@ end
 
 require("lualine").setup({
   options = {
-    theme = "tokyonight",
+    -- theme = "tokyonight",
+    -- no theme performs saner in light mode for me
     component_separators = "",
     section_separators = "",
     globalstatus = true,
