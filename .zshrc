@@ -110,7 +110,7 @@ bindkey '^B' vi-backward-kill-word
 
 # ^W is bound to backward-kill-word which contains '/' in WORDCHARS
 # I will maintain that behavior (allowing ^W to delete a whole URL)
-# but will locally modify it in a function bound such that Ctrl-/
+# but will locally modify it in a function bound such that ^_
 # will delete 'bar-baz' from /foo/bar-baz
 # This is needed in zsh because it doesn't use gnu-readline which
 # .inputrc leverages. I still use .inputrc for bash, python, etc.

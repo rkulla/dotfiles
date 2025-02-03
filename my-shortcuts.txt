@@ -392,6 +392,11 @@ _____________________________MACOS SHORTCUTS______________________
     - <spc>fe Telescope fuzzy file browser. Enter on ../ to go up a dir
     - Typing `-` in normal mode opens a file explorer in a buffer, relative to the current file. Create/rm/edit filenames. :w to save
 
+- ZSH Prompt:
+  - Ctrl+_   (CTRL+underscore) will delete backwards just up to the last forward slash. So delete a dir at a time. I couldn't get binding
+             to ^/ to work, so I used ^_a.  I could have made ^W do it but then that's super annoying when deleting long urls
+  - Ctrl+b   Deletes backwards a word at a time, instead of the whole line. Meaning to the last ., -, etc. 
+
 _____________________________ZOXIDE SHORTCUTS______________________
 $ z <str>    Auto jump to a path containing "str" (as long as you've z'd or cd'd there before). Can use multiple words: `z foo bar`
 $ zi <str>   FZF filter all results, instead of just most used (just do this MOST of the time)
