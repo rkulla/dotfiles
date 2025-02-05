@@ -40,14 +40,14 @@
 	pa = log -S # pickaxe
     logp = log -p # shows actual code that changed, all the way to beginning. Add -1 for last commit, last -2 for 2 commits, etc.
     # Depending on the branch, start with lol, then lolg then lolga
-    lol = log --pretty=format:\"%C(yellow)%h%d%Creset %s - %an [%ar]\"
-    lolg = "log --graph --pretty=format:'%C(auto)%h %C(green)%an %Cblue%ar%Creset%C(auto)%d %s %Creset' --author-date-order --decorate=short"
-    lolga = "log --graph --pretty=format:'%C(auto)%h %C(green)%an %Cblue%ar%Creset%C(auto)%d %s %Creset' --author-date-order --decorate --all"
+    lol = log --pretty=format:\"%C(34 italic 16)%h%d%Creset %s - %an [%ar]\"
+    lolg = "log --graph --pretty=format:'%C(34 italic 16)%h %C(green)%an %Cblue%ar%Creset%C(cyan)%d%Creset %C(black)%s %Creset' --author-date-order --decorate=short"
+    lolga = "log --graph --pretty=format:'%C(34 italic 16)%h %C(green)%an %Cblue%ar%Creset%C(cyan)%d%Creset %C(black)%s %Creset' --author-date-order --decorate --all"
     # GREAT command for figuring out what you or your team last changed and getting filenames easily
     # also use the awesome 'git changed --remotes' command to see remote branch changes too!
-	changed = log --pretty=format:\"%C(yellow)%h%d%Creset %s - %an [%ar]\" --name-only
+	changed = log --pretty=format:\"%C(34 italic 16)%h%d%Creset %s - %an [%ar]\" --name-only
     # like changed but also show the file modification. E.g. M for modified, A for added, etc.
-    changedm = log --pretty=format:\"%C(yellow)%h%d%Creset %s - %an [%ar]\" --name-status
+    changedm = log --pretty=format:\"%C(34 italic 16)%h%d%Creset %s - %an [%ar]\" --name-status
 	today = show --since=yesterday --stat
     last = show --stat
 	lastmessage = cat-file commit HEAD  # Use this more though: git show
