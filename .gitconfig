@@ -9,16 +9,24 @@
 [color]
 	ui = true
 [color "status"]
-	untracked = red bold
-	changed = yellow bold
-	added = green bold
+    added = "#006400" bold
+	changed = 34 italic
+	untracked = blue bold
 [color "diff"]
-	meta = yellow bold
-	frag = cyan bold
-	new = green bold
+	meta = 23 bold
+	frag = 21 bold
+    func = 146 bold
+	commit = yellow bold
+    new = 34 bold
 	old = red bold
 	whitespace = red reverse
-[alias]
+[color "diff-highlight"]
+    # Used by diff-so-fancy (dsf)
+    oldNormal = red bold
+    oldHighlight = red bold reverse
+    newNormal = 34 bold
+    newHighlight = 34 bold reverse
+[aliaS]
     # fancier diff with diff-so-fancy. I shell alias this to dsf='git dsf'
 	dsf = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git diff --color \"$@\" | diff-so-fancy  | less --tabs=4 -RFX; }; f"
 	s = status
