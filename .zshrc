@@ -129,9 +129,16 @@ ZSH_HIGHLIGHT_STYLES[alias]=fg='#1f3fe0'
 ZSH_HIGHLIGHT_STYLES[builtin]=fg=cyan
 ZSH_HIGHLIGHT_STYLES[function]=fg=cyan,bold
 ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=red,bold
+
 ZSH_HIGHLIGHT_STYLES[path]=fg=magenta,bold
 ZSH_HIGHLIGHT_STYLES[path_pathseparator]=fg='#b41fe0'
 ZSH_HIGHLIGHT_STYLES[path_prefix_pathseparator]=fg='#b41fe0'
+
+ZSH_HIGHLIGHT_STYLES[single-quoted-argument]=fg=black
+ZSH_HIGHLIGHT_STYLES[double-quoted-argument]=fg=black
+ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]=fg=black
+ZSH_HIGHLIGHT_STYLES[redirection]=fg='#2ee01f'
+
 
 
 # Remind me to use the alias of a command (brew install zsh-you-should-use)
