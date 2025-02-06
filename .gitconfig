@@ -43,6 +43,9 @@
     lol = log --pretty=format:\"%C(34 italic 16)%h%d%Creset %s - %an [%ar]\"
     lolg = "log --graph --pretty=format:'%C(34 italic 16)%h %C(green)%an %Cblue%ar%Creset%C(cyan)%d%Creset %C(black)%s %Creset' --author-date-order --decorate=short"
     lolga = "log --graph --pretty=format:'%C(34 italic 16)%h %C(green)%an %Cblue%ar%Creset%C(cyan)%d%Creset %C(black)%s %Creset' --author-date-order --decorate --all"
+    # date as a full name, not relative time
+    loldate = "log --graph --author-date-order --decorate=short --date=format:'%Y-%d-%d %H:%M:%S' --pretty=format:'%C(cyan)%h%Creset %C(magenta bold)%ad%Creset%C(black)%d %s'"
+
     # GREAT command for figuring out what you or your team last changed and getting filenames easily
     # also use the awesome 'git changed --remotes' command to see remote branch changes too!
 	changed = log --pretty=format:\"%C(34 italic 16)%h%d%Creset %s - %an [%ar]\" --name-only
