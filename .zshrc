@@ -123,6 +123,17 @@ bindkey '^_' backward-kill-dir
 
 # syntax highlight commands (brew install zsh-syntax-highlighting)
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# Override default command / alias / path colors as I'm typing them
+ZSH_HIGHLIGHT_STYLES[command]=fg='#218c09,bold'  # External commands in PATH
+ZSH_HIGHLIGHT_STYLES[alias]=fg='#1f3fe0'
+ZSH_HIGHLIGHT_STYLES[builtin]=fg=cyan
+ZSH_HIGHLIGHT_STYLES[function]=fg=cyan,bold
+ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=red,bold
+ZSH_HIGHLIGHT_STYLES[path]=fg=magenta,bold
+ZSH_HIGHLIGHT_STYLES[path_pathseparator]=fg='#b41fe0'
+ZSH_HIGHLIGHT_STYLES[path_prefix_pathseparator]=fg='#b41fe0'
+
+
 # Remind me to use the alias of a command (brew install zsh-you-should-use)
 source $(brew --prefix)/share/zsh-you-should-use/you-should-use.plugin.zsh
 # but exclude certain aliases where I still like to use the real form sometimes
