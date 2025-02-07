@@ -26,7 +26,7 @@
     oldHighlight = red bold reverse
     newNormal = 34 bold
     newHighlight = 34 bold reverse
-[aliaS]
+[alias]
     # fancier diff with diff-so-fancy. I shell alias this to dsf='git dsf'
 	dsf = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git diff --color \"$@\" | diff-so-fancy  | less --tabs=4 -RFX; }; f"
 	s = status
@@ -43,8 +43,8 @@
     lol = log --pretty=format:\"%C(34 italic 16)%h%d%Creset %s - %an [%ar]\"
     lolg = "log --graph --pretty=format:'%C(34 italic 16)%h %C(green)%an %Cblue%ar%Creset%C(cyan)%d%Creset %C(black)%s %Creset' --author-date-order --decorate=short"
     lolga = "log --graph --pretty=format:'%C(34 italic 16)%h %C(green)%an %Cblue%ar%Creset%C(cyan)%d%Creset %C(black)%s %Creset' --author-date-order --decorate --all"
-    # date as a full name, not relative time
-    loldate = "log --graph --author-date-order --decorate=short --date=format:'%Y-%d-%d %H:%M:%S' --pretty=format:'%C(cyan)%h%Creset %C(magenta bold)%ad%Creset%C(black)%d %s'"
+    # show commit date as a full datetime, not relative time
+    loldate = "log --graph --author-date-order --decorate=short --date=format:'%Y-%d-%d %H:%M:%S' --pretty=format:'%C(34 italic)%h%Creset %C(red)%an%Creset %C(21 italic bold)%ad%Creset%C(black)%C(cyan)%d%Creset %s'"
 
     # GREAT command for figuring out what you or your team last changed and getting filenames easily
     # also use the awesome 'git changed --remotes' command to see remote branch changes too!
