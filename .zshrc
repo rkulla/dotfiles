@@ -104,13 +104,7 @@ function zshaddhistory {
   [[ $1 != ${~HISTORY_IGNORE} ]]
 }
 
-
-# Make it so ^B deletes only 'baz' from /foo/bar-baz
-bindkey '^B' vi-backward-kill-word
-
-# ^W is bound to backward-kill-word which contains '/' in WORDCHARS
-# I will maintain that behavior (allowing ^W to delete a whole URL)
-# but will locally modify it in a function bound such that ^_
+# Function we can bind to do delete to the previous forward slash (/)
 # will delete 'bar-baz' from /foo/bar-baz
 # This is needed in zsh because it doesn't use gnu-readline which
 # .inputrc leverages. I still use .inputrc for bash, python, etc.
@@ -119,7 +113,31 @@ function backward-kill-dir {
     zle backward-kill-word
 }
 zle -N backward-kill-dir
-bindkey '^_' backward-kill-dir
+
+# Function we can bind to to jump cursor back to the previous forward slash (/)
+function backward-jump-dir {
+    local WORDCHARS=${WORDCHARS/\/}
+    zle backward-word
+}
+zle -N backward-jump-dir
+
+function forward-jump-dir {
+    local WORDCHARS=${WORDCHARS/\/}
+    zle forward-word
+}
+zle -N forward-jump-dir
+
+# Note: run `cat` and type key shortcuts to see which characters it outputs to use
+bindkey "^[[1;3C" forward-jump-dir
+bindkey "^[[1;3D" backward-jump-dir
+bindkey "^[[1;4D" backward-kill-dir # So Option+<  jumps cursor to previous /
+bindkey "^[[1;4C" forward-word # So Option+>  jumps cursor to next /
+
+bindkey '^W' vi-backward-kill-word # So ^W deletes words like vi: 'baz' in /foo/bar-baz
+bindkey '^X' backward-kill-word  # ^X is great to delete an entire url
+bindkey '^ı' backward-word # shift+option+B moves cursor back a word
+bindkey 'Ï' forward-word # shift+option+F moves cursor forward a word
+
 
 # syntax highlight commands (brew install zsh-syntax-highlighting)
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -135,8 +153,11 @@ ZSH_HIGHLIGHT_STYLES[path_pathseparator]=fg='#b41fe0'
 ZSH_HIGHLIGHT_STYLES[path_prefix_pathseparator]=fg='#b41fe0'
 
 ZSH_HIGHLIGHT_STYLES[single-quoted-argument]=fg=black
+ZSH_HIGHLIGHT_STYLES[single-quoted-argument-unclosed]=fg=red
 ZSH_HIGHLIGHT_STYLES[double-quoted-argument]=fg=black
+ZSH_HIGHLIGHT_STYLES[double-quoted-argument-unclosed]=fg=red
 ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]=fg=black
+ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument-unclosed]=fg=red
 ZSH_HIGHLIGHT_STYLES[redirection]=fg='#2ee01f'
 
 
