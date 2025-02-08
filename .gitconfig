@@ -40,11 +40,10 @@
 	pa = log -S # pickaxe
     logp = log -p # shows actual code that changed, all the way to beginning. Add -1 for last commit, last -2 for 2 commits, etc.
     # Depending on the branch, start with lol, then lolg then lolga
-    lol = log --pretty=format:\"%C(34 italic 16)%h%d%Creset %s - %an [%ar]\"
+    #lol = log --pretty=format:\"%C(34 italic 16)%h%d%Creset %s - %an [%ar]\"
+    lol = "log --graph --author-date-order --decorate=short --date=format:'%Y-%d-%d %H:%M:%S' --pretty=format:'%C(34 italic)%h%Creset %C(21 bold reverse)%ad%Creset %C(red)%an%Creset%C(cyan bold italic)%d%Creset %C(black bold)%s%Creset'"
     lolg = "log --graph --pretty=format:'%C(34 italic 16)%h %C(green)%an %Cblue%ar%Creset%C(cyan)%d%Creset %C(black)%s %Creset' --author-date-order --decorate=short"
     lolga = "log --graph --pretty=format:'%C(34 italic 16)%h %C(green)%an %Cblue%ar%Creset%C(cyan)%d%Creset %C(black)%s %Creset' --author-date-order --decorate --all"
-    # show commit date as a full datetime, not relative time
-    loldate = "log --graph --author-date-order --decorate=short --date=format:'%Y-%d-%d %H:%M:%S' --pretty=format:'%C(34 italic)%h%Creset %C(21 bold reverse)%ad%Creset %C(red)%an%Creset%C(cyan bold italic)%d%Creset %C(black bold)%s%Creset'"
 
     # GREAT command for figuring out what you or your team last changed and getting filenames easily
     # also use the awesome 'git changed --remotes' command to see remote branch changes too!
