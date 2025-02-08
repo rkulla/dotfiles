@@ -392,10 +392,15 @@ _____________________________MACOS SHORTCUTS______________________
     - <spc>fe Telescope fuzzy file browser. Enter on ../ to go up a dir
     - Typing `-` in normal mode opens a file explorer in a buffer, relative to the current file. Create/rm/edit filenames. :w to save
 
-- ZSH Prompt:
-  - Ctrl+_   (CTRL+underscore) will delete backwards just up to the last forward slash. So delete a dir at a time. I couldn't get binding
-             to ^/ to work, so I used ^_a.  I could have made ^W do it but then that's super annoying when deleting long urls
-  - Ctrl+b   Deletes backwards a word at a time, instead of the whole line. Meaning to the last ., -, etc. 
+- ZSH Prompt bindkeys:
+   ^W  deletes a word at a time, like vi does: 'baz' in /foo/bar-baz
+   ^X deletes to previous space, great for deleting a url. (works like default ^W)
+   Option+B moves cursor back a word
+   Option+F moves cursor forward a word
+   Option+< jumps to the previous /
+   Option+> jumps to the next /
+   Option+<  deletes to previous /
+  
 
 _____________________________ZOXIDE SHORTCUTS______________________
 $ z <str>    Auto jump to a path containing "str" (as long as you've z'd or cd'd there before). Can use multiple words: `z foo bar`
@@ -432,7 +437,7 @@ Note: doesn't work via virtual kvim but still useful on main/non-work machines
 ^alt k   Open (or switch to) Kindle
 ^alt m   Open (or switch to) MacVim
 ^alt n   Open (or switch to) Apple Notes
-^alt p   Open (or switch to) Stickes (post-it notes)
+^alt p   Open (or switch to) Stickies (post-it notes)
 ^alt s   Open (or switch to) Spotify
 ^alt t   Open (or switch to) Terminal (iTerm2)
 ^alt v   Open (or switch to) Visual Studio Code
