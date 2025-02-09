@@ -378,6 +378,25 @@ _____________________________MACOS SHORTCUTS______________________
   - Ctrl+<n>                   Move straight to workspace n
   - Cmd+`                      Cycle through multiple open windows by the same app
   - Alt-Tab                    Like Cmd-Tab but filters apps I don't want to see (brew install alt-tab). Single press toggles last window 
+  - Cmd+Option+H               Hide all the apps behind the current app. Whereas Cmd+H hides the current app
+  - Option+drag                Duplicate whatever you're dragging, a file, a calendar item, etc.
+  - Option+greenMenuButton     Instead of making app full screen, will make the app fill the screen. Doing again toggles back
+  - Option+Minimize            Minimize all windows from the app. Useful for having multiple browser windows open
+  - Option+Click WifiIcon      If you hold option while clicking the Wifi icon it tells you other useful info, IP address, MAC addr, etc.
+  - Menu+Hold Option           Open any menu and press/hold Option will show more options. On apple menu shows 'system information', etc.
+  - Cmd+Option+Q               Quits like Cmd+Q but remembers where you where when you reopen. Works with multiple windows
+  - Cmd+Ctrl+Q                 Logs you out
+  - Option+Volume              Opens sound settings. Option+Shift+Volume makes smaller increments when increasing/decreasing volume
+  - Option+Brightness          Opens Display settings. Option+Shift+Brightness makes small increments increasing/decreasing brightness
+  - Cmd+Option+ESC             Force Quit Applications menu. Much faster than opening Activity Monitor, finding the app and quitting
+  - Cmd+I in finder            Shows info on an object (Like right-click>Get Info)
+  - Cmd+Option+I               Like Cmd+I in Finder but keeps a window open, so you can see info on more files/folders 
+                               Especially useful for finding folders that contain large files to delete quicker
+  - Cmd+Option+Delete          Immediately deletes a file, without moving it to the trash. Be careful with it
+  - Option+Arrow               Left/right arrow moves cursor a word at a time. Up/Down moves up or down a paragraph at a time
+                               Cmd+Arrow will move to the very start or end of a line or file
+  - Option+<char>              Prints an alternative char, e.g., option+4 prints ¢  shift+option does other stuff. Shift+Option+K = 
+  - Option+e <char>            Puts an accent mark over whatever letter you type after Option+e+ = á. Option+8 = •. Option+8+Shift = °
 
 - MacOS Terminals:
   - Use Alacritty since it's faster, but doesn't support tabs or splits (use multiple windows+tiling window manager or tmux for that)
