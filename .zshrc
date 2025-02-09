@@ -127,6 +127,11 @@ function forward-jump-dir {
 }
 zle -N forward-jump-dir
 
+function backward-kill-line {
+    zle kill-region -n $CURSOR
+}
+zle -N backward-kill-line
+
 # Note: run `cat` and type key shortcuts to see which characters it outputs to use
 # Also note that these will vary from terminal to terminal, made for Alacritty NOT iterm2
 bindkey '^W' vi-backward-kill-word # So ^W deletes words like vi: 'baz' in /foo/bar-baz
@@ -134,7 +139,7 @@ bindkey '^X' backward-kill-word  # So ^X deletes to previous space, great for de
 bindkey "^[[1;3D" backward-jump-dir # So Option+< jumps to the previous / or word
 bindkey "^[[1;3C" forward-jump-dir # So Option+> jumps to the next / or word
 bindkey "^[[1;4D" backward-kill-dir # So Shift+Option+<  deletes to previous / or word
-
+bindkey '^U' backward-kill-line  # So ^U only deletes backwards to start of line from cursor pos
 
 # syntax highlight commands (brew install zsh-syntax-highlighting)
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

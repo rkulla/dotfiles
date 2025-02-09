@@ -416,6 +416,7 @@ _____________________________MACOS SHORTCUTS______________________
    ^X  Deletes to previous space, great for deleting a url. (works like default ^W)
    ^E  Jumps to end of line
    ^A  Jumps to beginning of line. (^Aa if in tmux)
+   ^U  Delete to beginning of line from current cursor position
    Option+LEFT        Jumps to the previous / or word
    Option+RIGHT       Jumps to the next /  or word
    Shift+Option+LEFT  Deletes to previous / or word
