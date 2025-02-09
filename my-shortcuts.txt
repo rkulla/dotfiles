@@ -395,11 +395,9 @@ _____________________________MACOS SHORTCUTS______________________
 - ZSH Prompt bindkeys:
    ^W  deletes a word at a time, like vi does: 'baz' in /foo/bar-baz
    ^X deletes to previous space, great for deleting a url. (works like default ^W)
-   Option+B moves cursor back a word
-   Option+F moves cursor forward a word
    Option+< jumps to the previous /
-   Option+> jumps to the next /
-   Option+<  deletes to previous /
+   Option+> jumps to the next /  or word
+   Shift+Option+<  deletes to previous / or word
   
 
 _____________________________ZOXIDE SHORTCUTS______________________

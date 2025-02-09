@@ -131,11 +131,9 @@ zle -N forward-jump-dir
 # Also note that these will vary from terminal to terminal, made for Alacritty NOT iterm2
 bindkey '^W' vi-backward-kill-word # So ^W deletes words like vi: 'baz' in /foo/bar-baz
 bindkey '^X' backward-kill-word  # So ^X deletes to previous space, great for deleting a url
-bindkey '∫' backward-word # So Option+B moves cursor back a word
-bindkey 'ƒ' forward-word # Option+F moves cursor forward a word
-bindkey "^[[1;3D" backward-jump-dir # So Option+< jumps to the previous /
-bindkey "^[[1;3C" forward-jump-dir # So Option+> jumps to the next /
-bindkey "^[[1;4D" backward-kill-dir # So Shift+Option+<  deletes to previous /
+bindkey "^[[1;3D" backward-jump-dir # So Option+< jumps to the previous / or word
+bindkey "^[[1;3C" forward-jump-dir # So Option+> jumps to the next / or word
+bindkey "^[[1;4D" backward-kill-dir # So Shift+Option+<  deletes to previous / or word
 
 
 # syntax highlight commands (brew install zsh-syntax-highlighting)
