@@ -28,7 +28,8 @@ command! SetFlashDark call s:setFlashDark()
 
 " Default colors
 " colorscheme catppuccin-macchiato
-colorscheme catppuccin-latte
+" colorscheme catppuccin-latte
+colorscheme tokyonight-day
 
 " Make it so you can just type :Dark to use my dark theme
 " And :Light to go back to my normal theme
