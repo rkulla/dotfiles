@@ -69,9 +69,9 @@ NOTE: If spotlight stops loading things, make sure I don't check too many things
 
 What I currently do:
 
-    KEEP Spotlight as Option+Space (it's native/better control of dirs it loads, like /Applications)
-    Assign Raycast to Option+Space
-    In Raycast's settings for 'extensions' assign 'Search Files' to Ctrl+Option+SpacE
+  - KEEP Spotlight as Option+Space (it's native/better control of dirs it loads, like /Applications)
+  - Assign Raycast to Option+Space
+  - In Raycast's settings for 'extensions' assign 'Search Files' to Ctrl+Option+SpacE
 
 #### App shortcuts:
 
