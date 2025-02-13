@@ -2,7 +2,7 @@
 
 My dotfiles and configuration files in general!
 
-[Summary](#summary) | [Installing](#installing) | [iCloud Drive](#icloud-drive) | [Spotlight](#spotlight) | [Shortcuts](#shortcuts) | [Zsh](#zsh) | [Keyboard speed](#keyboard-speed) | [~/bin scripts](#bin-scripts) | [Vim](#vim) | [Git](#git) | [Go](#golang) | [NodeJS](#nodejs) | [Rust](#rust) | [Neovim](#neovim) | [Alacritty](#alacritty) | [Iterm2](#iterm2) | [Terminfo](#terminfo-sources) | [VSCode](#vscode) | [Uninstalling](#uninstalling) | [ESLint](#eslint) | [Tmux](#tmux) | [irssi](#irssi) | [Finder](#finder)
+[Summary](#summary) | [Installing](#installing) | [iCloud Drive](#icloud-drive) | [Raycast](#raycast) | [Spotlight](#spotlight) | [Shortcuts](#shortcuts) | [Zsh](#zsh) | [Keyboard speed](#keyboard-speed) | [~/bin scripts](#bin-scripts) | [Vim](#vim) | [Git](#git) | [Go](#golang) | [NodeJS](#nodejs) | [Rust](#rust) | [Neovim](#neovim) | [Alacritty](#alacritty) | [Iterm2](#iterm2) | [Terminfo](#terminfo-sources) | [VSCode](#vscode) | [Uninstalling](#uninstalling) | [ESLint](#eslint) | [Tmux](#tmux) | [irssi](#irssi) | [Finder](#finder)
 
 ## Summary
 
@@ -63,7 +63,7 @@ NOTE: If spotlight stops loading things, make sure I don't check too many things
 
 ## Raycast
 
-brew install raycast is great and replaces Karabiner elements for me, and more.
+`brew install raycast` great, even for free and replaces Karabiner elements for me, and more.
 
 Raycast shortcuts:
 
@@ -73,9 +73,20 @@ Raycast shortcuts:
 
 App shortcuts:
 
-   In raycast's settings > extensions > applications > firefox > assign hot key Ctrl+Option+F
-   etc.
+   In raycast's `settings > extensions > applications`, assign hot keys to apps:
+    Alacritty > Ctrl+Option+a
+    Firefox > Ctrl+Option+b
+    Finder > Ctrl+Option+f
+    Messages > Ctrl+Option+c
+    MacVim > Ctrl+Option+m
+    Notes > Ctrl+Option+n
+    Spotify > Ctrl+Option+s
 
+Snippets 
+    Note: MacOS can kinda do this natively in keyboard shortcut settings > text replacement, but not as well.
+
+    In raycast, open 'Create Snippet' and create any common snippets I want to insert into any app later.
+       
 
 ## Spotlight
 
