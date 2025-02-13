@@ -67,13 +67,14 @@ NOTE: If spotlight stops loading things, make sure I don't check too many things
 
 Raycast shortcuts:
 
-   KEEP Spotlight as Option+Space (it's native/better control of dirs it loads, like /Applications)
-   Assign Raycast to Option+Space
-   In Raycast's settings for 'extensions' assign 'Search Files' to Ctrl+Option+SpacE
+    KEEP Spotlight as Option+Space (it's native/better control of dirs it loads, like /Applications)
+    Assign Raycast to Option+Space
+    In Raycast's settings for 'extensions' assign 'Search Files' to Ctrl+Option+SpacE
 
 App shortcuts:
 
-   In raycast's `settings > extensions > applications`, assign hot keys to apps:
+    In raycast's `settings > extensions > applications`, assign hot keys to apps:
+
     Alacritty > Ctrl+Option+a
     Firefox > Ctrl+Option+b
     Finder > Ctrl+Option+f
@@ -82,7 +83,8 @@ App shortcuts:
     Notes > Ctrl+Option+n
     Spotify > Ctrl+Option+s
 
-Snippets 
+Snippets:
+
     Note: MacOS can kinda do this natively in keyboard shortcut settings > text replacement, but not as well.
 
     In raycast, open 'Create Snippet' and create any common snippets I want to insert into any app later.
