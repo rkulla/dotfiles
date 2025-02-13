@@ -122,7 +122,9 @@ TROUBLESHOOTING:
 
 See also ~/my-shortcuts.txt for a quick reference of all my favorite shortcuts for MacOS and specific apps like Neovim, Firefox and more. (`<spc>sc`)
 
-To launch apps I prefer Spotlight over Karabiner Elements/Automator.app/Shortcuts.app/BetterTouchTool for keyboard shortcuts because none of those work proprerly with Sharemouse, Barrier or other Virtual KVM's because those vKVM tools don't respect shortcuts on anything but the primary device (whatever machine the keyboard is plugged into) and/or they will get intercepted by applications that also look for similar shortcuts. I've yet to find a single native or 3rd party app that supports this and it's just as good to use spotlight than remember more shortcuts anyway. So just open/switch to firefox with spolight `alt+space f[ire]` and once it's open use FF's browser search keyboard shortcuts:
+To launch apps I prefer Spotlight and Raycast over Karabiner Elements. 
+
+Once firefox is open use the address bar search keyboard shortcuts:
 
     %  # Search for an open tab
     *  # Search bookmarks
@@ -143,10 +145,9 @@ To switch between headphones and speakers with keyboard shortcut:
 
 Things NOT to bother with (already tried and didn't like or work well):
 
-- App launchers: Automator.app, Shortcuts.App, Karabiner Elements, BetterTouchTool (none work with virtual KVM software like Sharemouse. Alfred works but just use Spotlight)
-  (I still use Karabiner for certain additional shortcuts on my personal computer)
+- App launchers: Automator.app, Shortcuts.App, Karabiner Elements, BetterTouchTool (none work with virtual KVM software like Sharemouse. Use Spotlight for that if using a vKVM)
 - App shortcuts: Google Chrome app shortcuts don't work well for UI elements. Use native apps and/or dedicated Firefox window for site + Fullscreen workspace
-- Bookmark/history search from Spotlight/Alfred. Not consistent. Just use firefox's \* search in address bar to search bookmarks and ^ for history
+- Bookmark/history search can work from Spotlight/Raycast but I prefer firefox's \* search in address bar to search bookmarks and ^ for history
 
 ## Zsh
 
