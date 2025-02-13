@@ -65,15 +65,17 @@ NOTE: If spotlight stops loading things, make sure I don't check too many things
 
 `brew install raycast` great, even for free and replaces Karabiner elements for me, and more.
 
-Raycast shortcuts:
+#### Raycast shortcuts:
+
+What I currently do:
 
     KEEP Spotlight as Option+Space (it's native/better control of dirs it loads, like /Applications)
     Assign Raycast to Option+Space
     In Raycast's settings for 'extensions' assign 'Search Files' to Ctrl+Option+SpacE
 
-App shortcuts:
+#### App shortcuts:
 
-    In raycast's `settings > extensions > applications`, assign hot keys to apps:
+In its `settings>extensions>applications` assign hot keys to apps:
 
     Alacritty > Ctrl+Option+a
     Firefox > Ctrl+Option+b
@@ -83,11 +85,11 @@ App shortcuts:
     Notes > Ctrl+Option+n
     Spotify > Ctrl+Option+s
 
-Snippets:
+#### Snippets:
 
-    Note: MacOS can kinda do this natively in keyboard shortcut settings > text replacement, but not as well.
+Note: MacOS can kinda do this natively in keyboard shortcut settings > text replacement, but not as well.
 
-    In raycast, open 'Create Snippet' and create any common snippets I want to insert into any app later.
+In raycast, open 'Create Snippet' and create any common snippets I want to insert into any app later.
        
 
 ## Spotlight
