@@ -34,7 +34,7 @@ The `realpath` command from coreutils is required to run install.sh. I typically
       mysql postgresql ssh-copy-id pyenv wget ctags nmap fd nnn reattach-to-user-namespace zenity htop ncdu rsync \
       screen zsh-syntax-highlighting zsh-you-should-use shellcheck jsonlint fzf irssi sqlite jq yq \
       asdf the_silver_searcher ripgrep yamllint httpie diff-so-fancy fnm glow bat lazygit lazydocker \
-      lsd vint hadolint groff alacritty alt-tab amethyst
+      lsd vint hadolint groff alacritty alt-tab amethyst raycast
     $ brew install --cask lookaway
 
 ### Run the dotfiles install script
@@ -61,9 +61,27 @@ I prefer this over Dropbox since it's native and works better.
 
 NOTE: If spotlight stops loading things, make sure I don't check too many things in spotlight AND then make sure to rebuild the Spotlight index by going to Spotlight's preferences > Click on "Spotlight Privacy" to see a list of locations excluded from Spotlight searches > Then temporarily + add my iCloud Drive to the exclusions list but then immediately remove it from there, and that will trigger a rebuild of the index.
 
+## Raycast
+
+brew install raycast is great and replaces Karabiner elements for me, and more.
+
+Raycast shortcuts:
+
+   KEEP Spotlight as Option+Space (it's native/better control of dirs it loads, like /Applications)
+   Assign Raycast to Option+Space
+   In Raycast's settings for 'extensions' assign 'Search Files' to Ctrl+Option+SpacE
+
+App shortcuts:
+
+   In raycast's settings > extensions > applications > firefox > assign hot key Ctrl+Option+F
+   etc.
+
+
 ## Spotlight
 
-I prefer this over Alfred since it's native and works better.
+NOTE: `brew install raycast` can be even better than Spolight now. But note that you have to assign a separate hotkey to the 'Search Files' feature in its settings, don't try to use the overall 'raycast' hotkey for searching files or it's too slow. I like to assign 'Search files' to `Option+Space` and Raycast itself to `Cmd+Space`. Which means you can optionally disable search files from raycast and still use spotlight for that if you wanted to. See my Raycast section of this file
+   
+Spotlight and/or Raycast work better than Alfred to me.
 
 Make alt+space open it (instead of the default cmd+space) in `System Preferences > Spotlight > Shortcuts`
 
