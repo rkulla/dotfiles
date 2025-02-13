@@ -71,20 +71,39 @@ What I currently do:
 
   - KEEP Spotlight as Option+Space (it's native/better control of dirs it loads, like /Applications)
   - Assign Raycast to Cmd+Space
-  - In Raycast's settings for 'extensions' assign 'Search Files' to Ctrl+Option+SpacE
+  - In Raycast's settings for 'extensions' assign 'Search Files' to Ctrl+Option+Space
   - Make sure to disable the 'Emoji Picker' or at least its hotkey if it conflicts
 
-#### App shortcuts:
+#### App shortcuts / Quicklinks:
 
-In its `settings>extensions>applications` assign hot keys to apps:
+In its `settings>extensions>applications` assign hot keys to existing /Applications .apps:
 
-    Alacritty > Ctrl+Option+a
-    Firefox > Ctrl+Option+b
-    Finder > Ctrl+Option+f
-    Messages > Ctrl+Option+c
-    MacVim > Ctrl+Option+m
-    Notes > Ctrl+Option+n
-    Spotify > Ctrl+Option+s
+    # AT HOME
+    Ctrl+Option+* > Bookmarks (* to match Firefix. Install `Browser Bookmarks` ext and assign hotkey to that)
+    Ctrl+Option+b > Firefox   (b for browser)
+    Ctrl+Option+f > Finder
+    Ctrl+Option+c > Messages  (c for chat)
+    Ctrl+Option+e > Gmail     (e for email. Note, assign this hotkey in Quicklinks for gmail)
+    Ctrl+Option+n > Notes
+    Ctrl+Option+s > Spotify
+    Ctrl+Option+t > Alacritty (t for terminal)
+    Ctrl+Option+v > MacVim  
+
+    # AT WORK
+    Ctrl+Option+* > Bookmarks (* to match Firefix. Install `Browser Bookmarks` ext and assign hotkey to that)
+    Ctrl+Option+b > Firefox
+    Ctrl+Option+f > Finder
+    Ctrl+Option+c > Slack     (c for chat)
+    Ctrl+Option+e > Outlook   (e for email)
+    Ctrl+Option+n > Notes
+    Ctrl+Option+t > Alacritty (t for terminal)
+    Ctrl+Option+v > macVim  
+    Ctrl+Option+m > Zoom      (m for meeting)
+
+You can also use its `Quicklinks` extention to `Create Quicklink` to things like a specific web page, like gmail.com
+and then under `settings>extensions>quicklinks` assign a hotkey to a quicklink, e.g., Ctrl+option+e for gmail.
+
+I also like to install the `Browser Bookmarks` extension from its Store. Then assign hotkey Cltr-option+d to `settings>extensions>Search Browser Bookmarks`
 
 #### Snippets:
 
