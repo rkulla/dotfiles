@@ -70,8 +70,9 @@ NOTE: If spotlight stops loading things, make sure I don't check too many things
 What I currently do:
 
   - KEEP Spotlight as Option+Space (it's native/better control of dirs it loads, like /Applications)
-  - Assign Raycast to Option+Space
+  - Assign Raycast to Cmd+Space
   - In Raycast's settings for 'extensions' assign 'Search Files' to Ctrl+Option+SpacE
+  - Make sure to disable the 'Emoji Picker' or at least its hotkey if it conflicts
 
 #### App shortcuts:
 
