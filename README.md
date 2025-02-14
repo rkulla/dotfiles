@@ -105,6 +105,14 @@ and then under `settings>extensions>quicklinks` assign a hotkey to a quicklink, 
 
 I also like to install the `Browser Bookmarks` extension from its Store. Then assign hotkey Cltr-option+d to `settings>extensions>Search Browser Bookmarks`
 
+#### External Extensions I also download from its Store:
+
+   - `Base64` - Commands: *Base64* (both/live), *Base64 encode* and *Base64 decode* (convert to clipboard)
+   - `Browser BookMarks` - Commands: *Search Browser Bookmarks*
+   - `cURL` - Commands: *Make HTTP Request*, *Requests  History*
+   - `Git Repos` - Commands: *List Repos* (configure multiple hotkeys to open repo in VSCode, iterm, Finder, etc.
+   - `OK JSON` - Commands: *View from Pasteboard*, *View from URL*, *View from cURL*, *Show History*, etc. (Requires the `OK JSON` standalone paid Mac app)
+
 #### Snippets:
 
 Note: MacOS can kinda do this natively in keyboard shortcut settings > text replacement, but not as well.
