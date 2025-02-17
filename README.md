@@ -34,7 +34,7 @@ The `realpath` command from coreutils is required to run install.sh. I typically
       mysql postgresql ssh-copy-id pyenv wget ctags nmap fd nnn reattach-to-user-namespace zenity htop ncdu rsync \
       screen zsh-syntax-highlighting zsh-you-should-use shellcheck jsonlint fzf irssi sqlite jq yq \
       asdf the_silver_searcher ripgrep yamllint httpie diff-so-fancy fnm glow bat lazygit lazydocker \
-      lsd vint hadolint groff alacritty alt-tab amethyst raycast
+      lsd vint hadolint groff alacritty alt-tab amethyst raycast devutils
     $ brew install --cask lookaway
 
 ### Run the dotfiles install script
@@ -83,11 +83,13 @@ In `General` tab, change Text Size to "large"
 In its `settings>extensions>applications` assign hot keys:
 
     NOTE: FIRST set the `hyperkey` to CAPS key in `Advanced` tab. Then use CAPS lock instead of `ctrl+shift+alt+cmd`
+    NOTE: IF I still run out of shortcuts, set more Raycast aliases first. Last resort: install LeaderKey.app
     TIP: Use top/right filter button (3 horizontal lines) to filter by enabled or already customized
 
     UNIVERSAL
     *Applications (located in /Applications)
     Ctrl+Option+b = Firefox   (b for browser)
+    Ctrl+Option+d = DevUtils  (brew install devutils, install devutils ext from store, disable global hotkey in its app)
     Ctrl+Option+f = Finder
     Ctrl+Option+n = Notes
     Ctrl+Option+t = Alacritty (t for terminal)
@@ -95,6 +97,7 @@ In its `settings>extensions>applications` assign hot keys:
 
     MISC.
     HYPER+8 = Bookmarks (* key to match Firefox. Install `Browser Bookmarks` ext and assign hotkey to that)
+    HYPER+f = Raycast Focus Toggle
     HYPER+h = Clipboard History
     HYPER+k = Kill Process (Install ext from store first)
     HYPER+t = Manage Todo List (Install `Todo List` ext from store first and enable it menu bar)
@@ -134,10 +137,11 @@ I also like to install the `Browser Bookmarks` extension from its Store. Then as
 
    - `Base64` - Commands: *Base64* (both/live), *Base64 encode* and *Base64 decode* (convert to clipboard)
    - `Browser BookMarks` - Commands: *Search Browser Bookmarks*
+   - `DevUtils` - Commands: *JSON Format/Validate*, *CSV To JSON*, *Base64 encode/decode* (or just open external app)
    - `cURL` - Commands: *Make HTTP Request*, *Requests  History*
    - `Git Repos` - Commands: *List Repos* (configure multiple hotkeys to open repo in VSCode, iterm, Finder, etc.
    - `Kill Process` - Commands: *Kill Process*
-   - `OK JSON` - Commands: *View from Pasteboard*, *View from URL*, *View from cURL*, *Show History*, etc. (Requires the `OK JSON` standalone paid Mac app)
+   - `OK JSON` - Commands: *View from Pasteboard*, *View from URL*, *View from cURL*, *Show History*, etc. (Requires the `OK JSON` standalone paid Mac app and I mostly use DevUtils' JSON Format/Validate)
    - `Port Manager` Commands: *Kill Processed listening on port*, *Show ports in menu"
    - `Todo List`
 

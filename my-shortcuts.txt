@@ -398,10 +398,10 @@ _____________________________MACOS SHORTCUTS______________________
   - Option+<char>              Prints an alternative char, e.g., option+4 prints ¢  shift+option does other stuff. Shift+Option+K = 
   - Option+e <char>            Puts an accent mark over whatever letter you type after Option+e+ = á. Option+8 = •. Option+8+Shift = °
 
-- Raycast:
+- Raycast itself:
+  - Note: See my dotfiles/README.md's raycast section for how I map things with it to launch apps, and much more!
   - Hold Cmd                   Depending on context, will label commands with numbers, on search it will show where file is located
   - Cmd+k                      Show all additional commands related to current item
-  - 
 
 - MacOS Terminals:
   - Use Alacritty since it's faster, but doesn't support tabs or splits (use multiple windows+tiling window manager or tmux for that)
