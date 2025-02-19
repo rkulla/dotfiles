@@ -2,7 +2,7 @@
 
 My dotfiles and configuration files in general!
 
-[Summary](#summary) | [Installing](#installing) | [iCloud Drive](#icloud-drive) | [Raycast](#raycast) | [Spotlight](#spotlight) | [Shortcuts](#shortcuts) | [Zsh](#zsh) | [Keyboard speed](#keyboard-speed) | [~/bin scripts](#bin-scripts) | [Vim](#vim) | [Git](#git) | [Go](#golang) | [NodeJS](#nodejs) | [Rust](#rust) | [Neovim](#neovim) | [Alacritty](#alacritty) | [Iterm2](#iterm2) | [Terminfo](#terminfo-sources) | [VSCode](#vscode) | [Uninstalling](#uninstalling) | [ESLint](#eslint) | [Tmux](#tmux) | [irssi](#irssi) | [Finder](#finder)
+[Summary](#summary) | [Installing](#installing) | [iCloud Drive](#icloud-drive) | [Raycast](#raycast) | [Spotlight](#spotlight) | [LeaderKey](#leaderkey) | [Shortcuts](#shortcuts) | [Zsh](#zsh) | [Keyboard speed](#keyboard-speed) | [~/bin scripts](#bin-scripts) | [Vim](#vim) | [Git](#git) | [Go](#golang) | [NodeJS](#nodejs) | [Rust](#rust) | [Neovim](#neovim) | [Alacritty](#alacritty) | [Iterm2](#iterm2) | [Terminfo](#terminfo-sources) | [VSCode](#vscode) | [Uninstalling](#uninstalling) | [ESLint](#eslint) | [Tmux](#tmux) | [irssi](#irssi) | [Finder](#finder)
 
 ## Summary
 
@@ -34,7 +34,7 @@ The `realpath` command from coreutils is required to run install.sh. I typically
       mysql postgresql ssh-copy-id pyenv wget ctags nmap fd nnn reattach-to-user-namespace zenity htop ncdu rsync \
       screen zsh-syntax-highlighting zsh-you-should-use shellcheck jsonlint fzf irssi sqlite jq yq \
       asdf the_silver_searcher ripgrep yamllint httpie diff-so-fancy fnm glow bat lazygit lazydocker \
-      lsd vint hadolint groff alacritty alt-tab amethyst raycast devutils
+      lsd vint hadolint groff alacritty alt-tab amethyst raycast leaderkey devutils
     $ brew install --cask lookaway
 
 ### Run the dotfiles install script
@@ -83,7 +83,6 @@ In `General` tab, change Text Size to "large"
 In its `settings>extensions>applications` assign hot keys:
 
     NOTE: FIRST set the `hyperkey` to CAPS key in `Advanced` tab. Then use CAPS lock instead of `ctrl+shift+alt+cmd`
-    NOTE: IF I still run out of shortcuts, set more Raycast aliases first. Last resort: install LeaderKey.app
     TIP: Use top/right filter button (3 horizontal lines) to filter by enabled or already customized
 
     UNIVERSAL
@@ -99,7 +98,9 @@ In its `settings>extensions>applications` assign hot keys:
     HYPER+8 = Bookmarks (* key to match Firefox. Install `Browser Bookmarks` ext and assign hotkey to that)
     HYPER+f = Raycast Focus Toggle
     HYPER+h = Clipboard History
+    HYPER+i = Search Screenshots
     HYPER+k = Kill Process (Install ext from store first)
+    HYPER+s = ~/bin/sc  (scp the contents of my clipboard to a remote machine. See my raycast scripts section below)
     HYPER+t = Manage Todo List (Install `Todo List` ext from store first and enable it menu bar)
 
     *WINDOW MANAGEMENT
@@ -145,6 +146,22 @@ I also like to install the `Browser Bookmarks` extension from its Store. Then as
    - `Port Manager` Commands: *Kill Processed listening on port*, *Show ports in menu"
    - `Todo List`
 
+#### Scripts
+
+I map hotkeys to run my local bash scripts.
+
+In Settings>Extensions>Script Commands` click Add Directories, then add ~/.config/raycast/scripts/sc.sh and mkdir that locally and put my bash scripts in there and make them executable. Example of calling ~/bin/sc:
+
+    #!/bin/bash
+    # Required parameters:
+    # @raycast.schemaVersion 1
+    # @raycast.title Secure Copy Clipboard
+    # @raycast.mode silent
+
+    "$HOME/bin/sc  # Runs this existing bash script 
+
+Note that the comments in the raycast/scripts/sc.sh file seem to be required, and/or restart Raycast, before it will detect the script. It will then show the script under `Settings>Extensions>Script Commands` so you can add a hotkey to it. I map it to HYPER+S
+
 #### Snippets:
 
 Note: MacOS can kinda do this natively in keyboard shortcut settings > text replacement, but not as well.
@@ -176,6 +193,16 @@ TROUBLESHOOTING:
   - If you don't see anything indexed, you can usually add/remove from the 'privacy' section of the spotlight UI settings OR do: `sudo mdutil -i off <dir>` && `sudo mdutil -i on <dir>` but try it through the UI first but what worked BEST for me last time was:
      $ sudo mdutil -E /
      $ sudo killall Spotlight  # do this if it's still not working
+
+## LeaderKey
+
+I'm not currently using this but if I run out of shortcuts with raycast, I might map leaderkey to CAPS+TAB. 
+
+Raycast's aliases can often do a better job anyway, such as alias 'fdoc' to open Documents folder in Finder, alias `fdow` to open Downloads folder, etc., Whereas leader+fd is too ambiguous as to whether it means Documents or Downloads.
+
+`brew install leader-key`
+
+In LeaderKey.app's preferences, set the value of Leader key to be `CAPS+Tab`, since I already use CAPS as my Hyperkey in Raycast.
 
 ## Shortcuts
 
