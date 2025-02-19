@@ -95,13 +95,15 @@ In its `settings>extensions>applications` assign hot keys:
     Ctrl+Option+v = MacVim  
 
     MISC.
-    HYPER+8 = Bookmarks (* key to match Firefox. Install `Browser Bookmarks` ext and assign hotkey to that)
-    HYPER+f = Raycast Focus Toggle
-    HYPER+h = Clipboard History
-    HYPER+i = Search Screenshots
-    HYPER+k = Kill Process (Install ext from store first)
-    HYPER+s = ~/bin/sc  (scp the contents of my clipboard to a remote machine. See my raycast scripts section below)
-    HYPER+t = Manage Todo List (Install `Todo List` ext from store first and enable it menu bar)
+    HYPER+TAB = Switch Windows. Built-in Raycast functionality to focus open windows by name. alt-tab alternative
+    HYPER+8   = Bookmarks (* key to match Firefox. Install `Browser Bookmarks` ext and assign hotkey to that)
+    HYPER+f   = Raycast Focus Toggle
+    HYPER+h   = Clipboard History
+    HYPER+i   = Search Screenshots
+    HYPER+k   = Kill Process (Install ext from store first)
+    HYPER+s   = ~/bin/sc  (scp the contents of my clipboard to a remote machine. See my raycast scripts section below)
+    HYPER+t   = Manage Todo List (Install `Todo List` ext from store first and enable it menu bar)
+    HYPER+y   = Youtube quicklink to the history page to avoid distracting algorithm feed)
 
     *WINDOW MANAGEMENT
     Ctrl+Option+Cmd+c = maximize
@@ -129,8 +131,11 @@ In its `settings>extensions>applications` assign hot keys:
     Ctrl+Option+e = Outlook   (e for email)
     Ctrl+Option+m = Zoom      (m for meeting)
 
-You can also use its `Quicklinks` extention to `Create Quicklink` to things like a specific web page, like gmail.com
-and then under `settings>extensions>quicklinks` assign a hotkey to a quicklink, e.g., Ctrl+option+e for gmail.
+You can also use its `Quicklinks` extention to `Create Quicklink` to things like a specific web page.
+Then under `settings>extensions>quicklinks` assign a hotkey to a quicklink. I make these quicklinks:
+   gmail.com
+   https://www.youtube.com/feed/history
+
 
 I also like to install the `Browser Bookmarks` extension from its Store. Then assign hotkey HYPER+8 to `settings>extensions>Search Browser Bookmarks`
 
@@ -140,11 +145,24 @@ I also like to install the `Browser Bookmarks` extension from its Store. Then as
    - `Browser BookMarks` - Commands: *Search Browser Bookmarks*
    - `DevUtils` - Commands: *JSON Format/Validate*, *CSV To JSON*, *Base64 encode/decode* (or just open external app)
    - `cURL` - Commands: *Make HTTP Request*, *Requests  History*
+   - `Gif Search`
    - `Git Repos` - Commands: *List Repos* (configure multiple hotkeys to open repo in VSCode, iterm, Finder, etc.
    - `Kill Process` - Commands: *Kill Process*
    - `OK JSON` - Commands: *View from Pasteboard*, *View from URL*, *View from cURL*, *Show History*, etc. (Requires the `OK JSON` standalone paid Mac app and I mostly use DevUtils' JSON Format/Validate)
    - `Port Manager` Commands: *Kill Processed listening on port*, *Show ports in menu"
+   - `Search Emojis`
    - `Todo List`
+   - `Weather` (uses wttr.in). Commands: *Weather Menu Bar* (do this to show weather in menu. Adjust it to Imperial units)
+   - `Youtube Downloader`
+
+#### Cool commands I don't bother mapping
+
+Typing the following in Raycast's prompt is useful:
+
+   - open camera (Similar to opening photobooth)
+   - lock screen
+   - my schedule
+
 
 #### Scripts
 
@@ -200,13 +218,13 @@ TROUBLESHOOTING:
 
 ## LeaderKey
 
-I'm not currently using this but if I run out of shortcuts with raycast, I might map leaderkey to CAPS+TAB. 
+I'm not currently using this but if I run out of shortcuts with raycast, I might map leaderkey to ALT+TAB. 
 
 Raycast's aliases can often do a better job anyway, such as alias 'fdoc' to open Documents folder in Finder, alias `fdow` to open Downloads folder, etc., Whereas leader+fd is too ambiguous as to whether it means Documents or Downloads.
 
 `brew install leader-key`
 
-In LeaderKey.app's preferences, set the value of Leader key to be `CAPS+Tab`, since I already use CAPS as my Hyperkey in Raycast.
+In LeaderKey.app's preferences, set the value of Leader key to be `ALT+Tab`
 
 ## Shortcuts
 
