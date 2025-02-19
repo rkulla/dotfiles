@@ -162,6 +162,10 @@ In Settings>Extensions>Script Commands` click Add Directories, then add ~/.confi
 
 Note that the comments in the raycast/scripts/sc.sh file seem to be required, and/or restart Raycast, before it will detect the script. It will then show the script under `Settings>Extensions>Script Commands` so you can add a hotkey to it. I map it to HYPER+S
 
+Note: There's need to run 'Create Script Command' unless wanting to publish it publicly
+Note: ~/bin/sc can be found in my-bin-dir-scripts backups.
+
+
 #### Snippets:
 
 Note: MacOS can kinda do this natively in keyboard shortcut settings > text replacement, but not as well.
