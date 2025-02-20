@@ -97,11 +97,12 @@ In its `settings>extensions>applications` assign hot keys:
     MISC.
     HYPER+TAB = Switch Windows. Built-in Raycast functionality to focus open windows by name. alt-tab alternative
     HYPER+8   = Bookmarks (* key to match Firefox. Install `Browser Bookmarks` ext and assign hotkey to that)
+    HYPER+c   = Copy clipboard to remote using my Raycast sc.sh script below that calls my ~/bin/sc to scp clipboard)
     HYPER+f   = Raycast Focus Toggle
     HYPER+h   = Clipboard History
     HYPER+i   = Search Screenshots
     HYPER+k   = Kill Process (Install ext from store first)
-    HYPER+s   = ~/bin/sc  (scp the contents of my clipboard to a remote machine. See my raycast scripts section below)
+    HYPER+s   = my-shortcuts.txt (quicklink)
     HYPER+t   = Manage Todo List (Install `Todo List` ext from store first and enable it menu bar)
     HYPER+y   = Youtube quicklink to the history page to avoid distracting algorithm feed)
 
@@ -135,6 +136,7 @@ You can also use its `Quicklinks` extention to `Create Quicklink` to things like
 Then under `settings>extensions>quicklinks` assign a hotkey to a quicklink. I make these quicklinks:
    gmail.com
    https://www.youtube.com/feed/history
+   ~/repos/dotfiles/my-shortcuts.txt
 
 
 I also like to install the `Browser Bookmarks` extension from its Store. Then assign hotkey HYPER+8 to `settings>extensions>Search Browser Bookmarks`
@@ -178,7 +180,7 @@ In Settings>Extensions>Script Commands` click Add Directories, then add ~/.confi
 
     "$HOME/bin/sc  # Runs this existing bash script 
 
-Note that the comments in the raycast/scripts/sc.sh file seem to be required, and/or restart Raycast, before it will detect the script. It will then show the script under `Settings>Extensions>Script Commands` so you can add a hotkey to it. I map it to HYPER+S
+Note that the comments in the raycast/scripts/sc.sh file seem to be required, and/or restart Raycast, before it will detect the script. It will then show the script under `Settings>Extensions>Script Commands` so you can add a hotkey to it. I map it to HYPER+C
 
 Note: There's need to run 'Create Script Command' unless wanting to publish it publicly
 Note: ~/bin/sc can be found in my-bin-dir-scripts backups.
