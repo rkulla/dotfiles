@@ -136,12 +136,13 @@ You can also use its `Quicklinks` extention to `Create Quicklink` to things like
 Then under `settings>extensions>quicklinks` assign a hotkey to a quicklink. I make these quicklinks:
 
     HOME ONLY
-    gmail.com
-    https://www.youtube.com/feed/history
-    ~/repos/dotfiles/my-shortcuts.txt
+    gmail: https://gmail.com
+    youtube: https://www.youtube.com/feed/history
+    coding-music (youtube): https://www.youtube.com/watch?v=hi4pzKvuEQM&list=PL5CohJXJeF-bM2MtWbGmphKP2ikuNdDgW
+    my-shortcuts: ~/repos/dotfiles/my-shortcuts.txt
 
     WORK ONLY
-    ~/my-shortcuts.txt
+    my-shortcuts: ~/my-shortcuts.txt
 
 
 #### External Extensions I also download from its Store:
