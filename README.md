@@ -144,8 +144,6 @@ Then under `settings>extensions>quicklinks` assign a hotkey to a quicklink. I ma
     ~/my-shortcuts.txt
 
 
-I also like to install the `Browser Bookmarks` extension from its Store. Then assign hotkey HYPER+8 to `settings>extensions>Search Browser Bookmarks`
-
 #### External Extensions I also download from its Store:
 
    - `Base64` - Commands: *Base64* (both/live), *Base64 encode* and *Base64 decode* (convert to clipboard)
