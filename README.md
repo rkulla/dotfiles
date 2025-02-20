@@ -134,9 +134,14 @@ In its `settings>extensions>applications` assign hot keys:
 
 You can also use its `Quicklinks` extention to `Create Quicklink` to things like a specific web page.
 Then under `settings>extensions>quicklinks` assign a hotkey to a quicklink. I make these quicklinks:
-   gmail.com
-   https://www.youtube.com/feed/history
-   ~/repos/dotfiles/my-shortcuts.txt
+
+    HOME ONLY
+    gmail.com
+    https://www.youtube.com/feed/history
+    ~/repos/dotfiles/my-shortcuts.txt
+
+    WORK ONLY
+    ~/my-shortcuts.txt
 
 
 I also like to install the `Browser Bookmarks` extension from its Store. Then assign hotkey HYPER+8 to `settings>extensions>Search Browser Bookmarks`
