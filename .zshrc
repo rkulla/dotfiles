@@ -203,6 +203,9 @@ alias icd='cd ~/Library/Mobile\ Documents/com\~apple\~CloudDocs'
 
 alias j='zi'
 
+# Usage: $ <cmd> | lastcol
+lastcol() { awk '{print $NF}'; }
+
 # alias to fd "all" files (case-insensitive/hidden)
 alias fda='fd -iH'
 
