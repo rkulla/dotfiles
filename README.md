@@ -106,20 +106,20 @@ In its `settings>extensions>applications` assign hot keys:
     HYPER+y   = Youtube quicklink to the history page to avoid distracting algorithm feed)
 
     *WINDOW MANAGEMENT
-    Ctrl+Option+Cmd+c = maximize
-    Ctrl+Option+Cmd+s = reasonable size
-    Ctrl+Option+Cmd+a = almost maximize
-    Ctrl+Option+Cmd+r = restore
-    Ctrl+Option+Cmd+left = left half
-    Ctrl+Option+Cmd+right = right half
-    Ctrl+Option+Cmd+down = bottom half
-    Ctrl+Option+Cmd+up = top half
-    Ctrl+Option+Cmd+plus = make bigger
-    Ctrl+Option+Cmd-minus = make smaller
-    Shift+Option+Cmd+down = bottom left quarter
-    Shift+Option+Cmd+right = bottom right quarter
-    Shift+Option+Cmd+left = top left quarter
-    Shift+Option+Cmd+up = top right quarter
+    Ctrl+Option+Cmd+a       = Almost Maximize
+    Ctrl+Option+Cmd+down    = Bottom Half
+    Shift+Option+Cmd+down   = Bottom Left Quarter
+    Shift+Option+Cmd+right  = Bottom Right Quarter
+    Ctrl+Option+Cmd+left    = Left Half
+    Ctrl+Option+Cmd+plus    = Make Ligger
+    Ctrl+Option+Cmd-minus   = Make Smaller
+    Ctrl+Option+Cmd+c       = Maximize
+    Ctrl+Option+Cmd+s       = Reasonable Size
+    Ctrl+Option+Cmd+r       = Restore
+    Ctrl+Option+Cmd+right   = Right Half
+    Ctrl+Option+Cmd+up      = Top Half
+    Shift+Option+Cmd+left   = Top Left Quarter
+    Shift+Option+Cmd+up     = Top Right Quarter
 
     HOME ONLY
     Ctrl+Option+c = Messages  (c for chat)
