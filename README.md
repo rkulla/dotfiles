@@ -86,7 +86,7 @@ In its `settings>extensions>applications` assign hot keys:
     TIP: Use top/right filter button (3 horizontal lines) to filter by enabled or already customized
 
     UNIVERSAL
-    *Applications (located in /Applications)
+    Applications (located in /Applications)
     Ctrl+Option+b = Firefox   (b for browser)
     Ctrl+Option+d = DevUtils  (brew install devutils, install devutils ext from store, disable global hotkey in its app)
     Ctrl+Option+f = Finder
@@ -105,7 +105,7 @@ In its `settings>extensions>applications` assign hot keys:
     HYPER+t   = Manage Todo List (Install `Todo List` ext from store first and enable it menu bar)
     HYPER+y   = Youtube quicklink to the history page to avoid distracting algorithm feed)
 
-    *WINDOW MANAGEMENT
+    WINDOW MANAGEMENT
     Ctrl+Option+Cmd+a       = Almost Maximize
     Ctrl+Option+Cmd+down    = Bottom Half
     Shift+Option+Cmd+down   = Bottom Left Quarter
