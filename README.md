@@ -69,9 +69,9 @@ NOTE: If spotlight stops loading things, make sure I don't check too many things
 
 What I currently do:
 
-  - KEEP Spotlight as Option+Space (it's native/better control of dirs it loads, like /Applications)
-  - Assign Raycast to Cmd+Space
-  - In Raycast's settings for 'extensions' assign 'Search Files' to Ctrl+Option+Space
+  - Keep **Spotlight** as `Option+Space` (better control of Folders, can search files AND launch /Applications/*)
+  - Assign **Raycast** to `Cmd+Space`
+  - In Raycast's Settings>Extensions, assign 'Search Files' to `Ctrl+Option+Space`
   - Make sure to disable the 'Emoji Picker' or at least its hotkey if it conflicts
 
 #### Misc Settings Adjustments
@@ -82,28 +82,28 @@ In `General` tab, change Text Size to "large"
 
 In its `settings>extensions>applications` assign hot keys:
 
-    NOTE: FIRST set the `hyperkey` to CAPS key in `Advanced` tab. Then use CAPS lock instead of `ctrl+shift+alt+cmd`
-    TIP: Use top/right filter button (3 horizontal lines) to filter by enabled or already customized
+    NOTE: FIRST set `hyperkey` to CAPS in Advanced tab to use CAPS instead of `ctrl+shift+alt+cmd`
+    TIP: Top/right filter button (3 horizontal lines) to filter by already customized hotkeys
 
     UNIVERSAL
     Applications (located in /Applications)
     Ctrl+Option+b = Firefox   (b for browser)
-    Ctrl+Option+d = DevUtils  (brew install devutils, install devutils ext from store, disable global hotkey in its app)
+    Ctrl+Option+d = DevUtils  (3rd party app & ext. Disable its global hotkey in its settings)
     Ctrl+Option+f = Finder
     Ctrl+Option+n = Notes
     Ctrl+Option+t = Alacritty (t for terminal)
     Ctrl+Option+v = MacVim  
 
     MISC.
-    HYPER+TAB = Switch Windows. Built-in Raycast functionality to focus open windows by name. alt-tab alternative
-    HYPER+8   = Bookmarks (* key to match Firefox. Install `Browser Bookmarks` ext and assign hotkey to that)
-    HYPER+c   = Copy clipboard to remote using my Raycast sc.sh script below that calls my ~/bin/sc to scp clipboard)
+    HYPER+TAB = Switch Windows. Built-in to focus open windows by name. alt-tab alternative
+    HYPER+8   = Bookmarks (Install `Browser Bookmarks` ext and assign hotkey to that)
+    HYPER+c   = Copy clipboard to remote w/ my Raycast sc.sh script below that calls ~/bin/sc)
     HYPER+f   = Raycast Focus Toggle
     HYPER+h   = Clipboard History
     HYPER+i   = Search Screenshots
     HYPER+k   = Kill Process (Install ext from store first)
     HYPER+s   = my-shortcuts.txt (quicklink)
-    HYPER+t   = Manage Todo List (Install `Todo List` ext from store first and enable it menu bar)
+    HYPER+t   = Manage Todo List (`Todo List` ext from store first and enable it menu bar)
     HYPER+y   = Youtube quicklink to the history page to avoid distracting algorithm feed)
 
     WINDOW MANAGEMENT
