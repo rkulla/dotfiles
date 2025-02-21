@@ -24,6 +24,7 @@
 !.config/nvim/sessions/
 !.config/nvim/spell/
 !.config/nvim/swp/
+.config/raycast/extensions/
 
 # Vim
 .viminfo
