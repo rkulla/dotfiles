@@ -107,20 +107,25 @@ In its `settings>extensions>applications` assign hot keys:
     HYPER+y   = Youtube quicklink to the history page to avoid distracting algorithm feed)
 
     WINDOW MANAGEMENT
-    Ctrl+Option+Cmd+a       = Almost Maximize
-    Ctrl+Option+Cmd+down    = Bottom Half
-    Shift+Option+Cmd+down   = Bottom Left Quarter
-    Shift+Option+Cmd+right  = Bottom Right Quarter
-    Ctrl+Option+Cmd+left    = Left Half
-    Ctrl+Option+Cmd+plus    = Make Ligger
-    Ctrl+Option+Cmd-minus   = Make Smaller
-    Ctrl+Option+Cmd+c       = Maximize
-    Ctrl+Option+Cmd+s       = Reasonable Size
-    Ctrl+Option+Cmd+r       = Restore
-    Ctrl+Option+Cmd+right   = Right Half
-    Ctrl+Option+Cmd+up      = Top Half
-    Shift+Option+Cmd+left   = Top Left Quarter
-    Shift+Option+Cmd+up     = Top Right Quarter
+    Ctrl+Option+Cmd+A       = Almost Maximize
+    Ctrl+Option+Cmd+Down    = Bottom Half
+    Shift+Option+Cmd+Down   = Bottom Left Quarter
+    Shift+Option+Cmd+Right  = Bottom Right Quarter
+    Ctrl+Option+Cmd+Left    = Left Half
+    Ctrl+Option+Cmd+Plus    = Make Ligger
+    Ctrl+Option+Cmd-Minus   = Make Smaller
+    Ctrl+Option+Cmd+C       = Maximize
+    Ctrl+Cmd+Right          = Next Desktop (moves current window there. ^Right to switch)
+    Ctrl+Option+Right       = Next Display (moves current window there)
+    Ctrl+Cmd+Left           = Previous Desktop (moves current window there. ^Left to switch)
+    Ctrl+Option+Left        = Previous Display (moves current window there)
+    Ctrl+Option+Cmd+S       = Reasonable Size
+    Ctrl+Option+Cmd+R       = Restore
+    Ctrl+Option+Cmd+Right   = Right Half
+    Ctrl+Option+Cmd+F       = Toggle Fullscreen
+    Ctrl+Option+Cmd+Up      = Top Half
+    Shift+Option+Cmd+Left   = Top Left Quarter
+    Shift+Option+Cmd+Up     = Top Right Quarter
 
     HOME ONLY
     Ctrl+Option+c = Messages  (c for chat)

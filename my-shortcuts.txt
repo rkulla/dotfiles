@@ -373,9 +373,10 @@ _____________________________MACOS SHORTCUTS______________________
   - Ctrl-UP:                   See windows/workspaces (Mission Control)
   - Cmd+h                      Hide window from workspace (^UP/Mission Control). Tip: Cmd+m is usually what I want. Still hides from MC
   - Cmd+m                      Minimize window. This is better than "hiding" Outlook, to see notifications. Spotlight/launch to un-minimize
-  - Ctrl-Right/Left            Move to next/prev workspace
-  - Ctrl-Alt-Shift-Right/Left  Move window to next/prev work space
-  - Ctrl+<n>                   Move straight to workspace n
+  - Ctrl-Cmd-Right/Left        Move window to next/prev workspace
+  - Ctrl-Alt-Right/Left        Move window to next/prev window
+  - Ctrl+Right/Left            Switch to next/prev workspace
+  - Ctrl+<num>                 Switch to workspace <num>
   - Cmd+`                      Cycle through multiple open windows by the same app
   - Alt-Tab                    Like Cmd-Tab but filters apps I don't want to see (brew install alt-tab). Single press toggles last window 
   - Cmd+Option+H               Hide all the apps behind the current app. Whereas Cmd+H hides the current app
