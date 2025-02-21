@@ -2,7 +2,7 @@
 
 My dotfiles and configuration files in general!
 
-[Summary](#summary) | [Installing](#installing) | [iCloud Drive](#icloud-drive) | [Raycast](#raycast) | [Spotlight](#spotlight) | [LeaderKey](#leaderkey) | [Shortcuts](#shortcuts) | [Zsh](#zsh) | [Keyboard speed](#keyboard-speed) | [~/bin scripts](#bin-scripts) | [Vim](#vim) | [Git](#git) | [Go](#golang) | [NodeJS](#nodejs) | [Rust](#rust) | [Neovim](#neovim) | [Alacritty](#alacritty) | [Iterm2](#iterm2) | [Terminfo](#terminfo-sources) | [VSCode](#vscode) | [Uninstalling](#uninstalling) | [ESLint](#eslint) | [Tmux](#tmux) | [irssi](#irssi) | [Finder](#finder)
+[Summary](#summary) | [Installing](#installing) | [iCloud Drive](#icloud-drive) | [Raycast](#raycast) | [Spotlight](#spotlight) | [LeaderKey](#leaderkey) | [Shortcuts](#shortcuts) | [Zsh](#zsh) | [Keyboard speed](#keyboard-speed) | [~/bin scripts](#bin-scripts) | [Vim](#vim) | [Git](#git) | [Go](#golang) | [NodeJS](#nodejs) | [Rust](#rust) | [Neovim](#neovim) | [Alacritty](#alacritty) | [Iterm2](#iterm2) | [Terminfo](#terminfo-sources) | [VSCode](#vscode) | [Uninstalling](#uninstalling) | [ESLint](#eslint) | [Tmux](#tmux) | [irssi](#irssi) | [Finder](#finder) | [Firefox](#firefox)
 
 ## Summary
 
@@ -514,3 +514,13 @@ Install themes:
 Optionally run the following in a terminal to show full file paths in Finder:
 
     $ defaults write com.apple.finder _FXShowPosixPathInTitle -bool YES;
+
+## Firefox
+
+Make my tab icon/text larger and much more readable:
+
+  - Go into `about:config` and search for `layout.css.devPixelsPerPx'
+  - On my 5k iMac, change it to 3.0
+  - On my 4k monitor, change it to 1.99
+  - If it doesn't look amazing, I may have to fiddle with the numbers but it WILL work, so don't give up!
+
