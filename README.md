@@ -97,11 +97,12 @@ In its `settings>extensions>applications` assign hot keys:
     MISC.
     HYPER+TAB = Switch Windows. Built-in to focus open windows by name. alt-tab alternative
     HYPER+8   = Bookmarks (Install `Browser Bookmarks` ext and assign hotkey to that)
-    HYPER+c   = Copy clipboard to remote w/ my Raycast sc.sh script below that calls ~/bin/sc)
+    HYPER+c   = Copy clipboard to remote w/ my Raycast remoclipbo.sh script below that calls ~/bin/remoclipbo)
     HYPER+f   = Raycast Focus Toggle
     HYPER+h   = Clipboard History
     HYPER+i   = Search Screenshots
     HYPER+k   = Kill Process (Install ext from store first)
+    HYPER+r   = remote-clipboard.txt (quicklink)
     HYPER+s   = my-shortcuts.txt (quicklink)
     HYPER+t   = Manage Todo List (`Todo List` ext from store first and enable it menu bar)
     HYPER+y   = Youtube quicklink to the history page to avoid distracting algorithm feed)
@@ -137,8 +138,11 @@ In its `settings>extensions>applications` assign hot keys:
     Ctrl+Option+e = Outlook   (e for email)
     Ctrl+Option+m = Zoom      (m for meeting)
 
-You can also use its `Quicklinks` extention to `Create Quicklink` to things like a specific web page.
-Then under `settings>extensions>quicklinks` assign a hotkey to a quicklink. I make these quicklinks:
+You can also use its `Quicklinks` extension to `Create Quicklink` to things like a specific web page.
+Then under `Settings>Extensions>Quicklinks` assign a hotkey to a Quicklink. I make these Quicklinks:
+
+    UNIVERSAL
+    remote-clipboard: ~/remote-clipboard.txt
 
     HOME ONLY
     gmail: https://gmail.com
@@ -179,7 +183,7 @@ Typing the following in Raycast's prompt is useful:
 
 I map hotkeys to run my local bash scripts.
 
-In Settings>Extensions>Script Commands` click Add Directories, then add ~/.config/raycast/scripts/sc.sh and mkdir that locally and put my bash scripts in there and make them executable. Example of calling ~/bin/sc:
+In Settings>Extensions>Script Commands` click Add Directories, then add ~/.config/raycast/scripts/remoclipbo.sh and mkdir that locally and put my bash scripts in there and make them executable. Example of calling ~/bin/remoclipbo:
 
     #!/bin/bash
     # Required parameters:
@@ -187,12 +191,12 @@ In Settings>Extensions>Script Commands` click Add Directories, then add ~/.confi
     # @raycast.title Secure Copy Clipboard
     # @raycast.mode silent
 
-    "$HOME/bin/sc  # Runs this existing bash script 
+    "$HOME/bin/remoclipbo  # Runs this existing bash script 
 
-Note that the comments in the raycast/scripts/sc.sh file seem to be required, and/or restart Raycast, before it will detect the script. It will then show the script under `Settings>Extensions>Script Commands` so you can add a hotkey to it. I map it to HYPER+C
+Note that the comments in the raycast/scripts/remoclipbo.sh file seem to be required, and/or restart Raycast, before it will detect the script. It will then show the script under `Settings>Extensions>Script Commands` so you can add a hotkey to it. I map it to HYPER+C
 
 Note: There's need to run 'Create Script Command' unless wanting to publish it publicly
-Note: ~/bin/sc can be found in my-bin-dir-scripts backups.
+Note: ~/bin/remoclipbo can be found in my-bin-dir-scripts backups.
 
 
 #### Snippets:
