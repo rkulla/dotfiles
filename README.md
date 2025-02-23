@@ -183,7 +183,7 @@ Typing the following in Raycast's prompt is useful:
 
 I map hotkeys to run my local bash scripts.
 
-In Settings>Extensions>Script Commands` click Add Directories, then add ~/.config/raycast/scripts/remoclipbo.sh and mkdir that locally and put my bash scripts in there and make them executable. Example of calling ~/bin/remoclipbo:
+In `Settings>Extensions>Script Commands` click Add Directories, then add ~/.config/raycast/scripts/remoclipbo.sh and mkdir that locally and put my bash scripts in there and make them executable. Example of calling ~/bin/remoclipbo:
 
     #!/bin/bash
     # Required parameters:
@@ -196,7 +196,7 @@ In Settings>Extensions>Script Commands` click Add Directories, then add ~/.confi
 Note that the comments in the raycast/scripts/remoclipbo.sh file seem to be required, and/or restart Raycast, before it will detect the script. It will then show the script under `Settings>Extensions>Script Commands` so you can add a hotkey to it. I map it to HYPER+C
 
 Note: There's need to run 'Create Script Command' unless wanting to publish it publicly
-Note: ~/bin/remoclipbo can be found in my-bin-dir-scripts backups.
+Note: remoclipbo can be found on my github at [https://github.com/rkulla/remoclipbo](https://github.com/rkulla/remoclipbo)
 
 
 #### Snippets:
