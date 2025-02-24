@@ -524,8 +524,8 @@ Optionally run the following in a terminal to show full file paths in Finder:
 Make my tab icon/text larger and much more readable:
 
   - Go into `about:config` and search for `layout.css.devPixelsPerPx'
-  - On my 5k iMac, change it to 3.0
-  - On my 4k monitor, change it to 1.99
+  - On my 4k monitor, change it to 1.4
+  - On my 5k iMac, change it to 2.5
   - If it doesn't look amazing, I may have to fiddle with the numbers but it WILL work, so don't give up!
   - It also increases the size of the bookmarks and the status bar. Use Cmd+- to shrink web pages
 
