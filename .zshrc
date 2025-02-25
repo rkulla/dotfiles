@@ -211,7 +211,6 @@ alias fda='fd -iH'
 
 # Useful after `fd -H foo` to open files in nvim: `fd foo | x
 # Think of `x` as `xargs nvim` (and only opens if its a file not dir)
-# use fdh for `fd -H` (hidden files too).
 function x() {
     files=()
     while IFS= read -r line; do
@@ -223,6 +222,7 @@ function x() {
 }
 
 # Like regular fd, but also shows the contents of the files
+# Use `fd <foo> | x` to open in nvim instead of cat
 fdc() {
     fda "$1" --color=never -x sh -c 'printf "==== %s ====\n" "$1"; cat "$1"; echo' _ {}
 }
