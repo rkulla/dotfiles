@@ -146,9 +146,13 @@ yr<char>    Prepare to yank at position <char>. First jump to the char then fini
             
 Search (Misc)
 -------------
+ag -G foo 'bar'        Grep files containing 'foo' in their name for the string 'bar'
+                       $ rg -g "*foo* 'bar'  # RipGrep version
 ag -l x | xargs ag y   Find files containing both "x" and "y" on different lines. (add -l to to second ag to list just file names) 
                        (Note: can do this in nvim with telescope search (`,fu`, `,x`, etc) then select those results and ^r to send to
                         quickfix, which opens a second telescope live_grep for me to grep on just those results!)
+fd foo | x             Open results of fd in nvim
+fdc foo                Cat results of fd
 :SE foo                Find the exact word `foo` on the page. Faster than typing \<foo\> (vim's version of \bfoo\b)
 /foo                   Then ^g / ^t to preview search down/up IN THE / PROMPT. After applying with ENTER, use N to go upward. foo|\bar too
 ?http://foo.com/x      Simply searching backwards with ? let's you paste a URLs without having to escape all the /'s 
