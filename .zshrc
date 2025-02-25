@@ -222,6 +222,11 @@ function x() {
     ~/opt/nvim-macos/bin/nvim "${files[@]}"
 }
 
+# Like regular fd, but also shows the contents of the files
+fdc() {
+    fda "$1" --color=never -x sh -c 'printf "==== %s ====\n" "$1"; cat "$1"; echo' _ {}
+}
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
