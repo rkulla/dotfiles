@@ -146,6 +146,9 @@ yr<char>    Prepare to yank at position <char>. First jump to the char then fini
             
 Search (Misc)
 -------------
+rgr <term>             Grep for files containing 'foo' but show only their root dir name and count of matches: $ cd repos; rgr foo
+rgb <term>             Grep for files containing 'foo' and show the git blame of the matches. (uses git grep not rg)
+agr <term>             Like rgr but doesn't show counts
 ag -G foo 'bar'        Grep files containing 'foo' in their name for the string 'bar'
                        $ rg -g "*foo* 'bar'  # RipGrep version
 ag -l x | xargs ag y   Find files containing both "x" and "y" on different lines. (add -l to to second ag to list just file names) 

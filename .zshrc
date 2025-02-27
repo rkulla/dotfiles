@@ -342,10 +342,64 @@ alias tma='tmux attach -t '
 alias tm='tmux'
 alias tl='tmux ls'
 
-# `agr` command that only shows the root-level directories a search pattern is in (case-insensitive)
-# Useful for things like just seeing what repo's contain a string
+# Command that only shows the root-level directories a search pattern is in (case-insensitive)
+# Useful for things like just seeing what repo's contain a string somewhere. Respects .gitignore
+function rgr {
+    rg -i "$1" --count --hidden --glob '!node_modules/*' --glob '!vendor/*' | cut -d/ -f1 | sort | uniq -c | sort -k1,1nr
+}
+# Like rgr but uses ag and doesn't print the counts of matches
 function agr {
-    ag -i "$1" -l --ignore-dir=node_modules\* --ignore-dir=vendor\* | cut -d/ -f1 | sort | uniq
+    ag -iH "$1" -l --ignore-dir=node_modules\* --ignore-dir=vendor\* | cut -d/ -f1 | sort | uniq
+}
+
+# Searches for the specified term in the current directory using `git grep`,
+# then shows `git blame` results for matching lines.
+# Usage: rgb "<search_term>"
+rgb() {
+  local search_term="$1"
+  local base_dir='.'
+
+  # Define colors using tput
+  local commit_color=$(tput setaf 1)    # Red for commit hash
+  local file_color=$(tput setaf 2)      # Green for file path
+  local line_color=$(tput setaf 6)      # Cyan for line number
+  local author_color=$(tput setaf 4)    # Blue for author
+  local date_color=$(tput setaf 5)      # Magenta for date
+  # local text_color=$(tput setaf 7)      # White for text
+  local reset_color=$(tput sgr0)        # Reset color to default
+
+  # Ensure git always outputs colors, regardless of whether it's piped
+  export GIT_PAGER=cat
+  export GIT_TERMINAL_PROMPT=1
+
+  # Loop through all subdirectories in ~/repos
+  for repo in "$base_dir"/*/; do
+    # Ensure the directory is a Git repository
+    if [ -d "$repo/.git" ]; then
+      # Find files that contain the search term, then for each file, show git blame for the matching lines
+      (cd "$repo" && git grep -n --color=never "$search_term" | while read -r line; do
+        # Extract the filename and line number from the grep result
+        local file=$(echo "$line" | cut -d: -f1)
+        local lineno=$(echo "$line" | cut -d: -f2)
+
+        # Run git blame for that specific line
+        local blame_output=$(git blame "$file" -L "$lineno,+1")
+
+        # Extract the components from the blame output using awk
+        local commit_hash=$(echo "$blame_output" | awk '{print $1}')
+        local author=$(echo "$blame_output" | awk '{print $2 " " $3}')
+        local date=$(echo "$blame_output" | awk '{print $4 " " $5 " " $6}')
+        local text=$(echo "$blame_output" | awk '{for(i=7;i<=NF;i++) printf "%s ", $i; print ""}')
+
+        # Print the result with custom colors, ensuring correct formatting
+        echo -e "${file_color}$file${reset_color} ${commit_color}$commit_hash${reset_color} ${author_color}$author${reset_color} ${date_color}$date${reset_color} $text$"
+      done)
+    fi
+  done
+
+  # Reset GIT_PAGER to its default value after the function completes
+  unset GIT_PAGER
+  unset GIT_TERMINAL_PROMPT
 }
 
 #: Search for a main term with ripgrep and highlight up to three additional words.
