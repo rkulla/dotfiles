@@ -153,6 +153,8 @@ ag -l x | xargs ag y   Find files containing both "x" and "y" on different lines
                         quickfix, which opens a second telescope live_grep for me to grep on just those results!)
 fd foo | x             Open results of fd in nvim
 fdc foo                Cat results of fd
+rgh a b [c d e]        ripgrep for `a` while also highlighting `b` in a diff color. Optionally highlight c d and e in diff colors!
+                       my shell function that works better/easier than `rg foo --passthru | rg bar`
 :SE foo                Find the exact word `foo` on the page. Faster than typing \<foo\> (vim's version of \bfoo\b)
 /foo                   Then ^g / ^t to preview search down/up IN THE / PROMPT. After applying with ENTER, use N to go upward. foo|\bar too
 ?http://foo.com/x      Simply searching backwards with ? let's you paste a URLs without having to escape all the /'s 

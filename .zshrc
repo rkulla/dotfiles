@@ -348,6 +348,44 @@ function agr {
     ag -i "$1" -l --ignore-dir=node_modules\* --ignore-dir=vendor\* | cut -d/ -f1 | sort | uniq
 }
 
+#: Search for a main term with ripgrep and highlight up to three additional words.
+#: Usage: rgh [rg-flags] <main-term> <highlight-1> [highlight-2] [highlight-3] [highlight-4]
+#: - <main-term> (red) is the primary search term.
+#: - <highlight-1> is required; [highlight-2], [highlight-3], [highlight-4] are optional.
+#: - Additional `ripgrep` flags (e.g., `-i`, `-w`) can be passed before the main term.
+rgh() {
+    # Check if there are too many arguments
+    if [[ $# -lt 2 || $# -gt 6 ]]; then
+        echo "Usage: rgh [rg-flags] <main-term> <highlight-1> [highlight-2] [highlight-3] [highlight-4]"
+        return 1
+    fi
+
+    # Extract ripgrep flags (all arguments before the main term)
+    local rg_flags=()
+    while [[ $# -gt 3 && "$1" =~ ^- ]]; do
+        rg_flags+=("$1")
+        shift
+    done
+
+    local main_term=$1
+    local highlight1=$2
+    local highlight2=${3:-}  # Optional
+    local highlight3=${4:-}  # Optional
+    local highlight4=${5:-}  # Optional
+
+    # Construct the base command with passed flags
+    local cmd=(rg --color=always --colors "match:fg:red" "${rg_flags[@]}" "$main_term" --passthru)
+
+    # Append additional highlight terms with fixed colors
+    [[ -n $highlight1 ]] && cmd+=("| rg --color=always --colors 'match:fg:green' \"$highlight1\"")
+    [[ -n $highlight2 ]] && cmd+=("| rg --color=always --colors 'match:fg:blue' \"$highlight2\"")
+    [[ -n $highlight3 ]] && cmd+=("| rg --color=always --colors 'match:fg:cyan' \"$highlight3\"")
+    [[ -n $highlight4 ]] && cmd+=("| rg --color=always --colors 'match:fg:magenta' \"$highlight4\"")
+
+    # Execute the command
+    bash -c "${cmd[*]}"
+}
+
 # `vg` command that opens vim on glob/substr, e.g., `vg pack` opens
 # package.json and package-lock.json, etc.  Sort's in reverse, using
 # glob  qualifier (On), so package.json opens in buffer first.
