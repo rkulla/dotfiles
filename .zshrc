@@ -589,6 +589,7 @@ source $(brew --prefix)/opt/fzf/shell/key-bindings.zsh
 # make fzf-cd-widget work on MacOS when you type ^F (since alt+a default won't work)
 bindkey "^F" fzf-cd-widget
 # fcd - cd to selected directory. Showing only top-level subdirs
+# Use ^F if i want to go into subdirs as well. Both are extremely useful
 function fcd {
   local dir
   dir=$(fd --hidden --no-ignore --max-depth 1 --type d | fzf +m)

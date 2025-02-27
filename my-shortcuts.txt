@@ -146,6 +146,9 @@ yr<char>    Prepare to yank at position <char>. First jump to the char then fini
             
 Search (Misc)
 -------------
+^f                     BEST THING EVER to cd straight to a subdir based on a fuzzy match of its name!
+                       Use my `fcd` command if I only want to fuzzy-find root level things like if in ~/repos
+rcd                    cd to the real location a symlink points to
 rgr <term>             Grep for files containing 'foo' but show only their root dir name and count of matches: $ cd repos; rgr foo
 rgb <term>             Grep for files containing 'foo' and show the git blame of the matches. (uses git grep not rg)
 agr <term>             Like rgr but doesn't show counts
