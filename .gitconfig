@@ -12,11 +12,17 @@
     added = "#006400" bold
 	changed = 34 italic
 	untracked = blue bold
+[color "decorate"]
+    # changes color of parts of `git log`, use diff below for commit color
+    HEAD = 21 bold
+    tag = cyan bold italic
+    branch = 146 bold
 [color "diff"]
 	meta = 23 bold
 	frag = 21 bold
     func = 146 bold
-	commit = yellow bold
+    # also changes the color of commits in `git log`
+    commit = 34 italic
     new = 34 bold
 	old = red bold
 	whitespace = red reverse
