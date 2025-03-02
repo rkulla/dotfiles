@@ -20,6 +20,24 @@ X           Quit nvim
 <spc><spc>  Toggle buffer
 <spc>wC     Close buffer and jump to next one. (<spc>q instead, to control which buffer to move to next. E.g., ^p for previous)
 :Clear      Close buffer and start a new one (keeps nvim-tree or split open)
+            
+Search (Misc)
+-------------
+:SE foo                Find the exact word `foo` on the page. Faster than typing \<foo\> (vim's version of \bfoo\b)
+/foo                   Then ^g / ^t to preview search down/up IN THE / PROMPT. After applying with ENTER, use N to go upward. foo|\bar too
+?http://foo.com/x      Simply searching backwards with ? let's you paste a URLs without having to escape all the /'s 
+Cursor on symbol       Auto-highlights all of that symbol in file. (gr to see all references to it). Cursor on 'func' or 'return' args too!
+
+Search (Flash.nvim)
+-------------------
+s           Start flash mode, next letter(s) will get highlighted with random letter next to it to jump to that pos
+            <CR> will jump to first match (highlighted a different color)
+            Note that this ONLY shows you matches on the CURRENT PAGE for quick jumping. Use /foo to search full file
+            Also works in Telescope's results window if you ESC to normal mode
+f<char>     Works with (`f`, `F`, `t`, `T`, `;` and `,` motions). E.g., f( anywhere in file can jump to next with ;
+yr<char>    Prepare to yank at position <char>. First jump to the char then finish the y command, e.g., `t}` `iw`, etc.,
+            Which acts as if you were already on that line/pos and typed yt}, yiw, etc but puts you back where you were.
+            Useful for quickly yanking text "remotely" (from elsewhere in the file) to paste at the current position
 
 Search (Telescope)
 ------------------
@@ -133,38 +151,6 @@ NOTE                                Also use the new PR icon/button at the top/r
 :Telescope gh issues author=rkulla  We don't use GitHub issues at work, but useful for home/open source
 
 
-Search (Flash.nvim)
--------------------
-s           Start flash mode, next letter(s) will get highlighted with random letter next to it to jump to that pos
-            <CR> will jump to first match (highlighted a different color)
-            Note that this ONLY shows you matches on the CURRENT PAGE for quick jumping. Use /foo to search full file
-            Also works in Telescope's results window if you ESC to normal mode
-f<char>     Works with (`f`, `F`, `t`, `T`, `;` and `,` motions). E.g., f( anywhere in file can jump to next with ;
-yr<char>    Prepare to yank at position <char>. First jump to the char then finish the y command, e.g., `t}` `iw`, etc.,
-            Which acts as if you were already on that line/pos and typed yt}, yiw, etc but puts you back where you were.
-            Useful for quickly yanking text "remotely" (from elsewhere in the file) to paste at the current position
-            
-Search (Misc)
--------------
-^f                     BEST THING EVER to cd straight to a subdir based on a fuzzy match of its name!
-                       Use my `fcd` command if I only want to fuzzy-find root level things like if in ~/repos
-rcd                    cd to the real location a symlink points to
-rgr <term>             Grep for files containing 'foo' but show only their root dir name and count of matches: $ cd repos; rgr foo
-rgb <term>             Grep for files containing 'foo' and show the git blame of the matches. (uses git grep not rg)
-agr <term>             Like rgr but doesn't show counts
-ag -G foo 'bar'        Grep files containing 'foo' in their name for the string 'bar'
-                       $ rg -g "*foo* 'bar'  # RipGrep version
-ag -l x | xargs ag y   Find files containing both "x" and "y" on different lines. (add -l to to second ag to list just file names) 
-                       (Note: can do this in nvim with telescope search (`,fu`, `,x`, etc) then select those results and ^r to send to
-                        quickfix, which opens a second telescope live_grep for me to grep on just those results!)
-fd foo | x             Open results of fd in nvim
-fdc foo                Cat results of fd
-rgh a b [c d e]        ripgrep for `a` while also highlighting `b` in a diff color. Optionally highlight c d and e in diff colors!
-                       my shell function that works better/easier than `rg foo --passthru | rg bar`
-:SE foo                Find the exact word `foo` on the page. Faster than typing \<foo\> (vim's version of \bfoo\b)
-/foo                   Then ^g / ^t to preview search down/up IN THE / PROMPT. After applying with ENTER, use N to go upward. foo|\bar too
-?http://foo.com/x      Simply searching backwards with ? let's you paste a URLs without having to escape all the /'s 
-Cursor on symbol       Auto-highlights all of that symbol in file. (gr to see all references to it). Cursor on 'func' or 'return' args too!
 
 LSP (includes linting)
 ----------------------
@@ -439,6 +425,23 @@ _____________________________MACOS SHORTCUTS______________________
    Option+LEFT        Jumps to the previous / or word
    Option+RIGHT       Jumps to the next /  or word
    Shift+Option+LEFT  Deletes to previous / or word
+
+- ZSH commands (my aliases/functions):
+   $ ^f                     BEST THING EVER to cd straight to a subdir based on a fuzzy match of its name!
+                            Use my `fcd` command if I only want to fuzzy-find root level things like if in ~/repos
+   $ rcd                    cd to the real location a symlink points to
+   $ rgr <term>             Grep for files containing 'foo' but show only their root dir name and count of matches: $ cd repos; rgr foo
+   $ rgb <term>             Grep for files containing 'foo' and show the git blame of the matches. (uses git grep not rg)
+   $ agr <term>             Like rgr but doesn't show counts
+   $ ag -G foo 'bar'        Grep files containing 'foo' in their name for the string 'bar'
+                            $ rg -g "*foo* 'bar'  # RipGrep version
+   $ ag -l x | xargs ag y   Find files containing both "x" and "y" on different lines. (add -l to to second ag to list just file names) 
+                            (Note: can do this in nvim with telescope search (`,fu`, `,x`, etc) then select those results and ^r to send to
+                            quickfix, which opens a second telescope live_grep for me to grep on just those results!)
+   $ fd foo | x             Open results of fd in nvim
+   $ fdc foo                Cat results of fd
+   $ rgh a b [c d e]        ripgrep for `a` while also highlighting `b` in a diff color. Optionally highlight c d and e in diff colors!
+                            my shell function that works better/easier than `rg foo --passthru | rg bar`
   
 _____________________________END MACOS SHORTCUTS___________________
 
