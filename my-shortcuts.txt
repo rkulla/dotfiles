@@ -459,24 +459,7 @@ Ctrl+alt+Shift+k/j   swap focused window clockwise or counter-clockwise
 
 _____________________________FIREFOX SHORTCUTS______________________
 
-%  # Search for an open tab
-*  # Search bookmarks (also use <spc>sc from nvim)
-^  # Search history
-
-
-_____________________________KARABINER SHORTCUTS______________________
-Note: doesn't work via virtual kvim but still useful on main/non-work machines
-^alt a   Open (or switch to) Alacritty
-^alt b   Open (or switch to) Browser (Firefox)
-^alt c   Open (or switch to) Chat (Messages)
-^alt d   Open (or switch to) Dictionary
-^alt e   Open (or switch to) Editor (MacVim)
-^alt f   Open (or switch to) Finder (in $HOME only)
-^alt k   Open (or switch to) Kindle
-^alt m   Open (or switch to) MacVim
-^alt n   Open (or switch to) Apple Notes
-^alt p   Open (or switch to) Stickies (post-it notes)
-^alt s   Open (or switch to) Spotify
-^alt t   Open (or switch to) Terminal (iTerm2)
-^alt v   Open (or switch to) Visual Studio Code
-
+Enter these in the address bar
+ % <substr> # Search for an open tab
+ * <substr> # Search bookmarks (also use <spc>sc from nvim)
+ ^ <substr> # Search history
