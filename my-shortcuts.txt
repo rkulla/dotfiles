@@ -374,6 +374,7 @@ Misc.
 -----
 <Spc>R            Opens gitignored README.rkulla for brief per-project notes (current findings, todo)
 
+_____________________________END NVIM SHORTCUTS___________________
 
 _____________________________MACOS SHORTCUTS______________________
 
@@ -439,11 +440,14 @@ _____________________________MACOS SHORTCUTS______________________
    Option+RIGHT       Jumps to the next /  or word
    Shift+Option+LEFT  Deletes to previous / or word
   
+_____________________________END MACOS SHORTCUTS___________________
 
 _____________________________ZOXIDE SHORTCUTS______________________
 $ z <str>    Auto jump to a path containing "str" (as long as you've z'd or cd'd there before). Can use multiple words: `z foo bar`
+$ j <str>    I alias this to `j` for muscle memory reasons from using `autojump` for years
 $ zi <str>   FZF filter all results, instead of just most used (just do this MOST of the time)
 <spc>fz      Use zoxide from Telescope.nvim. Only changes relative dir inside of nvim, e.g., for <spc>x (<spc>fp for JUST git repos)
+_____________________________END ZOXIDE SHORTCUTS__________________
 
 _____________________________AMETHYST SHORTCUTS______________________
 NOTE:                I ONLY whitelist alacritty since it doesn't support split terminals. I use SizeUp for other apps. Least annoying!
@@ -455,11 +459,80 @@ Alt+Shift+enter      full-screen toggle any window. Default: Alt+Shift+d
 Alt+Shift+d          Select Row Layout)
 Alt+Shift+m          make focused window the main window. Default: Alt+Shift+enter
 Ctrl+alt+Shift+k/j   swap focused window clockwise or counter-clockwise
+_____________________________END AMETHYST SHORTCUTS_________________
 
 
 _____________________________FIREFOX SHORTCUTS______________________
+Enter these in the address bar:
+    % <substr> # Search for an open tab
+    * <substr> # Search bookmarks (also use <spc>sc from nvim)
+    ^ <substr> # Search history
+_____________________________END FIREFOX SHORTCUTS______________________
 
-Enter these in the address bar
- % <substr> # Search for an open tab
- * <substr> # Search bookmarks (also use <spc>sc from nvim)
- ^ <substr> # Search history
+____________________________VSCODE SHORTCUTS_________________________
+FILE MANAGEMENT
+code .        Open files from command line (typing the dir opens it as a workspace). Filter: `code $(ag -i foo|sort -u) .` 
+Single-click  Open a file from the explorer, replacing the current tab
+Double-click  Open a file from the explorer in a new tab
+Cmd+K Enter   Keep a tab open after single-clicking
+Cmd+O         Open file or folder
+^r            Open Recent
+Cmd+N         New tab/untitled file
+Cmd+P         Fuzzy search for files (right arrow opens and keeps menu open)
+Cmd+P P       Toggle previous file (useful if a new file overrode a tab)
+
+SETTINGS / APPEARANCE
+Cmd+,          Open User Settings UI (settings.json stored in ~/Library/Application Support/Code/User/settings.json)
+Cmd+Shift+P    → "Preferences: Open Settings (JSON)"    Open settings.json manually
+Cmd+K Cmd+T    Change theme
+
+SCREEN REAL ESTATE
+Cmd++ / Cmd+-                     Zoom in/out (20% increments)
+Cmd+B                             Toggle sidebar
+Ctrl+Cmd+F                        Fullscreen
+Cmd+K Z                           Fullscreen (Zen mode)
+Ctrl+N                            Toggle line numbers (requires Settings Cycler extension)
+Cmd+Shift+A                       Toggle Activity Bar (icons for explorer, extensions, etc.)
+View > Show Minimap               Toggle Minimap (file preview). Disable with "editor.minimap.enabled": false 
+Ctrl+`                            Open integrated terminal
+                                  `^` looking icon to expand terminal to near full screen
+[-] icon (next to workspace name) Collapses all folders in Explorer
+                                  "explorer.fileNesting.enabled": true   Enable file nesting in the Explorer
+                                  "explorer.fileNesting.expand": false   Keep nested files collapsed by default
+                                  "explorer.excludeGitIgnore": true      Hide files excluded by .gitignore
+
+NAVIGATION
+Cmd+Shift+F                      Grep code base
+Cmd+T                            Go to Symbol in Workspace (search function names, headings in .md files, etc.)
+
+SOURCE CONTROL
+Ctrl+Shift+G                     Show Source Control (Git UI)
+Click branch name (bottom left)  Change/create branches
+Click green square in minimap    Jump to modified chunk
+
+CODING
+Ctrl+Space                       Intellisense (context-aware suggestions)
+Alt+Z                            Toggle word wrap
+gc (vim) / Cmd+/                 Toggle comments (line comments)
+Shift+Alt+A                      Toggle comments (block comments)
+Ctrl+Shift+I                     Format JSON file
+Cmd+K 0                          Fold all code
+Cmd+K J                          Unfold all code
+Cmd+Alt+[                        Fold current region
+Cmd+Alt+]                        Unfold current region
+Click fold icon in the gutter    Alternative way to fold/unfold code
+
+DEBUGGING
+F5                               Start debugging
+
+MARKDOWN PREVIEW
+Cmd+Shift+V                      Full-page preview mode (viewing)
+Cmd+K V                          Split view preview mode (editing)
+
+HELP
+Cmd+K Cmd+S                      Shortcuts interactive reference
+Cmd+K Cmd+R                      Shortcuts reference PDF in browser
+Cmd+Shift+P / F1                 Command Palette (search all available commands)
+                                 `Open Keyboard Shortcuts (JSON)` to configure
+
+____________________________END VSCODE SHORTCUTS_____________________
