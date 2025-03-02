@@ -474,20 +474,20 @@ _____________________________END FIREFOX SHORTCUTS______________________
 
 ____________________________VSCODE SHORTCUTS_________________________
 FILE MANAGEMENT
-code .        Open files from command line (typing the dir opens it as a workspace). Filter: `code $(ag -i foo|sort -u) .` 
-Single-click  Open a file from the explorer, replacing the current tab
-Double-click  Open a file from the explorer in a new tab
-Cmd+K Enter   Keep a tab open after single-clicking
-Cmd+O         Open file or folder
-^r            Open Recent
-Cmd+N         New tab/untitled file
+$ code .      Open files from command line (typing the dir opens it as a workspace). Filter: `code $(ag -i foo|sort -u) .` 
+Cmd+O         Open file or folder dialog
+Double-click  Open file from the explorer in a new tab (allows it to stay open even if you single or double click another file)
+Single-click  Open file from Explorer in preview mode (allows it to be replaced by another single-clicked file)
+Cmd+K Enter   Keep a tab open after single-clicking (takes it out of preview mode)
+Cmd+P Cmd+P   Toggle previous file (also reopens a file if a new file overrode a tab)
 Cmd+P         Fuzzy search for files (right arrow opens and keeps menu open)
-Cmd+P P       Toggle previous file (useful if a new file overrode a tab)
+Cmd+N         New tab/untitled file
+^r            Open Recent (must have cursor focused in Explorer to work)
 
 SETTINGS / APPEARANCE
+Cmd+K Cmd+T    Change theme
 Cmd+,          Open User Settings UI (settings.json stored in ~/Library/Application Support/Code/User/settings.json)
 Cmd+Shift+P    → "Preferences: Open Settings (JSON)"    Open settings.json manually
-Cmd+K Cmd+T    Change theme
 
 SCREEN REAL ESTATE
 Cmd++ / Cmd+-                     Zoom in/out (20% increments)
@@ -505,7 +505,7 @@ Ctrl+`                            Open integrated terminal
                                   "explorer.excludeGitIgnore": true      Hide files excluded by .gitignore
 
 NAVIGATION
-Cmd+Shift+F                      Grep code base
+Cmd+Shift+F                      Grep code base (or click Magnifying glass from Activity Bar)
 Cmd+T                            Go to Symbol in Workspace (search function names, headings in .md files, etc.)
 
 SOURCE CONTROL
