@@ -539,3 +539,10 @@ Cmd+Shift+P / F1                 Command Palette (search all available commands)
                                  `Open Keyboard Shortcuts (JSON)` to configure
 
 ____________________________END VSCODE SHORTCUTS_____________________
+
+----------------------------RAYCAST SHORTCUTS________________________
+TODO: Move https://github.com/rkulla/dotfiles?tab=readme-ov-file#raycast to here
+Hyper+h            Clipboard History (see clipboard contents on current machine)
+Hyper+r            Opens remote-clipboard.txt quicklink (see clipboard contents going to remote machine)
+----------------------------END RAYCAST SHORTCUTS____________________
+
