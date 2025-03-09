@@ -34,8 +34,9 @@ The `realpath` command from coreutils is required to run install.sh. I typically
       mysql postgresql ssh-copy-id pyenv wget ctags nmap fd nnn reattach-to-user-namespace zenity htop ncdu rsync \
       screen zsh-syntax-highlighting zsh-you-should-use shellcheck jsonlint fzf irssi sqlite jq yq \
       asdf the_silver_searcher ripgrep yamllint httpie diff-so-fancy fnm glow bat lazygit lazydocker \
-      lsd vint hadolint groff alacritty alt-tab amethyst raycast leaderkey devutils
+      lsd vint hadolint groff alacritty alt-tab amethyst raycast leaderkey devutils swiftbar
     $ brew install --cask lookaway
+    $ brew install --cask hammerspoon
 
 ### Run the dotfiles install script
 
