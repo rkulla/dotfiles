@@ -369,7 +369,8 @@ _____________________________MACOS SHORTCUTS______________________
   - Note: LOOK at ANY window's title-bar to see if it's bold (focused) or dimmed (not focused) before using that window!
   - Note: Right-click an app > Options > All desktops (to see that app/window on all workspaces. I do this for:
             `System Preferences`, `Microsoft Outlook (so I always see meeting reminders!)`
-  - Ctrl-UP:                   See windows/workspaces (Mission Control)
+  - Note: Use my https://github.com/rkulla/workspace-label/ automation to label each workspace with a useful name
+  - Ctrl-UP or F3:             See windows/workspaces (Mission Control)
   - Cmd+h                      Hide window from workspace (^UP/Mission Control). Tip: Cmd+m is usually what I want. Still hides from MC
   - Cmd+m                      Minimize window. This is better than "hiding" Outlook, to see notifications. Spotlight/launch to un-minimize
   - Ctrl-Cmd-Right/Left        Move window to next/prev workspace
