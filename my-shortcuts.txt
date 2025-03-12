@@ -440,11 +440,10 @@ _____________________________MACOS SHORTCUTS______________________
     "      List all windows (I rebound this from split horizontal. `^a f` to filter)
     -      Split the current pane horizontally (my binding to split horizontal)
     /      Split the current pane vertically (rebound from *^a %`)
+    :      Open command-prompt (tab completion helps)
     jkhl   Since the default is only the arrow keys to switch panes by direction, I
            explicitly make vi key bindings work by adding them to my tmux.conf.
-    :      Open command-prompt (tab completion helps)
-           Useful commands include:
-              :move-window -t 0   (assigns current window to index 0)
+
 
 - ZSH Prompt bindkeys:
    ^W  Deletes a word at a time, like vi does: 'baz' in /foo/bar-baz
