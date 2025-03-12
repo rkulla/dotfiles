@@ -417,6 +417,34 @@ _____________________________MACOS SHORTCUTS______________________
     - <spc>fe Telescope fuzzy file browser. Enter on ../ to go up a dir
     - Typing `-` in normal mode opens a file explorer in a buffer, relative to the current file. Create/rm/edit filenames. :w to save
 
+- Tmux - Key bindings (after hitting ^a) 
+    ?      List all key bindings (shows my ACTUAL bindings, not the defaults)
+    0-9    Switch to that window (or Ctrl-a " then up/down to select window)
+    a      Toggle to the previously selected window (I rebound from `^a l`)
+    c      Create a new window
+    d      Detach the current client
+    f      Find windows containing string. (Like `^a "` but list filtered by pattern)
+           Look only at the TOP list to see the matches, NOT the preview window
+           Also, the word MUST appear on the window's visible page
+    n      Go to the next window (`^a p` for previous window)
+    o      Switch to the other pane. (or ^a j/k/l/h)
+    q      Show pane numbers
+    s      List sessions and optionally switch to that session
+    x      Kill the current pane (or just exit the shell)
+    z      Zoom the current pane to full screen. Toggle again to go back.
+    &      Kill the current window
+    ,      Rename the current window
+    .      Renumber current window to a non-existing window number. 
+           (swap-window is more powerful: swap-window -s 3 -t 0)
+    $      Rename the current session 
+    "      List all windows (I rebound this from split horizontal. `^a f` to filter)
+    -      Split the current pane horizontally (my binding to split horizontal)
+    /      Split the current pane vertically (rebound from *^a %`)
+    :      Open command-prompt (tab completion helps)
+    jkhl   Since the default is only the arrow keys to switch panes by direction, I
+           explicitly make vi key bindings work by adding them to my tmux.conf.
+
+
 - ZSH Prompt bindkeys:
    ^W  Deletes a word at a time, like vi does: 'baz' in /foo/bar-baz
    ^X  Deletes to previous space, great for deleting a url. (works like default ^W)
