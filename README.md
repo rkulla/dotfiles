@@ -60,6 +60,8 @@ I prefer this over Dropbox since it's native and works better.
 - Simply create folders in it and they will appear in ~/Library/Mobile\ Documents/com\~apple\~CloudDocs
   - I alias `icd` to cd to this folder by typing
 
+- In `Settings > iCloud > Drive`, I disable "Optimize Mac Storage" so that all my iCloud drive files are always available locally, and don't have to be re-downloaded. This is fine for me because I don't store photos/videos in iCloud drive which would take up potentially too much space (I back those up elsewhere). I also like to right-click on any iCloud drive folders I want to ensure are always available locally, no matter what (in case the optimize setting gets reset or anything), and click `Keep Downloaded` - this will still sync as expected it just won't ever require having to re-download it first)
+
 NOTE: If spotlight stops loading things, make sure I don't check too many things in spotlight AND then make sure to rebuild the Spotlight index by going to Spotlight's preferences > Click on "Spotlight Privacy" to see a list of locations excluded from Spotlight searches > Then temporarily + add my iCloud Drive to the exclusions list but then immediately remove it from there, and that will trigger a rebuild of the index.
 
 ## Raycast

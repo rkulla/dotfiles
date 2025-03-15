@@ -371,6 +371,7 @@ _____________________________MACOS SHORTCUTS______________________
             `System Preferences`, `Microsoft Outlook (so I always see meeting reminders!)`
   - Note: Use my https://github.com/rkulla/workspace-label/ automation to label each workspace with a useful name
   - Ctrl-UP or F3:             See windows/workspaces (Mission Control)
+  - Ctrl+Enter                 Simulates a mouse right-click for contextual menu, then use arrow keys to navigate the menu
   - Cmd+h                      Hide window from workspace (^UP/Mission Control). Tip: Cmd+m is usually what I want. Still hides from MC
   - Cmd+m                      Minimize window. This is better than "hiding" Outlook, to see notifications. Spotlight/launch to un-minimize
   - Ctrl-Cmd-Right/Left        Move window to next/prev workspace
