@@ -233,12 +233,27 @@ Markdown preview
 <spc>ml  like <spc>md but for when in light mode
 <spc>mp  Markdown Preview server (:6969). For EDITING (split screen to see Browser next to Neovim) :MarkdownPreviewStop when done
 
-Select
-------
+Select / Motions
+----------------
 vi{        Select everything INSIDE {} - even multiple lines or if cursor is anywhere. Works for parens, quotes, etc.
 va{        Like vi{ but also includes the {}'s themselves. Again works on other types of enclosing chars too. Triple-Click too
 Shift+V %  Select everything INCLUDING the lines { and } start and end on, just start the Shift+V on the first line
 vit        Select everything in <tag></tags> - even if it's a multi-line block
+NOTE: Because these are just motions, you can also use other actions on them such as `d` to delete instead of `v` to select:
+- MOTIONS are the most powerful thing to understand in vim:
+   - f,   - find the next comma
+- You can also combine them with actions:
+   - df,  - delete until you find the next comma (including deleting the comma)
+   - dt,  - delete up UNTIL the next comma
+   - `dip` for 'in paragraph' deletes the whole paragraph. 
+     `dap` would delete 'around paragraph' which could include an empty line below it
+      It's easiest to test out what would happen usin `v` to visually select, as the action. vip, vap...
+   - d}   - } means a paragraph down from current position), so this will delete the rest of the paragraph). { for upwards
+   - g_   - move to non-blank character at end of line (whereas $ moves to end of line including spaces)
+   - w    - move to the beginning of the next work. CAPITAL W to treat words as 'programmers' words, like UUIDs, statements, etc.
+            same goes for capital E, B, etc word jumping equivalents
+- You can also combine counts to motions:
+   - 2dt, - deletes up until the next 2 commas. This comes in extra handy when creating macros
 
 TODO: typescript-language-server supports LSP's textDocument.selectionRange (range selection) however neovim still requires plugin
       camilledejoye/nvim-lsp-selection-range which is more trouble than its worth so wait for native support to vim.lsp.buf:
