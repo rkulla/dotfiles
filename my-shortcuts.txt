@@ -27,6 +27,8 @@ Search (Misc)
 /foo                   Then ^g / ^t to preview search down/up IN THE / PROMPT. After applying with ENTER, use N to go upward. foo|\bar too
 ?http://foo.com/x      Simply searching backwards with ? let's you paste a URLs without having to escape all the /'s 
 Cursor on symbol       Auto-highlights all of that symbol in file. (gr to see all references to it). Cursor on 'func' or 'return' args too!
+:SES foo               Find a .txt *section containing 'foo' (MacVim/.txt files only)
+:Beg foo               Search for the next line containing 'foo' near the beginning of the line (within first 30 chars) (MacVim only)
 
 Search (Flash.nvim)
 -------------------

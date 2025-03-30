@@ -142,6 +142,20 @@ map("n", "<leader>wB", function()
   vim.o.winbar = ""
 end, { desc = "Winbar Hide" })
 
+-- Open Urls or Files externally
+-- If the current line has a URL, open it. Otherwise, open the current file
+local function open_smart()
+  local line = vim.api.nvim_get_current_line()
+  local url = line:match("[a-z]+://[^ >,;]*")
+
+  if url then
+    vim.cmd("silent !open " .. vim.fn.shellescape(url))
+  else
+    vim.cmd("silent !open %")
+  end
+end
+vim.keymap.set("n", "<leader>o", open_smart, { silent = true })
+
 -- Vimscript-based plugins ------------------------------------------------
 
 -- Fugitive
