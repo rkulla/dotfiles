@@ -154,7 +154,7 @@ local function open_smart()
     vim.cmd("silent !open %")
   end
 end
-vim.keymap.set("n", "<leader>o", open_smart, { silent = true })
+map("n", "<leader>o", open_smart, { desc = "Open URL or file" })
 
 -- Vimscript-based plugins ------------------------------------------------
 
