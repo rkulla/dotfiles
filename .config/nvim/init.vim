@@ -49,6 +49,9 @@ lua require('user/keymaps')
 " :PackerCompile (regenerate plugin cache file: ~/.config/nvim/plugin/packer_compiled.lua)
 lua require('user/plugins')
 
+""" my custom folding (for notes .txt files)
+lua require('user/myfolds');
+
 """ Plugin custom config files
 " Comment out any `packadd` to not load that plugin
 " Only plugins that have opt=true in user/plugins.lua will go to opt/ (be lazyloaded)
