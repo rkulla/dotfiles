@@ -223,7 +223,12 @@ Leave everything else checked: 'Applications', 'calculator', 'definition', 'Docu
 
 The 'Documents' one is how it finds .txt files.
 
-In finder, don't forget to set .txt files to open in MacVim or it will open in TextEdit by default
+In finder, don't forget to set .txt files to open in MacVim or it will open in TextEdit by default:
+
+  - First, make sure to go into Finder and right-click on a .txt file and click `Get Info` and change `Open with` to `MacVim.app (default)` and apply to all .txt files
+  - Then Cmd+ to open MacVim's preferences
+  - In the General tab, where it says `Open files from applications` change it from `in a new window` to `in the current window` and `with a tab for each file`
+  - Now when you run `open foo.txt`, double-click foo.txt from Finder, or launch foo.txt from Spotlight, it will open as a new tab in the the current MacVim window.
 
 Make sure to click the `privacy` tab and add any dirs you to ignore, such as a backup drive (so it doesn't try to load your backups instead of the main file). Checking the statusbar in MacVim will help confirm the path!
 

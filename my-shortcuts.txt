@@ -47,7 +47,7 @@ NOTE:       I use telescope-fzf-native to use fzf syntax: 'foo (exact), ^foo (st
 NOTE:       I can DOUBLE filter by first doing a search (e.g. `,x` or `,fu`), TAB to select multiple files and hit Enter to open (I have a
             workaround in user/telescope.lua). Then Ctlr+r will open a second telescop live_grep prompt, to FURTHER grep THOSE files!
             (this is akin to `ag -l foo | xargs ag -l bar` on the cli)
-<spc>sc     Opens THIS file for quick fuzzy filtering of shortcuts!
+<spc>sc     (OR CAPS-S) Opens THIS file (my-shortcuts.txt) for quick fuzzy filtering of shortcuts!
 <spc>x      Fuzzy Search for filenames tracked by git. Fastest. (Unlike X and fe it's REPO relative, not CWD relative)
             Ctlr+r to send results to quickfix (or Noice) allowing me to grep based on just that refined subset of files! E.g., grep just .yml
             Ctrl+q to send all telescope results to the quickfix but not grep them
@@ -249,7 +249,7 @@ NOTE: Because these are just motions, you can also use other actions on them suc
      `dap` would delete 'around paragraph' which could include an empty line below it
       It's easiest to test out what would happen usin `v` to visually select, as the action. vip, vap...
    - d}   - } means a paragraph down from current position), so this will delete the rest of the paragraph). { for upwards
-   - g_   - move to non-blank character at end of line (whereas $ moves to end of line including spaces)
+   - g_   - move to non-blank character at end-of-line ($ includes spaces). Useful to select without grabbing whitespace: vg_
    - w    - move to the beginning of the next work. CAPITAL W to treat words as 'programmers' words, like UUIDs, statements, etc.
             same goes for capital E, B, etc word jumping equivalents
 - You can also combine counts to motions:
@@ -514,7 +514,7 @@ _____________________________END AMETHYST SHORTCUTS_________________
 _____________________________FIREFOX SHORTCUTS______________________
 Enter these in the address bar:
     % <substr> # Search for an open tab
-    * <substr> # Search bookmarks (also use <spc>sc from nvim)
+    * <substr> # Search bookmarks (also use <spc>sc from nvim). Do `*github foo` for JUST github bookmarks in my `Repos` folder
     ^ <substr> # Search history
 _____________________________END FIREFOX SHORTCUTS______________________
 
