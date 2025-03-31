@@ -50,8 +50,8 @@ NOTE:       I can DOUBLE filter by first doing a search (e.g. `,x` or `,fu`), TA
             workaround in user/telescope.lua). Then Ctlr+r will open a second telescop live_grep prompt, to FURTHER grep THOSE files!
             (this is akin to `ag -l foo | xargs ag -l bar` on the cli)
 <spc>sc     (OR CAPS-S) Opens THIS file (my-shortcuts.txt) for quick fuzzy filtering of shortcuts!
-<spc>x      Fuzzy Search for filenames tracked by git. Fastest. (Unlike X and fe it's REPO relative, not CWD relative)
-            Ctlr+r to send results to quickfix (or Noice) allowing me to grep based on just that refined subset of files! E.g., grep just .yml
+<spc>x      Fuzzy Search filenames tracked by git (faster and unlike <spc>X and fe it's REPO relative, not CWD relative)
+            Ctlr+r sends results to quickfix or Noice allowing grep based on that refined subset of files! E.g., grep just .yml
             Ctrl+q to send all telescope results to the quickfix but not grep them
 <spc>X      Fuzzy Search for ALL filenames (no git required. Slightly slower but more thorough)
 <spc>fe     Like <spc>X but a real TUI file explorer where you're navigating the file system. Use arrow keys to CD to a dir first!
@@ -65,10 +65,9 @@ NOTE:       I can DOUBLE filter by first doing a search (e.g. `,x` or `,fu`), TA
 <spc>p      Browse projects with project.nvim (Like WebStorm's Recent Project list but better). ESC still cd's. ^r for recent files. ^s to
             grep. ^d to remove from list
             TODO: this might be even better https://github.com/nvim-telescope/telescope-frecency.nvim
-<spc>fp     Browse git repos (anywhere under $HOME). Shows README preview. <CR> to preview/open files. Use <spc>p or zoxide to cd around since this
-            doesn't cd but my `gl` map will, then <spc>cw to copy :pwd to clipboard to paste on the cli. However: `$ zi <dir>` is only one step 
-<spc>fz     Fuzzy/Zoxide search previously cd'd dirs. <CR> changes to that CWD. ^f previews files. ^s/^v opens dir in horiz/vert split. ^e edit in Oil
-
+<spc>fp     Browse git repos in $HOME. README preview. <CR> preview/opens files. <spc>p or zoxide to cd around since this won't cd but my
+            `gl` map will, then <spc>cw to copy :pwd to clipboard to paste on the cli. However: `$ zi <dir>` is only one step 
+<spc>fz     Fuzzy/Zoxide search previous cd'd dirs. <CR> change to dir. ^f previews. ^s/^v opens dir in horiz/vert split. ^e edit in Oil
 <spc>ff     Grep current file only  (TODO hoping current_buffer_fuzzy_find gets case-sensitive support to make a <spc>fF)
 <spc>fo     Grep only open files
 <spc>fO     Same as <spc>fo but case-sensitive
