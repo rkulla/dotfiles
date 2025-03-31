@@ -154,7 +154,7 @@ Then under `Settings>Extensions>Quicklinks` assign a hotkey to a Quicklink. I ma
     my-shortcuts: ~/repos/dotfiles/my-shortcuts.txt
 
     WORK ONLY
-    my-shortcuts: ~/my-shortcuts.txt
+    my-shortcuts: ~/notes/my-shortcuts.txt
 
 
 #### External Extensions I also download from its Store:
