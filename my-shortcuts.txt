@@ -239,6 +239,7 @@ Select / Motions
 ----------------
 vi{        Select everything INSIDE {} - even multiple lines or if cursor is anywhere. Works for parens, quotes, etc.
 va{        Like vi{ but also includes the {}'s themselves. Again works on other types of enclosing chars too. Triple-Click too
+ci"        Change everything inside "". Also automatically does it on the first occurrence on the line without separately jumping
 Shift+V %  Select everything INCLUDING the lines { and } start and end on, just start the Shift+V on the first line
 vit        Select everything in <tag></tags> - even if it's a multi-line block
 NOTE: Because these are just motions, you can also use other actions on them such as `d` to delete instead of `v` to select:
