@@ -1,8 +1,5 @@
 vim.api.nvim_create_augroup("TextFileHighlighting", { clear = true })
 
--- Match ALL CAPS words (4+ letters), optionally followed by a colon and make them bold
--- Also makes lines starting with a * bold (for my custom notes used by myfolds.lua
--- Since `glow` markdown isn't that great, this lets me keep my notes as .txt but with some syntax highlighting
 vim.api.nvim_create_autocmd("BufReadPost", {
   group = "TextFileHighlighting",
   pattern = "*.txt",
@@ -12,9 +9,23 @@ vim.api.nvim_create_autocmd("BufReadPost", {
         vim.cmd([[
         syntax match BoldCaps /\v(^|[^"'])\zs<[A-Z]{4,}:?\ze([^"']|$)/
         syntax match BoldLine /^\*\S.*/
+        syntax match BacktickText /\v`([^`]+)`/  " Match text inside backticks
+        syntax match URL /https\?:\/\/.*/  " Match URLs starting with http or https
 
-        highlight BoldCaps term=bold cterm=bold gui=bold
-        highlight BoldLine term=bold cterm=bold gui=bold
+        " Highlight the matched text inside the triple backticks
+        syntax match TripleBackticksStart /```/
+        syntax match TripleBackticksEnd /```/
+        syntax region TripleBackticks matchgroup=TripleBackticksStart start=/```/ end=/```/ contains=@TripleBackticksStart,@TripleBackticksEnd
+        highlight TripleBackticks guibg=NONE guifg=#808080 ctermfg=245 ctermbg=NONE cterm=bold gui=bold
+
+
+        " Set BoldCaps to have light grey background and black text
+        "highlight BoldCaps guifg=#00008B guibg=#A0A0A0 ctermfg=4 ctermbg=238 " Match all caps words (4+ chars) and optional colon
+        highlight BoldCaps guifg=#00008B guibg=#A0A0A0 ctermfg=4 ctermbg=238 gui=bold cterm=bold" Match all caps words (4+ chars) and optional colon
+        highlight BoldLine guifg=#006400 gui=bold,underline ctermfg=2 guibg=#D3D3D3 ctermbg=250 cterm=bold,underline  " Match lines starting with a * (my custom folds)
+        " highlight BacktickText guifg=#FFA500 guibg=NONE ctermfg=214 ctermbg=NONE  " Match text in backticks
+        highlight BacktickText gui=bold cterm=bold  " Match text in backticks
+        highlight URL guifg=#0000FF gui=underline cterm=underline guibg=NONE ctermfg=33 ctermbg=NONE  " Match URLs
       ]])
       end
     )
