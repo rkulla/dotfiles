@@ -4,6 +4,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
   group = "TextFileHighlighting",
   pattern = "*.txt",
   callback = function()
+    vim.opt_local.spell = false -- disable spellchecker
     vim.schedule(
       function()
         vim.cmd([[
@@ -11,9 +12,9 @@ vim.api.nvim_create_autocmd("BufReadPost", {
         syntax match BoldLine /^\*\S.*/
         highlight BoldLine guifg=#00008B guibg=#A0A0A0 ctermfg=4 ctermbg=238 gui=bold,underline cterm=bold,underline
 
-        " Highlight CAPS words of at least 4 letters and an optional ending colon `SPAM` or `SPAM:`
-        syntax match BoldCaps /\v(^|[^"'])\zs<[A-Z]{4,}:?\ze([^"']|$)/
-        highlight BoldCaps guifg=#006400 gui=bold cterm=bold ctermfg=2 guibg=#D3D3D3 ctermbg=250
+        " Highlight words of at least 2 chars if the line starts with a `- bullet`. E.g., `SPAM` in `- SPAM`
+        syntax match BulletSection /\v(^|\n)\zs-\s<\S+\ze([^"']|$)/
+        highlight BulletSection guifg=#006400 gui=bold cterm=bold ctermfg=2 guibg=#D3D3D3 ctermbg=250
 
         " Highlight text inside of single back ticks like `foo`
         syntax match BacktickText /\v`([^`]+)`/
