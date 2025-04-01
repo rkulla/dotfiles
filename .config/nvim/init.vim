@@ -52,6 +52,9 @@ lua require('user/plugins')
 """ my custom folding (for notes .txt files)
 lua require('user/myfolds');
 
+""" my custom syntax highlighting
+lua require('user/mysyntax');
+
 """ Plugin custom config files
 " Comment out any `packadd` to not load that plugin
 " Only plugins that have opt=true in user/plugins.lua will go to opt/ (be lazyloaded)
