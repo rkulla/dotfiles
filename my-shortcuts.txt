@@ -1,4 +1,4 @@
-_____________________________NVIM SHORTCUTS______________________
+*NVIM SHORTCUTS
 
 Open files from CLI
 -------------------
@@ -378,9 +378,8 @@ Misc.
 -----
 <Spc>R            Opens gitignored README.rkulla for brief per-project notes (current findings, todo)
 
-_____________________________END NVIM SHORTCUTS___________________
 
-_____________________________MACOS SHORTCUTS______________________
+*MACOS SHORTCUTS
 
 - MacOS Workspaces/window Switching:
   - Note: Each monitor will have its own workspaces, so create them on the expected monitor(s)
@@ -492,16 +491,16 @@ _____________________________MACOS SHORTCUTS______________________
    $ rgh a b [c d e]        ripgrep for `a` while also highlighting `b` in a diff color. Optionally highlight c d and e in diff colors!
                             my shell function that works better/easier than `rg foo --passthru | rg bar`
   
-_____________________________END MACOS SHORTCUTS___________________
 
-_____________________________ZOXIDE SHORTCUTS______________________
+*ZOXIDE SHORTCUTS
+
 $ z <str>    Auto jump to a path containing "str" (as long as you've z'd or cd'd there before). Can use multiple words: `z foo bar`
 $ j <str>    I alias this to `j` for muscle memory reasons from using `autojump` for years
 $ zi <str>   FZF filter all results, instead of just most used (just do this MOST of the time)
 <spc>fz      Use zoxide from Telescope.nvim. Only changes relative dir inside of nvim, e.g., for <spc>x (<spc>fp for JUST git repos)
-_____________________________END ZOXIDE SHORTCUTS__________________
 
-_____________________________AMETHYST SHORTCUTS______________________
+*AMETHYST SHORTCUTS
+
 NOTE:                I ONLY whitelist alacritty since it doesn't support split terminals. I use SizeUp for other apps. Least annoying!
 NOTE:                Don't cmd+h to hide Outlook, or I won't see meeting notifications. INSTEAD, _minimize_ it!
 Cmd+`                MacOS's shortcut to cycle an app's windows. (See top/left color menu bar buttons to see which window is active)
@@ -511,17 +510,17 @@ Alt+Shift+enter      full-screen toggle any window. Default: Alt+Shift+d
 Alt+Shift+d          Select Row Layout)
 Alt+Shift+m          make focused window the main window. Default: Alt+Shift+enter
 Ctrl+alt+Shift+k/j   swap focused window clockwise or counter-clockwise
-_____________________________END AMETHYST SHORTCUTS_________________
 
 
-_____________________________FIREFOX SHORTCUTS______________________
+*FIREFOX SHORTCUTS
+
 Enter these in the address bar:
     % <substr> # Search for an open tab
     * <substr> # Search bookmarks (also use <spc>sc from nvim). Do `*github foo` for JUST github bookmarks in my `Repos` folder
     ^ <substr> # Search history
-_____________________________END FIREFOX SHORTCUTS______________________
 
-____________________________VSCODE SHORTCUTS_________________________
+*VSCODE SHORTCUTS
+
 FILE MANAGEMENT
 $ code .      Open files from command line (typing the dir opens it as a workspace). Filter: `code $(ag -i foo|sort -u) .` 
 Cmd+O         Open file or folder dialog
@@ -587,11 +586,9 @@ Cmd+K Cmd+R                      Shortcuts reference PDF in browser
 Cmd+Shift+P / F1                 Command Palette (search all available commands)
                                  `Open Keyboard Shortcuts (JSON)` to configure
 
-____________________________END VSCODE SHORTCUTS_____________________
+*RAYCAST SHORTCUTS
 
-----------------------------RAYCAST SHORTCUTS________________________
 TODO: Move https://github.com/rkulla/dotfiles?tab=readme-ov-file#raycast to here
 Hyper+h            Clipboard History (see clipboard contents on current machine)
 Hyper+r            Opens remote-clipboard.txt quicklink (see clipboard contents going to remote machine)
-----------------------------END RAYCAST SHORTCUTS____________________
 
