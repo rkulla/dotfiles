@@ -409,7 +409,9 @@ JJ / JK      Esc terminal-mode (so it's not an interactive terminal but acts lik
     - <spc>fe Telescope fuzzy file browser. Enter on ../ to go up a dir
     - Typing `-` in normal mode opens a file explorer in a buffer, relative to the current file. Create/rm/edit filenames. :w to save
 
-- Tmux - Key bindings (after hitting ^a) 
+*Tmux
+
+- Key bindings (after hitting ^a):
     ?      List all key bindings (shows my ACTUAL bindings, not the defaults)
     0-9    Switch to that window (or Ctrl-a " then up/down to select window)
     a      Toggle to the previously selected window (I rebound from `^a l`)
@@ -438,7 +440,10 @@ JJ / JK      Esc terminal-mode (so it's not an interactive terminal but acts lik
            Useful commands include:
               :move-window -t 0   (assigns current window to index 0)
 
-- ZSH Prompt bindkeys:
+
+*ZSH 
+
+-ZSH Prompt bindkeys:
    ^W  Deletes a word at a time, like vi does: 'baz' in /foo/bar-baz
    ^X  Deletes to previous space, great for deleting a url. (works like default ^W)
    ^E  Jumps to end of line
@@ -448,7 +453,7 @@ JJ / JK      Esc terminal-mode (so it's not an interactive terminal but acts lik
    Option+RIGHT       Jumps to the next /  or word
    Shift+Option+LEFT  Deletes to previous / or word
 
-- ZSH commands (my aliases/functions):
+- my zsh aliases/functions):
    $ ^f                     BEST THING EVER to cd straight to a subdir based on a fuzzy match of its name!
                             Use my `fcd` command if I only want to fuzzy-find root level things like if in ~/repos
    $ rcd                    cd to the real location a symlink points to
