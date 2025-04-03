@@ -206,6 +206,37 @@ alias j='zi'
 # Usage: $ <cmd> | lastcol
 lastcol() { awk '{print $NF}'; }
 
+# ff - filfer files in current dir (case-insensitive)
+# lists files by just their name on separately lines
+# and by an optional 1st, 2nd, 3rd or 4th arg 
+# Usage: $ ff [<arg1>] [<arg2>] [<arg3>] [<arg4>
+# Ex:
+#    $ ff   # list all files in current dir
+# Use it to list files match env and/or market and/or region and/or AZ:
+#    $ ff prd
+#    $ ff LATAM
+#    $ ff prd LATAM
+#    $ ff prd LATAM east
+#    $ ff prd LATAM east 1
+# Because it only lists the filenames, you can then open them too:
+#    $ vim $(ff prd latam)
+# or open them afterward and in any editor, such as VSCode
+#    $ ff prd latam
+#    $ code ($!!)
+# Unlike fuzzyfinding (e.g., fzf) this also lets you pass things in any order:
+#    $ ff 1 east prd latam
+#    prd-any-latam-us-east-1.tfvars
+#    $ ff latam east 1 prd
+#    prd-any-latam-us-east-1.tfvars
+ff() {
+  cmd="ls -l | tail -n +2 | awk '{print \$NF}'"
+  [ -n "$1" ] && cmd="$cmd | grep -i '$1'"
+  [ -n "$2" ] && cmd="$cmd | grep -i '$2'"
+  [ -n "$3" ] && cmd="$cmd | grep -i '$3'"
+  [ -n "$4" ] && cmd="$cmd | grep -i '$4'"
+  bash -c "$cmd"
+}
+
 # alias to fd "all" files (case-insensitive/hidden)
 alias fda='fd -iH'
 
