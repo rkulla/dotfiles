@@ -318,6 +318,7 @@ S / s        Prompts for a file/word to search for in tree / Open file in associ
 
 :G <any git cli command> Great for `:G blame`, etc. <Leader>q to close. ^o to nav back a level
 :G add %                 Stage current file. Or my <spc>gsf  (git state file git-signs map)
+:G ci -m "<msg>"         Commit what's staged
 :G log %                 See git log of current file in split. ENTER on commit for diff. ^o for previous view
                          `:G lol` for my lol alias (quick view, no split) or `G lol %` for current file
 :Gclog                   See git log+diff in quickfix. `:Gclog %` for current file. Use -Sfoo for pixaxe (great for history of a LINE)
