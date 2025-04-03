@@ -208,7 +208,7 @@ lastcol() { awk '{print $NF}'; }
 
 # ff - filfer files in current dir (case-insensitive)
 # lists files by just their name on separately lines
-# and by an optional 1st, 2nd, 3rd or 4th arg 
+# It takes 0 to 4 args and each arg will further grep things down
 # Usage: $ ff [<arg1>] [<arg2>] [<arg3>] [<arg4>
 # Ex:
 #    $ ff   # list all files in current dir
