@@ -30,6 +30,20 @@ vim.api.nvim_create_autocmd("BufReadPost", {
         syntax match TripleBackticksEnd /```/
         syntax region TripleBackticks matchgroup=TripleBackticksStart start=/```/ end=/```/ contains=@TripleBackticksStart,@TripleBackticksEnd
         highlight TripleBackticks guibg=NONE guifg=#808080 ctermfg=245 ctermbg=NONE cterm=bold gui=bold
+
+        " Highlight {} () [] "" and comments like // or #
+        syntax match SimpleBraces /[{}]/
+        highlight SimpleBraces guifg=#800080 ctermfg=129 cterm=bold gui=bold
+        syntax match SimpleParens /[()]/
+        highlight SimpleParens cterm=bold gui=bold
+        syntax match SimpleBrackets /\[\|\]/
+        highlight SimpleBrackets guifg=#000000 ctermfg=0 cterm=bold gui=bold
+        syntax match SimpleQuotes /["]/ 
+        highlight SimpleQuotes guifg=#0000FF ctermfg=33 cterm=bold gui=bold
+        syntax match SimpleComment /\/\/.*/ contains=NONE
+        syntax match SimpleComment /#.*/ contains=NONE
+        highlight link SimpleComment Comment
+
       ]])
       end
     )
