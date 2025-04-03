@@ -228,6 +228,12 @@ lastcol() { awk '{print $NF}'; }
 #    prd-any-latam-us-east-1.tfvars
 #    $ ff latam east 1 prd
 #    prd-any-latam-us-east-1.tfvars
+# IMPORTANT: 'us' can be harder to filter because it can show up in other regions that use it
+#   $ ff prd us | ag -v latam   # if latam files were also showing up
+# Also, not all repos use the same naming convention for market, just env, so check first:
+#   $ ff prd
+#   prd-ap-northeast-1.tfvars
+#   prd-eu-central-1.tfvars
 ff() {
   cmd="ls -l | tail -n +2 | awk '{print \$NF}'"
   [ -n "$1" ] && cmd="$cmd | grep -i '$1'"
