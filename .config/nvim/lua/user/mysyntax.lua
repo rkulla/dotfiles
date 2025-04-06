@@ -4,7 +4,6 @@ vim.api.nvim_create_autocmd("BufReadPost", {
   group = "TextFileHighlighting",
   pattern = "*.txt",
   callback = function()
-    vim.opt_local.spell = false -- disable spellchecker
     vim.schedule(
       function()
         vim.cmd([[
