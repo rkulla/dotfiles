@@ -16,6 +16,8 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   callback = function()
     vim.opt_local.foldmethod = "expr"
     vim.opt_local.foldexpr = "v:lua.fold_expr(v:lnum)"
+
+    vim.keymap.set("n", "<Space>", "za", { buffer = true, desc = "Toggle fold" })
   end,
   group = "TextFileFolds",
 })
