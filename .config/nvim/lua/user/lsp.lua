@@ -19,7 +19,7 @@ local on_attach = function(client, bufnr)
   navbuddy.attach(client, bufnr)
 
   -- Disable Autoformat for anything I use null-ls formatters for
-  if client.name == "tsserver" then
+  if client.name == "ts_ls" then
     client.server_capabilities.document_formatting = false
     client.server_capabilities.document_range_formatting = false
   end
@@ -71,7 +71,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 
 -- Use lspconfig.<server>.setup() below register each lang server
 
-lspconfig.tsserver.setup({
+lspconfig.ts_ls.setup({
   on_attach = on_attach,
   -- TODO get auto-imports working. (null-ls was abanandoed so may wait for native ability)
 })
