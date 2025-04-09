@@ -1,5 +1,3 @@
-local lspconfig = require("lspconfig")
-local ih = require("inlay-hints")
 local navbuddy = require("nvim-navbuddy")
 
 -- Hide virtual text but keep the signs for lower severity things. View as float with LSP Diagnostic Float or TroubleToggle maps
@@ -24,9 +22,6 @@ local on_attach = function(client, bufnr)
     client.server_capabilities.document_range_formatting = false
   end
 
-  -- Enable the 'hints' section of gopls
-  if client.name == "gopls" then ih.on_attach(client, bufnr) end
-
   -- Highlight symbol under cursor everywhere
   if client.server_capabilities.documentHighlightProvider then
     vim.cmd([[
@@ -49,34 +44,45 @@ local on_attach = function(client, bufnr)
 end
 
 -- Golang: Auto-import / sort imports on save / format code
-function go_org_imports(wait_ms)
-  local params = vim.lsp.util.make_range_params()
-  params.context = { only = { "source.organizeImports" } } -- use gopls' imports code action
+local function go_org_imports(wait_ms)
+  local clients = vim.lsp.get_active_clients({ bufnr = 0 })
+  if #clients == 0 then return end
+
+  -- Prefer gopls, fallback to any client
+  local client = vim.tbl_filter(function(c) return c.name == "gopls" end, clients)[1] or clients[1]
+
+  if not client then return end
+
+  -- Pass the encoding explicitly to avoid the warning
+  local params = vim.lsp.util.make_range_params(nil, client.offset_encoding)
+  params.context = { only = { "source.organizeImports" } }
+
   local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, wait_ms)
-  for cid, res in pairs(result or {}) do
-    for _, r in pairs(res.result or {}) do
-      if r.edit then
-        local enc = (vim.lsp.get_client_by_id(cid) or {}).offset_encoding or "utf-16"
-        vim.lsp.util.apply_workspace_edit(r.edit, enc)
+  if not result then return end
+
+  for client_id, res in pairs(result) do
+    if res.result then
+      for _, action in ipairs(res.result) do
+        if action.edit then
+          vim.lsp.util.apply_workspace_edit(action.edit, client.offset_encoding)
+        elseif action.command then
+          vim.lsp.buf.execute_command(action)
+        end
       end
     end
   end
-  vim.lsp.buf.format({ async = true }) -- auto-format as well!
+
+  -- Format after imports
+  vim.defer_fn(function() vim.lsp.buf.format({ async = true }) end, 100)
 end
 
 vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = { "*.go" },
+  pattern = "*.go",
   callback = function() go_org_imports(1000) end,
 })
 
--- Use lspconfig.<server>.setup() below register each lang server
-
-lspconfig.ts_ls.setup({
-  on_attach = on_attach,
-  -- TODO get auto-imports working. (null-ls was abanandoed so may wait for native ability)
-})
-
-lspconfig.gopls.setup({
+-- Golang LSP configuration using vim.lsp
+vim.lsp.config["gopls"] = {
   on_attach = on_attach,
   cmd = { "gopls" },
   settings = {
@@ -90,14 +96,14 @@ lspconfig.gopls.setup({
         unusedwrite = true,
       },
       staticcheck = true,
-      hints = { -- disabling all of them by default because my `K` map is less annoying usually
-        assignVariableTypes = false,
-        compositeLiteralFields = false,
-        compositeLiteralTypes = false,
-        constantValues = false,
-        functionTypeParameters = false,
-        parameterNames = false,
-        rangeVariableTypes = false,
+      hints = { -- Enable all hints by default but use my inlay-hint toggle keymap to see
+        assignVariableTypes = true,
+        compositeLiteralFields = true,
+        compositeLiteralTypes = true,
+        constantValues = true,
+        functionTypeParameters = true,
+        parameterNames = true,
+        rangeVariableTypes = true,
       },
       codelenses = { -- <leader>ll to enable. Currently just shows additional hints
         generate = true,
@@ -111,4 +117,14 @@ lspconfig.gopls.setup({
       buildFlags = { "-tags=integration" }, -- work with integration tests that do //go:build integration
     },
   },
-})
+}
+
+-- TypeScript LSP configuration using vim.lsp
+vim.lsp.config["ts_ls"] = {
+  on_attach = on_attach,
+  -- TODO get auto-imports working. (null-ls was abanandoed check if none-ls can now)
+}
+
+-- After defining the LSP configurations, you need to manually enable them
+vim.lsp.enable("gopls")
+vim.lsp.enable("ts_ls")
