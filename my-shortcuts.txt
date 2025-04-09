@@ -27,7 +27,7 @@ Cursor on symbol       Auto-highlights all of that symbol in file. (gr to see al
 :SES foo               Find a .txt *section containing 'foo' (MacVim/.txt files only)
 :Beg foo               Search for the next line containing 'foo' near the beginning of the line (within first 30 chars) (MacVim only)
 
-- Search (Flash.nvim):
+- Search (Flash.nvim. UPDATE I removed this since I don't use it nor want to get in the habit of it. Just use /foo and ?foo search):
 s           Start flash mode, next letter(s) will get highlighted with random letter next to it to jump to that pos
             <CR> will jump to first match (highlighted a different color)
             Note that this ONLY shows you matches on the CURRENT PAGE for quick jumping. Use /foo to search full file
@@ -157,6 +157,7 @@ Note: If LSP doesn't work on a JS/TS project:
 K         Shows hover documentation for thing under cursor (also works more than signature help). `gpd` is often better, though
 gd        Go to definition (<spc>li is similar but shows in quickfix if multiple results)
 gr        View/jump to references (callees/callers/symbols). Great for tracing flow of code! <spc>fr for Fuzzy version. gpr for preview only
+<spc>lh   Toggle inlay hints
 <spc>la   Show code actions for current line
 <spc>fd   Search all symbols in current document. <spc>ld for quickfix version
 <spc>tf   Toggle Format On Save (only works if null-ls is attached or explicit file types I configured. See null-ls.lua or :LspStop if needed)
@@ -169,7 +170,7 @@ gr        View/jump to references (callees/callers/symbols). Great for tracing f
 End / Home  Next/prev quickfix item. <spc>wqq (quit quickfix window)
 ^d / ^u     Scroll down/up Telescope file preview float
 ]q / [q     Next/prev quickfix item (w/o moving cursor)
-]d / [d     Next/prev LSP diagnostic
+]d / [d     Next/prev LSP diagnostic (default map in nvim 0.10+. No need to map vim.diagnostic.goto_next() / goto_prev())
 ]c / [c     Next/prev git change
 
 :LspStop    Disable LSP messages
@@ -354,6 +355,7 @@ JJ / JK      Esc terminal-mode (so it's not an interactive terminal but acts lik
 
 - Misc:
 <Spc>R            Opens gitignored README.rkulla for brief per-project notes (current findings, todo)
+gci{              Toggle comments of all lines inside of curly braces (nvim 0.10+). gcc is native now. Don't need vim-commentary
 
 
 *MACOS SHORTCUTS
