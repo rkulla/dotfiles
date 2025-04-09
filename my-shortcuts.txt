@@ -59,8 +59,10 @@ NOTE:       I can DOUBLE filter by first doing a search (e.g. `,x` or `,fu`), TA
 <spc>fu     Like <spg>fg but only shows filenames (like ag -l)
 <spc>fU     Same as <spc>fu but case-sensitive
 <spc>p      Browse projects with project.nvim (Like WebStorm's Recent Project list but better). ESC still cd's. ^r for recent files. ^s to
-            grep. ^d to remove from list
+            grep. ^d to remove from list. UPDATE: I never use this since it doesn't cd at the cli level so I removed it.
             TODO: this might be even better https://github.com/nvim-telescope/telescope-frecency.nvim
+            but really I don't even care about any of this because my local repos won't always be up-to-date. Better to use github.com's
+            search for files across repos, or ^F at the root of my local checkouts to search by folder (also works on subfolders)
 <spc>fp     Browse git repos in $HOME. README preview. <CR> preview/opens files. <spc>p or zoxide to cd around since this won't cd but my
             `gl` map will, then <spc>cw to copy :pwd to clipboard to paste on the cli. However: `$ zi <dir>` is only one step 
 <spc>fz     Fuzzy/Zoxide search previous cd'd dirs. <CR> change to dir. ^f previews. ^s/^v opens dir in horiz/vert split. ^e edit in Oil
