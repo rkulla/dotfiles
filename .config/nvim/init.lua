@@ -69,6 +69,7 @@ require("user.myfolds")
 require("user.mysyntax")
 
 -- Plugin configurations (plus additional keymaps)
+require("user.colorscheme")
 require("user.treesitter")
 require("user.lualine")
 require("user.notify")
