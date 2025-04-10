@@ -45,9 +45,6 @@ vim.api.nvim_create_autocmd("User", {
   callback = function() vim.opt_local.number = true end,
 })
 
--- termguicolors setup
-if not vim.env.TERM:match("rxvt") and vim.env.TERM ~= "linux" and vim.fn.has("termguicolors") == 1 then vim.opt.termguicolors = true end
-
 -- Cursor appearance
 vim.opt.guicursor = table.concat({
   "n-v-c:block",
@@ -78,6 +75,7 @@ require("user.notify")
 require("user.noice")
 require("user.nvim-colorizer")
 require("user.indent-blankline")
+require("user.completion")
 require("user.navbuddy")
 require("user.barbecue")
 require("user.lsp")
