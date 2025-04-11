@@ -249,10 +249,10 @@ NOTE: Because these are just motions, you can also use other actions on them suc
 
 - Range Selection:
   I enable incremental selection of lines/blocks in my treesitter.lua (syntax based, not lsp based) and set keymaps:
-     initialize selection: ENTER
-     incremental selection (node): ENTER
-     incremental selection (scope): TAB
-     decremental selection (node): Shift+TAB
+    - Initialize selection: ENTER
+    - Incremental selection (node): ENTER
+    - Incremental selection (scope): TAB
+    - Decremental selection (node): Shift+TAB
   Note: I can basically do this in vscode with ctrl+cmd+shift+<right> or <left> to expand/shrink the selection
 
 - nvim-surround:
