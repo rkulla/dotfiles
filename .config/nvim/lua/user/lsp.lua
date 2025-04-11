@@ -68,7 +68,7 @@ local function go_org_imports(wait_ms)
         elseif action.command then
           local cmd = action.command
           if cmd.arguments and not vim.tbl_islist(cmd.arguments) then cmd.arguments = { cmd.arguments } end
-          vim.lsp.buf.execute_command(cmd)
+          if cmd.command and type(cmd.command) == "string" then vim.lsp.buf.execute_command(cmd) end
         end
       end
     end
