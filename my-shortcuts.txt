@@ -177,7 +177,10 @@ End / Home  Next/prev quickfix item. <spc>wqq (quit quickfix window)
 
 - NavBuddy (navigate LSP symbols):
 :Nav[buddy]  `:Nav` alone will open Navbuddy to QUICKLY review a code file! (since it shows the main outline you can navigate)
-             `:SymbolsOutline` is a similar plugin/command I have if I want to see it as a vertical split instead
+             `:SymbolsOutline` is a similar plugin/command if I want to see it as a vertical split instead (I don't use though)
+             My lualine plugin also shows symbols at the top of the screen
+             My <spc>ld and <spc>lw will navigate document or workspace symbols
+             My <spc>fd and <spc>fw will use telescope to filter document or workspace symbols
              Note: To see the function 'calls' a file is making, use an LLMM like `:ChatGPTRun explain_code`
 t            Fuzzy filter with Telescope integration. `/` for exact word search
 j / k        Move CURSOR down/up
