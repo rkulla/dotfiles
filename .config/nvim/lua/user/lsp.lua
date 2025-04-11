@@ -66,7 +66,9 @@ local function go_org_imports(wait_ms)
         if action.edit then
           vim.lsp.util.apply_workspace_edit(action.edit, client.offset_encoding)
         elseif action.command then
-          vim.lsp.buf.execute_command(action)
+          local cmd = action.command
+          if cmd.arguments and not vim.tbl_islist(cmd.arguments) then cmd.arguments = { cmd.arguments } end
+          vim.lsp.buf.execute_command(cmd)
         end
       end
     end
