@@ -47,20 +47,17 @@ require("nvim-treesitter.configs").setup({
     disable = { "yaml" },
   },
 
+  -- incremental selection based on syntax, not lsp-based range selection
   incremental_selection = {
     enable = true,
     keymaps = {
-      -- init_selection = "<c-space>",
-      -- node_incremental = "<c-space>",
-      -- scope_incremental = "<c-s>",
-      -- node_decremental = "<c-backspace>",
-
       init_selection = "<cr>",
       node_incremental = "<cr>",
       scope_incremental = "<tab>",
       node_decremental = "<s-tab>",
     },
   },
+
   textobjects = {
     select = {
       enable = true,
@@ -97,4 +94,3 @@ require("nvim-treesitter.configs").setup({
     },
   },
 })
-

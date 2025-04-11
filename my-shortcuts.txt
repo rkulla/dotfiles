@@ -239,7 +239,7 @@ NOTE: Because these are just motions, you can also use other actions on them suc
    - dt,  - delete up UNTIL the next comma
    - `dip` for 'in paragraph' deletes the whole paragraph. 
      `dap` would delete 'around paragraph' which could include an empty line below it
-      It's easiest to test out what would happen usin `v` to visually select, as the action. vip, vap...
+      It's easiest to test out what would happen using `v` to visually select, as the action. vip, vap...
    - d}   - } means a paragraph down from current position), so this will delete the rest of the paragraph). { for upwards
    - g_   - move to non-blank character at end-of-line ($ includes spaces). Useful to select without grabbing whitespace: vg_
    - w    - move to the beginning of the next work. CAPITAL W to treat words as 'programmers' words, like UUIDs, statements, etc.
@@ -247,11 +247,13 @@ NOTE: Because these are just motions, you can also use other actions on them suc
 - You can also combine counts to motions:
    - 2dt, - deletes up until the next 2 commas. This comes in extra handy when creating macros
 
-TODO: typescript-language-server supports LSP's textDocument.selectionRange (range selection) however neovim still requires plugin
-      camilledejoye/nvim-lsp-selection-range which is more trouble than its worth so wait for native support to vim.lsp.buf:
-         https://github.com/neovim/neovim/issues/19492
-      I can basically do this in vscode with ctrl+cmd+shift+<right> or <left> to expand/shrink the selection
-Note: range-select is largely overrated, I still love vim's native selection stuff as shown above
+- Range Selection:
+  I enable incremental selection of lines/blocks in my treesitter.lua (syntax based, not lsp based) and set keymaps:
+     initialize selection: ENTER
+     incremental selection (node): ENTER
+     incremental selection (scope): TAB
+     decremental selection (node): Shift+TAB
+  Note: I can basically do this in vscode with ctrl+cmd+shift+<right> or <left> to expand/shrink the selection
 
 - nvim-surround:
 cs'"     Change single quotes to double quotes:  'foo' becomes "foo"
