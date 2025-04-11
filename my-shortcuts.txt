@@ -348,7 +348,7 @@ gpr   Like gr, but a floating window instead (uses goto-preview.nvim)
 - terminal-mode (this works but I mostly just use tmux):
 :term        Open full-screen terminal shell buffer
 <spc>5       Open a floating-term (think hotkey terminal window. For quick things)
-<sp>ta       Opens a horizontal split above current buffer, with a terminal shell
+<spc>ta      Opens a horizontal split above current buffer, with a terminal shell
 (TUI apps like glow <spc>mp and lazygit inside of vim)
 JJ / JK      Esc terminal-mode (so it's not an interactive terminal but acts like a regular buffer)
 <spc>si      Runs `:startinsert` on the terminal buffer to interact with the process again
@@ -356,6 +356,7 @@ JJ / JK      Esc terminal-mode (so it's not an interactive terminal but acts lik
 - Misc:
 <Spc>R            Opens gitignored README.rkulla for brief per-project notes (current findings, todo)
 gci{              Toggle comments of all lines inside of curly braces (nvim 0.10+). gcc is native now. Don't need vim-commentary
+<spc>ti           Toggle indent lines (indent-blankline.nvim. Useful for reading deeply nested code)
 
 
 *MACOS SHORTCUTS
