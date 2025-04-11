@@ -1,5 +1,7 @@
 -- Set default colorscheme on startup
 vim.cmd("colorscheme tokyonight-day")
+-- Make noice cmd line popup match tokyonight-day by default, with opaque bg for sane cursor
+vim.api.nvim_set_hl(0, "NoiceCmdlinePopup", { bg = "#e1e2e7", blend = 0 })
 
 -- Create some custom commands to manually change between light and dark themes
 local M = {}
@@ -41,7 +43,8 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 function M.Dark()
   vim.cmd("colorscheme catppuccin-macchiato")
   vim.o.background = "dark"
-  -- setFlashDark()
+  -- re-override Noice to match catppuccin-macchiato
+  vim.api.nvim_set_hl(0, "NoiceCmdlinePopup", { bg = "#24273A", blend = 0 })
   MyHighlights()
 end
 
@@ -49,7 +52,8 @@ end
 function M.Light()
   vim.cmd("colorscheme tokyonight-day")
   vim.o.background = "light"
-  -- setFlashLight()
+  -- re-override Noice
+  vim.api.nvim_set_hl(0, "NoiceCmdlinePopup", { bg = "#e1e2e7", blend = 0 })
   MyHighlights()
 end
 
