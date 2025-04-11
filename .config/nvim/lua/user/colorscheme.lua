@@ -7,7 +7,6 @@ local M = {}
 -- Highlight overrides
 local function MyHighlights()
   local normal = vim.api.nvim_get_hl(0, { name = "Normal" }) or {}
-  local cursor_bg = "#819090"
 
   -- Make window borders visible
   vim.api.nvim_set_hl(0, "WinSeparator", { fg = "NONE", bg = normal.bg, bold = true })
@@ -15,20 +14,23 @@ local function MyHighlights()
   -- Enable cursorline
   vim.o.cursorline = true
 
-  -- Line number on cursorline
+  -- Cursorline Number highlighting
   vim.api.nvim_set_hl(0, "CursorLineNr", {
-    fg = "#819090", -- you can change this
-    bg = "NONE",
+    italic = false,
     bold = true,
-    italic = false, -- cursorline won't be italic to distinguish it
   })
 
-  -- Italic line numbers
-  vim.api.nvim_set_hl(0, "LineNr", { italic = true })
+  -- Italic line numbers (non-cursorline)
+  vim.api.nvim_set_hl(0, "LineNr", {
+    fg = "#819090", -- non-cursorline numbers will be lighter
+    italic = true,
+    bold = false,
+  })
 end
 
 -- Run my highlights immediately
 MyHighlights()
+
 -- run MyHighlights() after colorscheme changes
 vim.api.nvim_create_autocmd("ColorScheme", {
   pattern = "*",
