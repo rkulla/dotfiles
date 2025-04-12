@@ -14,6 +14,9 @@ vim.api.nvim_create_augroup("TextFileFolds", { clear = true })
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = "*.txt",
   callback = function()
+    -- Skip if the filename is "todo.txt"
+    if vim.fn.expand("%:t") == "todo.txt" then return end
+
     vim.opt_local.foldmethod = "expr"
     vim.opt_local.foldexpr = "v:lua.fold_expr(v:lnum)"
 
