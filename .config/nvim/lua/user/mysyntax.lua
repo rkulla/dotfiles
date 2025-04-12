@@ -4,6 +4,9 @@ vim.api.nvim_create_autocmd("BufReadPost", {
   group = "TextFileHighlighting",
   pattern = "*.txt",
   callback = function()
+    -- Disable line numbers by default for .txt files
+    vim.opt_local.number = false
+
     vim.schedule(
       function()
         vim.cmd([[

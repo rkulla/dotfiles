@@ -1,7 +1,11 @@
 require("gitsigns").setup({
   on_attach = function(bufnr)
     local gs = package.loaded.gitsigns
-    gs.toggle_current_line_blame() -- enable current line blame by default
+    -- Check if file does NOT end in ".txt"
+    local fname = vim.api.nvim_buf_get_name(bufnr)
+    if not fname:match("%.txt$") then
+      gs.toggle_current_line_blame() -- enable current line blame by default
+    end
 
     local function map(mode, l, r, opts)
       opts = opts or {}
