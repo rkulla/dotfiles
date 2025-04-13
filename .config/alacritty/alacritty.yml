@@ -141,6 +141,11 @@ font:
     style: Regular
   # Start big, I can always `Cmd -` to see more at once temporarily. Ctrl+0 to reset to 32
   size: 32.0
+  # WORK only:
+  # The font size should be based on using alacritty on my smaller laptop screen since pasting there will resize it to this
+  # However, by making my laptop screen size "Default" scaling, and external 4k monitor "Larger" scaling, it balances out
+  # size: 21.0
+
 
   # Bold font face
   #bold:
