@@ -200,7 +200,7 @@ g?           Shortcut reference
 - Completion:
 foo[tab]  Auto-complete with OmniComplete (no plugin needed). Tab / Shift-Tab to scroll results down/up. Enter to select
           Note: noice.nvim shows function signature once I'm in function arguments, highlights current arg. :NoiceDisable disables Noice
-          Also doesn't conflict with GitHub Copilot tab completion
+          Also doesn't conflict with GitHub Copilot tab completion BUT copilot overrides this. `:Copilot disable` to use this instead
 <C-f>     File completion of existing external relative files. Insert maps of the builtin <C-x><C-f> behavior
 <C-n>     Completes based on words from buffers/dict/tags. Built-in map of 'ins-completion' based on 'set complete?' list
 
