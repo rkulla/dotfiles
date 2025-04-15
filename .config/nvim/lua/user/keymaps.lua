@@ -7,14 +7,31 @@ local map = vim.keymap.set
 -- Note: don't create imap's starting with <Leader> or <Space> or they'll lag
 vim.g.mapleader = " "
 
--- Close / escape / delete words faster
-map("n", "X", ":q<cr>")
+-- Close files faster faster (but make it so .txt files require a double confirmation)
+local warned_once = false
+map("n", "X", function()
+  local filename = vim.fn.expand("%:t")
+  if filename:match("%.txt$") then
+    if warned_once then
+      vim.cmd("q")
+    else
+      print("Press X again to quit " .. filename)
+      warned_once = true
+      vim.defer_fn(function() warned_once = false end, 3000)
+    end
+  else
+    vim.cmd("q")
+  end
+end)
+
+-- Escape faster
 map("i", "jk", "<Esc>")
 map("i", "jj", "<Esc>")
+-- delete words faster
 map("i", ";;", "<C-w>")
 
--- Close read or write buffers quicker
--- Close read or write buffers quicker
+-- Close read or write buffers faster
+-- Close read or write buffers faster
 -- leave the buffer running in :ls! to reopen with <leader><leader>
 map("n", "<leader>q", ":bd<cr>", { desc = "Close buffer" })
 
