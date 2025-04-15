@@ -46,6 +46,10 @@ vim.api.nvim_create_autocmd("BufReadPost", {
         syntax match SimpleComment /#.*/ contains=NONE
         highlight link SimpleComment Comment
 
+        " Highlight lines containing with 'tickets/' and ending with '.txt'
+        syntax match TicketLine /tickets\/.*\.txt$/
+        highlight TicketLine gui=underline,bold,italic cterm=underline,bold,italic 
+
       ]])
       end
     )
