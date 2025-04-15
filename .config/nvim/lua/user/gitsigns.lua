@@ -1,11 +1,15 @@
 require("gitsigns").setup({
   on_attach = function(bufnr)
-    local gs = package.loaded.gitsigns
-    -- Check if file does NOT end in ".txt"
+    -- special logic for .txt files
     local fname = vim.api.nvim_buf_get_name(bufnr)
-    if not fname:match("%.txt$") then
-      gs.toggle_current_line_blame() -- enable current line blame by default
+    if fname:match("%.txt$") then
+      -- Stop Gitsigns from running on .txt files. No signs will appear, nor git line blame
+      vim.schedule(function() vim.cmd("Gitsigns detach") end)
+      return
     end
+
+    local gs = package.loaded.gitsigns
+    gs.toggle_current_line_blame()
 
     local function map(mode, l, r, opts)
       opts = opts or {}
