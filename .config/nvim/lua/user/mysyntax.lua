@@ -46,9 +46,9 @@ vim.api.nvim_create_autocmd("BufReadPost", {
         syntax match SimpleComment /#.*/ contains=NONE
         highlight link SimpleComment Comment
 
-        " Highlight lines containing with 'tickets/' or 'tmp/' and ending with '.txt'
-        syntax match TicketLine /\(tickets\|tmp\)\/.*\.txt$/
-        highlight TicketLine gui=underline,bold,italic cterm=underline,bold,italic 
+        " Highlight references to files ending in '.txt'
+        syntax match TxtFileRef /\S\+\.txt/
+        highlight TxtFileRef gui=underline,bold,italic cterm=underline,bold,italic 
 
       ]])
       end
