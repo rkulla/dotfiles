@@ -7,17 +7,23 @@ local map = vim.keymap.set
 -- Note: don't create imap's starting with <Leader> or <Space> or they'll lag
 vim.g.mapleader = " "
 
--- Pressing X closes buffers faster, pressing X again quickly quits Neovim
+-- Pressing X closes buffers faster,
+-- pressing X again quickly quits Neovim IF only only 0 or 1 buffers are left.
 local quit_pending = false
 map("n", "X", function()
-  if quit_pending then
-    vim.cmd("qa") -- Quit all of Neovim
-  else
-    -- Close current buffer
+  local buffers = vim.fn.getbufinfo({ buflisted = 1 })
+  if #buffers > 1 then
+    -- Just close the buffer, no quit logic
     vim.cmd("bd")
-    print("Press X again quickly to quit Neovim")
+    return
+  end
+  -- Only one or zero buffers left
+  if quit_pending then
+    vim.cmd("qa") -- Quit Neovim
+  else
+    print("Press X again to quit Neovim")
     quit_pending = true
-    vim.defer_fn(function() quit_pending = false end, 3000) -- 3 seconds
+    vim.defer_fn(function() quit_pending = false end, 3000)
   end
 end)
 
