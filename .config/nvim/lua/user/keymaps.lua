@@ -7,20 +7,17 @@ local map = vim.keymap.set
 -- Note: don't create imap's starting with <Leader> or <Space> or they'll lag
 vim.g.mapleader = " "
 
--- Close files faster faster (but make it so .txt files require a double confirmation)
-local warned_once = false
+-- Pressing X closes buffers faster, pressing X again quickly quits Neovim
+local quit_pending = false
 map("n", "X", function()
-  local filename = vim.fn.expand("%:t")
-  if filename:match("%.txt$") then
-    if warned_once then
-      vim.cmd("q")
-    else
-      print("Press X again to quit " .. filename)
-      warned_once = true
-      vim.defer_fn(function() warned_once = false end, 3000)
-    end
+  if quit_pending then
+    vim.cmd("qa") -- Quit all of Neovim
   else
-    vim.cmd("q")
+    -- Close current buffer
+    vim.cmd("bd")
+    print("Press X again quickly to quit Neovim")
+    quit_pending = true
+    vim.defer_fn(function() quit_pending = false end, 3000) -- 3 seconds
   end
 end)
 
