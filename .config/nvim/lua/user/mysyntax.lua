@@ -16,7 +16,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 
         " Highlight words of at least 2 chars if the line starts with a `- bullet`. E.g., `SPAM` in `- SPAM`
         " or highlights all the way up to the first colon `- Foo bar baz:`
-        syntax match BulletSection /\v^-\s\zs\S+(\s\S+)*:\ze|^-\s\zs\S+/
+        syntax match BulletSection /\v^-\s\zs[^:\s]+(\s[^:\s]+)*\ze:|^-\s\zs\S\S+/
         highlight BulletSection guifg=#006400 gui=bold cterm=bold ctermfg=2 guibg=#D3D3D3 ctermbg=250
 
         " Highlight text inside of single back ticks like `foo`
