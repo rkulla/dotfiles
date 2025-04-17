@@ -6,10 +6,12 @@ vim.api.nvim_create_autocmd("BufReadPost", {
   callback = function()
     -- Disable line numbers by default for .txt files
     vim.opt_local.number = false
+    -- vim.cmd("Copilot disable")
 
     vim.schedule(
       function()
         vim.cmd([[
+
         " Highlight lines starting with a * (see myfolds.lua for how I custom fold)
         syntax match BoldLine /^\*\S.*/
         highlight BoldLine guifg=#00008B guibg=#A0A0A0 ctermfg=4 ctermbg=238 gui=bold,underline cterm=bold,underline
@@ -25,7 +27,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 
         " Highlight URLs to look like hyperlinks (use my <leader>o map to open)
         syntax match URL /https\?:\/\/.*/  " Match URLs starting with http or https
-        highlight URL guifg=#0000FF gui=underline cterm=underline guibg=NONE ctermfg=33 ctermbg=NONE
+        highlight URL guifg=#808080 guibg=NONE ctermfg=33 ctermbg=NONE
 
         " Highlight the matched text inside the triple backticks
         syntax match TripleBackticksStart /```/
@@ -46,9 +48,14 @@ vim.api.nvim_create_autocmd("BufReadPost", {
         syntax match SimpleComment /#.*/ contains=NONE
         highlight link SimpleComment Comment
 
+        " Highlight empty brackets [] with bold text after them UP to the last optional ` - `
+        " keeping it as 'match' not 'syntax match' makes it global
+        match BoldAfterEmptyBrackets /\v\[\]\s\zs.*\ze\s-\s|\[\]\s\zs.*$/
+        highlight BoldAfterEmptyBrackets cterm=bold gui=bold
+
         " Highlight references to files ending in '.txt'
         syntax match TxtFileRef /\S\+\.txt/
-        highlight TxtFileRef gui=underline,bold,italic cterm=underline,bold,italic 
+        highlight TxtFileRef guifg=#808080 guibg=NONE ctermfg=33 ctermbg=NONE
 
       ]])
       end
