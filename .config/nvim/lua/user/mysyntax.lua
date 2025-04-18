@@ -18,12 +18,16 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 
         " Highlight words of at least 2 chars if the line starts with a `- bullet`. E.g., `SPAM` in `- SPAM`
         " or highlights all the way up to the first colon `- Foo bar baz:`
-        syntax match BulletSection /\v^-\s\zs[^:\s]+(\s[^:\s]+)*\ze:|^-\s\zs\S\S+/
+        syntax match BulletSection /\v^-\s\zs[^:\n]+(\s[^:\n]+)*\ze:|^-\s\zs\S+/
         highlight BulletSection guifg=#006400 gui=bold cterm=bold ctermfg=2 guibg=#D3D3D3 ctermbg=250
+
+        "syntax match DollarCLI /\s\+\$\s\{1,2}.*$/ containedin=ALL
+        syntax match DollarCLI /\$\s\{1,2}.*$/ containedin=ALL
+        highlight DollarCLI guifg=#00008B gui=bold cterm=bold ctermfg=33 guibg=#D3D3D3 ctermbg=250
 
         " Highlight text inside of single back ticks like `foo`
         syntax match BacktickText /\v`([^`]+)`/
-        highlight BacktickText gui=bold cterm=bold  " Match text in backticks
+        highlight BacktickText guifg=#444444 ctermfg=0 guibg=#D3D3D3 ctermbg=250 " Match text in backticks
 
         " Highlight URLs to look like hyperlinks (use my <leader>o map to open)
         syntax match URL /https\?:\/\/.*/  " Match URLs starting with http or https
@@ -49,7 +53,6 @@ vim.api.nvim_create_autocmd("BufReadPost", {
         highlight link SimpleComment Comment
 
         " Highlight empty brackets [] with bold text after them UP to the last optional ` - `
-        " keeping it as 'match' not 'syntax match' makes it global
         match BoldAfterEmptyBrackets /\v\[\]\s\zs.*\ze\s-\s|\[\]\s\zs.*$/
         highlight BoldAfterEmptyBrackets cterm=bold gui=bold
 
