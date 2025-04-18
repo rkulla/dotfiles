@@ -96,6 +96,7 @@ vim.lsp.config["gopls"] = {
         nilness = true,
         useany = true,
         unusedwrite = true,
+        modernize = true, -- show hints to use more modern idioms, then run your code action to apply
       },
       staticcheck = true,
       hints = { -- Enable all hints by default but use my inlay-hint toggle keymap to see
