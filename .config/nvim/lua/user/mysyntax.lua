@@ -29,6 +29,10 @@ vim.api.nvim_create_autocmd("BufReadPost", {
         syntax match BacktickText /\v`([^`]+)`/
         highlight BacktickText guifg=#444444 ctermfg=0 guibg=#D3D3D3 ctermbg=250 " Match text in backticks
 
+        " Highlight text inside of double back ticks like ``foo``
+        syntax match DoubleBacktickText /\v``([^`]+)``/
+        highlight DoubleBacktickText guifg=#000000 gui=bold cterm=bold ctermfg=0 guibg=#D3D3D3 ctermbg=250
+
         " Highlight URLs to look like hyperlinks (use my <leader>o map to open)
         syntax match URL /https\?:\/\/.*/  " Match URLs starting with http or https
         highlight URL guifg=#808080 guibg=NONE ctermfg=33 ctermbg=NONE
