@@ -1,5 +1,5 @@
+-- .txt file ONLY highlights
 vim.api.nvim_create_augroup("TextFileHighlighting", { clear = true })
-
 vim.api.nvim_create_autocmd("BufReadPost", {
   group = "TextFileHighlighting",
   pattern = "*.txt",
