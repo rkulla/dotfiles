@@ -41,6 +41,11 @@ map("n", "<leader>q", ":bd<cr>", { desc = "Close buffer" })
 -- Toggle line numbers
 map("n", "<leader>n", ":set invnumber<cr>", { desc = "Toggle line numbers" })
 
+-- Disable Ctrl+A (incrementing numbers) in normal mode
+vim.api.nvim_set_keymap("n", "<C-a>", "<Nop>", { noremap = true, silent = true })
+-- Disable Ctrl+X (decrementing numbers) in normal mode
+vim.api.nvim_set_keymap("n", "<C-x>", "<Nop>", { noremap = true, silent = true })
+
 -- Underline the current line with dashes
 map("n", "<Leader>u", [[:call append(line("."), repeat("-", len(getline("."))))<CR>]])
 
