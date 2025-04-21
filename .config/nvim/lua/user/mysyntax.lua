@@ -46,6 +46,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
         highlight BacktickDelimiter guifg=#e1e2e7 ctermfg=15 guibg=NONE ctermbg=NONE
 
         " Highlight text inside of single underscore like _foo_
+        " Note if I do "foo_bar" to put that in backticks so it doesn't conflict with this
         syntax match UnderscoreText /\v_([^_`]+)_/
         highlight UnderscoreText guifg=#00008B gui=bold cterm=bold ctermfg=0 guibg=#NONE ctermbg=NONE
 
