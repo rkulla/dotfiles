@@ -33,7 +33,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
         highlight AsteriskStars guifg=#e1e2e7 ctermfg=15 guibg=NONE ctermbg=NONE
 
         syntax match DollarCLI /\$\s\{1,2}.*$/ containedin=ALL
-        highlight DollarCLI guifg=#D3D3D3 gui=bold cterm=bold ctermfg=250 guibg=#0000FF ctermbg=4
+        highlight DollarCLI guifg=#00FF00 gui=bold cterm=bold ctermfg=2 guibg=#000000 ctermbg=0
 
         " Highlight text inside of single back ticks like `foo`
         syntax match BacktickText /`[^`]\{-}`/hs=s+1,he=e-1
