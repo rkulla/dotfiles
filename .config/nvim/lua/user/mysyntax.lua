@@ -24,6 +24,14 @@ vim.api.nvim_create_autocmd("BufReadPost", {
         syntax match BulletSection /\v^-\s\zs[^:\n]+(\s[^:\n]+)*\ze:|^-\s\zs\S+/
         highlight BulletSection guifg=#006400 gui=bold cterm=bold ctermfg=2 guibg=#D3D3D3 ctermbg=250
 
+        " Highlight text in asterisks. Must be preceeded by a char or space to not conflict with my folds
+        syntax region AsteriskSection matchgroup=AsteriskStars start=/.\zs\*/ end=/\*/ keepend
+        highlight AsteriskSection guifg=#000000 ctermfg=0 guibg=#FFFF00 ctermbg=3
+
+        " Highlight the asterisks themselves to be a lighter color to look more seamless
+        syntax match AsteriskStars /\*/ contained
+        highlight AsteriskStars guifg=#e1e2e7 ctermfg=15 guibg=NONE ctermbg=NONE
+
         syntax match DollarCLI /\$\s\{1,2}.*$/ containedin=ALL
         highlight DollarCLI guifg=#D3D3D3 gui=bold cterm=bold ctermfg=250 guibg=#0000FF ctermbg=4
 
