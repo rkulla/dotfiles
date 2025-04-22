@@ -1,6 +1,8 @@
 -- .txt file ONLY highlights.
 -- NOTE: This is based on using tokyonight-day colorscheme, so if I change it adjust hex colors
 -- NOTE: Use "Digital Color Meter" app in MacOS to find color info of any color on screen
+-- NOTE: Don't highlight underscores or other chars that don't always have a enclosing match like `foo_bar`
+
 vim.api.nvim_create_augroup("TextFileHighlighting", { clear = true })
 vim.api.nvim_create_autocmd("BufReadPost", {
   group = "TextFileHighlighting",
@@ -37,24 +39,13 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 
         " Highlight text inside of single back ticks like `foo`
         syntax match BacktickText /`[^`]\{-}`/hs=s+1,he=e-1
-        highlight BacktickText guifg=#444444 ctermfg=0 guibg=#D3D3D3 ctermbg=250 " Match text in backticks
+        highlight BacktickText guifg=#FF0000 ctermfg=1 guibg=#D3D3D3 ctermbg=250
 
         " Highlight backticks themselves to be a lighter color to look more seamless like markdown
         syntax region BacktickMatch start=/`/ end=/`/ keepend contains=BacktickText,BacktickDelimiter
         syntax match BacktickText /[^`]\+/ contained
         syntax match BacktickDelimiter /`/ contained
         highlight BacktickDelimiter guifg=#e1e2e7 ctermfg=15 guibg=NONE ctermbg=NONE
-
-        " Highlight text inside of single underscore like _foo_
-        " Note if I do "foo_bar" to put that in backticks so it doesn't conflict with this
-        syntax match UnderscoreText /\v_([^_`]+)_/
-        highlight UnderscoreText guifg=#00008B gui=bold cterm=bold ctermfg=0 guibg=#NONE ctermbg=NONE
-
-        " Highlight Single underscores themselves to be a lighter color to look more seamless like markdown
-        syntax region UnderscoreMatch start=/_/ end=/_/ keepend contains=UnderscoreText,UnderscoreDelimiter
-        syntax match UnderscoreText /[^_]\+/ contained
-        syntax match UnderscoreDelimiter /_/ contained
-        highlight UnderscoreDelimiter guifg=#e1e2e7 ctermfg=15 guibg=NONE ctermbg=NONE
 
         " Highlight the matched text inside the triple backticks
         syntax match TripleBackticksStart /```/
@@ -100,6 +91,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
         " Highlight references to files ending in '.txt'
         syntax match TxtFileRef /\S\+\.txt/
         highlight TxtFileRef guifg=#808080 guibg=NONE ctermfg=33 ctermbg=NONE
+
       ]])
       end
     )
