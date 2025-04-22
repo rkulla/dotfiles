@@ -34,7 +34,10 @@ vim.api.nvim_create_autocmd("BufReadPost", {
         syntax match AsteriskStars /\*/ contained
         highlight AsteriskStars guifg=#e1e2e7 ctermfg=15 guibg=NONE ctermbg=NONE
 
-        syntax match DollarCLI /\$\s\{1,2}.*$/ containedin=ALL
+        "syntax match DollarCLI /\$\s\{1,2}.*$/ containedin=ALL " If i want to highlight the whole line
+        " Highlight lines starting with a $ (e.g., CLI commands) but stop at the first # comment including the spaces before it
+        syntax match DollarCLI /\$\s\{1,2}[^# \t]*\([^#]*[^ \t#]\)\?\ze\(\s\+#.*\|[ \t]*$\)/ containedin=ALL
+
         highlight DollarCLI guifg=#00FF00 gui=bold cterm=bold ctermfg=2 guibg=#000000 ctermbg=0
 
         " Highlight text inside of single back ticks like `foo`
