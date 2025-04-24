@@ -2,6 +2,7 @@
 
 - Open files from CLI:
 $ fda foo | x            Open all files (case-sensitive/hidden) with `foo` in the filename into nvim. Works with regular fd too    
+                         If it's an ignored file, do `fda --no-ignore foo | x`
 $ lcom                   List files last committed. Optionally pass a commit hash
 $ nmod                   Re-open modified files not yet committed
                          - Can also SIMPLY open neovim, and in nvim-tree look for folders/files with an 'X' next to them and open those! 
@@ -299,7 +300,8 @@ S / s        Prompts for a file/word to search for in tree / Open file in associ
              Enter on a dir will go into that dir so you can preview ITS files. Enter to open a file
 
 - Git (Gitsigns):
-]c / [c       Jump to next / prev git item
+]c / [c       Jump to next / prev git modified item
+              `:Gitsigns diffthis main` will let you navigate by how your branch differs from main instead! Update main first.
 <spc>gsf      Stage file
 <spc>gsh      Stage hunk
 <spc>guh      Unstage hunk
