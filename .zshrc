@@ -268,6 +268,7 @@ fdc() {
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
+export VISUAL=~/opt/nvim-macos/bin/nvim # so bindkey ^o opens in nvim
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
