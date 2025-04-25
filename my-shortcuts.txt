@@ -96,6 +96,7 @@ NOTE:       I can DOUBLE filter by first doing a search (e.g. `,x` or `,fu`), TA
 s       Flash.nvim jump to RESULTS line           (jj to NORMAL first)
 H/M/L   Jump to Highest, Middle, or Lowest result (jj to NOMRAL first)
 
+TODO: test and fix these:
 k       Scroll up RESULTS window                  (jj to NORMAL first)
 j       Scroll down RESULTS window                (jj to NORMAL first)
 ^H      Scroll left RESULTS window
@@ -304,6 +305,7 @@ S / s        Prompts for a file/word to search for in tree / Open file in associ
               - `:Gitsigns diffthis main` will let you navigate by how your branch differs from main instead! 
                 - Update main checkout locally first
                 - Also works if you grab a PR first with: :Telescope gh pull_request
+                - Note: `:G blame` and navigating by commit with n/p can be better than reading a diff
 <spc>gsf      Stage file
 <spc>gsh      Stage hunk
 <spc>guh      Unstage hunk
