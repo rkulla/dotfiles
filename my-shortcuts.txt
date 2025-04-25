@@ -305,7 +305,7 @@ S / s        Prompts for a file/word to search for in tree / Open file in associ
               - `:Gitsigns diffthis main` will let you navigate by how your branch differs from main instead! 
                 - Update main checkout locally first
                 - Also works if you grab a PR first with: :Telescope gh pull_request
-                - Note: `:G blame` and navigating by commit with n/p can be better than reading a diff
+                - Note: `:G blame` and navigating by commit hash with n/p is better than reading diffs. (drag to resize blame window)
 <spc>gsf      Stage file
 <spc>gsh      Stage hunk
 <spc>guh      Unstage hunk
