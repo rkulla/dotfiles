@@ -6,6 +6,8 @@
 	excludesfile = /Users/rkulla/.gitignore
 [merge]
 	tool = vimdiff
+[blame]
+    date = format:%Y-%m-%d
 [color]
 	ui = true
 [color "status"]
