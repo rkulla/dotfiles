@@ -10,7 +10,7 @@ $ nmod                   Re-open modified files not yet committed
 $ nnotmerged <merge-to>  Re-open committed but not merged files in a branch
                          Then see the diffs: :Gvdiff <merge-to> on any file
 $ ncom <merged-to>      
-:Telescope pull_request  Re-open files specific to a PR, weather merged or not: ^f  after finding the PR in telescope. (works best?)
+:Telescope gh pull_request  Re-open files specific to a PR, whether merged or not: ^f after finding the PR in telescope. (works best?)
 
 
 - Open/Close buffers:
@@ -137,7 +137,7 @@ NOTE                                Also use the new PR icon/button at the top/r
 :Telescope gh pull_request          Find PRs by author ('kulla) and view its modified files! Better than global author search
                                     Additional args: state=open (default), state=all, or state=closed
                                     ^e toggle diff view. ^t open PR in web browser
-                                    ^f browse modified files 
+                                    ^f browse modified files  (be in project root first to work)
                                     My <spc>fC to search command history to find/RUN past commands
                                     For PR reviews, DO THIS: 
                                        <cr> checks out PR (:G co - to get back)
@@ -301,7 +301,9 @@ S / s        Prompts for a file/word to search for in tree / Open file in associ
 
 - Git (Gitsigns):
 ]c / [c       Jump to next / prev git modified item
-              `:Gitsigns diffthis main` will let you navigate by how your branch differs from main instead! Update main first.
+              - `:Gitsigns diffthis main` will let you navigate by how your branch differs from main instead! 
+                - Update main checkout locally first
+                - Also works if you grab a PR first with: :Telescope gh pull_request
 <spc>gsf      Stage file
 <spc>gsh      Stage hunk
 <spc>guh      Unstage hunk
