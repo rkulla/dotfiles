@@ -27,7 +27,8 @@ vim.api.nvim_create_autocmd("BufReadPost", {
         highlight BulletSection guifg=#006400 gui=bold cterm=bold ctermfg=2 guibg=#D3D3D3 ctermbg=250
 
         " Highlight text in asterisks. Must be preceeded by a char or space to not conflict with my folds
-        syntax region AsteriskSection matchgroup=AsteriskStars start=/.\zs\*/ end=/\*/ keepend
+        " but there cannot be a beginning space between the asterisk and the text starting to the right of it
+        syntax region AsteriskSection matchgroup=AsteriskStars start=/.\zs\*\ze\S/ end=/\*/ keepend
         highlight AsteriskSection guifg=#000000 ctermfg=0 guibg=#FFFF00 ctermbg=3
 
         " Highlight the asterisks themselves to be a lighter color to look more seamless
