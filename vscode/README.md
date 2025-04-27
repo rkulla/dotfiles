@@ -18,6 +18,7 @@ copy/pasting my generic settings.json. E.g., editor.zoomLevel and editor.fontSiz
 - `Code Runner`
 - [Copy GitHub URL](https://marketplace.visualstudio.com/items?itemName=mattlott.copy-github-url) Keyboard shortcuts conflict with Vim extension but can still right-click > Copy As.
 - `Explorer Exclude`
+- `Mirrord` (work only)
 - [Quit Control for VSCode](https://marketplace.visualstudio.com/items?itemName=artdiniz.quitcontrol-vscode)
 - `Reload`
 - `Todo Tree`

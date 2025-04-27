@@ -305,9 +305,9 @@ S / s        Prompts for a file/word to search for in tree / Open file in associ
               - `:Gitsigns diffthis main` will let you navigate by how your branch differs from main instead! 
                 - Update main checkout locally first
                 - Also works if you grab a PR first with: :Telescope gh pull_request
-                - Note: `:G blame` and navigating by author+date but not time and not hash since a PR can have multiple commits). EX:
-                    kulla.*2025-04-04  (search my commits for apr 4th 2025. .gitconfig has [blame] date = format:%Y-%m-%d
-                  Nav with with n/p is better than reading diffs. (drag to resize blame window)
+                - Note: Can also `:G blame` and nav by author+date (n/p) but not time and not hash since a PR can have multiple commits):
+                    kulla.*2025-04-04  (search my commits for apr 4th 2025. .gitconfig has [blame] date = format:%Y-%m-%d)
+                                        However, check if PR has multiple DATES of commits too.
 <spc>gsf      Stage file
 <spc>gsh      Stage hunk
 <spc>guh      Unstage hunk

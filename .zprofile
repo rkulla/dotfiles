@@ -1,4 +1,3 @@
-#### END FIG ENV VARIABLES ####
 # This file is for login shells, e.g., for GUI MacVim to set PATH
 # to Vim so Vim plugins can work, etc.
 # This file is ran BEFORE .zshrc.
@@ -28,7 +27,7 @@ PATH=/usr/local/go/bin/go:$PATH
 PATH="$HOME/go/bin:$PATH"
 # Switch `go version` to point to whatever newer Go version I `go install/go download`
 # Allows multiple installs. Commenting out these 2 lines out will use my default go version
-GOROOT=~/sdk/go1.21.8
+GOROOT=~/sdk/go1.23.2
 PATH=$GOROOT/bin:$PATH
 
 # Rust stuff
