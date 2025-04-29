@@ -29,7 +29,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
         " Highlight the bullets themselves, but not the whitespace before or after 
         " AND converts the dash to a real bullet point symbol (you'll see once cursor is not on the current line)
         " this works in conjunction with redraw block at the bottom of this file
-        syntax match DashStart /^\s*\zs-\ze\s/ conceal cchar=•
+        syntax match DashStart /^\s*\zs-\ze\s*\S/ conceal cchar=•
         set conceallevel=2
         highlight DashStart guifg=#000000 guibg=NONE ctermfg=0 ctermbg=NONE gui=bold cterm=bold
 
