@@ -26,6 +26,13 @@ vim.api.nvim_create_autocmd("BufReadPost", {
         syntax match BulletSection /\v^-\s\zs[^:\n]+(\s[^:\n]+)*\ze:|^-\s\zs\S+/
         highlight BulletSection guifg=#006400 gui=bold cterm=bold ctermfg=2 guibg=#D3D3D3 ctermbg=250
 
+        " Highlight the bullets themselves, but not the whitespace before or after 
+        " AND converts the dash to a real bullet point symbol (you'll see once cursor is not on the current line)
+        " this works in conjunction with redraw block at the bottom of this file
+        syntax match DashStart /^\s*\zs-\ze\s/ conceal cchar=•
+        set conceallevel=2
+        highlight DashStart guifg=#000000 guibg=NONE ctermfg=0 ctermbg=NONE gui=bold cterm=bold
+
         " Highlight text in asterisks. Must be preceeded by a char or space to not conflict with my folds
         " but there cannot be a beginning space between the asterisk and the text starting to the right of it
         syntax region AsteriskSection matchgroup=AsteriskStars start=/.\zs\*\ze\S/ end=/\*/ keepend
@@ -38,7 +45,6 @@ vim.api.nvim_create_autocmd("BufReadPost", {
         "syntax match DollarCLI /\$\s\{1,2}.*$/ containedin=ALL " If i want to highlight the whole line
         " Highlight lines starting with a $ (e.g., CLI commands) but stop at the first # comment including the spaces before it
         syntax match DollarCLI /\$\s\{1,2}[^# \t]*\([^#]*[^ \t#]\)\?\ze\(\s\+#.*\|[ \t]*$\)/ containedin=ALL
-
         highlight DollarCLI guifg=#00FF00 gui=bold cterm=bold ctermfg=2 guibg=#000000 ctermbg=0
 
         " Highlight text inside of single back ticks like `foo`
@@ -100,4 +106,11 @@ vim.api.nvim_create_autocmd("BufReadPost", {
       end
     )
   end,
+})
+
+-- Trigger syntax refresh on movement and editing. Useful for my
+vim.api.nvim_create_autocmd({ "TextChanged", "InsertLeave" }, {
+  group = "TextFileHighlighting",
+  pattern = "*.txt",
+  callback = function() vim.cmd("syntax sync fromstart | redraw!") end,
 })
