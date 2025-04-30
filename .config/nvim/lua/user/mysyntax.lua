@@ -21,11 +21,6 @@ vim.api.nvim_create_autocmd("BufReadPost", {
         " Highlight folds while folded
         highlight Folded guifg=#000000 guibg=#A9AEC8 ctermfg=0 ctermbg=252
 
-        " Highlight words of at least 2 chars if the line starts with a `- bullet`. E.g., `SPAM` in `- SPAM`
-        " or highlights all the way up to the first colon `- Foo bar baz:`
-        syntax match BulletSection /\v^-\s\zs[^:\n]+(\s[^:\n]+)*\ze:|^-\s\zs\S+/
-        highlight BulletSection guifg=#006400 gui=bold cterm=bold ctermfg=2 guibg=#D3D3D3 ctermbg=250
-
         " Highlight the bullets themselves, but not the whitespace before or after 
         " AND converts the dash to a real bullet point symbol (you'll see once cursor is not on the current line)
         " this works in conjunction with redraw block at the bottom of this file
