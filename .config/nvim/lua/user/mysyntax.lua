@@ -1,4 +1,5 @@
 -- .txt file ONLY highlights.
+-- NOTE: Test this on the included test-highlights.txt
 -- NOTE: This is based on using tokyonight-day colorscheme, so if I change it adjust hex colors
 -- NOTE: Use "Digital Color Meter" app in MacOS to find color info of any color on screen
 -- NOTE: Don't highlight underscores or other chars that don't always have a enclosing match like `foo_bar`
@@ -21,16 +22,17 @@ vim.api.nvim_create_autocmd("BufReadPost", {
         " Highlight folds while folded
         highlight Folded guifg=#000000 guibg=#A9AEC8 ctermfg=0 ctermbg=252
 
-        " Highlight the bullets themselves, but not the whitespace before or after 
-        " AND converts the dash to a real bullet point symbol (you'll see once cursor is not on the current line)
+        " Highlight the dash and convert to a bullet
+        " converts the dash to a real bullet point symbol (you'll see once cursor is not on the current line)
         " this works in conjunction with redraw block at the bottom of this file
         syntax match DashStart /^\s*\zs-\ze\s*\S/ conceal cchar=•
         set conceallevel=2
         highlight DashStart guifg=#000000 guibg=NONE ctermfg=0 ctermbg=NONE gui=bold cterm=bold
 
-        " Highlight text in asterisks. Must be preceeded by a char or space to not conflict with my folds
-        " but there cannot be a beginning space between the asterisk and the text starting to the right of it
-        syntax region AsteriskSection matchgroup=AsteriskStars start=/.\zs\*\ze\S/ end=/\*/ keepend
+        " Highlight text in asterisks. Must not conflict with my folds
+        " and there can't be a beginning space between the asterisk and the text starting to the right of it
+        " so things like select * from foo; don't highlight
+        syntax region AsteriskSection start=/^\@<!\*\S/ end=/\*/ contains=AsteriskStars keepend
         highlight AsteriskSection guifg=#000000 ctermfg=0 guibg=#FFFF00 ctermbg=3
 
         " Highlight the asterisks themselves to be a lighter color to look more seamless
@@ -53,7 +55,11 @@ vim.api.nvim_create_autocmd("BufReadPost", {
         highlight BacktickDelimiter guifg=#e1e2e7 ctermfg=15 guibg=NONE ctermbg=NONE
 
         " Highlight the matched text inside the triple backticks
-        " The backticks can be on separate lines or on the same line. The latter won't show blank lines
+        " You can do both ```inline``` or:
+        " ```
+        "   separate lines
+        " ```
+        " the inline ones are nice if you don't want surrounding blank lines and it works for multiline blocks too!
         syntax match TripleBackticksStart /```/
         syntax match TripleBackticksEnd /```/
         syntax region TripleBackticks matchgroup=TripleBackticksStart start=/```/ end=/```/ contains=@TripleBackticksStart,@TripleBackticksEnd
