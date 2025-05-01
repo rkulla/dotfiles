@@ -44,7 +44,7 @@ NOTE:       I use telescope-fzf-native to use fzf syntax: 'foo (exact), ^foo (st
                .json$ | .yml$ | .yaml$  ^lex-authn-synacor/ !dev !local
             but generally it will be as simple as typing foo/, ^r, grep-term  (to grep only files in foo/)
 NOTE:       I can DOUBLE filter by first doing a search (e.g. `,x` or `,fu`), TAB to select multiple files and hit Enter to open (I have a
-            workaround in user/telescope.lua). Then Ctlr+r will open a second telescop live_grep prompt, to FURTHER grep THOSE files!
+            workaround in user/telescope.lua). Then Ctlr+r will open a second telescope live_grep prompt, to FURTHER grep THOSE files!
             (this is akin to `ag -l foo | xargs ag -l bar` on the cli)
 <spc>sc     (OR CAPS-S) Opens THIS file (my-shortcuts.txt) for quick fuzzy filtering of shortcuts!
 <spc>x      Fuzzy Search filenames tracked by git (faster and unlike <spc>X and fe it's REPO relative, not CWD relative)

@@ -53,6 +53,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
         highlight BacktickDelimiter guifg=#e1e2e7 ctermfg=15 guibg=NONE ctermbg=NONE
 
         " Highlight the matched text inside the triple backticks
+        " The backticks can be on separate lines or on the same line. The latter won't show blank lines
         syntax match TripleBackticksStart /```/
         syntax match TripleBackticksEnd /```/
         syntax region TripleBackticks matchgroup=TripleBackticksStart start=/```/ end=/```/ contains=@TripleBackticksStart,@TripleBackticksEnd
