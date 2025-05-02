@@ -1,0 +1,31 @@
+*This is a custom fold
+- Type a dash to start a bullet point, which only shows as`-`only while editing a line, otherwise shows as •
+-`Text inside of single backticks will appear red with a gray background`(isn't that nice?)
+-`HyperLinks are dimmed to be less distracting:`https://google.com
+  - nested bullet
+- Local file link: foo.txt
+-*blah*
+- Foo*highlighter word in asterisks*
+Example command:"foo"
+    $ echo "Running command with one dollar"  # but don't highlight this comment!
+SELECT * FROM blah; -- Shouldn't highlight because we don't look at space directly after the *
+select*from blah;* -- SHOULD highlight since that's ok
+[] Todo lists items will be highlighted as black brackets and bold lines.`inline backticks`still work
+_Underscored Text_ does nothing because it's not always contained like in foo_bar
+Here's a triple backticked block:
+```
+    if [ -f "$HOME/foo.zsh" ]; then
+      source "$HOME/foo.zsh"
+    fi
+```
+But triplebackticks also work inline even with multiple lines if i don't want surrounding blank lines:
+```if [ -f "$HOME/foo.zsh" ]; then
+      source "$HOME/foo.zsh"
+    fi```
+Backticks are editable but simply match the bg color to appear invisible unless my cursor is on the line.
+Also does very basic highlighting of code. Fortunately normal code highlighting outside of .txt will work:
+    console.log(var[0]);
+    x := {
+       "foo": ["bar"],
+       "baz": "quux"
+    }
