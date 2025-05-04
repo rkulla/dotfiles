@@ -1,9 +1,10 @@
 *This is a custom fold
 - Type a dash to start a bullet point, which only shows as`-`only while editing a line, otherwise shows as •
 -`Text inside of single backticks will appear red with a gray background`(isn't that nice?)
--`HyperLinks are dimmed to be less distracting:`https://google.com
+-`HyperLinks are dimmed to be less distracting:`https://google.com (load with <leader>o)
   - nested bullet
-- Local file link: foo.txt
+- Local file link: foo.txt (load with gf. ^f to auto-complete local files)
+- Local images work too: test-highlights-ex-image.png (load with gx)
 -*blah*
 - Foo*highlighter word in asterisks*
 Example command:"foo"
