@@ -11,6 +11,8 @@ vim.api.nvim_create_autocmd("BufReadPost", {
   callback = function()
     -- Disable line numbers by default for .txt files
     vim.opt_local.number = false
+    -- Prefer shiftwidth of 2 for txt files
+    vim.opt_local.shiftwidth = 2
     -- vim.cmd("Copilot disable")
     vim.schedule(
       function()
