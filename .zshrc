@@ -203,6 +203,9 @@ alias icd='cd ~/Library/Mobile\ Documents/com\~apple\~CloudDocs'
 
 alias j='zi'
 
+# Usage: $ <cmd> | firstcol
+firstcol() { awk '{print $1}'; }
+
 # Usage: $ <cmd> | lastcol
 lastcol() { awk '{print $NF}'; }
 
