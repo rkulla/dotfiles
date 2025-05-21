@@ -54,7 +54,8 @@ NOTE:       I can DOUBLE filter by first doing a search (e.g. `,x` or `,fu`), TA
 <spc>fe     Like <spc>X but a real TUI file explorer where you're navigating the file system. Use arrow keys to CD to a dir first!
 <spc>fg     Fuzzy Grep all files in project (case-insensitive). Order is reversed, so scroll upward. ^d/^u to scroll file preview itself
             This is like space+space in Webstorm, letting you grep with preview. Also do <Leader>gr to trace an object through code!
-            Note: since I'm using Rip-Grep (rg), use pcre-regex syntax, e.g., \bfoo\b to search the exact word `foo`
+            Note: since I'm using Rip-Grep (rg), use pcre-regex syntax, e.g., \bfoo\b to search the exact word `foo`.
+            So to find method calls like `pb.FooBar(` you'd do: pb\.\w+\(
             Search `'func | 'method` will show all function and method calls and definitions
 <spc>fG     Same as <spc>fg but case-sensitive
 <spc>fu     Like <spg>fg but only shows filenames (like ag -l)

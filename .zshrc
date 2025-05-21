@@ -203,6 +203,10 @@ alias icd='cd ~/Library/Mobile\ Documents/com\~apple\~CloudDocs'
 
 alias j='zi'
 
+# Note: use my ~/bin/ns script to get current timestamp AND nanoseconds in
+# a grpc google.protobuf.Timestamp format
+alias ds='date +%s' # get current unix timestamp on MacOS
+
 # Usage: $ <cmd> | firstcol
 firstcol() { awk '{print $1}'; }
 
