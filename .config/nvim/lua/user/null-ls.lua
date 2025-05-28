@@ -51,7 +51,7 @@ null_ls.setup({
     map("n", "<leader>lDF", vim.diagnostic.open_float, { buffer = bufnr, desc = "LSP diagnostic float" })
     map("n", "<leader>lDL", vim.diagnostic.setloclist, { buffer = bufnr, desc = "LSP diagnostic loclist" })
     map("n", "<leader>lDh", vim.diagnostic.hide, { buffer = bufnr, desc = "LSP diagnostic hide" })
-    map("n", "<leader>li", vim.lsp.buf.implementation, { buffer = bufnr, desc = "LSP implementation" })
+    map("n", "<leader>li", vim.lsp.buf.implementation, { buffer = bufnr, desc = "LSP list implementation (qf)" })
     map("n", "<leader>lR", vim.lsp.buf.rename, { buffer = bufnr, desc = "LSP rename" })
     map("n", "<leader>lS", vim.lsp.buf.signature_help, { buffer = bufnr, desc = "LSP signature help" })
     map("n", "<leader>ld", vim.lsp.buf.document_symbol, { buffer = bufnr, desc = "LSP document symbols" })
@@ -69,6 +69,7 @@ null_ls.setup({
     map("n", "<leader>fD", "<cmd>Telescope diagnostics<cr>", { buffer = bufnr, desc = "Find LSP diagnostics" })
     map("n", "<leader>fr", "<cmd>Telescope lsp_references<cr>", { buffer = bufnr, desc = "Find LSP references" })
     map("n", "<leader>fd", "<cmd>Telescope lsp_document_symbols<cr>", { buffer = bufnr, desc = "Find LSP Document Symbols" })
+    map("n", "<leader>fi", "<cmd>Telescope lsp_implementations<cr>", { buffer = bufnr, desc = "Find LSP Implementations" })
     map("n", "<leader>fw", function()
       require("telescope.builtin").lsp_dynamic_workspace_symbols({
         file_ignore_patterns = { "node_modules", "vendor" },
