@@ -113,11 +113,13 @@ j       Scroll down RESULTS window                (jj to NORMAL first)
 ^n      Cycle through different layouts (horizontal / vertical)
 
 - goto-preview:
-gpd    Shows preview of what `gd` (goto-definition) would jump (e.g., variable init or func def) including filename. Scroll in popup! Often beats gd and K
+gpd    Shows preview of what `gd` (goto-definition) would jump (e.g., variable init or func def) including filename. Scroll in popup! 
+       Often beats gd and K
 gpr    Shows preview of where a definition is referenced (used). Useful but only a previews. Use gr to actually go to references
-gpD    Shows preview of delcaration. Generally doesn't work
+gpD    Shows preview of declaration. Generally doesn't work
 gpt    Shows preview of type definition. Generally use gpd though, since this often doesn't work
-gpi    Shows preview of implementation. Generally use gpd though, since this often doesn't work
+gpi    Shows preview of IMPLEMENTATION. Super useful for e.g., finding where a Go interface method is actually defined.
+       <spc>li actually JUMPS which is generally what I actually want
 gpc    Close the preview windows. Don't use :bw or it closes the file. gP also is defined by default to do this
 
 
@@ -158,8 +160,10 @@ Note: If LSP doesn't work on a JS/TS project:
     Then RESTART neovim before trying commands or even `:LspInfo` again (which should now show 'tsserver' is attached)
 
 K         Shows hover documentation for thing under cursor (also works more than signature help). `gpd` is often better, though
-gd        Go to definition (<spc>li is similar but shows in quickfix if multiple results)
+gd        Go to definition (<spc>li is similar but shows in quickfix if multiple results and actually works when gd doesn't for e.g., go
+                            interface methods!)
 gr        View/jump to references (callees/callers/symbols). Great for tracing flow of code! <spc>fr for Fuzzy version. gpr for preview only
+<spc>li   List implementations for the thing under the cursor. Works great for e.g., finding the implementation of a Go interface method.
 <spc>lh   Toggle inlay hints
 <spc>la   Show code actions for current line
 <spc>fd   Search all symbols in current document. <spc>ld for quickfix version
