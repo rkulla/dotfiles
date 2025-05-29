@@ -78,10 +78,6 @@ null_ls.setup({
       })
     end, { buffer = bufnr, desc = "Find LSP Workspace Symbols" })
 
-    -- Trouble / Toggle
-    map("n", "<leader>tt", "<cmd>TroubleToggle<cr>", { buffer = bufnr, desc = "TroubleToggle" })
-    map("n", "<leader>tr", "<cmd>TroubleToggle lsp_references<cr>", { buffer = bufnr, desc = "TroubleToggle lsp_references" })
-
     -- Format On Save
     if client.supports_method("textDocument/formatting") then
       -- Explicitly add what I want to allow to format-on-save ("null_ls" means all attached LSP servers, the rest are by filetype

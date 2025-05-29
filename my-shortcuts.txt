@@ -39,9 +39,10 @@ yr<char>    Prepare to yank at position <char>. First jump to the char then fini
             Useful for quickly yanking text "remotely" (from elsewhere in the file) to paste at the current position
 
 - Search (Telescope):
-NOTE:       I use telescope-fzf-native to use fzf syntax: 'foo (exact), ^foo (starts with), go$ (ends with), etc. (For grep use PCRE)
+NOTE:       I use telescope-fzf-native for fzf syntax: 'foo (exact), ^foo (starts with), go$ (ends with), etc. 
             `|` for OR. EX: search just .json and yaml files in lex-authn-synacor/ subdir but not dev or local:
                .json$ | .yml$ | .yaml$  ^lex-authn-synacor/ !dev !local
+            (For grep use PCRE \bfoo\b)
             but generally it will be as simple as typing foo/, ^r, grep-term  (to grep only files in foo/)
 NOTE:       I can DOUBLE filter by first doing a search (e.g. `,x` or `,fu`), TAB to select multiple files and hit Enter to open (I have a
             workaround in user/telescope.lua). Then Ctlr+r will open a second telescope live_grep prompt, to FURTHER grep THOSE files!
@@ -52,6 +53,7 @@ NOTE:       I can DOUBLE filter by first doing a search (e.g. `,x` or `,fu`), TA
             Ctrl+q to send all telescope results to the quickfix but not grep them
 <spc>X      Fuzzy Search for ALL filenames (no git required. Slightly slower but more thorough)
 <spc>fe     Like <spc>X but a real TUI file explorer where you're navigating the file system. Use arrow keys to CD to a dir first!
+            Backspace goes up a dir.
 <spc>fg     Fuzzy Grep all files in project (case-insensitive). Order is reversed, so scroll upward. ^d/^u to scroll file preview itself
             This is like space+space in Webstorm, letting you grep with preview. Also do <Leader>gr to trace an object through code!
             Note: since I'm using Rip-Grep (rg), use pcre-regex syntax, e.g., \bfoo\b to search the exact word `foo`.
@@ -61,7 +63,7 @@ NOTE:       I can DOUBLE filter by first doing a search (e.g. `,x` or `,fu`), TA
 <spc>fu     Like <spg>fg but only shows filenames (like ag -l)
 <spc>fU     Same as <spc>fu but case-sensitive
 <spc>p      Browse projects with project.nvim (Like WebStorm's Recent Project list but better). ESC still cd's. ^r for recent files. ^s to
-            grep. ^d to remove from list. UPDATE: I never use this since it doesn't cd at the cli level so I removed it.
+            grep. ^d to remove from list. UPDATE: I NEVER use this since it doesn't cd at the cli level so I REMOVED it.
             TODO: this might be even better https://github.com/nvim-telescope/telescope-frecency.nvim
             but really I don't even care about any of this because my local repos won't always be up-to-date. Better to use github.com's
             search for files across repos, or ^F at the root of my local checkouts to search by folder (also works on subfolders)
@@ -95,7 +97,7 @@ NOTE:       I can DOUBLE filter by first doing a search (e.g. `,x` or `,fu`), TA
 - Telescope Results & Preview windows:
 `*`     Highlight word                            (jj to NORMAL first)
 s       Flash.nvim jump to RESULTS line           (jj to NORMAL first)
-H/M/L   Jump to Highest, Middle, or Lowest result (jj to NOMRAL first)
+H/M/L   Jump to Highest, Middle, or Lowest result (jj to NORMAL first)
 
 TODO: test and fix these:
 k       Scroll up RESULTS window                  (jj to NORMAL first)
@@ -162,7 +164,7 @@ Note: If LSP doesn't work on a JS/TS project:
 K         Shows hover documentation for thing under cursor (also works more than signature help). `gpd` is often better, though
 gd        Go to definition (<spc>fi is similar but shows in quickfix if multiple results and actually works when gd doesn't for e.g., go
                             interface methods!)
-gr        View/jump to references (callees/callers/symbols). Great for tracing flow of code! <spc>fr for Fuzzy version. gpr for preview only
+gr        View/jump to references (callees/callers/symbols). Context aware! Great for tracing flow of code! <spc>fr for Fuzzy version. gpr for preview only
 <spc>fi   Find implementation(s) for the thing under cursor, using telescope. Works great for e.g., finding the implementation of a Go interface method.
 <spc>li   List implementation(s) for the thing under the cursor. Like <spc>fi but in a quickfix
 <spc>lh   Toggle inlay hints
