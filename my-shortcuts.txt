@@ -55,7 +55,7 @@ NOTE:       I can DOUBLE filter by first doing a search (e.g. `,x` or `,fu`), TA
 <spc>fe     Like <spc>X but a real TUI file explorer where you're navigating the file system. Use arrow keys to CD to a dir first!
             Backspace goes up a dir.
 <spc>fg     Fuzzy Grep all files in project (case-insensitive). Order is reversed, so scroll upward. ^d/^u to scroll file preview itself
-            This is like space+space in Webstorm, letting you grep with preview. Also do <Leader>gr to trace an object through code!
+            This is like space+space in Webstorm, letting you grep with preview. Also do gr or <spc>fr to trace an object through code!
             Note: since I'm using Rip-Grep (rg), use pcre-regex syntax, e.g., \bfoo\b to search the exact word `foo`.
             So to find method calls like `pb.FooBar(` you'd do: pb\.\w+\(
             Search `'func | 'method` will show all function and method calls and definitions
@@ -188,6 +188,7 @@ End / Home  Next/prev quickfix item. <spc>wqq (quit quickfix window)
 - NavBuddy (navigate LSP symbols):
 :Nav[buddy]  `:Nav` alone will open Navbuddy to QUICKLY review a code file! (since it shows the main outline you can navigate)
              `:SymbolsOutline` is a similar plugin/command if I want to see it as a vertical split instead (I don't use though)
+             I do use <spc>ts for trouble's version of Symbols
              My lualine plugin also shows symbols at the top of the screen
              My <spc>ld and <spc>lw will navigate document or workspace symbols
              My <spc>fd and <spc>fw will use telescope to filter document or workspace symbols
@@ -254,7 +255,7 @@ NOTE: Because these are just motions, you can also use other actions on them suc
       It's easiest to test out what would happen using `v` to visually select, as the action. vip, vap...
    - d}   - } means a paragraph down from current position), so this will delete the rest of the paragraph). { for upwards
    - g_   - move to non-blank character at end-of-line ($ includes spaces). Useful to select without grabbing whitespace: vg_
-   - w    - move to the beginning of the next work. CAPITAL W to treat words as 'programmers' words, like UUIDs, statements, etc.
+   - w    - move to the beginning of the next word. CAPITAL W to treat words as 'programmers' words, like UUIDs, statements, etc.
             same goes for capital E, B, etc word jumping equivalents
 - You can also combine counts to motions:
    - 2dt, - deletes up until the next 2 commas. This comes in extra handy when creating macros
