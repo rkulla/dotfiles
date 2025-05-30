@@ -1,9 +1,21 @@
--- .txt file ONLY highlights.
--- NOTE: Test this on the included test-highlights.txt
+-- Mainly for .txt file highlights but also some code annotation highlights
 -- NOTE: This is based on using tokyonight-day colorscheme, so if I change it adjust hex colors
 -- NOTE: Use "Digital Color Meter" app in MacOS to find color info of any color on screen
 -- NOTE: Don't highlight underscores or other chars that don't always have a enclosing match like `foo_bar`
 
+-- .go file highlighting (just extends existing highlighting by allowing code annotations via backtick'd text in comments)
+vim.api.nvim_create_autocmd("BufReadPost", {
+  group = vim.api.nvim_create_augroup("GoFileHighlighting", { clear = true }),
+  pattern = "*.go",
+  callback = function()
+    vim.cmd([[
+      syntax match BacktickText /`[^`]\{-}`/hs=s+1,he=e-1 containedin=goComment
+      highlight BacktickText guibg=#FFFF00 ctermbg=3
+    ]])
+  end,
+})
+
+-- .txt file highlighting
 vim.api.nvim_create_augroup("TextFileHighlighting", { clear = true })
 vim.api.nvim_create_autocmd("BufReadPost", {
   group = "TextFileHighlighting",
