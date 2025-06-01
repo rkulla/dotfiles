@@ -35,6 +35,8 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 
         " Highlight folds while folded
         highlight Folded guifg=#000000 guibg=#A9AEC8 ctermfg=0 ctermbg=252
+        " Highlight folds while unfolded
+        highlight FoldColumn guifg=#000000 guibg=#A9AEC8 ctermfg=0 ctermbg=252
 
         " Highlight the dash and convert to a bullet
         " converts the dash to a real bullet point symbol (you'll see once cursor is not on the current line)
