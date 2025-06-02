@@ -167,6 +167,7 @@ gd        Go to definition (<spc>fi is similar but shows in quickfix if multiple
 gr        View/jump to references (callees/callers/symbols). Context aware! Great for tracing flow of code! <spc>fr for Fuzzy version. gpr for preview only
 <spc>fi   Find implementation(s) for the thing under cursor, using telescope. Works great for e.g., finding the implementation of a Go interface method.
 <spc>li   List implementation(s) for the thing under the cursor. Like <spc>fi but in a quickfix
+<spc>lt   Jump to the lsp "type" definition of the variable under cursor. `gpt` to just show a preview. K for just the type w/o definition
 <spc>lh   Toggle inlay hints
 <spc>la   Show code actions for current line
 <spc>fd   Search all symbols in current document. <spc>ld for quickfix version
@@ -524,10 +525,14 @@ Ctrl+alt+Shift+k/j   swap focused window clockwise or counter-clockwise
 
 *FIREFOX SHORTCUTS
 
-Enter these in the address bar:
+KEYBOARD SHORTCUTS:
+  Ctrl-Shift-Tab:  List all tabs (dropdown)
+
+ADDRESS BAR:
     % <substr> # Search for an open tab
     * <substr> # Search bookmarks (also use <spc>sc from nvim). Do `*github foo` for JUST github bookmarks in my `Repos` folder
     ^ <substr> # Search history
+
 
 *VSCODE SHORTCUTS
 
