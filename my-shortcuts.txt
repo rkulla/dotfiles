@@ -332,7 +332,7 @@ S / s        Prompts for a file/word to search for in tree / Open file in associ
 <spc>gdP      diff preview file  (type again to toggle off)
 <spc>gdp      diff preview hunk  (move cursor to turn off)
 
-<spc>gtb      `git branches` as a Telescope fuzzy search (enter checks out branch)
+<spc>gtb      `git branches` as a Telescope fuzzy search (enter checks out branch). Super useful for toggling between `main` easily
 <spc>gtl      `git log` as a Telescope fuzzy search / diff preview!
 <spc>gts      `git status` as a Telescope fuzzy search / diff preview!
 
