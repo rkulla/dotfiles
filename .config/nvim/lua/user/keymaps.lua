@@ -180,8 +180,8 @@ map("n", "<leader>o", open_smart, { desc = "Open URL or file" })
 -- Markdown
 -- Open term with glow (brew install glow) in light or dark mode, to render markdown files for viewing
 -- I don't use markdown-preview.nvim which can edit markdown, because I'd rather not use the terminal for that
-vim.api.nvim_set_keymap("n", "<leader>ml", ':term glow -s light "' .. vim.fn.expand("%:p") .. '"<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>md", ':term glow -s dark "' .. vim.fn.expand("%:p") .. '"<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>Ml", ':term glow -s light "' .. vim.fn.expand("%:p") .. '"<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>Md", ':term glow -s dark "' .. vim.fn.expand("%:p") .. '"<CR>', { noremap = true, silent = true })
 
 -- Vimscript-based plugins ------------------------------------------------
 

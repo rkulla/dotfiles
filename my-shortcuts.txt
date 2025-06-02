@@ -89,7 +89,7 @@ NOTE:       I can DOUBLE filter by first doing a search (e.g. `,x` or `,fu`), TA
 <spc>fk     Fuzzy Search all NeoVim keymaps
 <spc>fl     Fuzzy search last opened files
 <spc>fn     Fuzzy search notifications (e.g., after nvim-notify banners close)
-<spc>fm     Fuzzy search marks (use CAPITAL A-Z for multi-file. `:delmarks A-Z` deletes. `:SignatureToggleSigns` toggles)
+<spc>m      Fuzzy search marks (use CAPITAL A-Z for multi-file. `:delmarks A-Z` deletes. `:SignatureToggleSigns` toggles)
             Upper-case marks also make it so I don't have to reopen all the files containing them, it can load them as-needed!
             ^o / ^i moves backwards/forwards through :jumps list (last _cursor positions_ / implicit marks). `` toggles. 
             g; / gi moves backward/forwards through _changes_. `. always moves to last change. Use ALL of these!
@@ -235,9 +235,9 @@ Chat               Currently neovim plugin doesn't support this and microsoft/gi
 <spc>l      Copy the full paths of ALL open files
 
 - Markdown preview:
-<spc>ml  like <spc>md but for when in light mode (Note: I use my custom .txt file syntax highlighting for my notes)
-<spc>md  Markdown renderer (uses `glow`). md for dark mode
-<spc>mp  Markdown Preview server (:6969). For EDITING (split screen to see Browser next to Neovim) :MarkdownPreviewStop when done
+<spc>Ml  like <spc>md but for when in light mode (Note: I use my custom .txt file syntax highlighting for my notes)
+<spc>Md  Markdown renderer (uses `glow`). md for dark mode
+<spc>mp  STOPPED USING. Markdown Preview server (:6969). For EDITING (split screen to see Browser too) :MarkdownPreviewStop when done
 
 - Select / Motions:
 vi{        Select everything INSIDE {} - even multiple lines or if cursor is anywhere. Works for parens, quotes, etc.

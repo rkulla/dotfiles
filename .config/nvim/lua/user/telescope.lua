@@ -69,7 +69,7 @@ map(
 )
 map(
   "n",
-  "<leader>fm",
+  "<leader>m",
   '<cmd>lua require("telescope.builtin").marks({ layout_strategy = "vertical", winblend = 10, previewer = true, layout_config = { width = 0.99, height = 0.99 } } )<CR>',
   { desc = "Find marks" }
 )
