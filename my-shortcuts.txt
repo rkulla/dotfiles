@@ -171,9 +171,11 @@ gr        View/jump to references (callees/callers/symbols). Context aware! Grea
 <spc>lh   Toggle inlay hints
 <spc>la   Show code actions for current line
 <spc>fd   Search all symbols in current document. <spc>ld for quickfix version
-<spc>tf   Toggle Format On Save (only works if null-ls is attached or explicit file types I configured. See null-ls.lua or :LspStop if needed)
-<spc>tt   Toggle Trouble.nvim to see ALL diagnostics across project. ]d next diagnostic line jump. `m` in QF toggles between current file only. <spc>fD fzy-find diagnostics
-          <spc>cd copy diagnostic msg (INLINE diagnostics are LSP, not Trouble. Hide those with: :LspStop)
+<spc>tf   Toggle Format On Save (only works if null-ls is attached or explicit file types configured. See null-ls.lua or :LspStop if needed)
+<spc>tt   Toggle Trouble.nvim to see ALL diagnostics across project. ]d next diagnostic line jump. 
+          `m` in QF toggles between current file only. <spc>fD fzy-find diagnostics
+          <spc>td PREVIEWS the diagnostic msg on the line
+          <spc>cd COPIES the diagnostic msg (INLINE diagnostics are LSP, not Trouble. Hide those with: :LspStop)
 <spc>ll   Show codelens inlay action (e.g., show 'run test')
 <spc>rc   Run codelens action (e.g., run unit test)
 <spc>rr   Run current file by filetype. E.g., 'go run %' if it's a .go file

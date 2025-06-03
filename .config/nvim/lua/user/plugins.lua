@@ -88,6 +88,11 @@ require("lazy").setup({
         "<cmd>Trouble qflist toggle<cr>",
         desc = "Quickfix List (Trouble)",
       },
+      {
+        "<leader>td",
+        function() vim.diagnostic.open_float(nil, { focus = false }) end,
+        desc = "Preview diagnostic message on current line",
+      },
     },
   },
 
