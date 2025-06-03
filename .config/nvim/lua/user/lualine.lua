@@ -54,8 +54,11 @@ require("lualine").setup({
       },
     },
     lualine_c = {}, -- Don't show filename since I do in buffers
-    -- lualine_x = { "encoding", "filetype" },
-    lualine_x = {},
+    lualine_x = {
+      "searchcount", -- Show search results count since it gets truncated on long lines
+      -- "encoding",
+      -- "filetype",
+    },
   },
   winbar = {},
 })
