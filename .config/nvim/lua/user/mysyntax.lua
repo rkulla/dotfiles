@@ -55,6 +55,16 @@ vim.api.nvim_create_autocmd("BufReadPost", {
         syntax match AsteriskStars /\*/ contained
         highlight AsteriskStars guifg=#e1e2e7 ctermfg=15 guibg=NONE ctermbg=NONE
 
+        " Highlight text inside of single bold unicode-chars (U+1D483 specifically) like 𝒃foo𝒃
+        syntax match BoldText /𝒃[^𝒃]\{-}𝒃/hs=s+1,he=e-1
+        highlight BoldText gui=bold cterm=bold
+
+        " Highlight the bold chars (𝒃) themselves to be a lighter color to look more seamless like markdown
+        syntax region BoldTextMatch start=/𝒃/ end=/𝒃/ keepend contains=BoldText,BoldTextDelimiter
+        syntax match BoldText /[^𝒃]\+/ contained
+        syntax match BoldTextDelimiter /𝒃/ contained
+        highlight BoldTextDelimiter guifg=#e1e2e7 ctermfg=15 guibg=NONE ctermbg=NONE
+
         "syntax match DollarCLI /\$\s\{1,2}.*$/ containedin=ALL " If i want to highlight the whole line
         " Highlight lines starting with a $ (e.g., CLI commands) but stop at the first # comment including the spaces before it
         syntax match DollarCLI /\$\s\{1,2}[^# \t]*\([^#]*[^ \t#]\)\?\ze\(\s\+#.*\|[ \t]*$\)/ containedin=ALL
