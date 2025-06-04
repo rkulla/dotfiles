@@ -73,7 +73,7 @@ NOTE:       I can DOUBLE filter by first doing a search (e.g. `,x` or `,fu`), TA
 <spc>ff     Grep current file only  (TODO hoping current_buffer_fuzzy_find gets case-sensitive support to make a <spc>fF)
 <spc>fo     Grep only open files
 <spc>fO     Same as <spc>fo but case-sensitive
-<spc>*      Find word under cursor (exact word)
+<spc>*      Find word under cursor (exact word). :SE <foo> to choose a word instead
 <spc>fC     Command history
 <spc>fS     Search history
 
