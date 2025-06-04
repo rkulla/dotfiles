@@ -9,7 +9,7 @@
 -*blah*
 - Foo*highlighter word in asterisks*
 Example command:"foo"
-    $ echo "Running command with one dollar"  # but don't highlight this comment!
+    $ echo "Running command with one dollar"  # but don't highlight this comment! $ still works # boom!
 SELECT * FROM blah; -- Shouldn't highlight because we don't look at space directly after the *
 select*from blah;* -- SHOULD highlight since that's ok
 [] Todo lists items will be highlighted as black brackets and bold lines.`inline backticks`still work
