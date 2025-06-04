@@ -7,7 +7,8 @@ local map = vim.keymap.set
 -- Note: don't create imap's starting with <Leader> or <Space> or they'll lag
 vim.g.mapleader = " "
 
--- Pressing X closes buffers faster,
+-- Pressing X closes/deletes the current buffer, but if there are multiple buffers open,
+-- to reopen it if you accidentally close it use <leader><leader> (toggles last buffer).
 -- pressing X again quickly quits Neovim IF only only 0 or 1 buffers are left.
 local quit_pending = false
 map("n", "X", function()
