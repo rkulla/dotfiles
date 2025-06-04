@@ -314,7 +314,7 @@ S / s        Prompts for a file/word to search for in tree / Open file in associ
 
 - Git (Gitsigns):
 ]c / [c       Jump to next / prev git modified item
-              - `:Gitsigns diffthis main` will let you navigate by how your branch differs from main instead! 
+              - <spc>gdm (does `:Gitsigns diffthis main`) to let you navigate by how your branch differs from main instead! 
                 - Update main checkout locally first
                 - Also works if you grab a PR first with: :Telescope gh pull_request
                 - Note: Can also `:G blame` and nav by author+date (n/p) but not time and not hash since a PR can have multiple commits):

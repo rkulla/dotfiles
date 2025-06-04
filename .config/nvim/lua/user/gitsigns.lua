@@ -40,6 +40,8 @@ require("gitsigns").setup({
     map("n", "<leader>gbd", function() gs.blame_line({ full = true }) end, { desc = "Git blame line w/diff" })
     map("n", "<leader>gbl", gs.toggle_current_line_blame, { desc = "Git toggle current line blame" })
     map("n", "<leader>gbf", "<cmd>G blame<cr>", { desc = "Git blame file" })
+    map("n", "<leader>gdm", "<cmd>Gitsigns diffthis main<cr>", { desc = "Git diff this branch against main" })
+    map("n", "<leader>gdM", "<cmd>Gitsigns diffthis master<cr>", { desc = "Git diff this branch against master" })
     map("n", "<leader>gdc", gs.diffthis, { desc = "Git diff current changes to this file" })
     map("n", "<leader>gdl", function() gs.diffthis("~") end, { desc = "Git diff last changes to this file" })
     map("n", "<leader>gdP", gs.toggle_deleted, { desc = "Git diff preview file" })
