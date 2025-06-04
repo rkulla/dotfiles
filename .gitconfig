@@ -35,8 +35,9 @@
     newNormal = 34 bold
     newHighlight = 34 bold reverse
 [alias]
-    # fancier diff with diff-so-fancy. I shell alias this to dsf='git dsf'
-	dsf = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git diff --color \"$@\" | diff-so-fancy  | less --tabs=4 -RFX; }; f"
+    # Fancier diff with diff-so-fancy. I shell alias this to dsf='git dsf'. It takes optional args: 
+    #   $ dsf main -- path/to/file   # to diff a specific file against main
+    dsf = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git diff --color ${1:-} -- ${@:2} | diff-so-fancy | less --tabs=4 -RFX; }; f"
 	s = status
 	st = status
 	co = checkout

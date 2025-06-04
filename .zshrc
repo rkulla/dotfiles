@@ -360,7 +360,7 @@ gcm() {
 alias gc-='git co -'
 alias gb='git branch'
 alias gba='git branch -a'
-# Make my diff-so-fancy alias even shorter
+# Make my diff-so-fancy alias even shorter. Diff specific file like: dsf <branch> -- path/to/file
 alias dsf='git dsf'
 alias gd='dsf' # brew install diff-so-fancy
 alias gdc='gd --cached'

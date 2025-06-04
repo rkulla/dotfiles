@@ -28,6 +28,25 @@ local function MyHighlights()
     italic = true,
     bold = false,
   })
+
+  -- GitHub-style diff highlights (tuned for tokyonight-day)
+  -- TODO: make corresponding dark mode highlights
+  vim.api.nvim_set_hl(0, "DiffAdd", { -- This line was added
+    bg = "#acf2bd",
+    fg = "NONE",
+  })
+  vim.api.nvim_set_hl(0, "DiffDelete", { -- This line was deleted
+    bg = "#f6c6c6",
+    fg = "NONE",
+  })
+  vim.api.nvim_set_hl(0, "DiffChange", { -- This line was changed
+    bg = "#c9e4f6",
+    fg = "NONE",
+  })
+  vim.api.nvim_set_hl(0, "DiffText", { -- This text was changed
+    bg = "#c9e4f6", -- Still match DiffChange's bg color
+    fg = "#3aa55a",
+  })
 end
 
 -- Run my highlights immediately
