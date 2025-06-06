@@ -5,7 +5,7 @@
   - nested bullet
 - Local file link: foo.txt (load with gf. ^f to auto-complete local files)
 - Local images work too: test-highlights-ex-image.png (load with gx)
--𝒃Mathematical Bold Script Small b (aka U+1D483) highlights text as BOLD𝒃
+-𝒃Mathematical Bold Script Small b (aka U+1D483) highlights text as BOLD𝒃 ^b in insert mode to type easier
 -*blah*
 - Foo*highlighter word in asterisks*
 Example command:"foo"

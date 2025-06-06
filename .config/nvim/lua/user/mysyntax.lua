@@ -26,6 +26,8 @@ vim.api.nvim_create_autocmd("BufReadPost", {
     -- Prefer shiftwidth of 2 for txt files
     vim.opt_local.shiftwidth = 2
     -- vim.cmd("Copilot disable")
+    -- Type ^b in insert mode of text files to insert my special bold delimiter char
+    vim.keymap.set("i", "<C-b>", "𝒃", { noremap = true })
     vim.schedule(
       function()
         vim.cmd([[
@@ -56,6 +58,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
         highlight AsteriskStars guifg=#e1e2e7 ctermfg=15 guibg=NONE ctermbg=NONE
 
         " Highlight text inside of single bold unicode-chars (U+1D483 specifically) like 𝒃foo𝒃
+        " ^b in insert mode of .txt files will type this for me as a convenience map
         syntax match BoldText /𝒃[^𝒃]\{-}𝒃/hs=s+1,he=e-1
         highlight BoldText gui=bold cterm=bold
 
