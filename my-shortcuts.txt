@@ -84,7 +84,7 @@ NOTE:       I can DOUBLE filter by first doing a search (e.g. `,x` or `,fu`), TA
 
 <spc>?      Fuzzy Search help_tags, including NeoVim plugin help (faster than googling!)
 <spc>fh     Fuzzy Find Harpoon2 buffers, added with <spc>ha
-<spc>fb     Like :ls and :b foo<cr> on steroids. Jump to buffer. (don't tab with :b unless needed or it slows down switching)
+<spc>b      Like :ls and :b foo<cr> on steroids. Jump to buffer. (don't tab with :b unless needed or it slows down switching)
 <spc>fc     Fuzzy Search nvim configs (no need to cd ~/.config/nvim/...)
 <spc>fk     Fuzzy Search all NeoVim keymaps
 <spc>fl     Fuzzy search last opened files
@@ -148,7 +148,7 @@ NOTE                                Also use the new PR icon/button at the top/r
                                     For PR reviews, DO THIS: 
                                        <cr> checks out PR (:G co - to get back)
                                        Run `:Telescope gh pull_request` again, ^f to browse modified files. Tab to select them all/open
-                                       Once open use my `<spc>fb` map to browse open buffers and see previews. ^n for vertical split preview
+                                       Once open use my `<spc>b` map to browse open buffers and see previews. ^n for vertical split preview
                                     CAREFUL: ^a approves, ^r MERGES (fortunately it prompts you first)
 :Telescope gh issues author=rkulla  We don't use GitHub issues at work, but useful for home/open source
 

@@ -20,7 +20,7 @@ map("n", "<leader>gtl", require("telescope.builtin").git_commits, { desc = "Git 
 map("n", "<leader>gts", require("telescope.builtin").git_status, { desc = "Git Telescope status" }) -- git_signs
 map(
   "n",
-  "<leader>fb",
+  "<leader>b",
   '<cmd>lua require("telescope.builtin").buffers(require("telescope.themes").get_ivy { winblend = 10, previewer = true } )<CR>',
   { desc = "Find buffers" }
 )
