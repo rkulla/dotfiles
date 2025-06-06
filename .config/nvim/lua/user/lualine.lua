@@ -35,7 +35,10 @@ require("lualine").setup({
     globalstatus = true,
   },
   sections = {
-    lualine_a = { "%{v:lua.bufferCount()}%{v:lua.truncated_branch()}" },
+    lualine_a = {
+      "%{v:lua.bufferCount()}%{v:lua.truncated_branch()}",
+      "searchcount", -- Show search results count here since it gets truncated on long lines in code
+    },
     lualine_b = {
       {
         "buffers",
@@ -55,7 +58,6 @@ require("lualine").setup({
     },
     lualine_c = {}, -- Don't show filename since I do in buffers
     lualine_x = {
-      "searchcount", -- Show search results count since it gets truncated on long lines
       -- "encoding",
       -- "filetype",
     },
