@@ -22,6 +22,7 @@ X           Quit nvim
             
 - Search (Misc):
 :SE foo                Find the exact word `foo` on the page. Faster than typing \<foo\> (vim's version of \bfoo\b)
+:HiWords foo bar baz   Color highlights exact words foo, bar and baz on the page - all with diff colors. :HiWordsClear to clear
 /foo                   Then ^g / ^t to preview search down/up IN THE / PROMPT. After applying with ENTER, use N to go upward. foo|\bar too
 ?http://foo.com/x      Simply searching backwards with ? let's you paste a URLs without having to escape all the /'s 
 Cursor on symbol       Auto-highlights all of that symbol in file. (gr to see all references to it). Cursor on 'func' or 'return' args too!

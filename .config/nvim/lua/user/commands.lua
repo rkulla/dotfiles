@@ -25,7 +25,7 @@ vim.api.nvim_create_user_command("TermFloat", function() require("user.myfloat")
 -- So I can type `:HiWords foo bar baz` to highlight multiple (exact) words, all with diff colors
 local match_ids = {}
 
--- Define highlight groups
+-- Define highlight groups (I support a lot of colors but in practice try not to use no more than 7
 -- Note: I don't set yellow to not conflict with my yellow highlights
 vim.api.nvim_set_hl(0, "RedHighlight", { fg = "Black", bg = "Red" })
 vim.api.nvim_set_hl(0, "BlueHighlight", { fg = "White", bg = "Blue" })
@@ -39,6 +39,14 @@ vim.api.nvim_set_hl(0, "PinkHighlight", { fg = "Black", bg = "Pink" })
 vim.api.nvim_set_hl(0, "TealHighlight", { fg = "Black", bg = "Teal" })
 vim.api.nvim_set_hl(0, "BrownHighlight", { fg = "Black", bg = "Brown" })
 vim.api.nvim_set_hl(0, "GreyHighlight", { fg = "Black", bg = "Grey" })
+vim.api.nvim_set_hl(0, "MintHighlight", { fg = "Black", bg = "#98FF98" })
+vim.api.nvim_set_hl(0, "PeachHighlight", { fg = "Black", bg = "#FFDAB9" })
+vim.api.nvim_set_hl(0, "SkyBlueHighlight", { fg = "Black", bg = "#87CEEB" })
+vim.api.nvim_set_hl(0, "GoldHighlight", { fg = "Black", bg = "#FFD700" })
+vim.api.nvim_set_hl(0, "NavyHighlight", { fg = "White", bg = "#000080" })
+vim.api.nvim_set_hl(0, "OliveHighlight", { fg = "Black", bg = "#808000" })
+vim.api.nvim_set_hl(0, "TanHighlight", { fg = "Black", bg = "#D2B48C" })
+vim.api.nvim_set_hl(0, "LavenderHighlight", { fg = "Black", bg = "#E6E6FA" })
 
 -- Predefined list of highlight group names
 local color_groups = {
@@ -54,6 +62,14 @@ local color_groups = {
   "TealHighlight",
   "BrownHighlight",
   "GreyHighlight",
+  "MintHighlight",
+  "PeachHighlight",
+  "SkyBlueHighlight",
+  "GoldHighlight",
+  "NavyHighlight",
+  "OliveHighlight",
+  "TanHighlight",
+  "LavenderHighlight",
 }
 
 vim.api.nvim_create_user_command("HiWords", function(opts)
