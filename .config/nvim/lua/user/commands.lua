@@ -36,7 +36,6 @@ vim.api.nvim_set_hl(0, "CyanHighlight", { fg = "Black", bg = "Cyan" })
 vim.api.nvim_set_hl(0, "OrangeHighlight", { fg = "Black", bg = "Orange" })
 vim.api.nvim_set_hl(0, "PurpleHighlight", { fg = "White", bg = "Purple" })
 vim.api.nvim_set_hl(0, "PinkHighlight", { fg = "Black", bg = "Pink" })
-vim.api.nvim_set_hl(0, "TealHighlight", { fg = "Black", bg = "Teal" })
 vim.api.nvim_set_hl(0, "BrownHighlight", { fg = "Black", bg = "Brown" })
 vim.api.nvim_set_hl(0, "GreyHighlight", { fg = "Black", bg = "Grey" })
 vim.api.nvim_set_hl(0, "MintHighlight", { fg = "Black", bg = "#98FF98" })
@@ -59,7 +58,6 @@ local color_groups = {
   "OrangeHighlight",
   "PurpleHighlight",
   "PinkHighlight",
-  "TealHighlight",
   "BrownHighlight",
   "GreyHighlight",
   "MintHighlight",
