@@ -367,6 +367,14 @@ alias gdc='gd --cached'
 alias gst='git status'
 alias gsur='git submodule update --init --recursive' # gsur [--remote] when needed
 alias pj='prettyjson'
+# git grep
+# gg is the git grep equivalent of rg -g "<search pattern in filename>" "<search pattern in those matching files>"
+# Usage: gg <search-term> <file-pattern>. Greps using git for the search term in files matching the pattern. Ex:
+# $ gg AppName "*httpserver.go*" # searches for "AppName" in all files matching "httpserver.go". The globs account for file paths.
+# $ gg "function foo" "*.js"  # searches for "function foo" in all .js files
+gg() {
+  git grep "$1" -- "*$2*"
+}
 # ag
 alias ag='ag -s --path-to-ignore ~/.ignore'
 # Node.js
