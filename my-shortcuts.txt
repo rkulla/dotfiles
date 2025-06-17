@@ -497,7 +497,7 @@ gci{              Toggle comments of all lines inside of curly braces (nvim 0.10
    $ ff [a1,a2,a3,a4]       ff takes 0 to 4 args and each arg further greps things down: $ ff prd emea west 1 # prd-any-emea-west-1.tfvars
    $ ag -G foo 'bar'        Grep files containing 'foo' in their name for the string 'bar'
                             $ rg -g "*foo* 'bar'  # RipGrep version
-                            $ gg 'bar' "*foo*"  # git grep alias version
+                            $ gg "*foo*" 'bar'    # git grep alias version
    $ ag -l x | xargs ag y   Find files containing both "x" and "y" on different lines. (add -l to to second ag to list just file names) 
                             (Note: can do this in nvim with telescope search (`,fu`, `,x`, etc) then select those results and ^r to send to
                             quickfix, which opens a second telescope live_grep for me to grep on just those results!)
