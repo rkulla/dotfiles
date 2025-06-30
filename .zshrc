@@ -296,7 +296,7 @@ alias c='code'
 export PAGER=less
 export LESS="-imFXSxR"
 
-alias diff='diff --color' # brew install diffutils first
+alias diff='diff --color=always' # brew install diffutils first
 alias wd='pwd'
 alias ls='ls --color -p'
 alias la='ls --color -a'
