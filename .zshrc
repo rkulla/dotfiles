@@ -176,6 +176,11 @@ function it {
   echo -e "\033]50;SetProfile=$1\a"
 }
 
+# So ^A jumps to the beginning of the line in tmux
+bindkey "^A" beginning-of-line
+# So ^E jumps to end of the line in tmux
+bindkey "^E" end-of-line
+
 # Make it so up/down arrows search your history (even with nested filepaths/args)
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
