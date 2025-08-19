@@ -465,42 +465,54 @@ rgb() {
 }
 
 #: Search for a main term with ripgrep and highlight up to three additional words.
+#: It's important to remember that it further filters the first match like piping to rg up to 4 times
 #: Usage: rgh [rg-flags] <main-term> <highlight-1> [highlight-2] [highlight-3] [highlight-4]
 #: - <main-term> (red) is the primary search term.
 #: - <highlight-1> is required; [highlight-2], [highlight-3], [highlight-4] are optional.
 #: - Additional `ripgrep` flags (e.g., `-i`, `-w`) can be passed before the main term.
+#: You can also pipe other commands to it:
+#:   - <cmd> | rgh -i "foo" "bar" "baz" "qux"
+#: Note: If you want it to have the same sort order add e.g., --sort=path
 rgh() {
-    # Check if there are too many arguments
-    if [[ $# -lt 2 || $# -gt 6 ]]; then
-        echo "Usage: rgh [rg-flags] <main-term> <highlight-1> [highlight-2] [highlight-3] [highlight-4]"
-        return 1
-    fi
+  # Usage guard
+  if [[ $# -lt 2 || $# -gt 6 ]]; then
+    echo "Usage: rgh [rg-flags] <main-term> <highlight-1> [highlight-2] [highlight-3] [highlight-4]"
+    return 1
+  fi
 
-    # Extract ripgrep flags (all arguments before the main term)
-    local rg_flags=()
-    while [[ $# -gt 3 && "$1" =~ ^- ]]; do
-        rg_flags+=("$1")
-        shift
-    done
+  # Collect rg flags (before main term)
+  local rg_flags=()
+  while [[ "$1" == -* && $# -gt 2 ]]; do
+    rg_flags+=("$1")
+    shift
+  done
 
-    local main_term=$1
-    local highlight1=$2
-    local highlight2=${3:-}  # Optional
-    local highlight3=${4:-}  # Optional
-    local highlight4=${5:-}  # Optional
+  local main_term=$1
+  local highlight1=$2
+  local highlight2=${3:-}
+  local highlight3=${4:-}
+  local highlight4=${5:-}
 
-    # Construct the base command with passed flags
-    local cmd=(rg --color=always --colors "match:fg:red" "${rg_flags[@]}" "$main_term" --passthru)
+  # Build each stage as its own argv array
+  local base=(rg --color=always --colors 'match:fg:red' "${rg_flags[@]}" -e "$main_term")
+  local s1=() s2=() s3=() s4=()
+  [[ -n $highlight1 ]] && s1=(rg --color=always --colors 'match:fg:green'   "${rg_flags[@]}" --passthru -e "$highlight1")
+  [[ -n $highlight2 ]] && s2=(rg --color=always --colors 'match:fg:blue'    "${rg_flags[@]}" --passthru -e "$highlight2")
+  [[ -n $highlight3 ]] && s3=(rg --color=always --colors 'match:fg:cyan'    "${rg_flags[@]}" --passthru -e "$highlight3")
+  [[ -n $highlight4 ]] && s4=(rg --color=always --colors 'match:fg:magenta' "${rg_flags[@]}" --passthru -e "$highlight4")
 
-    # Append additional highlight terms with fixed colors
-    [[ -n $highlight1 ]] && cmd+=("| rg --color=always --colors 'match:fg:green' \"$highlight1\"")
-    [[ -n $highlight2 ]] && cmd+=("| rg --color=always --colors 'match:fg:blue' \"$highlight2\"")
-    [[ -n $highlight3 ]] && cmd+=("| rg --color=always --colors 'match:fg:cyan' \"$highlight3\"")
-    [[ -n $highlight4 ]] && cmd+=("| rg --color=always --colors 'match:fg:magenta' \"$highlight4\"")
-
-    # Execute the command
-    bash -c "${cmd[*]}"
+  # Execute the right-length pipeline without eval
+  if [[ -n $highlight4 ]]; then
+    "${base[@]}" | "${s1[@]}" | "${s2[@]}" | "${s3[@]}" | "${s4[@]}"
+  elif [[ -n $highlight3 ]]; then
+    "${base[@]}" | "${s1[@]}" | "${s2[@]}" | "${s3[@]}"
+  elif [[ -n $highlight2 ]]; then
+    "${base[@]}" | "${s1[@]}" | "${s2[@]}"
+  else
+    "${base[@]}" | "${s1[@]}"
+  fi
 }
+
 
 # `vg` command that opens vim on glob/substr, e.g., `vg pack` opens
 # package.json and package-lock.json, etc.  Sort's in reverse, using

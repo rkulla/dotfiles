@@ -3,6 +3,7 @@
 - Open files from CLI:
 $ fda foo | x            Open all files (case-sensitive/hidden) with `foo` in the filename into nvim. Works with regular fd too    
                          If it's an ignored file, do `fda --no-ignore foo | x`
+                         If it's just a file in the current dir, you can usually just do: $ n *foo*
 $ lcom                   List files last committed. Optionally pass a commit hash
 $ nmod                   Re-open modified files not yet committed
                          - Can also SIMPLY open neovim, and in nvim-tree look for folders/files with an 'X' next to them and open those! 
@@ -504,7 +505,10 @@ gci{              Toggle comments of all lines inside of curly braces (nvim 0.10
    $ fd foo | x             Open results of fd in nvim
    $ fdc foo                Cat results of fd
    $ rgh a b [c d e]        ripgrep for `a` while also highlighting `b` in a diff color. Optionally highlight c d and e in diff colors!
-                            my shell function that works better/easier than `rg foo --passthru | rg bar`
+                            my rgh shell function that works better/easier than `rg foo --passthru | rg bar`
+                            It's important to remember that it FURTHER FILTERS the first match. Also works when piped to:
+                               $ ll | rgh -i read me md  # shows README.md in 3 different colors
+                            Note: if the sort order keeps changing, optionally add: --sort=path
   
 
 *ZOXIDE SHORTCUTS
