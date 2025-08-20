@@ -189,6 +189,9 @@ zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search # Up
 bindkey "^[[B" down-line-or-beginning-search # Down
 
+# So ^P inserts the last word (or arg) from the previous command into the current line
+bindkey '^P' insert-last-word  
+
 # Create a `take` command
 function take {
   mkdir -p $@ && cd ${@:$#}
