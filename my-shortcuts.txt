@@ -478,7 +478,7 @@ gci{              Toggle comments of all lines inside of curly braces (nvim 0.10
 
 *ZSH 
 
--ZSH Prompt bindkeys:
+- ZSH Prompt bindkeys:
    ^W  Deletes a word at a time, like vi does: 'baz' in /foo/bar-baz
    ^X  Deletes to previous space, great for deleting a url. (works like default ^W)
    ^E  Jumps to end of line
@@ -488,9 +488,10 @@ gci{              Toggle comments of all lines inside of curly braces (nvim 0.10
    Option+RIGHT       Jumps to the next /  or word
    Shift+Option+LEFT  Deletes to previous / or word
 
-- my zsh aliases/functions):
+- My zsh aliases/functions):
    $ ^f                     BEST THING EVER to cd straight to a subdir based on a fuzzy match of its name!
                             Use my `fcd` command if I only want to fuzzy-find root level things like if in ~/repos
+                            Also remember NOT to add 'cd ' before dirs I want to jump to in general. Just type name of dir. [tab] too.
    $ rcd                    cd to the real location a symlink points to
    $ rgr <term>             Grep for files containing 'foo' but show only their root dir name and count of matches: $ cd repos; rgr foo
    $ rgb <term>             Grep for files containing 'foo' and show the git blame of the matches. (uses git grep not rg)
