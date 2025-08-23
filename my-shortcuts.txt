@@ -22,6 +22,7 @@ X           Quit nvim
 :Clear      Close buffer and start a new one (keeps nvim-tree or split open)
             
 - Search (Misc):
+:changes               Jump to some old text you edited. Type the first number shown then g; to jump to there. e.g., 15g; for change 15
 :SE foo                Find the exact word `foo` on the page. Faster than typing \<foo\> (vim's version of \bfoo\b)
 :HiWords foo bar baz   Color highlights exact words foo, bar and baz on the page - all with diff colors. :HiWordsClear to clear
 /foo                   Then ^g / ^t to preview search down/up IN THE / PROMPT. After applying with ENTER, use N to go upward. foo|\bar too
@@ -94,7 +95,8 @@ NOTE:       I can DOUBLE filter by first doing a search (e.g. `,x` or `,fu`), TA
 <spc>m      Fuzzy search marks (use CAPITAL A-Z for multi-file. `:delmarks A-Z` deletes. `:SignatureToggleSigns` toggles)
             Upper-case marks also make it so I don't have to reopen all the files containing them, it can load them as-needed!
             ^o / ^i moves backwards/forwards through :jumps list (last _cursor positions_ / implicit marks). `` toggles. 
-            g; / gi moves backward/forwards through _changes_. `. always moves to last change. Use ALL of these!
+            g; / gi moves backward/forwards through :changes list. <n>g; jump to that change number in the list.
+            `. always moves to last change. Use ALL of these!
 
 - Telescope Results & Preview windows:
 `*`     Highlight word                            (jj to NORMAL first)
