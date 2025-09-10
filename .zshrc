@@ -388,10 +388,10 @@ alias ag='ag -s --path-to-ignore ~/.ignore'
 # Node.js
 alias nag='ag --js --ts --ignore-dir=node_modules\* --ignore=\*-min.js'
 # Golang
-alias gag='ag --go --ignore-dir=vendor'
-# ripgrep search go files but ignore test files and mocks
+alias gag='echo deprecated. Use rggo instead.'
+# ripgrep search go files but ignore test/mock files and vendor
 rggo() {
-  rg --glob '*.go' --glob '!*_test.go' --glob '!*mock*' "$@"
+  rg --glob '*.go' --glob '!*_test.go' --glob '!*mock*' --glob '!*vendor*' "$@"
 }
 # Docker
 alias dcu='docker-compose up'
