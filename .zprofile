@@ -25,9 +25,14 @@ PATH="$HOME/.pyenv/shims:$PATH"
 # Main/default go version I have installed
 PATH=/usr/local/go/bin/go:$PATH
 PATH="$HOME/go/bin:$PATH"
-# Switch `go version` to point to whatever newer Go version I `go install/go download`
-# Allows multiple installs. Commenting out these 2 lines out will use my default go version
-GOROOT=~/sdk/go1.23.2
+# Switch `go version` to point to whatever newer Go version I `go install/go download`. Ex:
+#   $ go install golang.org/dl/go1.24.4@latest
+#   $ go1.24.4 download
+#   $ ls ~/sdk # should now show go1.24.4
+#   $ source ~/.zprofile
+#   $ go version # should now show go 1.23.4
+# Allows multiple installs. Commenting out this block will use my default go version:
+GOROOT=~/sdk/go1.24.4
 PATH=$GOROOT/bin:$PATH
 
 # Rust stuff
