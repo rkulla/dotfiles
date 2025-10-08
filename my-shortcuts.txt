@@ -402,6 +402,8 @@ gci{              Toggle comments of all lines inside of curly braces (nvim 0.10
   - Ctrl+Enter                 Simulates a mouse right-click for contextual menu, then use arrow keys to navigate the menu
   - Cmd+h                      Hide window from workspace (^UP/Mission Control). Tip: Cmd+m is usually what I want. Still hides from MC
   - Cmd+m                      Minimize window. This is better than "hiding" Outlook, to see notifications. Spotlight/launch to un-minimize
+                               To unminimize it, simply use my keyboard shortcut that brings that app back (^-alt+e for email, etc)
+                               Then use alt+tab instead of cmd-tab to switch between unmimimized windows
   - Ctrl-Cmd-Right/Left        Move window to next/prev workspace
   - Ctrl-Alt-Right/Left        Move window to next/prev window
   - Ctrl+Right/Left            Switch to next/prev workspace
