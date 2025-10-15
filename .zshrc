@@ -377,11 +377,26 @@ alias gsur='git submodule update --init --recursive' # gsur [--remote] when need
 alias pj='prettyjson'
 # git grep
 # gg is the git grep equivalent of rg -g "<search pattern in filename>" "<search pattern in those matching files>"
-# Usage: gg <filename-pattern> <word-in-file-pattern>. Greps using git for the files matching the pattern for the word matching pattern. Ex:
-# $ gg httpserver.go AppName # searches files matching httpserver.go for AppName.
-# $ gg "function foo" "*.js"  # searches for "function foo" in all .js files
+# Usage: gg [flag (like -i)] <filename-pattern> <word-in-file-pattern>. Greps using git for the files matching the pattern for the word matching pattern. Ex:
+# $ gg -i httpserver.go AppName # searches files matching httpserver.go for AppName (case-insensitive).
+# $ gg "*.go" "func main" # searches for "function foo" in all .js files
 gg() {
-  git grep "$2" -- "*$1*"
+    # Collect all git grep options before the search term
+    local opts=()
+    while [[ "$1" == -* ]]; do
+        opts+=("$1")
+        shift
+    done
+
+    # Next argument is the filename pattern
+    local pattern="$1"
+    shift
+
+    # Next argument is the search term
+    local term="$1"
+    shift
+
+    git grep "${opts[@]}" "$term" -- "*$pattern*"
 }
 # ag
 alias ag='ag -s --path-to-ignore ~/.ignore'
