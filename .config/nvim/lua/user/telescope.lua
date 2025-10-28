@@ -2,14 +2,30 @@ local telescope = require("telescope")
 local actions = require("telescope.actions")
 local actions_layout = require("telescope.actions.layout")
 local actions_state = require("telescope.actions.state")
+local utils = require("telescope.utils")
 local map = vim.keymap.set
 
 -- function git_files maps to to exclude committed dirs like vendor/
 local function get_git_command() return { "git", "ls-files", "--exclude-standard", "--cached", "--others", "--", ":(exclude)**/vendor/*" } end
 
 map("n", "<leader>?", require("telescope.builtin").help_tags, { desc = "Find help tags" })
-map("n", "<leader>fx", function() require("telescope.builtin").git_files({ git_command = get_git_command() }) end, { desc = "Find git files" })
-map("n", "<leader>x", function() require("telescope.builtin").git_files({ git_command = get_git_command() }) end, { desc = "Find git files" })
+map("n", "<leader>fx", function() require("telescope.builtin").git_files({ git_command = get_git_command() }) end, { desc = "Find git files, repo root" })
+map("n", "<leader>x", function()
+  local cwd = utils.buffer_dir() -- current buffer dir
+  require("telescope.builtin").find_files({
+    find_command = {
+      "git",
+      "-C",
+      cwd,
+      "ls-files",
+      "--cached",
+      "--others",
+      "--exclude-standard",
+      ":(exclude)**/vendor/*", -- keep your vendor exclusion
+    },
+    prompt_title = "Repo files (pwd)",
+  })
+end, { desc = "Find git files" })
 map("n", "<leader>X", require("telescope.builtin").find_files, { desc = "Find all files" })
 map("n", "<leader>fe", "<cmd>Telescope file_browser<cr>", { desc = "File expolorer" })
 map("n", "<leader>fl", require("telescope.builtin").oldfiles, { desc = "Find last opened files" })
