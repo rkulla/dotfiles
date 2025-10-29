@@ -9,28 +9,7 @@ local map = vim.keymap.set
 local function get_git_command() return { "git", "ls-files", "--exclude-standard", "--cached", "--others", "--", ":(exclude)**/vendor/*" } end
 
 map("n", "<leader>?", require("telescope.builtin").help_tags, { desc = "Find help tags" })
-map("n", "<leader>fx", function() require("telescope.builtin").git_files({ git_command = get_git_command() }) end, { desc = "Find git files, repo root" })
-
--- search using git, relative to CWD only
-map("n", "<leader>x", function()
-  local cwd = utils.buffer_dir() -- current buffer dir
-  require("telescope.builtin").find_files({
-    find_command = {
-      "git",
-      "-C",
-      cwd,
-      "ls-files",
-      "--cached",
-      "--others",
-      "--exclude-standard",
-      ":(exclude)**/vendor/*",
-    },
-    prompt_title = "Repo files (pwd)",
-  })
-end, { desc = "Find git files" })
-
--- keep the toggle state outside so it persists across invocations
-local show_all = false
+local show_all = false -- keep toggle state outside so it persists across invocations
 local function find_files_with_toggle_all()
   local function toggle_all(prompt_bufnr)
     actions.close(prompt_bufnr)
@@ -54,10 +33,12 @@ local function find_files_with_toggle_all()
   })
 end
 -- allows hitting ^H to toggle unignored files. uses fd -H so similar to ,x already
-vim.keymap.set("n", "<leader>X", find_files_with_toggle_all, {
+vim.keymap.set("n", "<leader>x", find_files_with_toggle_all, {
   desc = "Find all files",
 })
 
+map("n", "<leader>fx", function() require("telescope.builtin").git_files({ git_command = get_git_command() }) end, { desc = "Find git files, repo root" })
+map("n", "<leader>X", function() require("telescope.builtin").git_files({ git_command = get_git_command() }) end, { desc = "Find git files" })
 map("n", "<leader>fe", "<cmd>Telescope file_browser<cr>", { desc = "File expolorer" })
 map("n", "<leader>fl", require("telescope.builtin").oldfiles, { desc = "Find last opened files" })
 map("n", "<leader>fk", require("telescope.builtin").keymaps, { desc = "Find keymaps" })
