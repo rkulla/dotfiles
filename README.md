@@ -344,7 +344,7 @@ Install `Hack Nerd Font` so I can see file-type logos in my terminal:
     $ brew install --cask font-hack-nerd-font
 
 `Cmd+i`>`Colors` and import tokyonight\_\*.itermcolors from
-~/.local/share/nvim/site/pack/packer/start/tokyonight.nvim/extras/iterm. First `Cmd+Shift+.` to have the file dialog show hidden
+~/.local/share/nvim/lazy/tokyonight.nvim/extras/iterm/. First `Cmd+Shift+.` to have the file dialog show hidden
 files first.
 
 Make sure to do this from `Cmd+,` not `Cmd+i` or the changes will not stick.
@@ -451,13 +451,7 @@ I then have aliases `n`, etc in .zshrc already that point to ~/opt/nvim-macos/bi
 
 #### Install neovim plugins
 
-Install Packer:
-
-    $ git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-
-Then do this from ~/.config/nvim/init.vim instead of this dotfiles checkout, since not everything is symlinked:
-
-    Open nvim and run `:PackerSync` then `:PackerCompile`
+I use lazy.nvim so just open neovim and it should just install itself to ~/.local/share/nvim/lazy/lazy.nvim/
 
 Install (or update) LSP servers and Linters I integrate with:
 
@@ -476,7 +470,7 @@ For now manually copy my settings from vscode/settings.json into ~/Library/Appli
 
 Simply `git rm` any files and remove linking references from install.sh. Then
 use my `lslb` alias to list broken symlinks for removal. Also uninstall with vimogen
-and/or packer if it was a vim or neovim plugin, respectively.
+and/or lazy.nvim if it was a vim or neovim plugin, respectively.
 
 ## ESLint
 
