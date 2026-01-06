@@ -408,6 +408,26 @@ alias gag='echo deprecated. Use rggo instead.'
 rggo() {
   rg --glob '*.go' --glob '!*_test.go' --glob '!*mock*' --glob '!*vendor*' "$@"
 }
+# Like rggo but also searches in the current project's module dependencies
+# Ex: grepping for the grpc definition in your dependencies: 
+#   # in gauth-core/gauth-authz-sync/scripts/trigger validations
+#   $ rggodeps ListSubscriptionsByGlobalIDRequest
+#   # can even pass optional flags to rg like -l to just list filenames:
+#   # rggodeps -l ListSubscriptionsByGlobalIDRequest
+rggodeps() {
+  if [[ -z "$1" ]]; then
+    echo "usage: rggodeps <pattern> [rg options]" >&2
+    return 1
+  fi
+
+  local pattern="$1"
+  shift
+
+  go list -deps -f '{{.Dir}}' ./... \
+    | sort -u \
+    | tr '\n' '\0' \
+    | xargs -0 rg --type go "$@" "$pattern"
+}
 # Docker
 alias dcu='docker-compose up'
 alias dcd='docker-compose down'
