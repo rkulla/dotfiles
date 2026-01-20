@@ -399,14 +399,14 @@ gg() {
     git grep "${opts[@]}" "$term" -- "*$pattern*"
 }
 # ag
-alias ag='ag -s --path-to-ignore ~/.ignore'
+alias ag='ag --color -s --path-to-ignore ~/.ignore'
 # Node.js
-alias nag='ag --js --ts --ignore-dir=node_modules\* --ignore=\*-min.js'
+alias nag='ag --color --js --ts --ignore-dir=node_modules\* --ignore=\*-min.js'
 # Golang
 alias gag='echo deprecated. Use rggo instead.'
 # ripgrep search go files but ignore test/mock files and vendor
 rggo() {
-  rg --glob '*.go' --glob '!*_test.go' --glob '!*mock*' --glob '!*vendor*' "$@"
+  rg --color=always --glob '*.go' --glob '!*_test.go' --glob '!*mock*' --glob '!*vendor*' "$@"
 }
 # Like rggo but also searches in the current project's module dependencies
 # Ex: grepping for the grpc definition in your dependencies: 
@@ -426,7 +426,7 @@ rggodeps() {
   go list -deps -f '{{.Dir}}' ./... \
     | sort -u \
     | tr '\n' '\0' \
-    | xargs -0 rg --type go "$@" "$pattern"
+    | xargs -0 rg --color=always --type go "$@" "$pattern"
 }
 # Docker
 alias dcu='docker-compose up'
