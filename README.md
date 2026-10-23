@@ -30,11 +30,12 @@ The `realpath` command from coreutils is required to run install.sh. I typically
 
     # Note: don't forget to periodically `brew upgrade <name` from these installed tools
     $ brew tap aws/tap
-    $ brew install cmake gh tig tmux zoxide tree aws-sam-cli gnu-sed watch coreutils moreutils findutils diffutils \
-      mysql postgresql ssh-copy-id pyenv wget ctags nmap fd nnn reattach-to-user-namespace zenity htop ncdu rsync \
-      screen zsh-syntax-highlighting zsh-you-should-use shellcheck jsonlint fzf irssi sqlite jq yq \
-      asdf the_silver_searcher ripgrep yamllint httpie diff-so-fancy fnm glow bat lazygit lazydocker \
-      lsd vint hadolint groff alacritty alt-tab amethyst raycast leaderkey devutils swiftbar
+    $ brew install cmake gh tig tmux zoxide tree awscli aws-sam-cli gnu-sed watch coreutils moreutils \
+      findutils diffutils mysql postgresql ssh-copy-id pyenv wget ctags nmap fd nnn \
+      reattach-to-user-namespace zenity htop ncdu rsync zsh-syntax-highlighting zsh-you-should-use \
+      shellcheck jsonlint fzf irssi sqlite jq yq asdf the_silver_searcher ripgrep yamllint httpie \
+      diff-so-fancy fnm glow bat lazygit lazydocker lsd vint hadolint groff alacritty alt-tab \ 
+      amethyst raycast leaderkey devutils swiftbar
     $ brew install --cask lookaway
     $ brew install --cask hammerspoon
 
@@ -531,5 +532,4 @@ Make my tab icon/text larger and much more readable:
   - On my 5k iMac, change it to 2.5
   - If it doesn't look amazing, I may have to fiddle with the numbers but it WILL work, so don't give up!
   - It also increases the size of the bookmarks and the status bar. Use Cmd+- to shrink web pages
-
 
